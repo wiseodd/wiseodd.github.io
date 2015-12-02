@@ -10,14 +10,13 @@ github_username: "wiseodd"
 facebook_username: "agustinus.kristiadi7"
 
 # Build settings
-markdown: "kramdown"
-highlighter: "rouge"
+markdown: redcarpet
+highlighter: "pygments"
 permalink: "pretty"
 paginate: 10
 timezone: "Asia/Jakarta"
 exclude: ["less", "node_modules", "Gruntfile.js", "package.json", "README.md"]
 gems: ["jekyll-paginate"]
 
-kramdown:
-    input: "GFM"
-    syntax_highlighter: "rouge"
+redcarpet:
+    extensions: ["tables", "autolink", "strikethrough", "space_after_headers", "fenced_code_blocks"]
