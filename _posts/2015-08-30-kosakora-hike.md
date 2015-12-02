@@ -2,7 +2,7 @@
 layout:     post
 title:      "Kosakora Hike"
 subtitle:   "Kosakora hill, is located in Gunung Kidul regency, Yogyakarta. It offers a good trail, which consists of beach and karst hills, and an awesome summit."
-date:       2015-08-30 04:36:00
+date:       2015-08-30 04:36:01
 author:     "wiseodd"
 header-img: "img/2015-08-30-kosakora-hike/bg.jpg"
 ---
