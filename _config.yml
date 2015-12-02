@@ -1,0 +1,23 @@
+# Site settings
+title: "Third World Nomad"
+header-img: "img/home-bg.jpg"
+email: "kristiadi7@gmail.com"
+description: "Thoughts, experiences, field reports, and tech blogs from third world, nomad-wannabe, software developer"
+baseurl: ""
+url: "http://thirdworldnomad.com"
+twitter_username: "wiseodd"
+github_username: "wiseodd"
+facebook_username: "agustinus.kristiadi7"
+
+# Build settings
+markdown: "kramdown"
+highlighter: "rouge"
+permalink: "pretty"
+paginate: 10
+timezone: "Asia/Jakarta"
+exclude: ["less", "node_modules", "Gruntfile.js", "package.json", "README.md"]
+gems: ["jekyll-paginate"]
+
+kramdown:
+    input: "GFM"
+    syntax_highlighter: "rouge"
