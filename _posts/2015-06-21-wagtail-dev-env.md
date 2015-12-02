@@ -2,9 +2,9 @@
 layout:     post
 title:      "Setting Up Wagtail Development Environment"
 subtitle:   "My experience on building a blog using Wagtail CMS, with zero Django knowledge. I’ll walk you through from scratch up until the blog is live"
-date:       2015-06-21 13:52:00
+date:       2015-06-21 06:52:00
 author:     "wiseodd"
-header-img: "img/2015-06-21-setting-up-wagtail-development-environment/wagtail.jpg"
+header-img: "img/2015-06-21-wagtail-dev-env/wagtail.jpg"
 ---
 
 Wagtail is a CMS, made on top of Django framework. Why Wagtail, you ask. Well first thing first, Python is my favorite programming language, and naturally I’ll look building a website using Django. I’ve researched a bit about what CMS to use with Django, and I found there are three CMS-es out there that are stand out from the rest: Django-CMS, Mezzanine, and Wagtail. I chose Wagtail simply because I think it has the most modern look, easy to customize, and has this killer feature, StreamField.
