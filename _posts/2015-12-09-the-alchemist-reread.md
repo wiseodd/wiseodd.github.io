@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "The Alchemist Reread"
-subtitle:   "Something something description"
+subtitle:   "When you really want something, all the universe conspires in helping you to achieve it"
 date:       2015-12-09 12:10:00
 author:     "wiseodd"
 header-img: "img/2015-12-09-the-alchemist-reread/bg.jpg"
