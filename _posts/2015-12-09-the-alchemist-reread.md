@@ -25,7 +25,7 @@ Third, now I know what I want. Now I know my dream. Now I know my Personal Legen
 
 I realized, just after I started reread The Alchemist, that even though everything I remember about this book from six years ago was blurry, what I did these past six years was largely influenced by its philosophy. The Alchemist is powerful, to say the least. It influenced me without me knowing.
 
-I certainly learned something about dream from Santiago, the protagonist of The Alchemist, who forwent his life as a shepherd in Andalusia, and went to the pyramids of Egypt to realize his dream. Coelho call it as Personal Legend.
+I certainly learned something about dream from Santiago, the protagonist of The Alchemist, who forwent his life as a shepherd in Andalusia, and went to the pyramids of Egypt to realize his dream. Coelho calls it as Personal Legend.
 
 When I first read this book, dream is just a hazy concept for me. Year after year after that, I was always in search for my dream, my Personal Legend. Dream was the word I thought a lot. But then, the universe revealed it to me. Now, I'm on course to realize my Personal Legend.
 
