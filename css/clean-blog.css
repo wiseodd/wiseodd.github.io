@@ -39,7 +39,7 @@ blockquote {
   color: #808080;
   font-style: italic;
   white-space: pre-wrap;
-  line-height: 1.75px;
+  line-height: 1.75;
 }
 hr.small {
   max-width: 100px;
