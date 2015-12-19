@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "Pulled the Trigger"
-subtitle:   "A journey of a thousand li begins with a single step"
+subtitle:   "I just quit my job. The only thing need to be done is to do my dream."
 date:       2015-12-19 11:18:00
 author:     "wiseodd"
 header-img: "img/2015-12-19-pulled-the-trigger/bg.jpg"
