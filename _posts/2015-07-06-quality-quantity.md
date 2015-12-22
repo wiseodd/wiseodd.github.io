@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "Quality or Quantity?"
-subtitle:   "Time flies, hence seize the day! Aka, life is too short to not doing something meaningful!"
+subtitle:   "Which one do you prefer?"
 date:       2015-07-06 13:40:00
 author:     "wiseodd"
 header-img: "img/2015-07-06-quality-quantity/cks.jpg"
