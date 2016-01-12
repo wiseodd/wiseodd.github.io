@@ -4,7 +4,7 @@ title:      "2016 Goals and Objectives"
 subtitle:   "My goals and objectives for the year of 2016"
 date:       2016-01-02 08:16:00
 author:     "wiseodd"
-header-img: "img/2016-01-01-2016-goals-objectives/bg.jpg"
+header-img: "img/2016-01-02-2016-goals-objectives/bg.jpg"
 ---
 
 If 2015 was a great year for me, I want 2016 to be even greater. There are still some failed goals in 2015, and I will carry it over to this year. I will not just abandon those goals until I succeed, because I know that I could do it and I will finish it.
