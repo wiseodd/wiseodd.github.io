@@ -11,7 +11,7 @@ facebook_username: "agustinus.kristiadi7"
 
 # Build settings
 markdown: redcarpet
-highlighter: "pygments"
+highlighter: "rouge"
 permalink: "pretty"
 paginate: 10
 timezone: "Asia/Jakarta"
