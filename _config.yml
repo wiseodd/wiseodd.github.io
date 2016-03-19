@@ -21,7 +21,3 @@ gems: ["jekyll-paginate"]
 kramdown:
   input: GFM
   syntax_highlighter: rouge
-  extensions:
-    - autolink
-    - footnotes
-    - smart
