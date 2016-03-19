@@ -9,7 +9,7 @@ header-img: "img/bayes.png"
 
 After so many months struggling with Gibbs Sampling, now I conquered it! Well, kind of.
 
-This week's been a renaissance on MCMC. I decided to open up again those Machine Learning Summer School (MLSS) Cambridge 2009, and absent mindedly opened that lecture about MCMC by Iain Murray. Oh boy, did I hit the jackpot? That lecture was really great. Here, help yourself, watch the lecture http://videolectures.net/mlss09uk_murray_mcmc/. 
+This week's been a renaissance on MCMC. I decided to open up again those Machine Learning Summer School (MLSS) Cambridge 2009, and absent mindedly opened that lecture about MCMC by Iain Murray. Oh boy, did I hit the jackpot? That lecture was really great. Here, help yourself, watch the lecture <http://videolectures.net/mlss09uk_murray_mcmc/>.
 
 So, full of confidence and revelation after watching that lecture, I decided to implement the Gibbs Sampler. Now, I won't dive deep on what is Gibbs Sampling and what not, but if you want to know deeper about it, I suggest you to read this tutorial: Gibbs Sampling for the Uninitiated.
 
@@ -21,11 +21,11 @@ In this example I will use Gibb Sampler to draw sampler from a Bivariate Gaussia
 
 Now, pretend that this distribution is really complicated and very hard to sample (I know, I know, but please bear with me). We don't know how to sample from this directly, and we don't even know the shape of the distribution. However, because of some mathematical convenience, or maybe by just sheer luck, we know the conditional distributions: `P(X|Y)` and `P(Y|X)`. By now, it screams "Gibbs Sampling!".
 
-The derivation of conditional distribution of Multivariate Gaussian could be found here: http://fourier.eng.hmc.edu/e161/lectures/gaussianprocess/node7.html.
+The derivation of conditional distribution of Multivariate Gaussian could be found here: <http://fourier.eng.hmc.edu/e161/lectures/gaussianprocess/node7.html>.
 
 Let's inspect the Gibbs Sampler code, shall we.
 
-    
+
 ``` python
 import numpy as np
 import seaborn as sns
@@ -79,4 +79,4 @@ Pretty good, huh?
 
 Gibbs Sampling is one hell of algorithm. It's so simple, yet took me a long time to get the intuition. It's an integral algorithm in Bayesian Inference landscape. One of the popular implementation of Gibbs Sampling would be in Mallet, where David Mimno uses Gibbs Sampler to do inference for LDA. I haven't studied Variational Bayes method, but based on my observation, LDA result using Gibbs Sampling is a lot better than the one using Variational method. I observe this in the case of Mallet vs Gensim implementation of LDA.
 
-For closing note, I really really really suggest you to watch this lecture http://videolectures.net/mlss09uk_murray_mcmc/. What an excellent lecture, that is.
+For closing note, I really really really suggest you to watch this lecture <http://videolectures.net/mlss09uk_murray_mcmc/>. What an excellent lecture, that is.

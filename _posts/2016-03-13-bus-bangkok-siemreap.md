@@ -13,7 +13,7 @@ Bus was the answer!
 
 <h2 class="section-header">Booking the ticket</h2>
 
-So, I needed to book a direct bus ticket from Bangkok's Mo Chit terminal to Siem Reap. As the cost of going to Mo Chit from Sukhumvit Soi 50 is rather high (it will cost me around THB 100+ to get there and back, that's two heavy meals there!), I sought an alternative options. After some research, I found this website: http://www.thaiticketmajor.com, which sells bus tickets online, and only costs me about THB 20 for processing fee on top of the real bus ticket fare: THB 750.
+So, I needed to book a direct bus ticket from Bangkok's Mo Chit terminal to Siem Reap. As the cost of going to Mo Chit from Sukhumvit Soi 50 is rather high (it will cost me around THB 100+ to get there and back, that's two heavy meals there!), I sought an alternative options. After some research, I found this website: <http://www.thaiticketmajor.com>, which sells bus tickets online, and only costs me about THB 20 for processing fee on top of the real bus ticket fare: THB 750.
 
 So I did just that. I booked the ticket, and printed out the confirmation. As I didn't want to use my credit card for this, I chose the offline payment. Thankfully, I can pay in all of 7-11 branches! You know what's ubiquitous in Bangkok? It's none other than those 24/7 7-11!
 

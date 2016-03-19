@@ -7,13 +7,13 @@ author:     "wiseodd"
 header-img: ""
 ---
 
-Recently, I created an app using Flask for the first time. The app uses Twitter API to get the data, where user could log in with her Twitter account, and she will get the report she needs. Here's the app: http://responsetime.thirdworldnomad.com.
+Recently, I created an app using Flask for the first time. The app uses Twitter API to get the data, where user could log in with her Twitter account, and she will get the report she needs. Here's the app: <http://responsetime.thirdworldnomad.com>.
 
 I was wondering, how do I do the OAuth authentication flow? Turned out, it's really easy!
 
 First, create an Flask route to redirect the user to Twitter login page:
 
-    
+
 ``` python
 consumer_key = ''
 consumer_secret = ''
@@ -31,7 +31,7 @@ What it does is to create an authentication handler according to your Twitter ap
 
 Next, let's handle the case after user has logged in via Twitter. Twitter will redirect the user to your predefined callback URL.
 
-    
+
 ``` python
 @app.route('/callback')
 def twitter_callback():
@@ -55,7 +55,7 @@ The next is simple, just call Tweepy's `get_access_token` function and pass the 
 
 Now that we have user's access token and secret token, we can use it to call Twitter API.
 
-    
+
 ``` python
 @app.route('/app')
 def request_twitter:
@@ -63,7 +63,7 @@ def request_twitter:
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret, callback)
     auth.set_access_token(token, token_secret)
     api = tweepy.API(auth)
-    
+
     return api.me()
 ```
 

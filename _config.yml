@@ -10,7 +10,7 @@ github_username: "wiseodd"
 facebook_username: "agustinus.kristiadi7"
 
 # Build settings
-markdown: redcarpet
+markdown: "kramdown"
 highlighter: "rouge"
 permalink: "pretty"
 paginate: 10
@@ -18,5 +18,10 @@ timezone: "Asia/Jakarta"
 exclude: ["less", "node_modules", "Gruntfile.js", "package.json", "README.md"]
 gems: ["jekyll-paginate"]
 
-redcarpet:
-    extensions: ["tables", "autolink", "strikethrough", "space_after_headers", "fenced_code_blocks"]
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  extensions:
+    - autolink
+    - footnotes
+    - smart

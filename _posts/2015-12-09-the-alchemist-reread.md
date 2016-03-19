@@ -13,9 +13,9 @@ So that's the quote that always be in my mind since more than six years ago. six
 
 <h2 class="section-header">Differences</h2>
 
-I first read The Alchemist as a high schooler. I read the Indonesian version. That time, I feel like I didn't quite get the real meaning of the book. I can think of several factors now. 
+I first read The Alchemist as a high schooler. I read the Indonesian version. That time, I feel like I didn't quite get the real meaning of the book. I can think of several factors now.
 
-First, the translation. I think when a manuscript is translated repeatedly into a different language, there would be some loss in the information. Concretely, let's say that The Alchemist was written in Portuguese. It then translated into English, from which the Indonesian version is derived. In the Portuguese - English phase, there must be some loss of meaning, so when the English version is translated into Indonesian, that loss is magnified. Hence, it just didn't feel the same, the Indonesian version. 
+First, the translation. I think when a manuscript is translated repeatedly into a different language, there would be some loss in the information. Concretely, let's say that The Alchemist was written in Portuguese. It then translated into English, from which the Indonesian version is derived. In the Portuguese - English phase, there must be some loss of meaning, so when the English version is translated into Indonesian, that loss is magnified. Hence, it just didn't feel the same, the Indonesian version.
 
 Second, my mind. I think six years ago, I couldn't relate much to The Alchemist. Now, that I've matured, almost all of the things in The Alchemist are relateable to me. I think it's down to my mind. The exposure to knowledge, experiences, and stimuli, matured it a lot, and suddenly everything got clear and very relateable to me.
 
@@ -33,7 +33,7 @@ When I first read this book, dream is just a hazy concept for me. Year after yea
 
 This is the main theme of the book. This is the main theme of my life. This is the main theme of everbody's life.
 
-As Melchizedek said to Santiago, everyone has their Personal Legend to fullfill. When we were young, we know what our Personal Legend was. At that time, everything was possible to us, we're not afraid to dream. As years went by and we became adults, we were convinced that those dreams we dreamed when we were children, were not possible to realize. 
+As Melchizedek said to Santiago, everyone has their Personal Legend to fullfill. When we were young, we know what our Personal Legend was. At that time, everything was possible to us, we're not afraid to dream. As years went by and we became adults, we were convinced that those dreams we dreamed when we were children, were not possible to realize.
 
 I could relate to that. Childhood was the greatest era. I was free to dream, to do things I wanted. As I grew up, I would think twice before I did things. Heck, even I would think twice before I dreamed. Between those fears and suppression and paranoia the society gave to me, it was hard to dream. Whenever I tried to dream, all of those worries, all of those impossibilities were hitting me.
 
@@ -47,13 +47,13 @@ That's the abyss that I'm so determined to avoid. Avoiding that is by no means a
 
 <h2 class="section-header">Obstacles</h2>
 
-Rereading The Alchemist, I also found a note by Paulo Coelho about Personal Legend. You could read it here: http://paulocoelhoblog.com/2009/06/22/workshop-the-alchemist/.
+Rereading The Alchemist, I also found a note by Paulo Coelho about Personal Legend. You could read it here: <http://paulocoelhoblog.com/2009/06/22/workshop-the-alchemist/>.
 
 He said this:
 
 <blockquote>Whenever we do something that fills us with enthusiasm, we are following our legend. However, we don’t all have the courage to confront our own dream.</blockquote>
 
-He argued that there are four obstacles that could hinder it. I'll summarize it here, but I strongly urge you to read that full note above. I'll thank you with all my heart if you do that, because I want everyone to discover, confront, and realize their personal legend. 
+He argued that there are four obstacles that could hinder it. I'll summarize it here, but I strongly urge you to read that full note above. I'll thank you with all my heart if you do that, because I want everyone to discover, confront, and realize their personal legend.
 
 1. The toxicity of the society. We grew up with fear, guilt, and prejudice casted by the society.
 2. Love. We're afraid of hurting people that dear to us because we think we abandon them when we're pursuing our Personal Legend.
@@ -68,9 +68,9 @@ I'm grateful to my past self to pick this book and reread it. Best decision I ma
 
 I'm more determined than ever to realize my Personal Legend. These past several weeks, I had overcame some of those obstacles, and actually made a step toward my Personal Legend.
 
-I've made a crucial decision. 
+I've made a crucial decision.
 
-I understand this merely just the start of my journey of realizing my Personal Legend. Things won't be as easy as just being a "baker". But I won't falter, and keep my determination burning. 
+I understand this merely just the start of my journey of realizing my Personal Legend. Things won't be as easy as just being a "baker". But I won't falter, and keep my determination burning.
 
 As The Alchemist said:
 

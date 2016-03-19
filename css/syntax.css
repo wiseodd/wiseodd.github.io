@@ -15,6 +15,8 @@
 
 pre.highlight {
     padding: 2.5rem;
+    background: #1d1f21;
+    color: #c5c8c6
 }
 
 /*
@@ -22,7 +24,6 @@ pre.highlight {
  */
 
 .highlight .hll { background-color: #373b41 }
-.highlight pre { background: #1d1f21; color: #c5c8c6 }
 .highlight .c { color: #969896 } /* Comment */
 .highlight .err { color: #cc6666 } /* Error */
 .highlight .k { color: #b294bb } /* Keyword */

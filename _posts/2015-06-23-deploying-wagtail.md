@@ -13,7 +13,7 @@ Ok, let's get started. Oh, before that, I'll make some disclaimer. Because this 
 
 First, we need to prepare our system. For this, I use cloud VPS. After investigated some of cloud providers out there, I chose DigitalOcean because it's so simple and so cheap. For the basic tier, you'll be charged just 5 bucks a month. Granted there are more powerful cloud provider out there, with Amazon AWS being the prime example. Unfortunately it doesn't have the simplicity DigitalOcean has. AWS's pricing is so convoluted and sophisticated I feel, and also it's directed to power user like devops guys.
 
-To prepare the production environment, I'm strongly urge you to follow this guide: https://www.digitalocean.com/community/tutorials/how-to-serve-django-applications-with-uwsgi-and-nginx-on-ubuntu-14-04
+To prepare the production environment, I'm strongly urge you to follow this guide: <https://www.digitalocean.com/community/tutorials/how-to-serve-django-applications-with-uwsgi-and-nginx-on-ubuntu-14-04>.
 
 When everything (nginx, uwsgi) is ready, we can begin to really deploy our blog in the cloud. Here's the workflow that I use whenever I made some code change to this blog:
 
@@ -32,7 +32,7 @@ For number 7, we need to restart uwsgi because when uwsgi started, it will "comp
 
 We already know that Django has multiple setting files: base.py, dev.py, and production.py. In our production environment we surely want to use production.py file to override our base.py. To make our life easier, we can put a script to automatically pick which setting file we have to use depending on what environment we are in. To do this, we'll edit our `__init__.py` inside the settings directory.
 
-    
+
 ``` python
 # settings/__init__.py
 
@@ -48,7 +48,7 @@ elif ENV == 'prod':
 
 First, we find an environment variable named 'MYBLOG_ENV' in our operating system, with 'dev' as the default value. If that environment variable value is 'dev', we use dev.py, otherwise we use production.py. As simple as that. To create the environment variable, there are two ways, first by add it directly to the system, or put it in uwsgi. I will go with the second option because, just like the use of virtualenv, it aligns with our spirit of software environment isolation. This this line to your uwsgi config file, and restart uwsgi to apply the change:
 
-    
+
 ```
 env=MYBLOG_ENV=prod
 ```
@@ -64,7 +64,7 @@ I spent a lot of time trying to figure out how to deploy this blog. I'd say most
 *Error 400:* Check your setting, make sure you've added your domain/IP in "allowed_sites" field
 *Error 500:* Don't forget to do all of the above steps! I encountered this problem because I didn't compress my static files
 Cannot upload image: The root cause is you don't have libjpeg and libpng in your machine
-    
+
 ``` bash
 sudo apt-get install libjpeg-dev libpng12-dev
 pip uninstall pillow
@@ -74,25 +74,25 @@ pip install pillow
 
 Images, CSS, JS won't load: In production setting, we have to serve our static files ourselves. Probably you forgot to serve the "static" directory in the nginx. Check out your nginx sites-availables:
 
-    
+
 ``` nginx
-location /static/ { 
-    root /your/project/path; 
+location /static/ {
+    root /your/project/path;
 }
 
 location /media/ {
-    root /your/project/path; 
+    root /your/project/path;
 }
 ```
 
-Probably also because the nginx doesn't have the permission to access the directories. 
+Probably also because the nginx doesn't have the permission to access the directories.
 
-    
+
 ``` bash
 chmod 664 -R static
 chmod 664 -R media
 chown -R yourusername:www-data static
-chown -R yourusername:www-data media 
+chown -R yourusername:www-data media
 ```
 
 Aaaaaand that's it! Now your Wagtail site should be up and running nicely in the production server!
