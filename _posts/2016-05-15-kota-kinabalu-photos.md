@@ -28,11 +28,13 @@ In the south of the city, around 300 meters from the shore, there is a hill. On 
 Speaking about culture, there are three major ethnics in Malaysia: Malay, Chinese, and Indian. When you go to the Peninsular Malaysia you can observe that.
 
 ![KK]({{ site.baseurl }}/img/2016-05-17-kota-kinabalu-photos/02.jpg)
+
 ![KK]({{ site.baseurl }}/img/2016-05-17-kota-kinabalu-photos/26.jpg)
 
 However, here in Malaysian Borneo, only Malay and Chinese are the majority. In my days here, I almost couldn't find any Indian.
 
 ![KK]({{ site.baseurl }}/img/2016-05-17-kota-kinabalu-photos/04.jpg)
+
 ![KK]({{ site.baseurl }}/img/2016-05-17-kota-kinabalu-photos/15.jpg)
 
 The reason is because the Indians were brought from the South Asia by the British East Indian Company to the Peninsular in the colonial time to work in rubber plantation. The British had never brought them to the Borneo.
@@ -42,7 +44,9 @@ The reason is because the Indians were brought from the South Asia by the Britis
 The Chinese here are different from the Peninsular. Whereas it composed of Hokkien and Cantonese people in Peninsular, here in Borneo, Hakka people are the majority. I don't find this surprising, as I've always heard that the Chinese in Indonesian Borneo are also Hakka, so I could infer that.
 
 ![KK]({{ site.baseurl }}/img/2016-05-17-kota-kinabalu-photos/09.jpg)
+
 ![KK]({{ site.baseurl }}/img/2016-05-17-kota-kinabalu-photos/16.jpg)
+
 ![KK]({{ site.baseurl }}/img/2016-05-17-kota-kinabalu-photos/23.jpg)
 
 Kota Kinabalu is surrounded by two great natural sanctuaries.
@@ -64,6 +68,7 @@ In fact, this is one of the more famous diving spot in the SEA. Many people come
 One best way to spend an afternoon here is to walk the promenade. Sea breeze in a super humid climate is very welcomed.
 
 ![KK]({{ site.baseurl }}/img/2016-05-17-kota-kinabalu-photos/03.jpg)
+
 ![KK]({{ site.baseurl }}/img/2016-05-17-kota-kinabalu-photos/06.jpg)
 
 It's also the best place to catch the sunset.
@@ -85,7 +90,9 @@ Pick the type of the fish, tell the seller how many gram do you want, then negot
 No deal? No problem. Just walk ten feet from where you are, and start all over again. There are tens of those seafood stalls here. So, the competition is very healthy.
 
 ![KK]({{ site.baseurl }}/img/2016-05-17-kota-kinabalu-photos/20.jpg)
+
 ![KK]({{ site.baseurl }}/img/2016-05-17-kota-kinabalu-photos/21.jpg)
+
 ![KK]({{ site.baseurl }}/img/2016-05-17-kota-kinabalu-photos/22.jpg)
 
 It all without a downside though.
