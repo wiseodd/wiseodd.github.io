@@ -4,7 +4,7 @@ title:      "Scrapy as a Library in Long Running Process"
 subtitle:   "Scrapy is a great web crawler framework, but it's tricky to make it runs as a library in a long-running process. Here's how!"
 date:       2016-06-10 03:37
 author:     "wiseodd"
-header-img: "img/2016-06-10-scrapy-long-running/bg.jpg"
+header-img: "img/code.png"
 ---
 
 There's no denying that Scrapy is one of the best crawler frameworks for Python, if not the best. Scrapy's developers designed Scrapy as a standalone process, i.e. in a different instance from our main program, and using database for communication between them.
