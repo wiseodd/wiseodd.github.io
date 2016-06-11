@@ -11,7 +11,7 @@ There's no denying that Scrapy is one of the best crawler frameworks for Python,
 
 Sometimes, we want to integrate Scrapy in our own framework. It's a little bit tricky because it's not what Scrapy designed for. In the documentation page, there are some information on how to run Scrapy from our own script: <http://doc.scrapy.org/en/latest/topics/practices.html>.
 
-It's sufficient if our goal is to use Scrapy from our own script for one time crawling, i.e. execute the script, retrieve the result, then terminate it. However, it won't work if our goal is to make Scrapy run from our own long-running worker instance.
+It's sufficient if our goal is to use Scrapy from our own script for one time crawling, i.e. execute the script, retrieve the result, then terminate it. However, it won't work if our goal is to make Scrapy run from our own long-running worker instance. After the first execution, it will raise `twisted.internet.error.ReactorNotRestartable` error.
 
 There's a workaround for this, and in my experience, this solution is quite robust: I haven't encountered a single failure since I implemented this solution. The workaround is to use `multiprocessing` module in Python's standard library.
 
