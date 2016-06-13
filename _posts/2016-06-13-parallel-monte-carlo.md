@@ -80,7 +80,7 @@ We finished our simulation in 100s. Now imagine if our unknown target distributi
 
 <h2 class="section-header">Parallel Monte Carlo Simulation</h2>
 
-Let's try to speed that up by parallelizing it. But first we need to modify our `sample()` method so that it won't use the same random seed across all of the processes, as we will get the same "random" results, which would be pointless.
+Let's try to speed that up by parallelizing it. But first we need to modify our `sample()` method so that it won't use the same random seed across all of the processes, as we will get the same "random" results, which would be pointless. Calling `np.random.seed()` would do the trick.
 
 ``` python
 import multiprocessing as mp
