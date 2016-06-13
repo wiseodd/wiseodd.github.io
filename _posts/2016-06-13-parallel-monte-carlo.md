@@ -140,7 +140,7 @@ Out[1]: {0: 0.31, 1: 0.185, 2: 0.099, 3: 0.105, 4: 0.301}
 
 100s down to 28s? ~4x of speedup! It's scaled linearly with the number of processes we stated in `Pool` because practically the `sample()` method run in uniform time: ~0.1s. In the real world problem though, it will wildly vary. But linear growth of speedup compared to the number of processes would be the baseline.
 
-Also, be careful with the number of processes. As a rule of thumb, number of processes should equal to the number of CPU cores available, so that excessive context switching could be avoided.
+Also, be careful with the number of processes. As a rule of thumb, number of processes should be equal to the number of CPU cores available, so that excessive context switching could be avoided.
 
 Lastly, this parallelization scheme works best if each individual simulation takes considerably long time. This won't be effective if each simulation is really quick and we do huge amount of simulations as the overhead will be greater than the benefit of parallelization.
 
