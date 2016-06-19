@@ -5,7 +5,7 @@ subtitle:   "An implementation example of Slice Sampling for a special case: uni
 date:       2015-10-24 12:04:00
 author:     "wiseodd"
 header-img: "img/bayes.png"
-category:   tech
+category:   techblog
 tags:       [machine learning, programming, python]
 ---
 

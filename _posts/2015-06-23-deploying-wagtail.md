@@ -5,7 +5,7 @@ subtitle:   "In this post, I'll show you how to deploy our blog and how to solve
 date:       2015-06-23 01:39:00
 author:     "wiseodd"
 header-img: "img/2015-06-21-wagtail-dev-env/wagtail.jpg"
-category:   tech
+category:   techblog
 tags:       [python, programming, wagtail, web]
 ---
 

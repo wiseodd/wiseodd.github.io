@@ -5,7 +5,7 @@ subtitle:   "In Frequentist and Bayesian Way"
 date:       2016-01-16 11:06:00
 author:     "wiseodd"
 header-img: "img/bayes.png"
-category:   tech
+category:   techblog
 tags:       [machine learning, programming, python]
 ---
 

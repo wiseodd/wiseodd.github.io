@@ -5,7 +5,7 @@ subtitle:   "A tutorial on how to do Twitter OAuth authentication in Flask web a
 date:       2015-08-29 09:46:00
 author:     "wiseodd"
 header-img: "img/code.png"
-category:   tech
+category:   techblog
 tags:       [python, programming, web]
 ---
 

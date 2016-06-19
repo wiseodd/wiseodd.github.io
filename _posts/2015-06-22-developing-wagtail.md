@@ -5,7 +5,7 @@ subtitle:   "My experience on building this blog using Wagtail CMS, with zero Dj
 date:       2015-06-22 12:51:00
 author:     "wiseodd"
 header-img: "img/2015-06-21-wagtail-dev-env/wagtail.jpg"
-category:   tech
+category:   techblog
 tags:       [python, programming, web]
 ---
 

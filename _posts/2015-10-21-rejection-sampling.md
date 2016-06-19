@@ -5,7 +5,7 @@ subtitle:   "Rejection is always painful, but it's for the greater good! You can
 date:       2015-10-21 10:45:00
 author:     "wiseodd"
 header-img: "img/bayes.png"
-category:   tech
+category:   techblog
 tags:       [machine learning, programming, python]
 ---
 

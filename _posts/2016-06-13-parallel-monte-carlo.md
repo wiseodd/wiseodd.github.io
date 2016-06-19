@@ -5,7 +5,7 @@ subtitle:   "Monte Carlo simulation is all about quantity. It can take a long ti
 date:       2016-06-13 02:42
 author:     "wiseodd"
 header-img: "img/code.png"
-category:   tech
+category:   techblog
 tags:       [machine learning, programming, python]
 ---
 

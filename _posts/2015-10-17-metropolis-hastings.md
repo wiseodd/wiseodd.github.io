@@ -5,7 +5,7 @@ subtitle:   "An implementation example of Metropolis-Hastings algorithm in Pytho
 date:       2015-10-17 01:14:00
 author:     "wiseodd"
 header-img: "img/bayes.png"
-category:   tech
+category:   techblog
 tags:       [machine learning, programming, python]
 ---
 

@@ -5,7 +5,7 @@ subtitle:   "Scrapy is a great web crawler framework, but it's tricky to make it
 date:       2016-06-10 03:37
 author:     "wiseodd"
 header-img: "img/code.png"
-category:   tech
+category:   techblog
 tags:       [scrapy, python, programming]
 ---
 
