@@ -5,6 +5,7 @@ subtitle:   "Why bother creating a blog and write blog posts. You could just do 
 date:       2015-06-22 02:05:00
 author:     "wiseodd"
 header-img: "img/2015-06-22-why-this-blog/jackie-chan-meme.jpg"
+category:   musing
 ---
 
 Building a personal website and a blog was really what I wanted for this past year. However, you know, this procrastination thingy was really holding me back. Until, one day I stumbled upon Tim Urban’s wonderful blog, waitbutwhy.com, especially those trifecta of posts about procrastination: first, second, third. So I made a leap to create this blog.

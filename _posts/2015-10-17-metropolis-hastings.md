@@ -5,6 +5,8 @@ subtitle:   "An implementation example of Metropolis-Hastings algorithm in Pytho
 date:       2015-10-17 01:14:00
 author:     "wiseodd"
 header-img: "img/bayes.png"
+category:   tech
+tags:       [machine learning, programming, python]
 ---
 
 Metropolis-Hastings algorithm is another sampling algorithm to sample from high dimensional, difficult to sample directly (due to intractable integrals) distributions or functions.
@@ -15,27 +17,27 @@ The core of the algorithm lies in the distribution `Q(x -> x')`, which is used t
 
 The acceptance probability alpha is found by this equation:
 
-    
+
 ```
 alpha = min(1, P(x')/P(x) * Q(x' -> x)/Q(x -> x'))
 ```
-    
+
 
 Where `P(x)` is the target distribution, namely the distribution we want to sample from.
 
 When transition distribution `Q(x -> x')` is symmetric, `Q(x -> x') = Q(x' -> x)`, then the ratio will become 1, and the alpha will be just:
 
-    
+
 ```
 alpha = min(1, P(x')/P(x))
 ```
-    
 
-In this case, the Metropolis-Hastings would become just Metropolis. So, Metropolis algorithm is the special case of Metropolis-Hastings algorithm where the transition distribution is symmetric. Take Gaussian for example. 
+
+In this case, the Metropolis-Hastings would become just Metropolis. So, Metropolis algorithm is the special case of Metropolis-Hastings algorithm where the transition distribution is symmetric. Take Gaussian for example.
 
 Let's devour the code.
 
-    
+
 ``` python
 import numpy as np
 import scipy.stats as st
@@ -74,7 +76,7 @@ if __name__ == '__main__':
     samples = metropolis_hastings(pgauss, iter=10000)
     sns.jointplot(samples[:, 0], samples[:, 1])
 ```
-    
+
 
 In the code, I ignore the min(1, x) term for the alpha calculation, and just calculate `P(x') / P(x),` because we only care about whether or not the ratio is bigger than some uniform random number `[0, 1]`, so when `P(x') / P(x) > 1`, it will then always satisfy the test just as `P(x') / P(x) = 1`, calculated from the `min(1, x)` term.
 
@@ -92,7 +94,7 @@ The tail of the distribution looks off because the starting point of the Markov 
 
 I'm curious about the performance of Metropolis-Hastings compared to Gibbs Sampling. So I profiled the two algorithms.
 
-    
+
 ```
 > python -m cProfile gibbs_sampling.py | grep gibbs_sampling
 ncalls  tottime  percall  cumtime  percall

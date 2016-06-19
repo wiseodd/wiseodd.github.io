@@ -5,6 +5,8 @@ subtitle:   "The first day of my road trip from Yogyakarta to Bali"
 date:       2015-12-19 13:18:00
 author:     "wiseodd"
 header-img: "img/2015-12-20-road-trip-day-one/bg.jpg"
+category:   travel
+tags:       [indonesia]
 ---
 
 Five AM. I woke up, but I still want to sleep. Uuugh.
@@ -32,7 +34,7 @@ Well, no. After Ponorogo, the route was crowded. It seemed that the route was no
 
 Right, about the mountains. I chose that route because it's mountainous. I love the mountains, more than the seas. Though I won't complain about anything sea. I love the mountains because I feel the excitement everytime I see it. It looks so majestic, I couldn't help but to be in awe.
 
-Around 6 PM, we were entering Malang. Things started to get crowded. I believe we were cruising at only 30-40 kph. I guess it was because of those people going back from their vacation. 
+Around 6 PM, we were entering Malang. Things started to get crowded. I believe we were cruising at only 30-40 kph. I guess it was because of those people going back from their vacation.
 
 Now, about the accomodation. We got a friend who is a Malang native. So Timmy asked him last night, so we could crash in his home. Permission granted, accomodation secured. As I'm writing this, I was in his guest room, sipping a nice hot tea. Thanks Andhika.
 

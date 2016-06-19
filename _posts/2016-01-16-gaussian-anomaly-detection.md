@@ -5,9 +5,11 @@ subtitle:   "In Frequentist and Bayesian Way"
 date:       2016-01-16 11:06:00
 author:     "wiseodd"
 header-img: "img/bayes.png"
+category:   tech
+tags:       [machine learning, programming, python]
 ---
 
-Suppose you are a teacher in kindergarten. Looking at your class, it seems there are a few children that are out of the ordinary, in term of their height compared to the rest of the class. It seems that they are different, by just looking at them, you're sure of it. You've talked about this to your principle: "Hey, A and B in my class are way taller than the rest of the class". The principle replied: "You sure it's not just an optical illusion? Could you present me with a proof?". You are then wondering, is there any method that can help you identifying those children? 
+Suppose you are a teacher in kindergarten. Looking at your class, it seems there are a few children that are out of the ordinary, in term of their height compared to the rest of the class. It seems that they are different, by just looking at them, you're sure of it. You've talked about this to your principle: "Hey, A and B in my class are way taller than the rest of the class". The principle replied: "You sure it's not just an optical illusion? Could you present me with a proof?". You are then wondering, is there any method that can help you identifying those children?
 
 Yes, there is! It's called Anomaly Detection!
 
@@ -38,7 +40,7 @@ So, that's it! We've fitted our data into `N(150.8, 351.1199)`!
 
 ![Gaussian]({{ site.baseurl }}/img/2016-01-16-gaussian-anomaly-detection/00.png)
 
-Now, what's left is the evaluation phase. We want to know, based our Gaussian, whether or not a new data is an anomaly. To do that, we need a threshold value that says, if the probability of the new data under our Gaussian is higher or lower than the threshold, it's probably an anomaly. 
+Now, what's left is the evaluation phase. We want to know, based our Gaussian, whether or not a new data is an anomaly. To do that, we need a threshold value that says, if the probability of the new data under our Gaussian is higher or lower than the threshold, it's probably an anomaly.
 
 We could intuitively define the threshold by looking at the plot of our Gaussian above. The anomalies would be the data that fall under the low probability areas of the Gaussian, because being in the low probability area, that data is _highly unlikely_ to be distributed in our distribution. Those low probability areas are the left and the right tails of the Gaussian. So, we could say that, for example, 25% area under the tails are the anomaly regions.
 

@@ -5,6 +5,7 @@ subtitle:   "Everyone dreams big. No one will reject that notion. It's the truth
 date:       2015-10-30 11:28:00
 author:     "wiseodd"
 header-img: "img/2015-10-30-privilege-to-dream/bg.jpg"
+category:   musing
 ---
 
 Dreaming.

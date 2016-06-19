@@ -5,6 +5,7 @@ subtitle:   "Purely by serendipity, today I was thinking about the same thing as
 date:       2015-11-18 03:51:00
 author:     "wiseodd"
 header-img: "img/2015-11-18-carpe-diem/bg.jpg"
+category:   musing
 ---
 
 <blockquote>First I was dying to finish high school and start college

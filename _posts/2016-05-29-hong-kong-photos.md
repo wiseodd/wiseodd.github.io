@@ -5,6 +5,8 @@ subtitle:   "High rising skyscrapers and unspoiled nature; China but not China"
 date:       2016-05-29 11:29
 author:     "wiseodd"
 header-img: "img/2016-05-29-hong-kong-photos/00.jpg"
+category:   travel
+tags:       [hong kong, photo essay, photography]
 ---
 
 Hong Kong, is intriguing. Should I call it as country, or is it part of China? Was I in Hong Kong or in China? The politically correct answer would be: both.

@@ -5,6 +5,7 @@ subtitle:   "Ditch all of your guidebooks now!"
 date:       2016-01-28 02:56:00
 author:     "wiseodd"
 header-img: "img/2016-01-28-best-travel-guide/bg.jpg"
+category:   travel
 ---
 
 When I was traveling solo in Vietnam, July 2014, I bought a Lonely Planet book for Vietnam. It was a thick book and you don't have to guess twice that it was heavy. I decided not to bring it.

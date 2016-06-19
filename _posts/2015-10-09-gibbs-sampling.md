@@ -5,6 +5,8 @@ subtitle:   "Example of Gibbs Sampling implementation in Python to sample from a
 date:       2015-10-09 17:01:00
 author:     "wiseodd"
 header-img: "img/bayes.png"
+category:   tech
+tags:       [machine learning, programming, python]
 ---
 
 After so many months struggling with Gibbs Sampling, now I conquered it! Well, kind of.

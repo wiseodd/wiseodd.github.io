@@ -5,6 +5,8 @@ subtitle:   "Got enough of Korean food? How about trying something different, li
 date:       2016-05-05 10:03
 author:     "wiseodd"
 header-img: "img/2016-05-05-pyongyang-restaurant/bg.jpg"
+category:   travel
+tags:       [indonesia, food]
 ---
 
 It all began in Siem Reap, Cambodia. After some 7 hours of bus ride from Bangkok, we were finally closing in on Siem Reap, the gateway to the wondrous Angkor temples. Around 3 kilometers before we reached the city center, I saw the street name: Cambodia-Korea Friendship Street. Nothing surprising. Maybe Korea helped Cambodia to build that road. No suspicison at all.

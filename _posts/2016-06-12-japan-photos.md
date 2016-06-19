@@ -5,6 +5,8 @@ subtitle:   "To much to talk about, not enough time and space... So let's digest
 date:       2016-06-12 02:08
 author:     "wiseodd"
 header-img: "img/2016-06-12-japan-photos/bg.jpg"
+category:   travel
+tags:       [japan, photo essay, photography]
 ---
 
 Let me say this:

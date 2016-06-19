@@ -5,9 +5,11 @@ subtitle:   "To keep my desire and passion burning, I need to travel. This is my
 date:       2015-09-20 01:55:00
 author:     "wiseodd"
 header-img: "img/2015-09-20-year-end-trip/bg.jpg"
+category:   travel
+tags:       [indonesia]
 ---
 
-Wanderlust is in my veins. 
+Wanderlust is in my veins.
 
 Every chance of travel, I would take it in a heartbeat. Last year I've done the most amazing trip ever in my life. Should I just close the book, knowing that I'm closing that book as a happy man? Would I be happy forever though after this?
 
@@ -21,7 +23,7 @@ After talking to a friend some months ago, I did some self reflections. I realiz
 
 Whenever I travel, I would look at abroad destination, which is great, because I can immerse myself in so many different cultures. But, I feel like I'm ignoring what Indonesia offers to me. There's an Indonesian proverb "Gajah di pelupuk mata tak tampak, kuman di seberang lautan tampak", which tells us exactly not to be myopic.
 
-So I decided this time, I would look at Indonesian destination, I would make sure that this would be a hell of a trip. 
+So I decided this time, I would look at Indonesian destination, I would make sure that this would be a hell of a trip.
 
 <h2 class="section-header">The Plan</h2>
 
@@ -29,7 +31,7 @@ Bali and to a lesser extent, Lombok, are really popular destination for Indonesi
 
 Not that I want to satisfy their expectation, but more because Bali and Lombok are known for their beauty. That's what drive my decision.
 
-It would be so easy to grab a plane ticket, book a 3 stars hotel, and enjoy the luxury. However, that's not my way. For me, trip should be an adventure, a way to break free from my comfort zone, a way to learn new things. 
+It would be so easy to grab a plane ticket, book a 3 stars hotel, and enjoy the luxury. However, that's not my way. For me, trip should be an adventure, a way to break free from my comfort zone, a way to learn new things.
 
 So I decided to do a road trip. Starting from Yogyakarta, I'll make my way to Bali then Lombok. In total it would be around 900km one way. So around 2000km round trip.
 

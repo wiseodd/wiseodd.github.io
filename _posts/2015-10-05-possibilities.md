@@ -5,11 +5,12 @@ subtitle:   "This is a post about possibilities. About open mindness. About taki
 date:       2015-10-05 02:41:00
 author:     "wiseodd"
 header-img: "img/2015-10-05-possibilities/bg.jpg"
+category:   musing
 ---
 
-<blockquote>When I was young, 
-The world it was smaller, 
-The cities were vast, 
+<blockquote>When I was young,
+The world it was smaller,
+The cities were vast,
 The buildings were taller</blockquote>
 
 That quote is from When I Was Young, by Blink-182, one of my favorite band. In the past, it was just words. Today, it’s more than that. It’s a realization.
@@ -41,5 +42,5 @@ So, now, my world, it is larger. The cities are tiny. The buildings are still ta
 
 To close this, I’ll quote another song: Drive by Incubus
 
-<blockquote>Whatever tomorrow brings, 
+<blockquote>Whatever tomorrow brings,
 I'll be there with open arms and open eyes</blockquote>

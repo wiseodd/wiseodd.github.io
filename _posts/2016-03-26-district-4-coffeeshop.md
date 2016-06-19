@@ -5,6 +5,8 @@ subtitle:   "Perfect place to sit and work for hours."
 date:       2016-03-26 10:10
 author:     "wiseodd"
 header-img: "img/2016-03-26-district-4-coffeeshop/00.jpg"
+category:   travel
+tags:       [digital nomad, vietnam]
 ---
 
 I've been living here in District 4 of Ho Chi Minh City for almost two weeks now. But, not until recently that I found a very great place to work. Sure, it's a western coffee chain, but it sure does check all of my requirements about an ideal workplace.

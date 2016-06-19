@@ -5,6 +5,8 @@ subtitle:   "Taking a direct bus from Bangkok, Thailand to Siem Reap, Cambodia."
 date:       2016-03-13 11:00
 author:     "wiseodd"
 header-img: "img/2016-03-13-bus-bangkok-siemreap/bg.jpg"
+category:   travel
+tags:       [thailand, cambodia]
 ---
 
 With my Thai visa expiring soon, I needed to get out of Thailand. Now, there are two options from here: Laos or Cambodia. After some thinking, I chose Cambodia. Mainly because it will bring me closer to Ho Chi Minh City, with Angkor temples as a bonus. Another options branched out: how do I go there?

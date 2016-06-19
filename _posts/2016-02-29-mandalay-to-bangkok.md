@@ -5,6 +5,8 @@ subtitle:   "From Myanmar to Thailand, for 1400km, in 27 hours, by bus and miniv
 date:       2016-02-29 07:00
 author:     "wiseodd"
 header-img: "img/2016-02-29-mandalay-to-bangkok/bg.jpg"
+category:   travel
+tags:       [myanmar, thailand]
 ---
 
 Mingalaba!

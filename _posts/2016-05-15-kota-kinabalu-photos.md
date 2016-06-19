@@ -5,6 +5,8 @@ subtitle:   "Jungle, sea, small town, and seafood in 14 days."
 date:       2016-05-17 08:43
 author:     "wiseodd"
 header-img: "img/2016-05-17-kota-kinabalu-photos/00.jpg"
+category:   travel
+tags:       [malaysia, photo essay]
 ---
 
 The last 14 days, I've been in Kota Kinabalu, Malaysian Borneo. It's a good chance to practice my photography skill. All of these photos are taken with Sony RX100 and converted from RAW using Capture One.

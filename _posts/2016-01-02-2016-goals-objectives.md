@@ -5,6 +5,7 @@ subtitle:   "My goals and objectives for the year of 2016"
 date:       2016-01-02 08:16:00
 author:     "wiseodd"
 header-img: "img/2016-01-02-2016-goals-objectives/bg.jpg"
+category:   musing
 ---
 
 If 2015 was a great year for me, I want 2016 to be even greater. There are still some failed goals in 2015, and I will carry it over to this year. I will not just abandon those goals until I succeed, because I know that I could do it and I will finish it.
@@ -44,11 +45,11 @@ Because my background is Computer Science, then all of these goals are CS relate
 
 <h2 class="section-header">Writing</h2>
 
-Since I started this blog, I feel the joy in writing. Often, when writing a blog post, I spent three hours without noticing. I think writing is one of my passion currently. 
+Since I started this blog, I feel the joy in writing. Often, when writing a blog post, I spent three hours without noticing. I think writing is one of my passion currently.
 
 <p></p>
 * Write a travel blog post at least once a week
-* Write a technical blog post at least once a week 
+* Write a technical blog post at least once a week
 <p></p>
 
 My target for each blog post on average would be 1000 words.

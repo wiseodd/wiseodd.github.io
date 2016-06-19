@@ -5,6 +5,7 @@ subtitle:   "When you really want something, all the universe conspires in helpi
 date:       2015-12-09 12:10:00
 author:     "wiseodd"
 header-img: "img/2015-12-09-the-alchemist-reread/bg.jpg"
+category:   musing
 ---
 
 <blockquote>When you really want something, all the universe conspires in helping you to achieve it</blockquote>

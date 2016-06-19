@@ -5,6 +5,7 @@ subtitle:   "I've got a newfound hobby!"
 date:       2016-04-27 00:28
 author:     "wiseodd"
 header-img: "img/2016-04-27-photography/bg.jpg"
+category:   musing
 ---
 
 Around two months ago, when hiking the Penang National Park, I told my hiking buddy that I'm not good with photography. I also said that I will settle with my crappy compact camera and my smartphone camera, thank you. I mean, I saw no point what's really great about taking picture. Picture is picture, what could be different. Pointing at something and clicking the shutter button was my way to go. After all, I'm a busy man, y'know.

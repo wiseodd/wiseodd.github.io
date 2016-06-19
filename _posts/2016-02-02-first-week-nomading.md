@@ -5,6 +5,8 @@ subtitle:   "A retrospective of my first two weeks of being digital nomad"
 date:       2016-02-02 08:13
 author:     "wiseodd"
 header-img: "img/2016-02-02-first-week-nomading/bg.jpg"
+category:   travel
+tags:       [digital nomad]
 ---
 
 I've been two weeks here in Malaysia. That's also two weeks since I left my home country, Indonesia.

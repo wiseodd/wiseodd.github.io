@@ -5,6 +5,8 @@ subtitle:   "An implementation example of Slice Sampling for a special case: uni
 date:       2015-10-24 12:04:00
 author:     "wiseodd"
 header-img: "img/bayes.png"
+category:   tech
+tags:       [machine learning, programming, python]
 ---
 
 Another MCMC method beside Metropolis-Hastings and Gibbs Sampling, Slice Sampling generates random samples based on their previous states. Those samples then could be used to compute integrals (mean, median, etc) or just to plot the histogram, like I'll do here.
@@ -19,7 +21,7 @@ Let's say we have a Standard Normal from which we want to sample with Slice Samp
 
 The PDF and inverse PDF of Standard Normal are as follow in Python code:
 
-    
+
 ``` python
 def p(x):
     return np.exp(-(x**2) / 2) / (np.sqrt(2*np.pi))
@@ -49,7 +51,7 @@ The example above is for Standard Normal, the special case of Gaussian. If we wa
 
 Let's see that in the code. Here, in the code, I picked an arbitrary parameter for the Gaussian, `mu=65` and `sigma=32`.
 
-    
+
 ``` python
 import numpy as np
 import scipy.stats as st

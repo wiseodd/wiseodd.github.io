@@ -5,6 +5,8 @@ subtitle:   "Nglanggeran is a ancient volcano site located in Gunung Kidul, Yogy
 date:       2015-08-22 11:08:00
 author:     "wiseodd"
 header-img: "img/2015-08-22-nglanggeran-hike/05.jpg"
+category:   travel
+tags:       [indonesia, hiking]
 ---
 
 Nglanggeran. Even for me, who has lived in Central Java for about two decades, I find it difficult to pronounce. But, difficult to pronounce or not, Nglanggeran is a great way to spend your morning in Yogyakarta. Go there early, hike for around one hour, then just enjoy the view on the summit.
@@ -49,6 +51,6 @@ I vowed to myself to go back there (it's only 30 something minutes from my home!
 
 So that's it. Nglanggeran.
 
-In Yogyakarta, I plan to hike every weekend. You know, because it's fun, it's healthy, and the scenery is great. 
+In Yogyakarta, I plan to hike every weekend. You know, because it's fun, it's healthy, and the scenery is great.
 
 Two years ago, who knows that Yogyakarta offers a lot of good hiking trails!

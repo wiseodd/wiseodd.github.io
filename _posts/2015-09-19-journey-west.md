@@ -4,6 +4,8 @@ title:      "Journey to the West"
 subtitle:   "Some stories from my last winter solo trip to China. I traveled from Far East China to Far West China, which means that it was my Journey to the West."
 date:       2015-09-19 06:49:00
 author:     "wiseodd"
+category:   travel
+tags:       [china, photo essay]
 ---
 
 Late December last year, I was in my big solo trip in China for just south of three weeks. Arriving at Hangzhou in the far east, and departing from Chengdu in the far west. This is my journey to the west... 西遊記.
@@ -12,7 +14,7 @@ There was only one question back then: how do I get to Chengdu from Hangzhou?
 
 By plane is the easiest, but it's no fun. By car? Whose car? Scratch that. By bus? No thanks. The only options left were by foot, by bicycle, and by train. I chose the last.
 
-OK, I admit, that was not the only question, there was the other one: I got almost 3 weeks there, should I just be in Hangzhou and Chengdu? The thinking of staying that long in a place made me shudder. Oh, the horror! 
+OK, I admit, that was not the only question, there was the other one: I got almost 3 weeks there, should I just be in Hangzhou and Chengdu? The thinking of staying that long in a place made me shudder. Oh, the horror!
 
 I'm not a big planner. The way my mind works is that it forms a vague, general idea, then based on that, it will command my body to just do it. The rest is improvisation. For me, improvisation just feels natural. To choose what I want to do next, I just need to look at where I am, and what I want at that time, and improvise. Rinse and repeat.
 
@@ -73,9 +75,9 @@ Now, the fun piece after I explored Huashan was the way I and one of my new frie
 
 ![Journey]({{ site.baseurl }}/img/2015-09-19-journey-west/03.jpg)
 
-See that trails in the background? 
+See that trails in the background?
 
-It surely was a adrenaline pumping thing. What was more pumping was we were jogging, not walking! It was because we had to make sure we arrived in time for the last shuttle bus back to Huayin. This trail was around 3km or so, with a lot scary 90 degree paths like above. 
+It surely was a adrenaline pumping thing. What was more pumping was we were jogging, not walking! It was because we had to make sure we arrived in time for the last shuttle bus back to Huayin. This trail was around 3km or so, with a lot scary 90 degree paths like above.
 
 The next day, I went to Chengdu, and I felt like I couldn't walk anymore.
 

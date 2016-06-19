@@ -5,11 +5,13 @@ subtitle:   "My packing list and why I bring those things"
 date:       2016-01-12 01:25:00
 author:     "wiseodd"
 header-img: "img/2016-01-12-what-i-pack/00.JPG"
+category:   travel
+tags:       [digital nomad]
 ---
 
 Originally, today, January 12th 2016, will be the day I'm officially a nomad. You don't need to ask me how excited I was. Sadly, I had a flu (not just a cold!) since last Saturday, and until today I'm still feeling super weak. So I decided to postpone it until next week. The new date will be Wednesday, January 20th 2016.
 
-However, in the middle of the flu haze, I packed the bag anyway, with the hope that I will recover in time (read: today). Needless to say, I didn't recover in time. Oh, and the packing process was awful. Out of all diseases I've had, if I've to rank the most terrible, flu is second only to Dengue Fever. Well, at least I could write a blog post about what I pack, now that I've actually made an effort to pack it. 
+However, in the middle of the flu haze, I packed the bag anyway, with the hope that I will recover in time (read: today). Needless to say, I didn't recover in time. Oh, and the packing process was awful. Out of all diseases I've had, if I've to rank the most terrible, flu is second only to Dengue Fever. Well, at least I could write a blog post about what I pack, now that I've actually made an effort to pack it.
 
 So, here we go, all the things that I will bring for my journey. Note that this will be multiple years travel, so I'm bringing clothings for four seasons: stay cool in the summer, stay warm in the winter.
 

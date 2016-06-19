@@ -5,6 +5,8 @@ subtitle:   "Kosakora hill, is located in Gunung Kidul regency, Yogyakarta. It o
 date:       2015-08-30 04:36:00
 author:     "wiseodd"
 header-img: "img/2015-08-30-kosakora-hike/bg.jpg"
+category:   travel
+tags:       [malaysia, hiking]
 ---
 
 Kosakora, also previously known as Segara Ngrumput by the locals, is a hill, located around 1km from Drini Beach. From central Yogyakarta, it's around 70km. One could take a route going to Wonosari, then go all the way south from there, or from Imogiri, go all the way east through Panggang, and go a little bit south. Either way, they would all converge at one point: Baron beach. Once in Baron beach area, it's just a matter of going east for around 2km to get to Drini beach.
@@ -15,7 +17,7 @@ Gunung Kidul is famous for its shoreline. So many beaches can be found there. Th
 
 ![Kosakora]({{ site.baseurl }}/img/2015-08-30-kosakora-hike/01.jpg)
 
-Drini is also the start of Kosakora trail. From the beach, just go uphill to start the trail. The first part of the trail is your typical karst  hill: dry, rocky, and not so lush vegetation. 
+Drini is also the start of Kosakora trail. From the beach, just go uphill to start the trail. The first part of the trail is your typical karst  hill: dry, rocky, and not so lush vegetation.
 
 ![Kosakora]({{ site.baseurl }}/img/2015-08-30-kosakora-hike/02.jpg)
 

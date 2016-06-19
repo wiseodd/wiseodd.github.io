@@ -5,6 +5,8 @@ subtitle:   "Safari Park, Bakso Malang, and traffic"
 date:       2015-12-21 13:33:00
 author:     "wiseodd"
 header-img: "img/2015-12-21-day-two-malang/bg.jpg"
+category:   travel
+tags:       [indonesia]
 ---
 
 Day two of this road trip, we spent a full day at Malang. The objective? Safari Park, Malangese delicacies, and Malangese delicacies. Not a typo, I want to eat.
@@ -13,7 +15,7 @@ Day two of this road trip, we spent a full day at Malang. The objective? Safari 
 
 ![DayTwo]({{ site.baseurl }}/img/2015-12-21-day-two-malang/00.png)
 
-This morning, we went to the Safari Park in Prigen, Pasuruan, some 40 km away from Malang. Google Maps showed that it would take around one and a half hour from where we stay. For a good measure, I decided to wait until 10 AM before we went so that the traffic would be lighter still. You know, Monday morning rush hour, I want to avoid that. 
+This morning, we went to the Safari Park in Prigen, Pasuruan, some 40 km away from Malang. Google Maps showed that it would take around one and a half hour from where we stay. For a good measure, I decided to wait until 10 AM before we went so that the traffic would be lighter still. You know, Monday morning rush hour, I want to avoid that.
 
 Well, Malang being Malang, it was so crowded, we managed to get there in more than one and a half hour. I don't know, but it seems that I found the similarity between Yogyakarta and Malang. Both are known as serene and peaceful cities back then, but now they are so crowded. As for Yogyakarta case, I could say that I almost don't recognize it. Yogyakarta when I was a kid was not like that. I still remember that at 9 PM, all of the traffic lights in Yogyakarta cease to operate. The traffic was literally nonexistent. Not the case anymore.
 

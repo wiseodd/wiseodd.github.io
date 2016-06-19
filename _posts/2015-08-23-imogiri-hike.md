@@ -5,6 +5,8 @@ subtitle:   "Imogiri located at mid-eastern part of Yogyakarta. People know it b
 date:       2015-08-23 04:03:00
 author:     "wiseodd"
 header-img: "img/2015-08-23-imogiri-hike/bg.jpg"
+category:   travel
+tags:       [indonesia, hiking]
 ---
 
 Imogiri, best known for Mataram Sultanate's Royal Tombs, turns out has a lot to offer for hikers. Eastern Imogiri is a hilly, mountainous area. And there, where a lot of great lookouts reside.
@@ -25,7 +27,7 @@ This is the "Kebun Buah Mangunan"'s peak. It's overlooked the Oyo river valley. 
 
 You could drive through the orchard, up until just before the peak. But, where's the fun in that? So, I hiked from the enterance instead. The trail was not long. It's only about 0.5-1 km, with some serious climb. I guess so few people use the trail to the point they made a road access to the summit.
 
-The second place, is the pine forest, some 2-3km from Mangunan Orchard. It was a great forest, but without a hiking trail. A lot of casual people picnicing here. So it's a meh for me. 
+The second place, is the pine forest, some 2-3km from Mangunan Orchard. It was a great forest, but without a hiking trail. A lot of casual people picnicing here. So it's a meh for me.
 
 ![Imogiri]({{ site.baseurl }}/img/2015-08-23-imogiri-hike/04.jpg)
 
@@ -35,7 +37,7 @@ However, up at the hill from the forest, there is an lookout, attached to a big 
 
 ![Imogiri]({{ site.baseurl }}/img/2015-08-23-imogiri-hike/06.jpg)
 
-Next destination is the pine forest peak, Becici. I don't know who gave that name, but I guess it was the first name that crossed the namer's mind. Whatever. 
+Next destination is the pine forest peak, Becici. I don't know who gave that name, but I guess it was the first name that crossed the namer's mind. Whatever.
 
 Becici is around 1-2 km from the pine forest. This place has a hiking trail. But, just like Mangunan Orchard, it's short. Only took me 5-10 minutes to the top.
 
@@ -53,6 +55,6 @@ There are also some cliche platform, used by teenagers to take photos. There is 
 
 As a remark, I found that Imogiri offers a lot of great sceneries. Although the trails are somewhat underwhelming, the vistas alone are worth it.
 
-For next week's hike, I'm thinking of Kosakora Peak, in Drini beach, south-eastern Gunung Kidul, some 65km from my home. I hope not only the scenery, but also the trail is good there. 
+For next week's hike, I'm thinking of Kosakora Peak, in Drini beach, south-eastern Gunung Kidul, some 65km from my home. I hope not only the scenery, but also the trail is good there.
 
 Afterall, the most important thing in one's life is the process, not merely just the result. You could take a shortcut, hurt the competitors, and cheats. And you will still get the result. But does it feel fullfilling?

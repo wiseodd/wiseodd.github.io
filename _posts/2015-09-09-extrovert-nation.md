@@ -5,6 +5,7 @@ subtitle:   "In this Extrovert Nation, there is one question everybody asks when
 date:       2015-09-09 08:23:00
 author:     "wiseodd"
 header-img: "img/2015-09-09-extrovert-nation/bg.jpg"
+category:   musing
 ---
 
 "Are you alone?", that's the question I'm always asked whenever I was doing things solo. And I always reply that question with short "Yes" and some smile.
@@ -35,6 +36,6 @@ Because they have no insecurity. Because their mind is free. Only insecure peopl
 
 It's also the proof that what we think now, our insecurities now, are baseless. They're just the children of society brain washer. Insecurities would only hamper our progress, and make us dysfunctional.
 
-So, for my present self + 1 and my older self, I will say this to you: 
+So, for my present self + 1 and my older self, I will say this to you:
 
 <blockquote>Do what the fuck you think is right, as long you're not hurting anybody or anything</blockquote>

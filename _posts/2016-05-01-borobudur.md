@@ -5,6 +5,8 @@ subtitle:   "I've got a chance to be there again after more than 15 years. Time 
 date:       2016-05-01 05:54
 author:     "wiseodd"
 header-img: "img/2016-05-01-borobudur/bg.jpg"
+category:   travel
+tags:       [indonesia, photo essay]
 ---
 
 When I was still in school, I learned many things about Indonesia. Its geography, history, sociology, culture, and many more. One thing that we're proud of is Borobudur temple. I've always been told that it's one of the seven wonders of the world, and that it's the biggest temple in the world.

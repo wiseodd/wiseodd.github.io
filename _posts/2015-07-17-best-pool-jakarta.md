@@ -5,6 +5,7 @@ subtitle:   "Recently I finally found the best swimming pool in Jakarta. Which o
 date:       2015-07-17 10:43:00
 author:     "wiseodd"
 header-img: "img/2015-07-17-best-pool-jakarta/bg.jpg"
+category:   musing
 ---
 
 It's funny. Well, I guess it's true that the good things only happen at the end. Just when I start counting the day until I leave this city (Jakarta) for good, I found what I think is the best swimming pool in Jakarta.  Mind you, this comes from my small sample size, because obviously I haven't tried every single goddamn pool in Jakarta. But for me, the quality is really good.

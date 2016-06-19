@@ -5,6 +5,8 @@ subtitle:   "Rejection is always painful, but it's for the greater good! You can
 date:       2015-10-21 10:45:00
 author:     "wiseodd"
 header-img: "img/bayes.png"
+category:   tech
+tags:       [machine learning, programming, python]
 ---
 
 Rejection Sampling is one of the simplest sampling algorithm. Every introductory text about Monte Carlo method use this algorithm as a first example. The de facto example of this is to approximate pi.
@@ -13,7 +15,7 @@ As with MCMC method like Metropolis-Hastings and Gibbs Sampling, Rejection Sampl
 
 For clearer picture, let's dive into the code.
 
-    
+
 ``` python
 import numpy as np
 import scipy.stats as st
@@ -80,6 +82,6 @@ Given a long time to run and generating samples, then it will converge to `P(x)`
 
 Recall that our target distribution that we used in Rejection Sampling is unnormalized. However, given the samples, we could reconstruct the proper distribution. So normalization doesn't really matter. The requirement of the target distribution hence relaxed, we just need a function proportional to our true target distribution.
 
-Rejection Sampling sure is simple. But it has some drawback. We have to have pretty good heuristic on choosing the proposal distribution `Q(x)`. It has to envelope the target distribution. Given a complicated target distribution, it's hard to know the shape, and it's hard to choose the proposal distribution. 
+Rejection Sampling sure is simple. But it has some drawback. We have to have pretty good heuristic on choosing the proposal distribution `Q(x)`. It has to envelope the target distribution. Given a complicated target distribution, it's hard to know the shape, and it's hard to choose the proposal distribution.
 
 Also when computing the scaling factor, we have to be careful to make it "just enough" enveloping the target distribution, as the rejection rate will be proportional to the ratio of `P(x)` and `Q(x)`. Having a really big `Q(x)` sure envelop the `P(x)`, but it also means that there are a lot of wasted space that the algorithm will reject, which means a wasted computational time.

@@ -5,6 +5,8 @@ subtitle:   "My experience on building this blog using Wagtail CMS, with zero Dj
 date:       2015-06-22 12:51:00
 author:     "wiseodd"
 header-img: "img/2015-06-21-wagtail-dev-env/wagtail.jpg"
+category:   tech
+tags:       [python, programming, web]
 ---
 
 Now that we’ve set our Wagtail development environment up, we’re ready to actually write our code. Now, Wagtail is unlike Wordpress and such, where all you have to do is just use their admin panel, and everything will be set up for you. Wagtail is actually just give you foundation, and how you build your site/blog is entirely up to you. There are of course pros and cons. On one side, you have so much flexibility and customizability. On the other side, if you’re not familiar with Django or web development in general, the learning curve could be a bit steep. Nevertheless, actually I really like how Wagtail provide us developers bare minimum CMS that could be extended and customize as we like. Let’s get started!

@@ -4,7 +4,9 @@ title:      "Twitter Authentication with Tweepy and Flask"
 subtitle:   "A tutorial on how to do Twitter OAuth authentication in Flask web application."
 date:       2015-08-29 09:46:00
 author:     "wiseodd"
-header-img: ""
+header-img: "img/code.png"
+category:   tech
+tags:       [python, programming, web]
 ---
 
 Recently, I created an app using Flask for the first time. The app uses Twitter API to get the data, where user could log in with her Twitter account, and she will get the report she needs. Here's the app: <http://responsetime.thirdworldnomad.com>.

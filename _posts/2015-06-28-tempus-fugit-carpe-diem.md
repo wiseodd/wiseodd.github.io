@@ -5,9 +5,10 @@ subtitle:   "Time flies, hence seize the day! Aka, life is too short to not doin
 date:       2015-06-28 04:19:00
 author:     "wiseodd"
 header-img: "img/2015-06-28-tempus-fugit-carpe-diem/sunflower.jpg"
+category:   musing
 ---
 
-Yesterday, I and my friend did something amazing. We were being productive! Now, I know, it’s not something people commonly think as an achievement. But for us software developers, it’s actually a big deal. We’re known to be some lazy ass, you see, because all of the distractions you can face, mostly come from our workspace and tools, aka computer connected to the internet. Be it in the form of Reddit, video games, Youtube, you name it! It’s not a coincidence that, in my observation, developers are the one who procrastinate more. 
+Yesterday, I and my friend did something amazing. We were being productive! Now, I know, it’s not something people commonly think as an achievement. But for us software developers, it’s actually a big deal. We’re known to be some lazy ass, you see, because all of the distractions you can face, mostly come from our workspace and tools, aka computer connected to the internet. Be it in the form of Reddit, video games, Youtube, you name it! It’s not a coincidence that, in my observation, developers are the one who procrastinate more.
 
 We’ve been planning to develop this app, a Hacker News reader for Android. Granted, there are a lot of them already. But, I don’t find any of them suitable for me. We want my app tailored to my needs and desire. We want it to use material design to its fullest glory. We want it to suitable to my reading workflow. So, we develop one. It’s not about money, or those stars and ratings in Google Play Store. It’s about us, first and foremost, and we’re open sourcing it.
 

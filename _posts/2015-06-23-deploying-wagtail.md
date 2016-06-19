@@ -5,6 +5,8 @@ subtitle:   "In this post, I'll show you how to deploy our blog and how to solve
 date:       2015-06-23 01:39:00
 author:     "wiseodd"
 header-img: "img/2015-06-21-wagtail-dev-env/wagtail.jpg"
+category:   tech
+tags:       [python, programming, wagtail, web]
 ---
 
 Today we'll talk about deployment. Yay? We software developers often don't like to deal with deployment. Let the dev ops do that! Our job is to code, not dealing with the production server! Yes? Well, no. We, software developers, should be a T shaped person. Meaning that we should have a broad knowledge, but we are specialized in one or two skills. So, actually, being able to deploy our application on our own is a very good thing, even we might not the best person to do it.

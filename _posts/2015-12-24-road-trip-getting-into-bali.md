@@ -5,6 +5,8 @@ subtitle:   "Jember, Banyuwangi, crossing the strait, and ultimately, Ubud"
 date:       2015-12-26 11:35:00
 author:     "wiseodd"
 header-img: "img/2015-12-26-road-trip-getting-into-bali/bg.jpg"
+category:   travel
+tags:       [indonesia]
 ---
 
 With Malang behind, it was the time to go further east, and eventually get into our final destination: Bali. From Malang to Bali, we needed three days to make it there. First day was Malang to Jember, then Jember to Banyuwangi, and ultimately, Banyuwangi - Ubud.
@@ -51,7 +53,7 @@ After some 30 minutes of crossing, we arrived in Gilimanuk, Bali. There's a curi
 
 <h2 class="section-header">Gilimanuk to Ubud</h2>
 
-From the harbor there are two road going into the heart of Bali. First, the southern road that goes directly to Denpasar, and second, the norther road that goes to Singaraja, the old capital of Bali, then one can go south through the central highland to Denpasar. 
+From the harbor there are two road going into the heart of Bali. First, the southern road that goes directly to Denpasar, and second, the norther road that goes to Singaraja, the old capital of Bali, then one can go south through the central highland to Denpasar.
 
 ![DayThree]({{ site.baseurl }}/img/2015-12-26-road-trip-getting-into-bali/03.png)
 
@@ -68,14 +70,14 @@ The dish didn't disappoint. It's sooo delicious!
 
 ![DayThree]({{ site.baseurl }}/img/2015-12-26-road-trip-getting-into-bali/04.jpg)
 
-Several things I noticed when first entering Bali from Java. 
+Several things I noticed when first entering Bali from Java.
 
 First, there are a lot, I mean A LOT of food stalls that put "Pork" sign in front of their shops. This is unheard of in the rest of Indonesian region. Bali is the only province where Muslim is not the majority. The majority of Balinese are Hindu, so there's no such thing as abstinence of pork. Well, I'm starting to like this place.
 
-Second, which is related to the first point, I noticed that the majority of bakso stalls here don't sell the usual bakso: beef bakso. Instead, they sell chicken bakso. Cows in Hindu are sacred animals, so naturally they don't sell beef bakso. 
+Second, which is related to the first point, I noticed that the majority of bakso stalls here don't sell the usual bakso: beef bakso. Instead, they sell chicken bakso. Cows in Hindu are sacred animals, so naturally they don't sell beef bakso.
 
 Alright, so back to the journey to Ubud. After Singaraja, we went southbound through the central highland of Bali. This was the highlight of the Gilimanuk - Ubud trip. The air was cold, the scenery was astonishing, perfect. When we cross the central highland, the weather was so clear, I could see the magnificent Mt. Agung and Mt. Batur in the east. That time, I vowed that I will be back in a couple days to see them again.
 
-Anyway, about 80 km later from Singaraja, we arrived at Ubud. First impression: nothing special, just like any other small town in Indonesia. Granted I hadn't saw the downtown, as our homestay was in the outskirt of the town. So, I guess I'll see it later. I got a lot of time to do that, as we decided to stay in Ubud for five nights. 
+Anyway, about 80 km later from Singaraja, we arrived at Ubud. First impression: nothing special, just like any other small town in Indonesia. Granted I hadn't saw the downtown, as our homestay was in the outskirt of the town. So, I guess I'll see it later. I got a lot of time to do that, as we decided to stay in Ubud for five nights.
 
 With Ubud as our base for exploring Bali, next we will explore the Ubud downtown, then the other Balinese towns like Bedugul, Kuta, etc.

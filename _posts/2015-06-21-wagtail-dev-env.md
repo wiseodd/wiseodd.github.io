@@ -5,6 +5,8 @@ subtitle:   "My experience on building a blog using Wagtail CMS, with zero Djang
 date:       2015-06-21 06:52:00
 author:     "wiseodd"
 header-img: "img/2015-06-21-wagtail-dev-env/wagtail.jpg"
+category:   tech
+tags:       [python, programming, web]
 ---
 
 Wagtail is a CMS, made on top of Django framework. Why Wagtail, you ask. Well first thing first, Python is my favorite programming language, and naturally I’ll look building a website using Django. I’ve researched a bit about what CMS to use with Django, and I found there are three CMS-es out there that are stand out from the rest: Django-CMS, Mezzanine, and Wagtail. I chose Wagtail simply because I think it has the most modern look, easy to customize, and has this killer feature, StreamField.
@@ -28,7 +30,7 @@ Now we’ll install virtualenv. This is not necessary, but will improve our deve
 ``` bash
 sudo pip install virtualenv virtualenvwrapper
 ```
-    
+
 And then, register virtualenvwrapper to our shell. Add these lines to your `.bashrc` (Ubuntu) or `.zshrc` (OSX).
 
 ``` bash
@@ -75,7 +77,7 @@ Now we’re inside PostgreSQL shell. We’ll create the user, then grant the per
 ``` sql
 CREATE ROLE yourblogname WITH PASSWORD ‘yourpassword’
 GRANT ALL PRIVILEGES ON DATABASE yourblogname TO yourblogname
-```   
+```
 
 Then use `CTRL+D` to exit psql and type `exit` to exit user postgres’ shell.
 
@@ -112,7 +114,7 @@ One of the problem I encountered was because I set `HOST` to be empty, which in 
 ```
 FATAL: Peer authentication failed for user “yourblogname"
 ```
-    
+
 So, make sure to fill `HOST` with `localhost` or `127.0.0.1`
 
 After that, we’ll write our initial database to PostgreSQL:

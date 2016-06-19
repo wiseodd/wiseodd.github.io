@@ -5,6 +5,8 @@ subtitle:   "What's working and what will I do differently for the next leg."
 date:       2016-04-23 05:06
 author:     "wiseodd"
 header-img: "img/2016-04-23-three-months-retrospective/bg.jpg"
+category:   travel
+tags:       [digital nomad]
 ---
 
 Three months ago, I left Indonesia for my journey. It was a big decision, and I felt afraid and uncertain when I first boarded the plane to the foreign land. Have it changed? Or am I still feeling that? Do I regret my choice? Am I a fool to leave my very comfortable cushion? A lot of question to be answered. I certainly want to know the answer, to understand my feeling better.
