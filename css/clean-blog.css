@@ -4,6 +4,7 @@ body {
   color: #404040;
   line-height: 1.75;
 }
+
 @media only screen and (min-width: 480px) {
   body {
     font-size: 18px;
@@ -31,10 +32,6 @@ a {
 a:hover,
 a:focus {
   color: #0085a1;
-}
-a img:hover,
-a img:focus {
-  cursor: zoom-in;
 }
 blockquote {
   color: #808080;
@@ -221,28 +218,40 @@ hr.small {
   text-decoration: none;
   color: #0085a1;
 }
-.post-preview > a > .post-title {
+.post-preview > a .post-title {
   font-size: 30px;
-  margin-top: 30px;
   margin-bottom: 10px;
 }
-.post-preview > a > .post-subtitle {
+
+@media only screen and (max-width : 768px) {
+  .post-preview > a .post-title {
+    margin-top: 30px;
+  }
+}
+
+@media only screen and (min-width : 768px) {
+  .post-preview > a .post-title {
+    margin-top: 0;
+  }
+}
+
+.post-preview > a .post-subtitle {
   margin: 0;
   font-weight: 300;
   margin-bottom: 10px;
 }
-.post-preview > .post-meta {
+.post-preview .post-meta {
   color: #808080;
   font-size: 18px;
   font-style: italic;
   margin-top: 0;
 }
-.post-preview > .post-meta > a {
+.post-preview .post-meta > a {
   text-decoration: none;
   color: #404040;
 }
-.post-preview > .post-meta > a:hover,
-.post-preview > .post-meta > a:focus {
+.post-preview .post-meta > a:hover,
+.post-preview .post-meta > a:focus {
   color: #0085a1;
   text-decoration: underline;
 }

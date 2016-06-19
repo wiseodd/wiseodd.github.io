@@ -4,7 +4,6 @@ title:      "2016 Goals and Objectives"
 subtitle:   "My goals and objectives for the year of 2016"
 date:       2016-01-02 08:16:00
 author:     "wiseodd"
-header-img: "img/2016-01-02-2016-goals-objectives/bg.jpg"
 category:   musing
 ---
 
