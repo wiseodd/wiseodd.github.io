@@ -18,9 +18,19 @@
                 {% assign pages = site.pages | sort: 'weight' | reverse %}
 
                 {% for page in pages %}{% if page.title %}
-                <li>
-                    <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
-                </li>
+                    {% if page.title == "Third World Nomad's Travel Blog" %}
+                        <li>
+                            <a href="{{ page.url | prepend: site.baseurl }}">Travel Blog</a>
+                        </li>
+                    {% else if page.title == "Third World Nomad's Tech Blog" %}
+                        <li>
+                            <a href="{{ page.url | prepend: site.baseurl }}">Tech Blog</a>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+                        </li>
+                    {% endif %}
                 {% endif %}{% endfor %}
             </ul>
         </div>
