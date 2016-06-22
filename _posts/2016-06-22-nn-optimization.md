@@ -257,3 +257,11 @@ In this post we looked at the optimization algorithms for neural nets beyond SGD
 We also implement all of those methods in Python and Numpy with the use case of our neural nets stated in the [last post]({% post_url 2016-06-21-nn-sgd %}).
 
 Most of those methods above are currently implemented in the popular Deep Learning libraries like Tensorflow, Keras, and Caffe. However, Adam is currently the default recommended algorithm to be used.
+
+You could find the full code used in this post here: <https://gist.github.com/wiseodd/85ad008aef5585cec017f4f1e6d67a02>
+
+<h2 class="section-header">References</h2>
+
+* <http://cs231n.github.io/neural-networks-3/>
+* <http://sebastianruder.com/optimizing-gradient-descent/>
+* <https://arxiv.org/pdf/1412.6980.pdf>
