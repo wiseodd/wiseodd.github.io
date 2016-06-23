@@ -11,7 +11,7 @@ tags:       [machine learning, programming, python, neural networks, optimizatio
 
 Last time, we [implemented]({% post_url 2016-06-21-nn-sgd %}) Minibatch Gradient Descent to train our neural nets model. Using that post as the base, we will look into another optimization algorithms that are popular out there for training neural nets.
 
-For starter let's refresh our SGD code.
+I've since made an update to the last post's SGD codes. Mainly, making the algorithms to use random batch in each iteration, not the whole dataset. However, the problem set and the neural nets model are still the same. Let's refresh the code:
 
 ``` python
 def get_minibatch(X, y, minibatch_size):
@@ -29,12 +29,16 @@ def get_minibatch(X, y, minibatch_size):
 
 
 def sgd(model, X_train, y_train, minibatch_size):
-    for iter in range(n_iter):
-        for X_mini, y_mini in get_minibatch(X_train, y_train, minibatch_size):
-            grad = get_minibatch_grad(model, X_mini, y_mini)
+    minibatches = get_minibatch(X_train, y_train, minibatch_size)
 
-            for layer in grad:
-                model[layer] += alpha * grad[layer]
+    for iter in range(1, n_iter + 1):
+        idx = np.random.randint(0, len(minibatches))
+        X_mini, y_mini = minibatches[idx]
+
+        grad = get_minibatch_grad(model, X_mini, y_mini)
+
+        for layer in grad:
+            model[layer] += alpha * grad[layer]
 
     return model
 ```
@@ -58,11 +62,17 @@ def momentum(model, X_train, y_train, minibatch_size):
     velocity = {k: np.zeros_like(v) for k, v in model.items()}
     gamma = .9
 
-    grad = get_minibatch_grad(model, X_train, y_train)
+    minibatches = get_minibatch(X_train, y_train, minibatch_size)
 
-    for layer in grad:
-        velocity[layer] = gamma * velocity[layer] + alpha * grad[layer]
-        model[layer] += velocity[layer]
+    for iter in range(1, n_iter + 1):
+        idx = np.random.randint(0, len(minibatches))
+        X_mini, y_mini = minibatches[idx]
+
+        grad = get_minibatch_grad(model, X_mini, y_mini)
+
+        for layer in grad:
+            velocity[layer] = gamma * velocity[layer] + alpha * grad[layer]
+            model[layer] += velocity[layer]
 
     return model
 ```
@@ -82,14 +92,18 @@ def nesterov(model, X_train, y_train, minibatch_size):
     velocity = {k: np.zeros_like(v) for k, v in model.items()}
     gamma = .9
 
-    for iter in range(n_iter):
-        for X_mini, y_mini in get_minibatch(X_train, y_train, minibatch_size):
-            model_ahead = {k: v + gamma * velocity[k] for k, v in model.items()}
-            grad_ahead = get_minibatch_grad(model, X_mini, y_mini)
+    minibatches = get_minibatch(X_train, y_train, minibatch_size)
 
-            for layer in grad_ahead:
-                velocity[layer] = gamma * velocity[layer] + alpha * grad_ahead[layer]
-                model[layer] += velocity[layer]
+    for iter in range(1, n_iter + 1):
+        idx = np.random.randint(0, len(minibatches))
+        X_mini, y_mini = minibatches[idx]
+
+        model_ahead = {k: v + gamma * velocity[k] for k, v in model.items()}
+        grad = get_minibatch_grad(model, X_mini, y_mini)
+
+        for layer in grad:
+            velocity[layer] = gamma * velocity[layer] + alpha * grad[layer]
+            model[layer] += velocity[layer]
 
     return model
 ```
@@ -108,13 +122,17 @@ That's why Adagrad was invented. It's trying to solve that very problem.
 def adagrad(model, X_train, y_train, minibatch_size):
     cache = {k: np.zeros_like(v) for k, v in model.items()}
 
-    for iter in range(n_iter):
-        for X_mini, y_mini in get_minibatch(X_train, y_train, minibatch_size):
-            grad = get_minibatch_grad(model, X_mini, y_mini)
+    minibatches = get_minibatch(X_train, y_train, minibatch_size)
 
-            for k in grad:
-                cache[k] += grad[k]**2
-                model[k] += alpha * grad[k] / (np.sqrt(cache[k]) + eps)
+    for iter in range(1, n_iter + 1):
+        idx = np.random.randint(0, len(minibatches))
+        X_mini, y_mini = minibatches[idx]
+
+        grad = get_minibatch_grad(model, X_mini, y_mini)
+
+        for k in grad:
+            cache[k] += grad[k]**2
+            model[k] += alpha * grad[k] / (np.sqrt(cache[k]) + eps)
 
     return model
 ```
@@ -136,13 +154,17 @@ def rmsprop(model, X_train, y_train, minibatch_size):
     cache = {k: np.zeros_like(v) for k, v in model.items()}
     gamma = .9
 
-    for iter in range(n_iter):
-        for X_mini, y_mini in get_minibatch(X_train, y_train, minibatch_size):
-            grad = get_minibatch_grad(model, X_mini, y_mini)
+    minibatches = get_minibatch(X_train, y_train, minibatch_size)
 
-            for k in grad:
-                cache[k] = gamma * cache[k] + (1 - gamma) * (grad[k]**2)
-                model[k] += alpha * grad[k] / (np.sqrt(cache[k]) + eps)
+    for iter in range(1, n_iter + 1):
+        idx = np.random.randint(0, len(minibatches))
+        X_mini, y_mini = minibatches[idx]
+
+        grad = get_minibatch_grad(model, X_mini, y_mini)
+
+        for k in grad:
+            cache[k] = gamma * cache[k] + (1 - gamma) * (grad[k]**2)
+            model[k] += alpha * grad[k] / (np.sqrt(cache[k]) + eps)
 
     return model
 ```
@@ -160,22 +182,23 @@ def adam(model, X_train, y_train, minibatch_size):
     beta1 = .9
     beta2 = .999
 
+    minibatches = get_minibatch(X_train, y_train, minibatch_size)
+
     for iter in range(1, n_iter + 1):
-        minibatches = get_minibatch(X_train, y_train, minibatch_size)
+        t = iter
+        idx = np.random.randint(0, len(minibatches))
+        X_mini, y_mini = minibatches[idx]
 
-        for i, minibatch in enumerate(minibatches):
-            t = iter * len(X_train) / minibatch_size + i
-            X_mini, y_mini = minibatch
-            grad = get_minibatch_grad(model, X_mini, y_mini)
+        grad = get_minibatch_grad(model, X_mini, y_mini)
 
-            for k in grad:
-                M[k] = beta1 * M[k] + (1. - beta1) * grad[k]
-                R[k] = beta2 * R[k] + (1. - beta2) * grad[k]**2
+        for k in grad:
+            M[k] = beta1 * M[k] + (1. - beta1) * grad[k]
+            R[k] = beta2 * R[k] + (1. - beta2) * grad[k]**2
 
-                m_k_hat = M[k] / (1. - beta1**(t))
-                r_k_hat = R[k] / (1. - beta2**(t))
+            m_k_hat = M[k] / (1. - beta1**(t))
+            r_k_hat = R[k] / (1. - beta2**(t))
 
-                model[k] += alpha * m_k_hat / (np.sqrt(r_k_hat) + eps)
+            model[k] += alpha * m_k_hat / (np.sqrt(r_k_hat) + eps)
 
     return model
 ```
@@ -191,64 +214,51 @@ As for the recommended value for the hyperparameter: `beta1 = 0.9`, `beta2 = 0.9
 With our bag full of those algorithms, let's compare them using our previous problem in the last post. Here's the setup:
 
 ``` python
-n_iter = 10
+n_iter = 100
 eps = 1e-8  # Smoothing to avoid division by zero
 minibatch_size = 50
 n_experiment = 10
 ```
 
-We will run the algorithms to optimize our neural nets for 10 epochs each, and we repeat them 10 times and average the accuracy score.
+We will run the algorithms to optimize our neural nets for 100 epochs each, and we repeat them 3 times and average the accuracy score.
 
 ```
-alpha = 1e-1
+alpha = 0.5
 
-adam => mean accuracy: 0.81192, std: 0.050061657982931426
-momentum => mean accuracy: 0.66344, std: 0.11887259734690749
-nesterov => mean accuracy: 0.66584, std: 0.159242627458856
-rmsprop => mean accuracy: 0.7908, std: 0.033771467246775065
-adagrad => mean accuracy: 0.8490400000000001, std: 0.027404058093647377
-sgd => mean accuracy: 0.6821599999999999, std: 0.12054492274666735
+sgd => mean accuracy: 0.4061333333333333, std: 0.15987773105998498
+adam => mean accuracy: 0.8607999999999999, std: 0.015892975387468082
+nesterov => mean accuracy: 0.47680000000000006, std: 5.551115123125783e-17
+rmsprop => mean accuracy: 0.8506666666666667, std: 0.007224649164876814
+adagrad => mean accuracy: 0.8754666666666667, std: 0.002639865316429748
+momentum => mean accuracy: 0.3152, std: 0.11427592339012915
 
 ========================================================================
 
 alpha = 1e-2
 
-adam => mean accuracy: 0.83528, std: 0.02985715324675144
-rmsprop => mean accuracy: 0.8205600000000001, std: 0.05306967495660776
-adagrad => mean accuracy: 0.8769600000000001, std: 0.0033139704283532898
-nesterov => mean accuracy: 0.83536, std: 0.042490168274554985
-momentum => mean accuracy: 0.81888, std: 0.05180912660912169
-sgd => mean accuracy: 0.85312, std: 0.0353762858423549
+nesterov => mean accuracy: 0.8621333333333334, std: 0.024721021194297126
+rmsprop => mean accuracy: 0.8727999999999999, std: 0.010182337649086262
+sgd => mean accuracy: 0.8784000000000001, std: 0.0026127890589687525
+adam => mean accuracy: 0.8709333333333333, std: 0.01112993960251158
+momentum => mean accuracy: 0.8554666666666666, std: 0.016657597532524156
+adagrad => mean accuracy: 0.8786666666666667, std: 0.001359738536958064
 
 ========================================================================
 
-alpha = 1e-3
+alpha = 1e-5
 
-adagrad => mean accuracy: 0.5316799999999999, std: 0.19887176169582246
-nesterov => mean accuracy: 0.82488, std: 0.050814108277131065
-momentum => mean accuracy: 0.7992, std: 0.045157147828444606
-sgd => mean accuracy: 0.8492000000000001, std: 0.0362131467840065
-adam => mean accuracy: 0.8765599999999999, std: 0.00561198717033458
-rmsprop => mean accuracy: 0.87808, std: 0.0014399999999999919
-
-========================================================================
-
-alpha = 1e-4
-
-momentum => mean accuracy: 0.87088, std: 0.00803352973480524
-sgd => mean accuracy: 0.87704, std: 0.00605098339115223
-nesterov => mean accuracy: 0.8702400000000001, std: 0.010048203819588868
-adam => mean accuracy: 0.69864, std: 0.13776782788445205
-rmsprop => mean accuracy: 0.6181600000000002, std: 0.18813409685647098
-adagrad => mean accuracy: 0.37592, std: 0.19744980526706024
+adagrad => mean accuracy: 0.504, std: 0.2635737973825673
+sgd => mean accuracy: 0.6509333333333334, std: 0.1101414040626362
+nesterov => mean accuracy: 0.8666666666666667, std: 0.016110727964792775
+rmsprop => mean accuracy: 0.30693333333333334, std: 0.028898596659507347
+momentum => mean accuracy: 0.8613333333333334, std: 0.02526728231439929
+adam => mean accuracy: 0.43039999999999995, std: 0.0842928229447798
 
 ```
 
 Using large value for the learning rate, the adaptive learning rate methods are the winner here.
 
-However, the opposite happens when we're using small learning rate value e.g. `1e-4`. It's small enough for vanilla SGD and momentum based methods to perform well. On the other hand, as the learning rate is already very small, and we normalizes it in the adaptive learning rate methods, it becomes even smaller, which impacting the convergence rate. It makes the learning becomes really slow and they perform worse than the vanilla SGD with the same number of iteration.
-
-We found that the learning rate sweet spot for Adagrad is at `1e-2`, while for RMSprop and Adam, it's at `1e-3`, just as the author stated in the paper.
+However, the opposite happens when we're using small learning rate value e.g. `1e-5`. It's small enough for vanilla SGD and momentum based methods to perform well. On the other hand, as the learning rate is already very small, and we normalizes it in the adaptive learning rate methods, it becomes even smaller, which impacting the convergence rate. It makes the learning becomes really slow and they perform worse than the vanilla SGD with the same number of iteration.
 
 <h2 class="section-header">Conclusion</h2>
 
