@@ -145,7 +145,7 @@ def lstm_backward(prob, y_train, d_next, cache):
     # As X was used in multiple gates, the gradient must be accumulated here
     dX = dXo + dXc + dXi + dXf
     # Split the concatenated X, so that we get our gradient of h_old
-    dh_next = dX[:, :self.H]
+    dh_next = dX[:, :H]
     # Gradient for c_old in c = hf * c_old + hi * hc
     dc_next = hf * dc
 
@@ -171,7 +171,7 @@ With the forward and backward computation implementations in hands, we could sti
 This training step consists of three steps: forward computation, loss calculation, and backward computation.
 
 ``` python
-def train_step(self, X_train, y_train, state):
+def train_step(X_train, y_train, state):
     probs = []
     caches = []
     loss = 0.
@@ -180,8 +180,8 @@ def train_step(self, X_train, y_train, state):
     # Forward Step
 
     for x, y_true in zip(X_train, y_train):
-        prob, state, cache = self.forward(x, state, train=True)
-        loss += cross_entropy(model, prob, y_true)
+        prob, state, cache = lstm_forward(x, state, train=True)
+        loss += cross_entropy(prob, y_true)
 
         # Store forward step result to be used in backward step
         probs.append(prob)
@@ -194,11 +194,11 @@ def train_step(self, X_train, y_train, state):
 
     # Gradient for dh_next and dc_next is zero for the last timestep
     d_next = (np.zeros_like(h), np.zeros_like(c))
-    grads = {k: np.zeros_like(v) for k, v in self.model.items()}
+    grads = {k: np.zeros_like(v) for k, v in model.items()}
 
     # Go backward from the last timestep to the first
     for prob, y_true, cache in reversed(list(zip(probs, y_train, caches))):
-        grad, d_next = self.backward(prob, y_true, d_next, cache)
+        grad, d_next = lstm_backward(prob, y_true, d_next, cache)
 
         # Accumulate gradients from all timesteps
         for k in grads.keys():
