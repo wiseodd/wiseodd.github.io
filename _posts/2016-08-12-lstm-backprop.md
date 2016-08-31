@@ -107,7 +107,7 @@ def lstm_backward(prob, y_train, d_next, cache):
 
     # Gradient for ho in h = ho * tanh(c)
     dho = tanh(c) * dh
-    dho = dsigmoid(dh) * dho
+    dho = dsigmoid(ho) * dho
 
     # Gradient for c in h = ho * tanh(c), note we're adding dc_next here
     dc = ho * dh + dc_next
