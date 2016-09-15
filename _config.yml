@@ -1,10 +1,10 @@
 # Site settings
-title: "Third World Nomad"
+title: "Agustinus Kristiadi's Blog"
 header-img: "img/home-bg.jpg"
 email: "kristiadi7@gmail.com"
-description: "Thoughts, photo essays, field reports, and tech blogs of a third world, nomad, software engineer"
+description: "Thoughts, photo essays, field reports, and tech blogs!"
 baseurl: ""
-url: "http://thirdworldnomad.com"
+url: "http://wiseodd.github.io"
 twitter_username: "wiseodd"
 github_username: "wiseodd"
 facebook_username: "agustinus.kristiadi7"
