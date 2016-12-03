@@ -2,7 +2,7 @@
 layout:     post
 title:      "Many flavors of Autoencoder"
 subtitle:   "Autoencoder is a family of methods that answers the problem of data reconstruction using neural net. There are several variation of Autoencoder: sparse, multilayer, and convolutional. In this post, we will look at those different kind of Autoencoders and learn how to implement them with Keras."
-date:       2016-12-03 12:30
+date:       2016-12-03 12:20
 author:     "wiseodd"
 header-img: "img/code.png"
 category:   techblog
