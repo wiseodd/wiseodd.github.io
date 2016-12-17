@@ -9,7 +9,7 @@ category:   techblog
 tags:       [programming, python, neuralnet]
 ---
 
-There are two generative models facing neck to neck in the data generation business right now: [Generative Adversarial Nets (GAN)]() and Variational Autoencoder (VAE). These two models have different take on how the models are trained. GAN is rooted in game theory, its objective is to find the Nash Equilibrium between discriminator net and generator net. On the other hand, VAE is rooted in bayesian inference, i.e. it wants to model the underlying probability distribution of data so that it could sample new data from that distribution.
+There are two generative models facing neck to neck in the data generation business right now: [Generative Adversarial Nets (GAN)]({% post_url 2016-09-17-gan-tensorflow %}) and Variational Autoencoder (VAE). These two models have different take on how the models are trained. GAN is rooted in game theory, its objective is to find the Nash Equilibrium between discriminator net and generator net. On the other hand, VAE is rooted in bayesian inference, i.e. it wants to model the underlying probability distribution of data so that it could sample new data from that distribution.
 
 In this post, we will look at the intuition of VAE model and its implementation in Keras.
 
@@ -31,7 +31,7 @@ Let's define some notions:
 
 Our objective here is to model the data, hence we want to find \\( P(X) \\). Using the law of probability, we could find it in relation with \\( z \\) as follows:
 
-$$ P(X) = \int P(X \vert z) P(z) dz $$
+\\[ P(X) = \int P(X \vert z) P(z) dz \\]
 
 that is, we marginalize out \\( z \\) from the joint probability distribution \\( P(X, z) \\).
 
@@ -91,7 +91,7 @@ At this point, what do we have? Let's enumerate:
 2. \\( z \\), the latent variable
 3. \\( P(X \vert z) \\) that generate data given latent variable
 
-We might feel familiar with this kind of structure. And guess what, it's the same structure as seen in [Autoencoder]()! That is, \\( Q(z \vert X) \\) is the encoder net, \\( z \\) is the encoded representation, and \\( P(X \vert z) \\) is the decoder net! Well, well, no wonder the name of this model is Variational Autoencoder!
+We might feel familiar with this kind of structure. And guess what, it's the same structure as seen in [Autoencoder]({% post_url 2016-12-03-autoencoders %})! That is, \\( Q(z \vert X) \\) is the encoder net, \\( z \\) is the encoded representation, and \\( P(X \vert z) \\) is the decoder net! Well, well, no wonder the name of this model is Variational Autoencoder!
 
 
 <h2 class="section-header">VAE: Dissecting the Objective</h2>
