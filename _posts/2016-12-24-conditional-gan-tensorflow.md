@@ -148,6 +148,8 @@ In this post, we looked at the analogue of CVAE for GAN: the Conditional GAN (CG
 
 The conditional variables for CGAN, just like CVAE, could be anything. Hence it makes CGAN an interesting model to work with for data modeling.
 
+The full code is available at my GitHub repo: <https://github.com/wiseodd/generative-models>.
+
 
 <h2 class="section-header">References</h2>
 
