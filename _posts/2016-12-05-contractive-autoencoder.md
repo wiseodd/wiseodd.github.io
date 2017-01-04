@@ -51,7 +51,7 @@ It looks familiar, doesn't it? Because it's exactly how we calculate gradient. T
 
 Let \\( diag(x) \\) be a diagonal matrix, the matrix form of the above derivative is as follows:
 
-$$ \frac{\partial h}{\partial X} = diag[h(1 - h] \, W^T $$
+$$ \frac{\partial h}{\partial X} = diag[h(1 - h)] \, W^T $$
 
 We need to form a diagonal matrix of the gradient of \\( h \\) because if we look carefully at the original equation, the first term doesn't depend on \\( i \\). Hence, for all values of \\( W_i \\), we want to multiply it with the correspondent \\( h_j \\). And the nice way to do that is to use diagonal matrix.
 
