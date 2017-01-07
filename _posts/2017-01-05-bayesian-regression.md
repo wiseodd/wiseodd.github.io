@@ -85,7 +85,7 @@ $$ \begin{align}
 
 W_{MLE} &= \mathop{\rm arg\,max}\limits_{W} \frac{1}{2} (\hat{y} - W^Tx)^2 \\[10pt]
         &= \mathop{\rm arg\,max}\limits_{W} \frac{1}{2} \sum_i (\hat{y}_i - W_i x_i)^2 \\[10pt]
-        &= \mathop{\rm arg\,max}\limits_{W} \frac{1}{2} \Vert \hat{y}_i - W_i x_i \Vert^2_2
+        &= \mathop{\rm arg\,max}\limits_{W} \frac{1}{2} \Vert \hat{y} - W^Tx \Vert^2_2
 
 \end{align} $$
 
