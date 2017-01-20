@@ -13,7 +13,7 @@ With Malang behind, it was the time to go further east, and eventually get into 
 
 ![DayThree]({{ site.baseurl }}/img/2015-12-26-road-trip-getting-into-bali/00.png)
 
-<h2 class="section-header">Jember</h2>
+<h2 class="section-heading">Jember</h2>
 
 Looking at Google Maps, I shuddered. Malang to Banyuwangi is 300 km road trip. Well, 300 km everyday won't do me any good. In this road trip, the only one who drive is me. So, nope, didn't want to.
 
@@ -31,7 +31,7 @@ Even so, I like Jember better than Malang though. From the beginning when we ent
 
 Well, nothing too crazy about our stay in Jember. We just spend a night rest, then went forward the following day.
 
-<h2 class="section-header">Banyuwangi</h2>
+<h2 class="section-heading">Banyuwangi</h2>
 
 Banyuwangi (specifically Ketapang) is the crossing point from Java to Bali. Banyuwangi itself is a cool little city. It's clean, calm, and nice. It's also not crowded. You could guess what I feel about Banyuwangi.
 
@@ -51,7 +51,7 @@ Anyway, it was 11:30 AM, we finally went inside the ship's belly. Phew. So, what
 
 After some 30 minutes of crossing, we arrived in Gilimanuk, Bali. There's a curious event there before we left the harbor. There were two checkpoints in the harbor. Everyone that leaves the harbor must be checked. First, it was a checkpoint for driving license and vehicle document. Second, it was a checkpoint for our ID cards. Curious, right? Why did we need to be checked? It's not like we're crossing a border or something.
 
-<h2 class="section-header">Gilimanuk to Ubud</h2>
+<h2 class="section-heading">Gilimanuk to Ubud</h2>
 
 From the harbor there are two road going into the heart of Bali. First, the southern road that goes directly to Denpasar, and second, the norther road that goes to Singaraja, the old capital of Bali, then one can go south through the central highland to Denpasar.
 

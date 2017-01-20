@@ -15,7 +15,7 @@ However, we have no control on the data generation process on VAE. This could be
 
 Hence, CVAE [1] was developed. Whereas VAE essentially models latent variables and data directly, CVAE models lantent variables and data, both conditioned to some random variables.
 
-<h2 class="section-header">Conditional Variational Autoencoder</h2>
+<h2 class="section-heading">Conditional Variational Autoencoder</h2>
 
 Recall, on VAE, the objective is:
 
@@ -38,7 +38,7 @@ i.e. we just conditioned all of the distributions with a variable \\( c \\).
 Now, the real latent variable is distributed under \\( P(z \vert c ) \\). That is, it's now a conditional probability distribution (CPD). Think about it like this: for each possible value of \\( c \\), we would have a \\( P(z) \\). We could also use this form of thinking for the decoder.
 
 
-<h2 class="section-header">CVAE: Implementation</h2>
+<h2 class="section-heading">CVAE: Implementation</h2>
 
 The conditional variable \\( c \\) could be anything. We could assume it comes from a categorical distribution expressing the label of our data, gaussian expressing some regression target, or even the same distribution as the data (e.g. for image inpainting: conditioning the model to incomplete image).
 
@@ -108,7 +108,7 @@ def vae_loss(y_true, y_pred):
 For the full explanation of the code, please refer to my [original VAE post]({% post_url 2016-12-10-variational-autoencoder %}). The full code could be found in my Github repo: <https://github.com/wiseodd/generative-models>.
 
 
-<h2 class="section-header">Conditional MNIST</h2>
+<h2 class="section-heading">Conditional MNIST</h2>
 
 We will test our CVAE model to generate MNIST data, conditioned to its label. With the above model, we could specify which digit we want to generate, as it is conditioned to the label!
 
@@ -129,7 +129,7 @@ Subjectively, we could say the reconstruction results are way better than the or
 Now the interesting part. We could generate a new data under our specific condition. Above, for example, we generate new data which has the label of '5', i.e. \\( c = [0, 0, 0, 0, 0, 1, 0, 0, 0, 0] \\). CVAE make it possible for us to do that.
 
 
-<h2 class="section-header">Conclusion</h2>
+<h2 class="section-heading">Conclusion</h2>
 
 In this post, we looked at the extension of VAE, the Conditional VAE (CVAE).
 
@@ -139,7 +139,7 @@ We also noticed that by conditioning our MNIST data to their labels, the reconst
 
 Finally, CVAE could be conditioned to anything we want, which could result on many interesting applications, e.g. image inpainting.
 
-<h2 class="section-header">References</h2>
+<h2 class="section-heading">References</h2>
 
 1. Sohn, Kihyuk, Honglak Lee, and Xinchen Yan. “Learning Structured Output Representation using Deep Conditional Generative Models.” Advances in Neural Information Processing Systems. 2015.
 

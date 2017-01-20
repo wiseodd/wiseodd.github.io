@@ -39,7 +39,7 @@ Here's the wonder of bus terminal in Myanmar. In contrast with the terminal cond
 
 Anyway, my bus was really good. It was spacious. The bus company treated my well. They provided me with a blanket, box of snacks, a bottle of mineral water, and a bottle of energy drink (huh?). The suspension system was really good, especially for Burmese road (it's super important!).
 
-<h2 class="section-header">Mandalay to Myawaddy</h2>
+<h2 class="section-heading">Mandalay to Myawaddy</h2>
 
 After several hours moving, we were nearing the Myanmar new capital: Naypyidaw when we did a toilet and dinner stop. The scary thing about Myanmar bus ride is that they only give you 20 minutes. Sharp. If you don't come back to your seat after 20 minutes, they will just leave without you. Hence I just used the toilet and waited literally hugging my bus.
 
@@ -51,7 +51,7 @@ Waking up at 7AM, I found myself just one city before the border! At that time, 
 
 At 8AM, I was there! In Myawaddy! They said that the reason why we just need one hour to reach Myawaddy is because of the new highway. Before this, they needed about 4 hours! Even worse, the traffic was alternating every day, for example today the road will only accepts the traffic to Myawaddy and tomorrow it will be the opposite, never both.
 
-<h2 class="section-header">Crossing the Border</h2>
+<h2 class="section-heading">Crossing the Border</h2>
 
 After the bus stopped at field (I mean, bus terminal), I walked a bit to the border itself. First, I was looking for money changer, but every money changer there won't accept Myanmar Kyat. To make it even worse, Kyat can't be traded outside Myanmar. So my remaining Kyat is void now, until I come back to Myanmar again.
 
@@ -71,7 +71,7 @@ And I'm done with the immigration!
 
 Welcome to Mae Sot, Thailand.
 
-<h2 class="section-header">Mae Sot to Bangkok</h2>
+<h2 class="section-heading">Mae Sot to Bangkok</h2>
 
 Found a songthaew (passenger pick-up). It was only THB 20 going to Mae Sot bus terminal. The local in front of me was so kind to inform me that I had arrived in my destination. Without him, I would miss the bus terminal.
 
@@ -91,7 +91,7 @@ Immediately in Nakhon Sawan bus terminal, I was greeted by a Thai lady that knew
 
 Nothing too interesting again between Nakhon Sawan and Bangkok, except that I saw a lot of 7-11 after a week of no conveniece store.
 
-<h2 class="section-header">The Last Leg</h2>
+<h2 class="section-heading">The Last Leg</h2>
 
 The driver dropped me in the Bangkok Mo Chit bus terminal. It was in the northern tip of the city. Thankfully there is metro station nearby: Mo Chit BTS Station. Except that it's not near at all.
 

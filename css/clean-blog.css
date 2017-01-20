@@ -23,7 +23,6 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 800;
 }
 a {
@@ -112,16 +111,16 @@ hr.small {
     -moz-transition: -moz-transform 0.3s;
     transition: transform 0.3s;
   }
-  .navbar-custom.is-fixed .navbar-brand {
+  /*.navbar-custom.is-fixed .navbar-brand {
     color: #404040;
-  }
+  }*/
   .navbar-custom.is-fixed .navbar-brand:hover,
   .navbar-custom.is-fixed .navbar-brand:focus {
     color: #0085a1;
   }
-  .navbar-custom.is-fixed .nav li a {
+  /*.navbar-custom.is-fixed .nav li a {
     color: #404040;
-  }
+  }*/
   .navbar-custom.is-fixed .nav li a:hover,
   .navbar-custom.is-fixed .nav li a:focus {
     color: #0085a1;
@@ -222,7 +221,7 @@ hr.small {
   color: #0085a1;
 }
 .post-preview > a .post-title {
-  font-size: 30px;
+  font-size: 24px;
   margin-bottom: 10px;
 }
 
@@ -234,10 +233,6 @@ hr.small {
   .post-preview {
     margin-top: 30px;
     margin-bottom: 30px;
-  }
-
-  .post-preview .post-meta {
-    margin-bottom: 0;
   }
 }
 
@@ -254,9 +249,10 @@ hr.small {
 }
 .post-preview .post-meta {
   color: #808080;
-  font-size: 18px;
+  font-size: 16px;
   font-style: italic;
   margin-top: 0;
+  margin-bottom: 0;
 }
 .post-preview .post-meta > a {
   text-decoration: none;
@@ -269,13 +265,13 @@ hr.small {
 }
 @media only screen and (min-width: 768px) {
   .post-preview > a > .post-title {
-    font-size: 36px;
+    font-size: 24px;
   }
 }
 .section-heading {
-  font-size: 36px;
+  font-size: 24px;
   margin-top: 60px;
-  font-weight: 700;
+  font-weight: 600;
 }
 .caption {
   text-align: center;

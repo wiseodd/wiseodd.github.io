@@ -43,7 +43,7 @@ def sgd(model, X_train, y_train, minibatch_size):
     return model
 ```
 
-<h2 class="section-header">SGD + Momentum</h2>
+<h2 class="section-heading">SGD + Momentum</h2>
 
 Imagine a car. The car is going through a mountain range. Being a mountain range, naturally the terrain is hilly. Up and down, up and down. But we, the driver of that car, only want to see the deepest valley of the mountain. So, we want to stop at the part of the road that has the lowest elevation.
 
@@ -79,7 +79,7 @@ def momentum(model, X_train, y_train, minibatch_size):
 
 What we do is to create a new velocity variable to store our momentum for every parameter. The update of the velocity is given the old velocity value and new Gradient Descent step `alpha * grad`. We also decay our past velocity so that we only consider the most recent velocities with `gamma = .9`.
 
-<h2 class="section-header">Nesterov Momentum</h2>
+<h2 class="section-heading">Nesterov Momentum</h2>
 
 Very similar with momentum method above, Nesterov Momentum add one little different bit to the momentum calculation. Instead of calculating gradient of the current position, it calculates the gradient at the approximated new position.
 
@@ -110,7 +110,7 @@ def nesterov(model, X_train, y_train, minibatch_size):
 
 Looking at the code, the only difference is that now we're computing the gradient using `model_ahead`: approximated next state of our model parameters that we calculated by adding the momentum to the current parameters.
 
-<h2 class="section-header">Adagrad</h2>
+<h2 class="section-heading">Adagrad</h2>
 
 Now, we're entering a different realm. Let's forget about our disfunctional "car"! We're going to approach the Gradient Descent from different angle that we've been ignoring so far: the learning rate `alpha`.
 
@@ -143,7 +143,7 @@ What we do is to accumulate the sum of squared of all of our parameters' gradien
 
 One note to the implementation, the `eps` there is useful to combat the division by zero, so that our optimization becomes numerically stable. Usually it's set with considerably small value, like `1e-8`.
 
-<h2 class="section-header">RMSprop</h2>
+<h2 class="section-heading">RMSprop</h2>
 
 If you notice, at the gradient accumulation part in Adagrad `cache[k] += grad[k]**2`, it's monotonically increasing (hint: sum and squared). This could be problematic as the learning rate will be monotonically decreasing to the point that the learning stops altogether because of the very tiny learning rate.
 
@@ -171,7 +171,7 @@ def rmsprop(model, X_train, y_train, minibatch_size):
 
 The only difference compared to Adagrad is how we calculate the cache. Here, we're take `gamma` portion of past accumulated sum of squared gradient, and take `1 - gamma` portion of the current squared gradient. By doing this, the accumulated gradient won't be aggresively monotonically increasing, depending on the gradients in the moving average window.
 
-<h2 class="section-header">Adam</h2>
+<h2 class="section-heading">Adam</h2>
 
 Adam is the latest state of the art of first order optimization method that's widely used in the real world. It's a modification of RMSprop. Loosely speaking, Adam is RMSprop with momentum. So, Adam tries to combine the best of both world of momentum and adaptive learning rate.
 
@@ -209,7 +209,7 @@ Adam also has a bias correction mechanism, it's calculated in `m_k_hat` and `r_k
 
 As for the recommended value for the hyperparameter: `beta1 = 0.9`, `beta2 = 0.999`, `alpha = 1e-3`, and `eps = 1e-8`.
 
-<h2 class="section-header">Test and Comparison</h2>
+<h2 class="section-heading">Test and Comparison</h2>
 
 With our bag full of those algorithms, let's compare them using our previous problem in the last post. Here's the setup:
 
@@ -260,7 +260,7 @@ Using large value for the learning rate, the adaptive learning rate methods are 
 
 However, the opposite happens when we're using small learning rate value e.g. `1e-5`. It's small enough for vanilla SGD and momentum based methods to perform well. On the other hand, as the learning rate is already very small, and we normalizes it in the adaptive learning rate methods, it becomes even smaller, which impacting the convergence rate. It makes the learning becomes really slow and they perform worse than the vanilla SGD with the same number of iteration.
 
-<h2 class="section-header">Conclusion</h2>
+<h2 class="section-heading">Conclusion</h2>
 
 In this post we looked at the optimization algorithms for neural nets beyond SGD. We looked at two classes of algorithms: momentum based and adaptive learning rate methods.
 
@@ -270,7 +270,7 @@ Most of those methods above are currently implemented in the popular Deep Learni
 
 You could find the full code used in this post here: <https://gist.github.com/wiseodd/85ad008aef5585cec017f4f1e6d67a02>
 
-<h2 class="section-header">References</h2>
+<h2 class="section-heading">References</h2>
 
 * <http://cs231n.github.io/neural-networks-3/>
 * <http://sebastianruder.com/optimizing-gradient-descent/>

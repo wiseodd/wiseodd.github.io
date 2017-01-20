@@ -3,7 +3,7 @@ layout: default
 ---
 
 <!-- Page Header -->
-<header class="intro-header" style="position: relative; background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}');">
+<!--<header class="intro-header" style="position: relative; background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}');">
     <div class="overlay" {% if page.header-img == nil %}style="opacity: 0.5 !important;"{% endif %}></div>
     <div class="container">
         <div class="row">
@@ -14,11 +14,11 @@ layout: default
             </div>
         </div>
     </div>
-</header>
+</header>-->
 
 <!-- Main Content -->
-<div class="container">
-	<div>
+<div class="container" style="padding-top: 125px;">
+	<div class="col-md-10 col-md-offset-1">
 		{{ content }}
 	</div>
 </div>

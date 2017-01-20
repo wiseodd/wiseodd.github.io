@@ -12,7 +12,7 @@ category:   musing
 
 So that's the quote that always be in my mind since more than six years ago. six years is not just an arbitrary number. That year, six years ago, I first read Paulo Coelho's The Alchemist. It was my first encounter with Paulo Coelho. A friend of mine let me borrow that from him. Needless to say, that book converted me into Coelho's fan. To date, I've read 13 of his books, if I counted correctly. The point I want to convey is that The Alchemist is so powerful of a book.
 
-<h2 class="section-header">Differences</h2>
+<h2 class="section-heading">Differences</h2>
 
 I first read The Alchemist as a high schooler. I read the Indonesian version. That time, I feel like I didn't quite get the real meaning of the book. I can think of several factors now.
 
@@ -22,7 +22,7 @@ Second, my mind. I think six years ago, I couldn't relate much to The Alchemist.
 
 Third, now I know what I want. Now I know my dream. Now I know my Personal Legend. This book is all about that. Hence, knowing all those, it really opened my eyes when I reread The Alchemist.
 
-<h2 class="section-header">Impact</h2>
+<h2 class="section-heading">Impact</h2>
 
 I realized, just after I started reread The Alchemist, that even though everything I remember about this book from six years ago was blurry, what I did these past six years was largely influenced by its philosophy. The Alchemist is powerful, to say the least. It influenced me without me knowing.
 
@@ -30,7 +30,7 @@ I certainly learned something about dream from Santiago, the protagonist of The 
 
 When I first read this book, dream is just a hazy concept for me. Year after year after that, I was always in search for my dream, my Personal Legend. Dream was the word I thought a lot. But then, the universe revealed it to me. Now, I'm on course to realize my Personal Legend.
 
-<h2 class="section-header">Personal Legend</h2>
+<h2 class="section-heading">Personal Legend</h2>
 
 This is the main theme of the book. This is the main theme of my life. This is the main theme of everbody's life.
 
@@ -46,7 +46,7 @@ For me, it's important to not listen to the toxicity of the society anymore. It 
 
 That's the abyss that I'm so determined to avoid. Avoiding that is by no means a trivial thing, a lot of people fail on that, and I could too, if I don't keep my determination with me all the time. Many will be content to just live, no, exist comfortably without discovering their Personal Legend, let alone realizing it.
 
-<h2 class="section-header">Obstacles</h2>
+<h2 class="section-heading">Obstacles</h2>
 
 Rereading The Alchemist, I also found a note by Paulo Coelho about Personal Legend. You could read it here: <http://paulocoelhoblog.com/2009/06/22/workshop-the-alchemist/>.
 
@@ -63,7 +63,7 @@ He argued that there are four obstacles that could hinder it. I'll summarize it 
 
 I found that all of the obstacles are real and relateable to my life. Those hit home really hard when I first read the note, and it still does.
 
-<h2 class="section-header">Epilogue</h2>
+<h2 class="section-heading">Epilogue</h2>
 
 I'm grateful to my past self to pick this book and reread it. Best decision I made this week.
 

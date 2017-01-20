@@ -13,7 +13,7 @@ If you could think about one of the more exotic travel destinations, probably Ir
 
 So, this post will both demystify and give you step by step guide on how to get Iranian VoA, especially at Imam Khomeini Airport in Tehran.
 
-<h2 class="section-header">Before arriving</h2>
+<h2 class="section-heading">Before arriving</h2>
 
 First and foremost, here's the essential you must have when traveling to Iran:
 
@@ -28,7 +28,7 @@ The second point is also **important**, as the visa officer will **actually call
 
 As for paperwork, you essentially just need your passport and that's it. You don't need photos, or any return ticket, or anything. Just passport, address, and money.
 
-<h2 class="section-header">Iranian VoA process</h2>
+<h2 class="section-heading">Iranian VoA process</h2>
 
 When you step out from the airplane, follow this process:
 

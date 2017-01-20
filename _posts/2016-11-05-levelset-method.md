@@ -13,7 +13,7 @@ Looking at the trend in Computer Vision, people steadily abandon the classical m
 
 We will look at one of the classic algorithms in Computer Vision: the Level Set Method (LSM). In this post we will see the motivation behind it, the intuition, formulation and finally the implementation of LSM. In the next post, we will apply this method for image segmentation.
 
-<h2 class="section-header">Intuition</h2>
+<h2 class="section-heading">Intuition</h2>
 
 Let's say we throw a stone into the middle of a pond. What would happen? There would be a ripple of water (for simplicity let's just pick one wave), moving from the epicenter, going wide until it dissipates or hit the pond's edge. How do we model and simulate that phenomenon?
 
@@ -55,7 +55,7 @@ Effortlessly, the level curve captures it!
 
 This is a powerful insight and we're going to formulate this.
 
-<h2 class="section-header">Level Set Method Formulation</h2>
+<h2 class="section-heading">Level Set Method Formulation</h2>
 
 Suppose we have surface \\( \phi(x) \\). The c-level set of this surface is given by:
 
@@ -98,7 +98,7 @@ $$ \phi_t = -F {\lVert \nabla \phi \rVert} $$
 
 This gives us the speed of the surface evolution of \\( \phi \\).
 
-<h2 class="section-header">Solving the PDE</h2>
+<h2 class="section-heading">Solving the PDE</h2>
 
 Knowing the initial value of \\( \phi \\) (let's say 0 everywhere) and the speed of evolution, we can solve the equation of motion. That is, we want to know surface \\( \phi \\) at time \\( t \\). This is a Partial Differential Equation (PDE).
 
@@ -127,7 +127,7 @@ $$ \phi' = \phi + \Delta t F {\lVert \nabla \phi \rVert} $$
 
 So that's it. We just need to provide initial value for \\( \phi \\) and figure out the equation of force \\( F \\), which depend on the system we're going to model.
 
-<h2 class="section-header">Implementation</h2>
+<h2 class="section-heading">Implementation</h2>
 
 Given the finite difference formulation to solve the LSM's PDE, we could now implement it.
 
@@ -155,7 +155,7 @@ for i in range(it):
 
 As we can see, the core of LSM could be implemented with just a few lines of code. Bear in mind, this is the simplest formulation of LSM. There are many sophisticated variations of LSM which modifies \\( \frac{\phi(x(t), t)}{\partial t} \\).
 
-<h2 class="section-header">Conclusion</h2>
+<h2 class="section-heading">Conclusion</h2>
 
 In this post, we looked at Level Set Method (LSM) which is a method to model curve evolution using implicit contour. LSM is powerful because we don't have to explicitly model difficult curve evolution like merge and split directly.
 
@@ -163,7 +163,7 @@ Then, we looked at the LSM formulation and how to solve the LSM as PDE using Fin
 
 Finally, we implemented the simplest formulation of LSM in Python.
 
-<h2 class="section-header">References</h2>
+<h2 class="section-heading">References</h2>
 
 1. Richard Szeliski. 2010. Computer Vision: Algorithms and Applications (1st ed.). Springer-Verlag New York, Inc., New York, NY, USA.
 2. <http://step.polymtl.ca/~rv101/levelset/>

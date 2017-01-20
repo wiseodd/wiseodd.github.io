@@ -13,7 +13,7 @@ Tehran, the capital of Iran, is a huge city. It could be very confusing to get a
 
 But fear not! Here's the step by step guide on how to buy the bus ticket from Tehran to Yerevan, the capital of Armenia. This guide could be applied to another international destinations, for example Istanbul, Iraq, and Syria, as the bus agency runs services to multiple international destinations from Tehran.
 
-<h2 class="section-header">Getting to bus agency</h2>
+<h2 class="section-heading">Getting to bus agency</h2>
 
 There are *four* bus terminal in Tehran:
 
@@ -50,7 +50,7 @@ You can confirm that it is the right agency if you see one of the poster there i
 
 To get more confirmation, pay attention to the price board in the counter. You should see some insane amount of money there, like 1,800,000 or 3,000,000.
 
-<h2 class="section-header">Buying the ticket</h2>
+<h2 class="section-heading">Buying the ticket</h2>
 
 Approach one of the staffs behind the counter there, and just speak in clear, slow English. The manager there speaks very good English. So, when the counter staff couldn't understand something, he/she will call the manager and the manager will take care of the rest.
 

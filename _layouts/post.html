@@ -3,7 +3,7 @@ layout: default
 ---
 
 <!-- Post Header -->
-<header class="intro-header" style="position: relative; background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}');">
+<!--<header class="intro-header" style="position: relative; background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}');">
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
@@ -18,14 +18,21 @@ layout: default
             </div>
         </div>
     </div>
-</header>
+</header>-->
+
+<!--<header>
+    <div class="container">
+
+    </div>
+</header>-->
 
 <!-- Post Content -->
-<article>
+<article style="padding-top: 125px;">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post">
+                    <h1 style="text-align: center; font-size: 36px; padding-bottom: 50px;">{{ page.title }}</h1>
                     {{ content }}
                 </div>
 

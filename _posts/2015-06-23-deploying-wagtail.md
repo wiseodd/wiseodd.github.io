@@ -59,7 +59,7 @@ Now, our Wagtail app in the production server will always use production.py, and
 
 
 
-<h2 class="section-header">Common Problems</h2>
+<h2 class="section-heading">Common Problems</h2>
 
 I spent a lot of time trying to figure out how to deploy this blog. I'd say most of my time creating this blog is here, in the deployment stage, debugging things that didn't work. Here's the list of some problems that I encountered while trying to make this blog up and running:
 

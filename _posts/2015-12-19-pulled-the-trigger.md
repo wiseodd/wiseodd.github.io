@@ -27,7 +27,7 @@ What I learned was that I don't really need to think long and hard about things 
 
 I didn't say that this decision to quit my daily job was an easy one. In fact, it was one of the hardest because that was where my life path branched. It was a large crossroad. The temptation of the other branch was so high, but in the end I chose the same branch I will chose two years ago: the branch that will take me to the world.
 
-<h2 class="section-header">The Plan</h2>
+<h2 class="section-heading">The Plan</h2>
 So, for my plan going forward. It's simple, really.
 
 Mid January, I will go to Malaysia. Then I have no plan, I'll just go wherever I want to.

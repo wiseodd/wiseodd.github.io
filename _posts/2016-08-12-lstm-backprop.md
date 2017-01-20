@@ -17,7 +17,7 @@ Using modern Deep Learning libraries like TensorFlow, Torch, or Theano nowadays,
 
 So, here, we will try to first implement the forward computation step according to the LSTM net formula, then we will try to derive the network gradient analytically. Finally, we will implement it using numpy.
 
-<h2 class="section-header">LSTM Forward</h2>
+<h2 class="section-heading">LSTM Forward</h2>
 
 We will follow this model for a single LSTM cell:
 
@@ -85,7 +85,7 @@ def lstm_forward(X, state):
 
 The above code is for the forward step for a single LSTM cell, which identically follows the formula above. The only additions are the one-hot encoding and the hidden-input concatenation process.
 
-<h2 class="section-header">LSTM Backward</h2>
+<h2 class="section-heading">LSTM Backward</h2>
 
 Now, we will dive into the main point of this post: LSTM backward computation. We will assume that derivative function for `sigmoid` and `tanh` are already known.
 
@@ -166,7 +166,7 @@ Things that are tricky and not-so-obvious when deriving the LSTM gradients are:
 
 With the forward and backward computation implementations in hands, we could stitch them together to get a full training step that would be useful for optimization algorithms.
 
-<h2 class="section-header">LSTM Training Step</h2>
+<h2 class="section-heading">LSTM Training Step</h2>
 
 This training step consists of three steps: forward computation, loss calculation, and backward computation.
 
@@ -219,7 +219,7 @@ With this function in hands, we could plug this to any optimization algorithm li
 
 And, that's it. We can train our LSTM net now!
 
-<h2 class="section-header">Test Result</h2>
+<h2 class="section-heading">Test Result</h2>
 
 Using Adam to optimize the network, here's the result when I feed a copy-pasted text about Japan from Wikipedia. Each data is a character in the text. The target is the next character.
 
@@ -252,7 +252,7 @@ tary shoguns who ruled in the name of the Uprea wal motrko, the copulation of Ja
 
 Our network definitely learned something here!
 
-<h2 class="section-header">Conclusion</h2>
+<h2 class="section-heading">Conclusion</h2>
 
 Here, we looked at the general formula for LSTM and implement the forward propagation step based on it, which is very straightforward to do.
 
@@ -262,7 +262,7 @@ We then stitched the forward and backward step together to build the full traini
 
 Lastly, we tried to run the network using some test data and showed that the network was learning by looking at the loss value and the sample of text that are produced by the network.
 
-<h2 class="section-header">References</h2>
+<h2 class="section-heading">References</h2>
 
 * <http://colah.github.io/posts/2015-08-Understanding-LSTMs/>
 * <http://karpathy.github.io/2015/05/21/rnn-effectiveness/>

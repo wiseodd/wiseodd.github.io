@@ -19,7 +19,7 @@ So, here we go, all the things that I will bring for my journey. Note that this 
 
 Let's break it down.
 
-<h2 class="section-header">Bags</h2>
+<h2 class="section-heading">Bags</h2>
 
 <p></p>
 * Osprey Talon 33
@@ -28,7 +28,7 @@ Let's break it down.
 
 Osprey Talon is my main backpack. It's a 33L, top loading backpack. Everything that I bring will be stuffed inside this backpack, even that Osprey Daylite! Speaking about Osprey Daylite, I found it to be a perfect daypack. I first used it for my trip to Taiwan, and it was awesome, whether hiking Taroko Gorge or exploring the city of Taipei, Osprey Daylite is a perfect daypack for me. Now you all know about my love for Osprey.
 
-<h2 class="section-header">Clothings</h2>
+<h2 class="section-heading">Clothings</h2>
 
 <p></p>
 * 5x Uniqlo Fast Drying Shirt
@@ -43,7 +43,7 @@ Osprey Talon is my main backpack. It's a 33L, top loading backpack. Everything t
 
 I learned about travel clothings during my China trip in the winter of 2014. Turns out, I don't need all of those bulky winter gears! All I need to do is to layer my clothings. This works like a charm for me: thermal underwears + T-shirts + hoodie + windbreaker + jeans. Haven't tried that for extreme winter though. But I was comfortable with that setup even when it was below zero.
 
-<h2 class="section-header">Sportswear</h2>
+<h2 class="section-heading">Sportswear</h2>
 
 <p></p>
 * Reebok Running Shirt
@@ -55,7 +55,7 @@ I learned about travel clothings during my China trip in the winter of 2014. Tur
 
 I run. I swim. Those things weight nothing and take a negligible amount of space.
 
-<h2 class="section-header">Footwear</h2>
+<h2 class="section-heading">Footwear</h2>
 
 <p></p>
 * Merrell All Out Blaze Hiking Boots
@@ -66,7 +66,7 @@ I run. I swim. Those things weight nothing and take a negligible amount of space
 
 For everyday footwear, I always wear a pair of hiking boots. It's so comfortable, it's durable, and it's an all rounder. Basically, I could use it for anything, from a party to jungle trekking.
 
-<h2 class="section-header">Electronics</h2>
+<h2 class="section-heading">Electronics</h2>
 
 <p></p>
 * 2015 Macbook Air 13"
@@ -82,7 +82,7 @@ This is the most crucial section of my packing list. That Macbook is my lifeline
 
 Everything else here is just a secondary devices. Doesn't mean that I'm okay with them being stolen though!
 
-<h2 class="section-header">Miscellaneous</h2>
+<h2 class="section-heading">Miscellaneous</h2>
 
 <p></p>
 * Passport

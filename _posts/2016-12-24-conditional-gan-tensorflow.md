@@ -12,7 +12,7 @@ tags:       [machine learning, programming, python, neural networks, gan]
 We have seen the Generative Adversarial Nets (GAN) model in [the previous post]({% post_url 2016-09-17-gan-tensorflow %}). We have also seen the arch nemesis of GAN, the VAE and its conditional variation: Conditional VAE (CVAE). Hence, it is only proper for us to study conditional variation of GAN, called Conditional GAN or CGAN for short.
 
 
-<h2 class="section-header">CGAN: Formulation and Architecture</h2>
+<h2 class="section-heading">CGAN: Formulation and Architecture</h2>
 
 Recall, in GAN, we have two neural nets: the generator \\( G(z) \\) and the discriminator \\( D(X) \\). Now, as we want to condition those networks with some vector \\( y \\), the easiest way to do it is to feed \\( y \\) into both networks. Hence, our generator and discriminator are now \\( G(z, y) \\) and \\( D(X, y) \\) respectively.
 
@@ -39,7 +39,7 @@ The architecture of CGAN is now as follows (taken from [1]):
 In contrast with the architecture of GAN, we now has an additional input layer in both discriminator net and generator net.
 
 
-<h2 class="section-header">CGAN: Implementation in TensorFlow</h2>
+<h2 class="section-heading">CGAN: Implementation in TensorFlow</h2>
 
 I'd like to direct the reader to the [previous post about GAN]({% post_url 2016-09-17-gan-tensorflow %}), particularly for the implementation in TensorFlow. Implementing CGAN is so simple that we just need to add a handful of lines to the original GAN implementation. So, here we will only look at those modifications.
 
@@ -112,7 +112,7 @@ _, G_loss_curr = sess.run([G_solver, G_loss], feed_dict={Z: Z_sample, y:y_mb})
 As an example above, we are training our GAN with MNIST data, and the conditional variable \\( y \\) is the labels.
 
 
-<h2 class="section-header">CGAN: Results</h2>
+<h2 class="section-heading">CGAN: Results</h2>
 
 At test time, we want to generate new data samples with certain label. For example, we set the label to be 5, i.e. we want to generate digit "5":
 
@@ -142,7 +142,7 @@ If we set our one-hot vectors to have value of 1 in the 7th index:
 Those results confirmed that have successfully trained our CGAN.
 
 
-<h2 class="section-header">Conclusion</h2>
+<h2 class="section-heading">Conclusion</h2>
 
 In this post, we looked at the analogue of CVAE for GAN: the Conditional GAN (CGAN). We show that to make GAN into CGAN, we just need a little modifications to our GAN implementation.
 
@@ -151,6 +151,6 @@ The conditional variables for CGAN, just like CVAE, could be anything. Hence it 
 The full code is available at my GitHub repo: <https://github.com/wiseodd/generative-models>.
 
 
-<h2 class="section-header">References</h2>
+<h2 class="section-heading">References</h2>
 
 1. Mirza, Mehdi, and Simon Osindero. "Conditional generative adversarial nets." arXiv preprint arXiv:1411.1784 (2014).

@@ -17,7 +17,7 @@ Am I still feeling afraid and uncertain, I ask myself. My mind answers that with
 
 These three months have also been a great epiphany for me. I realized a lot of things. And as wise men said, that knowledge is a power, those realizations gave me power to identify my fault and correct it accordingly. That's my objective: to be my better self by removing my festering wounds and swallowing the truth while doing self improvement like a maniac.
 
-<h2 class="section-header">What's Working</h2>
+<h2 class="section-heading">What's Working</h2>
 
 Traveling while working demands balance. I couldn't just neglect the work and let it go as a man has to provide for himself. The opposite side is also true. I couldn't just neglect the travel because if I did, I might as well don't travel.
 
@@ -25,7 +25,7 @@ Balance demands discipline. I set myself time for work from the morning until af
 
 In the evening, it's the time to go social. That's one of the best thing of traveling: you meet a lot of interesting people everyday. I'm an introvert, but I hate when people use their introvertness trait to make an excuse to not to be socially active. Being introvert doesn't mean that way. It just means that they're afraid to leave their comfort zone.
 
-<h2 class="section-header">What will I do differently</h2>
+<h2 class="section-heading">What will I do differently</h2>
 
 My original plan was to be in one country for a month before I leave for another country. While I did somewhat stick to it, it wasn't really the way I like. Generally I stayed two weeks in each cities I've been so far to make sure I could settle down and do my work optimally. However, two weeks time in one place is really too much for me.
 
@@ -33,7 +33,7 @@ Traveling for me is about thrill. Going to a new place gives me chill every sing
 
 This past month, I was in Ho Chi Minh City for the whole month. I tried to live like a local. I learned the language. Even at the end, I could enter a restaurant, order something, and pay up without them noticing that I'm not a Vietnamese. However, it's not working for me. I yearn to travel, I seek the excitements by being in a new place and do new things.
 
-<h2 class="section-header">How about being a third world nomad?</h2>
+<h2 class="section-heading">How about being a third world nomad?</h2>
 
 Well, I haven't feel it yet, as these past three months, I was still in the "easy" places. I was in Malaysia, Thailand, Myanmar, Cambodia, and Vietnam. All of them, I don't need visa to get into. So far, it's really easy.
 

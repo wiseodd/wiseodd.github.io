@@ -13,7 +13,7 @@ Traditionally, convnet consists of several layers: convolution, pooling, fully c
 
 Nevertheless, conv and pool layers are still the essential foundations of convnet. We've covered the conv layer in the [last post]({% post_url 2016-07-16-convnet-conv-layer %}). Now let's dig into pool layer, especially maxpool layer.
 
-<h2 class="section-header">Pool layer</h2>
+<h2 class="section-heading">Pool layer</h2>
 
 Whereas conv layer applies filter to the input images, pool layer reduce the dimensionality of the output. Reducing the dimensionality of the images is a necessity in convnet as we're dealing with a high dimensional data and a lot of filters, which implies that we will have huge amount of parameters in our convnet.
 
@@ -25,13 +25,13 @@ Those are, mainly, the reduction of the dimensionality = less parameter = less c
 
 For more about theoritical and best practices about pool layer, head to CS231n lecture page: <http://cs231n.github.io/convolutional-networks/#pool>.
 
-<h2 class="section-header">Maxpool layer</h2>
+<h2 class="section-heading">Maxpool layer</h2>
 
 Knowing what pool layer does, it's trivial to think about the summarization operation. For maxpool layer, it's just taking the maximum value of each image patch.
 
 It's just the same as conv layer with one exception: max instead of dot product.
 
-<h2 class="section-header">Maxpool forward</h2>
+<h2 class="section-heading">Maxpool forward</h2>
 
 As we already know that maxpool layer is similar to conv layer, implementing it is somewhat easier.
 
@@ -73,7 +73,7 @@ After we fed the image to our maxpool layer, the result will look like this:
 
 ![Pool output]({{ site.baseurl }}/img/2016-07-18-convnet-maxpool-layer/pool_output.png)
 
-<h2 class="section-header">Maxpool backward</h2>
+<h2 class="section-heading">Maxpool backward</h2>
 
 Recall, how do we compute the gradient for ReLU layer. We let the gradient pass through when the ReLU result is non zero, and otherwise we block the gradient by setting it to zero.
 
@@ -108,13 +108,13 @@ dX = dX.reshape(X.shape)
 
 Recall the ReLU gradient is `dX[X <= 0] = 0`, as we're doing `max(0, x)` in ReLU. We're basically applying that to our stretched image patches. Only, we start with 0 matrix and put the gradient in the correct location, and we're taking the max of the image patch, instead of comparing it with 0 like we do in ReLU.
 
-<h2 class="section-header">Conclusion</h2>
+<h2 class="section-heading">Conclusion</h2>
 
 We see that pool layer, specifically maxpool layer is similar to conv and ReLU layer. It's similar as conv as we need to stretch our input image with im2col to get the all possible image patches where we are going to take the maximum value over. It's similar as ReLU as we're doing the same operation: max.
 
 We also see that doing maxpool with certain parameters, e.g. 2x2 maxpool with stride of 2 and padding of 0 will essentially halve the dimension of the input.
 
-<h2 class="section-header">References</h2>
+<h2 class="section-heading">References</h2>
 
 * <http://cs231n.github.io/convolutional-networks/#pool>
 * <http://vision.stanford.edu/teaching/cs231n/winter1516_assignment2.zip>

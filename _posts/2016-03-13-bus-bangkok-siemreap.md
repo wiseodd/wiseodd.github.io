@@ -13,7 +13,7 @@ With my Thai visa expiring soon, I needed to get out of Thailand. Now, there are
 
 Bus was the answer!
 
-<h2 class="section-header">Booking the ticket</h2>
+<h2 class="section-heading">Booking the ticket</h2>
 
 So, I needed to book a direct bus ticket from Bangkok's Mo Chit terminal to Siem Reap. As the cost of going to Mo Chit from Sukhumvit Soi 50 is rather high (it will cost me around THB 100+ to get there and back, that's two heavy meals there!), I sought an alternative options. After some research, I found this website: <http://www.thaiticketmajor.com>, which sells bus tickets online, and only costs me about THB 20 for processing fee on top of the real bus ticket fare: THB 750.
 
@@ -23,7 +23,7 @@ So I did just that. I booked the ticket, and printed out the confirmation. As I 
 
 Well, several minutes after I came back from the 7-11, I got another email: my e-ticket. I just needed to print that out, then I was good to go.
 
-<h2 class="section-header">Getting to Mo Chit bus terminal</h2>
+<h2 class="section-heading">Getting to Mo Chit bus terminal</h2>
 
 At the D-Day, I woke up super early in the morning and directly checked out from the hostel. I went to Mo Chit bus terminal up north of Bangkok at 6:30 AM (right at the sunrise!) keeping in my mind that my bus was leaving at 9:00 AM.
 
@@ -35,7 +35,7 @@ The bus dropped me in the old terminal building, which is around 300 m from the 
 
 I arrived at the bus platform at 8:15, almost two hours later from the time I went out from the hostel.
 
-<h2 class="section-header">The journey</h2>
+<h2 class="section-heading">The journey</h2>
 
 I should had picked the 8 AM bus, I thought when I arrived at the departure platform. The 8 AM bus is run by Thai government and the 9 AM bus is run by Cambodian government, it seems. The difference is stark. 8 AM bus is miles better and newer and cleaner and more comfortable than the 9 AM bus!
 
@@ -69,7 +69,7 @@ Once I got my 30 days stay stamp, I went back to the Royal Crown Casino to get i
 
 It was quite different, the scenery of Cambodia and Thailand. Here, in Cambodia, everything is brown and dusty. It seemed that the drought had taken away all the greenery of Cambodian soil. Really, nothing interesting for me along the way from the border to Siem Reap.
 
-<h2 class="section-header">Siem Reap</h2>
+<h2 class="section-heading">Siem Reap</h2>
 
 So, fast forward for 4 hours, finally we arrived at the city of Siem Reap. Thankfully the bus' last stop is in the very center of the town, which is really convenient because my hostel was in the city center. They also provide a free tuktuk for those whom the hostel/hostel are at maximum 4 km away from there.
 

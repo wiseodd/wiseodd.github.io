@@ -17,7 +17,7 @@ I know the answer: no. Constant maintenance needed to keep ourselves happy, and 
 
 So here I am, already brewing some vague idea for the year's end. My feet are itchy already. My mind is wandering already.
 
-<h2 class="section-header">Motivation</h2>
+<h2 class="section-heading">Motivation</h2>
 
 After talking to a friend some months ago, I did some self reflections. I realized that I'm myopic, both literally and figuratively. Yes, I'm nearsighted. But the most important thing I realized was that I'm myopic in the sense of my travel destination.
 
@@ -25,7 +25,7 @@ Whenever I travel, I would look at abroad destination, which is great, because I
 
 So I decided this time, I would look at Indonesian destination, I would make sure that this would be a hell of a trip.
 
-<h2 class="section-header">The Plan</h2>
+<h2 class="section-heading">The Plan</h2>
 
 Bali and to a lesser extent, Lombok, are really popular destination for Indonesian and foreigner alike. If you tell your Indonesian friends that you haven't been to one of those islands, they'll frown upon you. And that person who is frowned upon so many times is me.
 

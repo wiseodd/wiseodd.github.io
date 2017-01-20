@@ -14,9 +14,7 @@ layout: page
                     {{ post.title }}
                 </h2>
                 {% if post.subtitle %}
-                <h3 class="post-subtitle">
                     {{ post.subtitle }}
-                </h3>
                 {% endif %}
                 <p class="post-meta">Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}</p>
             </div>

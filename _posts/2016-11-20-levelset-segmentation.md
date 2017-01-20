@@ -12,7 +12,7 @@ tags:       [programming, python, computer vision]
 Last post, we looked at the intuition and the formulation of Level Set Method. It's useful to create a physical simulation like front propagation, e.g. wave simulation, wildfire simulation, or gas simulation. In this post, we are going to see into Level Set Method application in Computer Vision, to solve image segmentation problem.
 
 
-<h2 class="section-header">Image Segmentation with Level Set Method</h2>
+<h2 class="section-heading">Image Segmentation with Level Set Method</h2>
 
 Recall that the Level Set PDE that we have derived in the last post is as follows:
 
@@ -93,7 +93,7 @@ And here's the segmentation result after several iteration:
 This is the naive method for Level Set image segmentation. We could do better by using more complicated formulation for \\( F \\).
 
 
-<h2 class="section-header">Geodesic Active Contour</h2>
+<h2 class="section-heading">Geodesic Active Contour</h2>
 
 In Geodesic Active Contour (GAC) formulation of Level Set Method, we define the force as:
 
@@ -147,11 +147,11 @@ Finally, here's the result of using GAC formulation of Level Set Method for segm
 Notice that qualitatively the segmentation result is better than before, i.e. smoother and better fit.
 
 
-<h2 class="section-header">Conclusion</h2>
+<h2 class="section-heading">Conclusion</h2>
 
 In this post we looked into the application of Level Set Method on Computer Vision problem, that is image segmentation. We saw the intuition on applying it for image segmentation. We also saw the example of implementation of it. Finally we saw the more complicated formulation, i.e. GAC, for better segmentation.
 
 
-<h2 class="section-header">References</h2>
+<h2 class="section-heading">References</h2>
 
 1. Richard Szeliski. 2010. Computer Vision: Algorithms and Applications (1st ed.). Springer-Verlag New York, Inc., New York, NY, USA.

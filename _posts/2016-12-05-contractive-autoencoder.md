@@ -119,6 +119,6 @@ model.fit(X, X, batch_size=N_batch, nb_epoch=5)
 
 And that is it! The full code could be found in my Github repository: <https://github.com/wiseodd/hipsternet>.
 
-<h2 class="section-header">References</h2>
+<h2 class="section-heading">References</h2>
 
 1. Rifai, Salah, et al. "Contractive auto-encoders: Explicit invariance during feature extraction." Proceedings of the 28th international conference on machine learning (ICML-11). 2011.

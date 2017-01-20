@@ -11,7 +11,7 @@ If 2015 was a great year for me, I want 2016 to be even greater. There are still
 
 Starting at January 12th, I will be officially become a nomad. So, I need to keep that in mind when completing these goals. For example, about swimming and running, because I won't be long at each city, one month at the very most, then it would be hard to get very familiar with the city and with that, it would be harder to find a good running route and swimming pool. That's part of the challenge for me, and just thinking about that really excites me.
 
-<h2 class="section-header">Pyhsical</h2>
+<h2 class="section-heading">Pyhsical</h2>
 
 In general, I will routinely run and swim. My general rule of thumb would be run thrice a week, every other day, with swimming in between them, and rest at the seventh day. But I might not be able to do that due to what I've talked above.
 
@@ -20,13 +20,13 @@ In general, I will routinely run and swim. My general rule of thumb would be run
 * Learn butterfly stroke
 <p></p>
 
-<h2 class="section-header">Language</h2>
+<h2 class="section-heading">Language</h2>
 
 <p></p>
 * Learn Mandarin: at least 15 minutes learning every day
 <p></p>
 
-<h2 class="section-header">Techincal Skill</h2>
+<h2 class="section-heading">Techincal Skill</h2>
 
 Because my background is Computer Science, then all of these goals are CS related.
 
@@ -36,13 +36,13 @@ Because my background is Computer Science, then all of these goals are CS relate
 * Create at least two apps or libraries, could be on any platform
 <p></p>
 
-<h2 class="section-header">Reading</h2>
+<h2 class="section-heading">Reading</h2>
 
 <p></p>
 * Read 20 books. If you notice, I set a lower goal compared to the previous year (25). Why? Because I want to read a lot of classic novels this year, for example Fyodor Dostoyevsky's, Jane Austen's, etc. Oh, and out of the four great novels in Chinese literature, I've only read two: Romance of the Three Kingdoms and Water Margin. So I will read The Dream of the Red Chamber and Journey to the West to complete it.
 <p></p>
 
-<h2 class="section-header">Writing</h2>
+<h2 class="section-heading">Writing</h2>
 
 Since I started this blog, I feel the joy in writing. Often, when writing a blog post, I spent three hours without noticing. I think writing is one of my passion currently.
 
@@ -53,7 +53,7 @@ Since I started this blog, I feel the joy in writing. Often, when writing a blog
 
 My target for each blog post on average would be 1000 words.
 
-<h2 class="section-header">Afterword</h2>
+<h2 class="section-heading">Afterword</h2>
 
 Okay, so those things above are my goals for 2016. Just like every year, another goals might cross my mind as the time progressed. But, at the very least, I will complete all of those goals.
 

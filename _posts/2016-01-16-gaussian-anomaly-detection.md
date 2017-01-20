@@ -17,7 +17,7 @@ Specifically, what we're going to do is Gaussian Anomaly Detection, because we'l
 
 But, what does it mean to fit data into a Gaussian distribution? Well, it means that we want to find a Gaussian that best represents our data by finding the optimal parameters (mean and standard deviation) under our data. Now, from here, we have two methods for finding the optimal parameters for the Gaussian, by using Frequentist or Bayesian method. Let's go with Frequentist method first.
 
-<h2 class="section-header">Frequentist Method</h2>
+<h2 class="section-heading">Frequentist Method</h2>
 
 In a Frequentist setting, finding the optimal parameter equals to finding the parameter that maximize the likelihood of the data. There are two laws that are supporting this method: the Likelihood Principle, and the Law of Likelihood. Basically, they say that _"the parameter value which maximizes the likelihood function is the value which is most strongly supported by the evidence"_.
 
@@ -61,7 +61,7 @@ for y in y_test:
 ```
 <p></p>
 
-<h2 class="section-header">Bayesian Method</h2>
+<h2 class="section-heading">Bayesian Method</h2>
 
 We could also use Bayesian method to fit the Gaussian. The obvious advantage of Bayesian method is that it will not just provide a point estimate of the parameters we want to find. Bayesian method will model our parameters as distributions, so we get whole range of all possible values of those parameters, and we can do more with it.
 

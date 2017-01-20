@@ -11,7 +11,7 @@ tags:       [pde, theano]
 
 We all know Theano as a forefront library for Deep Learning research. However, it should be noted that Theano is a general purpose numerical computing library, like Numpy. Hence, in this post, we will look at the implementation of PDE simulation in Theano.
 
-<h2 class="section-header">The Laplace Equation</h2>
+<h2 class="section-heading">The Laplace Equation</h2>
 
 We will look at a simple PDE example, the [Laplace Equation](https://en.wikipedia.org/wiki/Laplace's_equation):
 
@@ -30,7 +30,7 @@ This simple equation could be solved by using Finite Difference scheme [1].
 Note that in this example, we are ignoring the boundary value problem.
 
 
-<h2 class="section-header">Solving Laplace Equation in Numpy</h2>
+<h2 class="section-heading">Solving Laplace Equation in Numpy</h2>
 
 The Finite Difference solution of Laplace Equation is to repeatedly averaging the neighbors of a particular point:
 
@@ -90,7 +90,7 @@ Here is the result:
 Again, as we do not consider boundary value problem, the surface is diminishing until it is flat.
 
 
-<h2 class="section-header">From Numpy to Theano</h2>
+<h2 class="section-heading">From Numpy to Theano</h2>
 
 Translating the Numpy code to Theano is straightforward with caveat. The only thing different in the initialization is the variables: instead of Numpy array, we are now using Theano tensor.
 
@@ -150,7 +150,7 @@ We could think of our `calc_pde` as a batch processing of `k` iterations of our 
 We might ask ourselves, do we need `k` to be greater than one? Definitely yes, as at every function call, we are sending our matrices from CPU to GPU, and receive them back. Low value of `k` definitely introduces overhead.
 
 
-<h2 class="section-header">Why not TensorFlow?</h2>
+<h2 class="section-heading">Why not TensorFlow?</h2>
 
 TensorFlow is definitely an interesting library, on par with Theano in Deep Learning domain. However, the problem with TensorFlow is that it is still not very mature.
 
@@ -171,7 +171,7 @@ does not have any difference at all in Numpy and Theano version. However, we cou
 Feature and behavior parity with Numpy is definitely a big factor, and it seems Theano is in front of TensorFlow in this regard, at least for now.
 
 
-<h2 class="section-header">References</h2>
+<h2 class="section-heading">References</h2>
 
 In this post we looked at a very simple Finite Difference solution of Laplace Equation. We implemented it in both Numpy and Theano.
 
@@ -180,6 +180,6 @@ Although Theano could be non-intuitive, especially in loop, it has better parity
 The full code, both in Numpy and Theano, could be found here: <https://gist.github.com/wiseodd/c08d5a2b02b1957a16f886ab7044032d>.
 
 
-<h2 class="section-header">References</h2>
+<h2 class="section-heading">References</h2>
 
 Mitra, Ambar K. "Finite difference method for the solution of Laplace equation." preprint.

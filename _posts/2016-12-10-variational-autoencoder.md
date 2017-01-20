@@ -13,7 +13,7 @@ There are two generative models facing neck to neck in the data generation busin
 
 In this post, we will look at the intuition of VAE model and its implementation in Keras.
 
-<h2 class="section-header">VAE: Formulation and Intuition</h2>
+<h2 class="section-heading">VAE: Formulation and Intuition</h2>
 
 Suppose we want to generate a data. Good way to do it is first to decide what kind of data we want to generate, then actually generate the data. For example, say, we want to generate an animal. First, we imagine the animal: it must have four legs, and it must be able to swim. Having those criteria, we could then actually generate the animal by sampling from the animal kingdom. Lo and behold, we get Platypus!
 
@@ -94,7 +94,7 @@ At this point, what do we have? Let's enumerate:
 We might feel familiar with this kind of structure. And guess what, it's the same structure as seen in [Autoencoder]({% post_url 2016-12-03-autoencoders %})! That is, \\( Q(z \vert X) \\) is the encoder net, \\( z \\) is the encoded representation, and \\( P(X \vert z) \\) is the decoder net! Well, well, no wonder the name of this model is Variational Autoencoder!
 
 
-<h2 class="section-header">VAE: Dissecting the Objective</h2>
+<h2 class="section-heading">VAE: Dissecting the Objective</h2>
 
 It turns out, VAE objective function has a very nice interpretation. That is, we want to model our data, which described by \\( \log P(X) \\), under some error \\( D_{KL}[Q(z \vert X) \Vert P(z \vert X)] \\). In other words, VAE tries to find the lower bound of \\( \log P(X) \\), which in practice is good enough as trying to find the exact distribution is often untractable.
 
@@ -130,7 +130,7 @@ D_{KL}[N(\mu(X) \Vert \Sigma(X)), N(0, 1)] = \frac{1}{2} \sum_k \left( \exp(\Sig
 $$
 
 
-<h2 class="section-header">Implementation in Keras</h2>
+<h2 class="section-heading">Implementation in Keras</h2>
 
 First, let's implement the encoder net \\( Q(z \vert X) \\), which takes input \\( X \\) and outputting two things: \\( \mu(X) \\) and \\( \Sigma(X) \\), the parameters of the Gaussian.
 
@@ -243,7 +243,7 @@ vae.fit(X_train, X_train, batch_size=m, nb_epoch=n_epoch)
 And that's it, the implementation of VAE in Keras!
 
 
-<h2 class="section-header">Implementation on MNIST Data</h2>
+<h2 class="section-heading">Implementation on MNIST Data</h2>
 
 We could use any dataset really, but like always, we will use MNIST as an example.
 
@@ -264,7 +264,7 @@ Lastly, we could generate new sample by first sample \\( z \sim N(0, 1) \\) and 
 If we look closely on the reconstructed and generated data, we would notice that some of the data are ambiguous. For example the digit 5 looks like 3 or 8. That's because our latent variable space is a continous distribution (i.e. \\( N(0, 1) \\)), hence there bound to be some smooth transition on the edge of the clusters. And also, the cluster of digits are close to each other if they are somewhat similar. That's why in the latent space, 5 is close to 3.
 
 
-<h2 class="section-header">Conclusion</h2>
+<h2 class="section-heading">Conclusion</h2>
 
 In this post we looked at the intuition behind Variational Autoencoder (VAE), its formulation, and its implementation in Keras.
 
@@ -275,7 +275,7 @@ For more math on VAE, be sure to hit the original paper by Kingma et al., 2014. 
 The full code is available in my repo: <https://github.com/wiseodd/generative-models>
 
 
-<h2 class="section-header">References</h2>
+<h2 class="section-heading">References</h2>
 
 1. Doersch, Carl. "Tutorial on variational autoencoders." arXiv preprint arXiv:1606.05908 (2016).
 2. Kingma, Diederik P., and Max Welling. "Auto-encoding variational bayes." arXiv preprint arXiv:1312.6114 (2013).

@@ -21,7 +21,7 @@ So far, Japan is my favorite country. I've been to virtually all of the South-Ea
 
 The country itself is not very big in term of land mass, however, it's so rich and I won't be able to sum it up in just one post. So, today, I'll talk about two of the most important regions of Japan: Kanto and Kansai.
 
-<h2 class="section-header">Tokyo</h2>
+<h2 class="section-heading">Tokyo</h2>
 
 This is the most important city of Japan, the heart of Kanto region. With so many people living in Tokyo metropolitan area, this is the most populous city in the world. Try to be at Shinjuku Station at 6 in Friday afternoon, and you'll surely understand why.
 
@@ -63,7 +63,7 @@ It is said that one could see the Mt. Fuji from here. Just my luck, it was raini
 
 On top of all those things, ending the day with a bottle of sake is perfect!
 
-<h2 class="section-header">Yugawara</h2>
+<h2 class="section-heading">Yugawara</h2>
 
 Japan is famous for its hot spring (onsen), and sure enough I went to a small town just for the onsen. The town is called Yugawara, in Kanagawa Perfecture, just south of Tokyo.
 
@@ -85,7 +85,7 @@ I was lucky. When I was there, it was the festival time! It was the Yukake Matsu
 
 This is the best thing about Japan, everything is connected by the rail system. It's so easy to go everywhere even from a small town like Yugawara.
 
-<h2 class="section-header">Interlude: Shinkansen</h2>
+<h2 class="section-heading">Interlude: Shinkansen</h2>
 
 Taking the local train to another small town called Atami, I then took another local train to the capital city of Shizuoka Perfecture which called... Shizuoka!
 
@@ -103,7 +103,7 @@ Thinking about it, taking train between cities is a great way to travel. First, 
 
 With train like Shinkansen, it's so comfortable and drop you right in the heart of the city. Have I told you that you could just go to the station and take the next train?
 
-<h2 class="section-header">Kyoto</h2>
+<h2 class="section-heading">Kyoto</h2>
 
 Kyoto is one of the cities in Kansai region. It's the old capital of Japan, before it was moved to Tokyo, then Edo. And sure enough, this city is the epicenter of Japanese culture!
 
@@ -133,7 +133,7 @@ One of the most famous temple is the Fushimi Inari: the temple with literally th
 
 The hill in Fushimi Inari is also a great spot to overlook the city of Kyoto. As always, sunrise on sunset will enhance the experience multiple fold!
 
-<h2 class="section-header">Osaka</h2>
+<h2 class="section-heading">Osaka</h2>
 
 This is the great thing about Kansai: moving between big cities is so easy! With just 30 minutes local train ride from Kyoto, one would end up in the capital city of Kansai: Osaka.
 
@@ -161,7 +161,7 @@ Whereas Tokyo has Mt. Takao, Osaka has Minoo. Minoo is a quasi-national-park loc
 
 This is one factor why I like Japan so much: it's easy to find and access hiking trails!
 
-<h2 class="section-header">Interlude: Bus</h2>
+<h2 class="section-heading">Interlude: Bus</h2>
 
 Even with the invention of fast train like Shinkansen, Chinese CRH, and Maglev, buses prove time to time again to be a bang of the buck transportation option.
 
@@ -171,7 +171,7 @@ So bus it was, the transportation that I took to go to catch my flight in Nagoya
 
 The bus, called Willer Express was so comfortable. Light years ahead of all buses I've ever taken. Where else could you get a thing that will cover you head and give you privacy and great environment to sleep in? Talking about the feeling of being an astronaut...
 
-<h2 class="section-header">Epilogue</h2>
+<h2 class="section-heading">Epilogue</h2>
 
 Everywhere I see in Japan, it's beautiful. The nature, the people, the culture, the cities, the hospitality, everything!
 

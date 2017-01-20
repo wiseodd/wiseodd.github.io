@@ -48,7 +48,7 @@ Notice the scale.
 
 And I traveled that route by train. Although I cheated a bit. For Xi'an to Chengdu, I decided to go by plane, as there was no bullet train for that route. At least I tried all of Chinese transportation modes.
 
-<h2 class="section-header">Bus in China</h2>
+<h2 class="section-heading">Bus in China</h2>
 
 Usually, when I was in a city, I walk or rent a bicycle or use the subway, never by local bus. But in Luoyang, I had no choice, as Luoyang is just a small city in the middle of China. It's a small city alright, but small city IN China, which means it's big! But because it's small (you still with me?), it got no subway. The only way to travel is by bus.
 
@@ -61,7 +61,7 @@ Always open Google Maps when aboard, have the place starred before hand so you c
 Look up the Chinese character and how those character sounds, then when aboard, read every words inside the bus, and keep your ear sharp, because there would be announcement when the bus is going to stop. The trick is to do pattern matching here
 Don't go first when boarding the bus, let the locals go first, and observe the etiquette. Like for example, should you board the front or back door? How much should you pay? How do you pay? etc
 
-<h2 class="section-header">Huashan</h2>
+<h2 class="section-heading">Huashan</h2>
 
 If you ask me what's the highlight of this trip, I'd say Huashan without thinking. It was the best place I've ever visited, and still is. Just look at this.
 

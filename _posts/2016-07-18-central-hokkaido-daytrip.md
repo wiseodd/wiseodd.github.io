@@ -15,7 +15,7 @@ Sapporo, the biggest city in Hokkaido region of Japan, is a perfect city as a ba
 
 It's very easy to go from Sapporo to some of the most interesting area in Hokkaido. One of the highlight day trips from Sapporo is the central region of Hokkaido: Furano, Biei, and Asahikawa.
 
-<h2 class="section-header">Furano</h2>
+<h2 class="section-heading">Furano</h2>
 
 Furano is a famous town in Hokkaido for a reason. That reason is maybe unthinkable for a Japanese town. It's kind of out of place, but it's amazing nonetheless.
 
@@ -57,7 +57,7 @@ Walking around 20 minutes from the Naka-Furano Station, those famous Lavender fi
 
 It is indeed amazing. With the hilly terrain, bright color of Lavender, small town in the background, and high rising mountains looming in the horizon; it's perfect.
 
-<h2 class="section-header">Biei</h2>
+<h2 class="section-heading">Biei</h2>
 
 Going back to Naka-Furano Station and hopping to the next local train bound to the north, one can go to another interesting city in Central Hokkaido.
 
@@ -97,7 +97,7 @@ It is amazing indeed, the scenery of Biei. Everywhere one can see, it's pictures
 
 Two hours of bicycling around the hills of Biei is a reasonable amount of time. Just don't forget to bring plenty of waters and two onigiris or three!
 
-<h2 class="section-header">Asahikawa</h2>
+<h2 class="section-heading">Asahikawa</h2>
 
 Put the bicycle back to the shop, report in, and pay the rental fare. It's time for the next destination: Asahikawa.
 
@@ -113,7 +113,7 @@ Ending the day in Asahikawa, it's perfect to eat Asahikawa's speciality: Miso Ra
 
 It's not a really a concern regarding the train back to Sapporo from Asahikawa. There are literally hundred of them (okay, maybe less). Every hour there are 3 trains or so bound for Sapporo. The Super Kamui train, is an express train that could get to Sapporo in just 1.5 hours for ¥2,500. Again it's free for JR Pass holder!
 
-<h2 class="section-header">Central Hokkaido Budget</h2>
+<h2 class="section-heading">Central Hokkaido Budget</h2>
 
 It comes down to budgeting. With JR Pass, all the trains are free, so JR Pass holder will save as much as ¥5,500.
 

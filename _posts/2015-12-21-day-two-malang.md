@@ -11,7 +11,7 @@ tags:       [indonesia]
 
 Day two of this road trip, we spent a full day at Malang. The objective? Safari Park, Malangese delicacies, and Malangese delicacies. Not a typo, I want to eat.
 
-<h2 class="section-header">Prigen Safari Park</h2>
+<h2 class="section-heading">Prigen Safari Park</h2>
 
 ![DayTwo]({{ site.baseurl }}/img/2015-12-21-day-two-malang/00.png)
 
@@ -43,7 +43,7 @@ I love the park. A lot of exciting things there, well, at least for me.
 
 Also, it's cheap. I pay IDR 70,000 for the entry ticket. I originally wanted to go to Bali Safari and Marine Park in Bali, but looking at the admission fee, it's not for me.
 
-<h2 class="section-header">Bakso Malang</h2>
+<h2 class="section-heading">Bakso Malang</h2>
 
 This is the delicacy Malang is known for. Bakso is the Indonesian word for meatball. Bakso has became the staple food for Indonesian people already. You could find bakso stall and vendor at every corner of Indonesian cities.
 
@@ -53,6 +53,6 @@ One proceed to just pick any variations of meatball she likes, then just proceed
 
 Wise people said that with freedom comes responsibility. It was absolutely the case when we ate Bakso Malang. I picked one meatball for every variant. I think I picked around ten meatballs in total. When I got to the cashier, she said that I got to pay IDR 27,500. I was shocked, because my host, Andhika, only got to pay around IDR 10,000, one third of what I paid. Well, turned out there's a sign in front of me that indicates the price of each meatball, and I turned a blind eyes and just picked everything. Absolutely no regret though, sooo tasty, mmmm.
 
-<h2 class="section-header">Next: Jember & Banyuwangi</h2>
+<h2 class="section-heading">Next: Jember & Banyuwangi</h2>
 
 Next destination would be Banyuwangi, where we would try to cross the strait to Bali. However Banyuwangi is some 300 km away from Malang, so we decided to break it down into two separate legs. First, we're going to go to Jember, which is 180 km away from Malang, spend a night there, and then continue to Banyuwangi the following day. The Jember - Banyuwangi leg will be easier, as it's only 120 km long.
