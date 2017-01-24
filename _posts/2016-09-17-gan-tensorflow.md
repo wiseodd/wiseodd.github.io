@@ -11,7 +11,7 @@ tags:       [machine learning, programming, python, neural networks, gan]
 
 Generative Adversarial Nets, or GAN in short, is a quite popular neural net. It was first introduced in a [NIPS 2014 paper by Ian Goodfellow, et al](http://papers.nips.cc/paper/5423-generative-adversarial-nets.pdf). This paper literally sparked a lot of interest in adversarial training of neural net, proved by the number of citation of the paper. Suddenly, many flavors of GAN came up: DCGAN, Sequence-GAN, LSTM-GAN, etc. In NIPS 2016, there will even be [a whole workshop](https://sites.google.com/site/nips2016adversarial/) dedicated for adversarial training!
 
-Note, the code is available in [my gist repo](https://gist.github.com/wiseodd/b2697c620e39cb5b134bc6173cfe0f56) or the full [Github repo](https://github.com/wiseodd/hipsternet).
+Note, the code is available in <https://github.com/wiseodd/generative-models>.
 
 First, let's review the main points about the paper. After that, as always, we will try to implement GAN using TensorFlow, with MNIST data.
 
@@ -155,7 +155,7 @@ Next, we implemented the GAN with two layer neural net for both the Generator an
 
 Lastly, we thought about the different way to think about GAN loss functions. In the alternative loss functions, we think intuitively about the two networks and used Logistic Loss to model the alternative loss functions.
 
-For the full code, head to [my gist repo](https://gist.github.com/wiseodd/b2697c620e39cb5b134bc6173cfe0f56) or the full [Github repo](https://github.com/wiseodd/hipsternet)!
+For the full code, head to <https://github.com/wiseodd/generative-models>!
 
 <h2 class="section-heading">References</h2>
 
