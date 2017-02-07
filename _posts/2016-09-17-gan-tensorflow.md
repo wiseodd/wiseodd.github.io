@@ -97,7 +97,7 @@ G_loss = -tf.reduce_mean(tf.log(D_fake))
 
 Above, we use negative sign for the loss functions because they need to be maximized, whereas TensorFlow's optimizer can only do minimization.
 
-Also, as per the paper's suggestion, it's better to maximize `tf.reduce_mean(tf.log(D_fake))` instead of minimizing `tf.reduce(1 - tf.log(D_fake))` in the algorithm above.
+Also, as per the paper's suggestion, it's better to maximize `tf.reduce_mean(tf.log(D_fake))` instead of minimizing `tf.reduce_mean(1 - tf.log(D_fake))` in the algorithm above.
 
 Then we train the networks one by one with those Adversarial Training, represented by those loss functions above.
 
