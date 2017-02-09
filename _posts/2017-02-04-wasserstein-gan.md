@@ -37,7 +37,7 @@ We could see that the algorithm is quite similar to the original GAN. However, t
 
 <h2 class="section-heading">WGAN TensorFlow implementation</h2>
 
-The base implementation of GAN could be found in [the past post](% post_url 2016-09-17-gan-tensorflow %). We need only to modify traditional GAN with respect to those items above. So first, let's update our \\( D \\):
+The base implementation of GAN could be found in [the past post]({% post_url 2016-09-17-gan-tensorflow %}). We need only to modify traditional GAN with respect to those items above. So first, let's update our \\( D \\):
 
 ``` python
 """ Vanilla GAN """
@@ -99,7 +99,7 @@ And that is it.
 
 <h2 class="section-heading">WGAN Pytorch implementation</h2>
 
-The base implementation of original GAN could be found in [the past post](% post_url 2017-01-20-gan-pytorch %). Similar to the TensorFlow version, the modifications are quite straight forward. Note the codes below are inside each training iteration.
+The base implementation of original GAN could be found in [the past post]({% post_url 2017-01-20-gan-pytorch %}). Similar to the TensorFlow version, the modifications are quite straight forward. Note the codes below are inside each training iteration.
 
 First, update \\( D \\):
 
