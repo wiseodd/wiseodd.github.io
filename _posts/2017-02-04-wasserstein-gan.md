@@ -61,7 +61,7 @@ D_loss = -tf.reduce_mean(tf.log(D_real) + tf.log(1. - D_fake))
 G_loss = -tf.reduce_mean(tf.log(D_fake))
 
 """ WGAN """
-D_loss = -tf.reduce_mean(D_real) + tf.reduce_mean(D_fake)
+D_loss = tf.reduce_mean(D_real) - tf.reduce_mean(D_fake)
 G_loss = -tf.reduce_mean(D_fake)
 ```
 
