@@ -68,8 +68,8 @@ G_loss = -tf.reduce_mean(D_fake)
 We then clip the weight of \\( D \\) after each gradient descent update:
 
 ``` python
-clip_D_W1 = D_W1.assign(tf.clip_by_value(D_W1, -0.01, 0.01))
-clip_D_W2 = D_W2.assign(tf.clip_by_value(D_W2, -0.01, 0.01))
+# theta_D is list of D's params
+clip_D = [p.assign(tf.clip_by_value(p, -0.01, 0.01)) for p in theta_D]
 ```
 
 Lastly, we train \\( D \\) more:
@@ -84,8 +84,8 @@ for it in range(1000000):
     for _ in range(5):
         X_mb, _ = mnist.train.next_batch(mb_size)
 
-        _, D_loss_curr, xx, yy = sess.run(
-            [D_solver, D_loss, clip_D_W1, clip_D_W2],
+        _, D_loss_curr, _ = sess.run(
+            [D_solver, D_loss, clip_D],
             feed_dict={X: X_mb, z: sample_z(mb_size, z_dim)}
         )
 
