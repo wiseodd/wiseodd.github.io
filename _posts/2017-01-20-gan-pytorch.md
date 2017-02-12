@@ -46,20 +46,16 @@ def xavier_init(size):
     return Variable(torch.randn(*size) * xavier_stddev, requires_grad=True)
 
 
-def create_bias(size):
-    return Variable(torch.zeros(mb_size, size), requires_grad=True)
-
-
 Wzh = xavier_init(size=[Z_dim, h_dim])
-bzh = create_bias(h_dim)
+bzh = Variable(torch.zeros(h_dim), requires_grad=True)
 
 Whx = xavier_init(size=[h_dim, X_dim])
-bhx = create_bias(X_dim)
+bhx = Variable(torch.zeros(X_dim), requires_grad=True)
 
 
 def G(z):
-    h = nn.relu(z @ Wzh + bzh)
-    X = nn.sigmoid(h @ Whx + bhx)
+    h = nn.relu(z @ Wzh + bzh.repeat(z.size(0), 1))
+    X = nn.sigmoid(h @ Whx + bhx.repeat(h.size(0), 1))
     return X
 ```
 
@@ -69,19 +65,19 @@ Next is the Discriminator Network \\( D(X) \\):
 
 ``` python
 Wxh = xavier_init(size=[X_dim, h_dim])
-bxh = create_bias(h_dim)
+bxh = Variable(torch.zeros(h_dim), requires_grad=True)
 
 Why = xavier_init(size=[h_dim, 1])
-bhy = create_bias(1)
+bhy = Variable(torch.zeros(1), requires_grad=True)
 
 
 def D(X):
-    h = nn.relu(X @ Wxh + bxh)
-    y = nn.sigmoid(h @ Why + bhy)
+    h = nn.relu(X @ Wxh + bxh.repeat(X.size(0), 1))
+    y = nn.sigmoid(h @ Why + bhy.repeat(h.size(0), 1))
     return y
 ```
 
-Attentive readers will notice that unlike in TensorFlow or Numpy implementation, `create_bias()` function is returning `mb_size x dim` dimensional tensor, instead of `1 x dim`. It is a workaround since Pytorch has not implemented Numpy-like broadcasting mechanism. If we do not use this workaround, the `X @ W + b` will fail because while `X @ W` is `mb_size x h` dimensional tensor, `b` is only `1 x b` vector!
+Attentive readers will notice that unlike in TensorFlow or Numpy implementation, adding bias to the equation is non-trivial in Pytorch. It is a workaround since Pytorch has not implemented Numpy-like broadcasting mechanism yet. If we do not use this workaround, the `X @ W + b` will fail because while `X @ W` is `mb_size x h` dimensional tensor, `b` is only `1 x b` vector!
 
 Now let's define the optimization procedure:
 
