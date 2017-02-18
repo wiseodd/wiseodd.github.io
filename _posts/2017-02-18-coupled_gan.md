@@ -99,6 +99,38 @@ Notice that `G_shared` are being used in those two nets.
 
 The discriminators are also two layers nets, similar to the generators, but share weights on the last section: hidden to output.
 
+``` python
+""" Shared Discriminator weights """
+D_shared = torch.nn.Sequential(
+    torch.nn.Linear(h_dim, 1),
+    torch.nn.Sigmoid()
+)
+
+""" Discriminator 1 """
+D1_ = torch.nn.Sequential(
+    torch.nn.Linear(X_dim, h_dim),
+    torch.nn.ReLU()
+)
+
+""" Discriminator 2 """
+D2_ = torch.nn.Sequential(
+    torch.nn.Linear(X_dim, h_dim),
+    torch.nn.ReLU()
+)
+
+
+def D1(X):
+    h = D1_(X)
+    y = D_shared(h)
+    return y
+
+
+def D2(X):
+    h = D2_(X)
+    y = D_shared(h)
+    return y
+```
+
 Next, we construct the optimizer:
 
 ``` python
@@ -127,50 +159,65 @@ D1_real = D1(X1)
 D1_fake = D1(G1_sample)
 
 D1_loss = torch.mean(-torch.log(D1_real + 1e-8) -
-                      torch.log(1. - D1_fake + 1e-8))
+                     torch.log(1. - D1_fake + 1e-8))
+
+D2_loss = torch.mean(-torch.log(D2_real + 1e-8) -
+                     torch.log(1. - D2_fake + 1e-8))
 ```
 
-The interesting part is the backpropagation. As we need to average the gradients of the shared layers, we need cache the gradients of `shared_D` that we get from the backpropagation of `D1_loss`.
+Then we just add up those loss. During backpropagation, `D_shared` will naturally get gradients from both `D1` and `D2`, i.e. sum of both branches. All we need to do to get the average is to scale them:
 
 ``` python
-D1_loss.backward()
+D_loss = D1_loss + D2_loss
+D_loss.backward()
 
-# Cache grad of D's shared weights, result of D1 backprop
-D_shared_grad = [copy.deepcopy(p.grad.data) for p in D_shared.parameters()]
-# Reset grad of D's shared weights
+# Average the gradients
 for p in D_shared.parameters():
-    p.grad.data.zero_()
+    p.grad.data = 0.5 * p.grad.data
 ```
 
-Then, we do the same procedure up to backpropagation for `D2`. When we get the gradient `D_shared` from `D2`'s backprop, we are ready to average them:
-
-``` python
-D2_loss.backward()
-
-# Average the current grad and chaced grad, then assign to shared D
-for p, g_copy in zip(D_shared.parameters(), D_shared_grad):
-    p.grad.data = 0.5 * (p.grad.data + g_copy)
-```
-
-As we have all the gradients, including average gradient for `D_shared`, we could update the weights:
+As we have all the gradients, we could update the weights:
 
 ``` python
 D_solver.step()
 reset_grad()
 ```
 
-For generators training, the procedure is similar to discriminators training, where we need to average the gradient of generator loss w.r.t. `G_shared`.
+For generators training, the procedure is similar to discriminators training, where we need to average the loss of `G1` and `G2` w.r.t. `G_shared`.
 
+``` python
+# Generator
+G1_sample = G1(z)
+D1_fake = D1(G1_sample)
+
+G2_sample = G2(z)
+D2_fake = D2(G2_sample)
+
+G1_loss = torch.mean(-torch.log(D1_fake + 1e-8))
+G2_loss = torch.mean(-torch.log(D2_fake + 1e-8))
+G_loss = G1_loss + G2_loss
+
+G_loss.backward()
+
+# Average the gradients
+for p in G_shared.parameters():
+    p.grad.data = 0.5 * p.grad.data
+
+G_solver.step()
+reset_grad()
+```
 
 <h2 class="section-heading">Results</h2>
 
 After many thousands of iterations, `G1` and `G2` will produce these kind of samples. Note, first two rows are the normal MNIST images, the next two rows are the rotated images. Also, the \\( z \\) that were fed into `G1` and `G2` are the same so that we could see given the same latent code \\( z \\), we could sample \\( \( x_1, x_2 \) \\) that are corresponding to each other from the joint distribution.
 
+![Result 1]({{ site.baseurl }}/img/2017-02-18-coupled-gan/res1.png)
+
 ![Result 2]({{ site.baseurl }}/img/2017-02-18-coupled-gan/res2.png)
 
 Obviously, if we swap our nets with more powerful ones, we could get higher quality samples.
 
-If we squint, we could see that roughly, images at the third row are the 90 degree rotation of the first row. Also, the fourth row are the corresponding images of the second row.
+If we squint, we could see that _roughly_, images at the third row are the 90 degree rotation of the first row. Also, the fourth row are the corresponding images of the second row.
 
 This is a marvelous results considering we did not explicitly show CoGAN the samples from joint distribution (i.e. a tuple of \\( \(x_1, x_2\) \\)). We only show samples from disjoint marginals. In summary, CoGAN is able to infer the joint distribution by itself.
 
