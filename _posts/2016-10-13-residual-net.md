@@ -15,25 +15,18 @@ Aside from winning the ILSVRC 2015 classification, ResNet also won the detection
 
 So, what makes ResNet so good? What's the difference compared to the previous convnet models?
 
-<h2 class="section-heading">ResNet: the theory behind it</h2>
+<h2 class="section-heading">ResNet: the intuition behind it</h2>
 
-Suppose we want to approximate a function \\( g(x) \\) with another function \\( f(x) \\). In any numerical analysis, there would be some error, be it attributed to precision loss or because the approximator is not good enough. The error of that approximation, we call it as **residual**, is given by \\( r = g(x) - f(x) \\).
+The authors of ResNet observed, no matter how deep a network is, it should not be any worse than the shallower network. That's because if we argue that neural net could approximate any complicated function, then it could also learn identity function, i.e. input = output, effectively skipping the learning progress on some layers. But, in real world, this is not the case because of the vanishing gradient and curse of dimensionality problems.
 
-Going to neural net space, suppose we have input \\( x \\) and the function that we want to approximate by the net \\( H(x) \\). In a plain neural net, one or more layers with input \\( x \\) will try to approximate \\( H(x) \\) directly. That's not the case in ResNet; we're going go around the corner a little bit.
+![Residual block]({{ site.baseurl }}/img/2016-10-13-residual-net/residual_block.png)
 
-ResNet, instead, will approximate the \\( H(x) \\) by learning the residual of the mapping of input to output of one or more layers. Concretely, ResNet will compute \\( F(x) = H(x) - x \\). From there, we still want to approximate \\( H(x) \\) just like the plain neural net, but now, to approximate the desired function \\( H(x) \\), we just need the net to learn \\( F(x) \\), the residual, and adding that together with the input: \\( H(x) = F(x) + x \\). In a way, we're adding an identity mapping (adding with the input itself) to the formulation of our net. This formulation has a nice interpretation in neural net, and might be attributed on to why ResNet is so good.
+Hence, it might be useful to explicitly force the network to learn an identity mapping, by learning the residual of input and output of some layers (or subnetworks). Suppose the input of the subnetwork is \\( x \\), and the **true** output is \\( H(x) \\). The residual is the difference between them: \\( F(x) = H(x) - x \\). As we are interested in finding the true, underlying output of the subnetwork, we then rearrange that equation into \\( H(x) = F(x) + x \\).
 
-<h2 class="section-heading">ResNet: the impact in backprop</h2>
+So that's the difference between ResNet and traditional neural nets. Where traditional neural nets will learn \\( H(x) \\) directly, ResNet instead models the layers to learn the residual of input and output of subnetworks. This will give the network an option to just skip subnetworks by making \\( F(x) = 0 \\), so that \\( H(x) = x \\). In other words, the output of a particular subnetwork is just the output of the last subnetwork.
 
-Suppose that we have net gradient at the output node \\( \frac {\partial \ell}{\partial H} \\). We know what that \\( H(x) = F(x) + x \\), so we know its derivatives: \\( \frac {\partial H(x)}{\partial x} =  1 \\) and \\( \frac {\partial H(x)}{\partial F} = 1 \\). What does it means?
+During backpropagation, learning residual gives us nice property. Because of the formulation, the network could choose to ignore the gradient of some subnetworks, and just forward the gradient from higher layers to lower layers without any modification. As an extreme example, this means that ResNet could just forward gradient from the last layer, e.g. layer 151, directly to the first layer. This gives ResNet additional nice to have option which might be useful, rather than just strictly doing computation in all layers.
 
-Remember that backpropagation is just a chain rule of derivative. Therefore, net gradient at the layers are \\( \frac {\partial H(x)}{\partial x} =  1 * \frac {\partial \ell}{\partial H} \\) and \\( \frac {\partial H(x)}{\partial F} =  1 * \frac {\partial \ell}{\partial H} \\). They both equal to \\( \frac {\partial \ell}{\partial H} \\), the gradient of the output!
-
-If we think about that in term of backpropagation as a whole, it means that the gradient just being passed through from the output node to the input without any loss on augmentation. Intuitively, this very thing might help ResNet to alleviate the vanishing gradient problem, hence it's able to learn better, even with very deep layer configuration!
-
-As another explanation (I'm pretty sure I heard it from Andrej Karpathy) said, having identity mapping in ResNet is like a highway: the gradient will be forwarded as is to the lower layers, and therefore the network will learn better.
-
-It seems, the benefit of computing \\( H(x) \\) through its residual is quite free in term of computational cost. First, the time complexity is largely the same as the network need to take into account the identity mapping, which is just some extra pointwise addition. Second, the memory complexity is surprisingly the same as before. We don't need to introduce more parameters to learn the residual, as again, it's just an identity mapping. It might give the ResNet more edge though, as it could learn better with fewer parameters compared to, say, VGGNet. And fewer parameters means less overfitting and faster to train! All in all, I found this quite ingenious!
 
 <h2 class="section-heading">ResNet: implementation detail</h2>
 
@@ -49,13 +42,6 @@ In the paper, He et al. use bottleneck architecture for each the residual block.
 
 Notice, in 50 layers and more ResNet, at each block, there are now two 1x1 convolution layers.
 
-<h2 class="section-heading">Conclusion</h2>
-
-That's it for the introduction of ResNet. Next post, we will try to implement it!
-
-With those achievements, now wonder ResNet inspired quite a bit other ideas, only one year after it was unveiled. Things like Google's latest Inception-v4 (Szegedy et al., 2016) and DenseNet (Gao et al., 2016) are clearly inspired by ResNet.
-
-ResNet is ingenious, simple, yet super powerful model. If you have time and interested in the field, I suggest you to read the paper if you haven't. It's a joyful read!
 
 <h2 class="section-heading">References</h2>
 
