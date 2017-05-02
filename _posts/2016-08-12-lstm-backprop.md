@@ -78,9 +78,10 @@ def lstm_forward(X, state):
     y = h @ Wy + by
     prob = softmax(y)
 
+    state = (h, c) # Cache the states of current h & c for next iter
     cache = ... # Add all intermediate variables to this cache
 
-    return prob, cache
+    return prob, state, cache
 ```
 
 The above code is for the forward step for a single LSTM cell, which identically follows the formula above. The only additions are the one-hot encoding and the hidden-input concatenation process.
