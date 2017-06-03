@@ -108,7 +108,7 @@ Having \\( P(z) = N(0, 1) \\) also add another benefit. Let's say we also want \
 
 $$
 
-D_{KL}[N(\mu(X), \Sigma(X)), N(0, 1)] = \frac{1}{2} \, \left( \textrm{tr}(\Sigma(X)) + \mu(X)^T\mu(X) - k - \log \, \det(\Sigma(X)) \right)
+D_{KL}[N(\mu(X), \Sigma(X)) \Vert N(0, 1)] = \frac{1}{2} \, \left( \textrm{tr}(\Sigma(X)) + \mu(X)^T\mu(X) - k - \log \, \det(\Sigma(X)) \right)
 
 $$
 
@@ -116,7 +116,7 @@ Above, \\( k \\) is the dimension of our Gaussian. \\( \textrm{tr}(X) \\) is tra
 
 $$ \begin{align}
 
-D_{KL}[N(\mu(X), \Sigma(X)), N(0, 1)] &= \frac{1}{2} \, \left( \sum_k \Sigma(X) + \sum_k \mu^2(X) - \sum_k 1 - \log \, \prod_k \Sigma(X) \right) \\[10pt]
+D_{KL}[N(\mu(X), \Sigma(X)) \Vert N(0, 1)] &= \frac{1}{2} \, \left( \sum_k \Sigma(X) + \sum_k \mu^2(X) - \sum_k 1 - \log \, \prod_k \Sigma(X) \right) \\[10pt]
                                       &= \frac{1}{2} \, \left( \sum_k \Sigma(X) + \sum_k \mu^2(X) - \sum_k 1 - \sum_k \log \Sigma(X) \right) \\[10pt]
                                       &= \frac{1}{2} \, \sum_k \left( \Sigma(X) + \mu^2(X) - 1 - \log \Sigma(X) \right)
 \end{align} $$
@@ -125,7 +125,7 @@ In practice, however, it's better to model \\( \Sigma(X) \\) as \\( \log \Sigma(
 
 $$
 
-D_{KL}[N(\mu(X) \Vert \Sigma(X)), N(0, 1)] = \frac{1}{2} \sum_k \left( \exp(\Sigma(X)) + \mu^2(X) - 1 - \Sigma(X) \right)
+D_{KL}[N(\mu(X), \Sigma(X)) \Vert N(0, 1)] = \frac{1}{2} \sum_k \left( \exp(\Sigma(X)) + \mu^2(X) - 1 - \Sigma(X) \right)
 
 $$
 
