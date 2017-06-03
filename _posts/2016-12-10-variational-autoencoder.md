@@ -45,7 +45,7 @@ Alright, now let's say we want to infer \\( P(z \vert X) \\) using \\( Q(z \vert
 
 $$ \begin{align}
 
-D_{KL}[Q(z \vert X) \Vert P(z \vert X)] &= \sum_z P(z) \, \log \frac{Q(z \vert X)}{P(z \vert X)} \\[10pt]
+D_{KL}[Q(z \vert X) \Vert P(z \vert X)] &= \sum_z Q(z \vert X) \, \log \frac{Q(z \vert X)}{P(z \vert X)} \\[10pt]
                             &= E \left[ \log \frac{Q(z \vert X)}{P(z \vert X)} \right] \\[10pt]
                             &= E[\log Q(z \vert X) - \log P(z \vert X)]
 
