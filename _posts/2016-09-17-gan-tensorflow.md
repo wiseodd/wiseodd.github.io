@@ -32,7 +32,7 @@ In GAN, the first net is called Generator Net \\( G(Z) \\) and the second net ca
 
 At the equilibrium point, which is the optimal point in minimax game, the first net will models the real data, and the second net will output probability of 0.5 as the output of the first net = real data.
 
-"BTW why do we interested in training GAN?" might come in mind. It's because probability distribution of data \\( P_{data} \\) might be a very complicated distribution and very hard and intractable to infer. So, having a generative machine that could generate samples from \\( P_{data} \\) without having to deal with nasty probability distribution is very nice. If we have this, then we could use it for another process that require sample from \\( P_{data} \\) as we could get samples relatively cheaply using the trained Generative Net.
+"BTW why are we interested in training GAN?" might come to mind. It's because probability distribution of data \\( P_{data} \\) might be a very complicated distribution and very hard and intractable to infer. So, having a generative machine that could generate samples from \\( P_{data} \\) without having to deal with nasty probability distribution is very nice. If we have this, then we could use it for another process that require sample from \\( P_{data} \\) as we could get samples relatively cheaply using the trained Generative Net.
 
 <h2 class="section-heading">GAN Implementation</h2>
 
