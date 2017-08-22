@@ -17,21 +17,13 @@
             <ul class="nav navbar-nav navbar-right">
                 {% assign pages = site.pages | sort: 'weight' | reverse %}
 
-                {% for page in pages %}{% if page.title %}
-                    {% if page.title == "Third World Nomad's Travel Blog" %}
-                        <li>
-                            <a href="{{ page.url | prepend: site.baseurl }}">Travel Blog</a>
-                        </li>
-                    {% elsif page.title == "Third World Nomad's Tech Blog" %}
-                        <li>
-                            <a href="{{ page.url | prepend: site.baseurl }}">Tech Blog</a>
-                        </li>
-                    {% else %}
+                {% for page in pages %}
+                    {% if page.title %}
                         <li>
                             <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
                         </li>
                     {% endif %}
-                {% endif %}{% endfor %}
+                {% endfor %}
             </ul>
         </div>
         <!-- /.navbar-collapse -->

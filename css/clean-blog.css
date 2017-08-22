@@ -25,6 +25,18 @@ h5,
 h6 {
   font-weight: 800;
 }
+
+#aboutme h3 {
+  margin-top: 0px !important;
+  margin-bottom: 1em !important;
+}
+
+#aboutme h4 {
+  margin-top: 0px !important;
+  margin-bottom: 0.25em !important;
+  font-size: 17px;
+}
+
 a {
   color: #404040;
 }
