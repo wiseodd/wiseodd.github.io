@@ -43,6 +43,9 @@ a {
 .post a {
   color: #337ab7;
 }
+#aboutme a {
+  color: #337ab7;
+}
 a:hover,
 a:focus {
   color: #0085a1;
