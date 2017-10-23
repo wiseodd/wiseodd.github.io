@@ -16,7 +16,7 @@ permalink: "pretty"
 paginate: 10
 timezone: "Asia/Jakarta"
 exclude: ["less", "node_modules", "Gruntfile.js", "package.json", "README.md"]
-gems: ["jekyll-paginate", "jekyll-sitemap"]
+plugins: ["jekyll-paginate", "jekyll-sitemap"]
 
 kramdown:
   input: GFM

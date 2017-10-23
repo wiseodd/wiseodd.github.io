@@ -1,5 +1,5 @@
 body {
-  font-family: 'Lora', 'Times New Roman', serif;
+  font-family: 'Computer Modern Serif', serif;
   font-size: 17px;
   color: #404040;
   line-height: 1.75;
@@ -234,7 +234,7 @@ hr.small {
   font-weight: 600;
 }
 .intro-header .post-heading .meta {
-  font-family: 'Lora', 'Times New Roman', serif;
+  font-family: 'Computer Modern Serif', serif;
   font-style: italic;
   font-weight: 300;
   font-size: 20px;
