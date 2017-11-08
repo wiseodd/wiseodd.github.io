@@ -1,13 +1,13 @@
 body {
   font-family: 'Computer Modern Serif', serif;
-  font-size: 17px;
+  font-size: 19px;
   color: #404040;
   line-height: 1.75;
 }
 
 @media only screen and (min-width: 480px) {
   body {
-    font-size: 17px;
+    font-size: 19px;
   }
 }
 p {
