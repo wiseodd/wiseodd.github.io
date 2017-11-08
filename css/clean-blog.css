@@ -2,7 +2,7 @@ body {
   font-family: 'Computer Modern Serif', serif;
   font-size: 19px;
   color: #404040;
-  line-height: 1.75;
+  line-height: 1.5;
 }
 
 @media only screen and (min-width: 480px) {
@@ -11,7 +11,7 @@ body {
   }
 }
 p {
-  line-height: 1.75;
+  line-height: 1.5;
   margin: 30px 0;
 }
 ul, ol {
@@ -54,7 +54,7 @@ blockquote {
   color: #808080;
   font-style: italic;
   white-space: pre-wrap;
-  line-height: 1.75;
+  line-height: 1.5;
 }
 hr.small {
   max-width: 100px;
