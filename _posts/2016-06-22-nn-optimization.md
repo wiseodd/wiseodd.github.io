@@ -99,7 +99,7 @@ def nesterov(model, X_train, y_train, minibatch_size):
         X_mini, y_mini = minibatches[idx]
 
         model_ahead = {k: v + gamma * velocity[k] for k, v in model.items()}
-        grad = get_minibatch_grad(model, X_mini, y_mini)
+        grad = get_minibatch_grad(model_ahead, X_mini, y_mini)
 
         for layer in grad:
             velocity[layer] = gamma * velocity[layer] + alpha * grad[layer]
