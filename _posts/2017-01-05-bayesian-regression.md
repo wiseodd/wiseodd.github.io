@@ -64,28 +64,28 @@ $$ W_{MLE} = \mathop{\rm arg\,max}\limits_{W} N(\hat{y} \vert W^Tx, \sigma^2) $$
 
 The PDF of Gaussian is given by:
 
-$$ P(\hat{y} \vert x, W) = \frac{1}{\sqrt{2 \sigma^2 \pi}} \, \exp \left( \frac{(\hat{y} - W^Tx)^2}{2 \sigma^2} \right) $$
+$$ P(\hat{y} \vert x, W) = \frac{1}{\sqrt{2 \sigma^2 \pi}} \, \exp \left( -\frac{(\hat{y} - W^Tx)^2}{2 \sigma^2} \right) $$
 
 As we are doing maximization, we could ignore the normalizing constant of the likelihood. Hence:
 
-$$ W_{MLE} = \mathop{\rm arg\,max}\limits_{W} \, \exp \left( \frac{(\hat{y} - W^Tx)^2}{2 \sigma^2} \right) $$
+$$ W_{MLE} = \mathop{\rm arg\,max}\limits_{W} \, \exp \left( -\frac{(\hat{y} - W^Tx)^2}{2 \sigma^2} \right) $$
 
 As always, it is easier to optimize the log likelihood:
 
 $$ \begin{align}
 
-W_{MLE} &= \mathop{\rm arg\,max}\limits_{W} \, \log \left[ \exp \left( \frac{(\hat{y} - W^Tx)^2}{2 \sigma^2} \right) \right] \\[10pt]
-        &= \mathop{\rm arg\,max}\limits_{W} \frac{1}{2 \sigma^2}(\hat{y} - W^Tx)^2
-
+W_{MLE} &= \mathop{\rm arg\,max}\limits_{W} \, \log \left( \exp \left( -\frac{(\hat{y} - W^Tx)^2}{2 \sigma^2} \right) \right) \\[10pt]
+        &= \mathop{\rm arg\,max}\limits_{W} -\frac{1}{2 \sigma^2}(\hat{y} - W^Tx)^2 \\[10pt]
+        &= \mathop{\rm arg\,min}\limits_{W} \frac{1}{2 \sigma^2}(\hat{y} - W^Tx)^2
 \end{align} $$
 
 For simplicity, let's say \\( \sigma^2 = 1 \\), then:
 
 $$ \begin{align}
 
-W_{MLE} &= \mathop{\rm arg\,max}\limits_{W} \frac{1}{2} (\hat{y} - W^Tx)^2 \\[10pt]
-        &= \mathop{\rm arg\,max}\limits_{W} \frac{1}{2} \sum_i (\hat{y}_i - W_i x_i)^2 \\[10pt]
-        &= \mathop{\rm arg\,max}\limits_{W} \frac{1}{2} \Vert \hat{y} - W^Tx \Vert^2_2
+W_{MLE} &= \mathop{\rm arg\,min}\limits_{W} \frac{1}{2} (\hat{y} - W^Tx)^2 \\[10pt]
+        &= \mathop{\rm arg\,min}\limits_{W} \frac{1}{2} \sum_i (\hat{y}_i - W_i x_i)^2 \\[10pt]
+        &= \mathop{\rm arg\,min}\limits_{W} \frac{1}{2} \Vert \hat{y} - W^Tx \Vert^2_2
 
 \end{align} $$
 
@@ -106,8 +106,8 @@ Expanding the PDF, and again ignoring the normalizing constant and keeping in mi
 
 $$ \begin{align}
 
-P(W \vert \mu_0, \sigma^2_0) &= \frac{1}{\sqrt{2 \sigma^2_0 \pi}} \, \exp \left[ \frac{(W - \mu_0)^2}{2 \sigma^2_0} \right] \\[10pt]
-                             &\propto \exp \left( \frac{W^2}{2 \sigma^2_0} \right)
+P(W \vert \mu_0, \sigma^2_0) &= \frac{1}{\sqrt{2 \sigma^2_0 \pi}} \, \exp \left( -\frac{(W - \mu_0)^2}{2 \sigma^2_0} \right) \\[10pt]
+                             &\propto \exp \left( -\frac{W^2}{2 \sigma^2_0} \right)
 
 \end{align} $$
 
@@ -116,7 +116,7 @@ Let's derive the posterior:
 $$ \begin{align}
 
 P(W \vert \hat{y}, x) &= P(\hat{y} \vert x, W) P(W \vert \mu_0, \sigma^2_0) \\[10pt]
-                      &\propto \exp \left( \frac{(\hat{y} - W^Tx)^2}{2 \sigma^2} \right) \, \exp \left( \frac{W^2}{2 \sigma^2_0} \right)
+                      &\propto \exp \left( -\frac{(\hat{y} - W^Tx)^2}{2 \sigma^2} \right) \, \exp \left( -\frac{W^2}{2 \sigma^2_0} \right)
 
 \end{align} $$
 
@@ -124,14 +124,14 @@ And the log posterior is then:
 
 $$ \begin{align}
 
-\log P(W \vert \hat{y}, x) &\propto \frac{1}{2 \sigma^2}(\hat{y} - W^Tx)^2 + \frac{1}{2 \sigma^2_0} W^2 \\[10pt]
-                           &= \frac{1}{2 \sigma^2} \Vert \hat{y} - W^Tx\Vert^2_2 + \frac{1}{2 \sigma^2_0} \Vert W \Vert^2_2
+\log P(W \vert \hat{y}, x) &\propto -\frac{1}{2 \sigma^2}(\hat{y} - W^Tx)^2 - \frac{1}{2 \sigma^2_0} W^2 \\[10pt]
+                           &= -\frac{1}{2 \sigma^2} \Vert \hat{y} - W^Tx\Vert^2_2 - \frac{1}{2 \sigma^2_0} \Vert W \Vert^2_2
 
 \end{align}$$
 
 Seems familiar, right! Now if we assume that \\( \sigma^2 = 1 \\) and \\( \lambda = \frac{1}{\sigma^2_0} \\), then our log posterior becomes:
 
-$$ \log P(W \vert \hat{y}, x) \propto \frac{1}{2} \Vert \hat{y} - W^Tx\Vert^2_2 + \frac{\lambda}{2} \Vert W \Vert^2_2 $$
+$$ \log P(W \vert \hat{y}, x) \propto -\frac{1}{2} \Vert \hat{y} - W^Tx\Vert^2_2 - \frac{\lambda}{2} \Vert W \Vert^2_2 $$
 
 That is, the log posterior of Gaussian likelihood and Gaussian prior is the same as the objective function for Ridge Regression! Hence, Gaussian prior is equal to \\( \ell_2 \\) regularization!
 
