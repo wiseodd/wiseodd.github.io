@@ -1,13 +1,13 @@
 body {
-  font-family: 'Computer Modern Serif', serif;
-  font-size: 19px;
+  font-family: Georgia, serif;
+  font-size: 18px;
   color: #404040;
   line-height: 1.5;
 }
 
 @media only screen and (min-width: 480px) {
   body {
-    font-size: 19px;
+    font-size: 18px;
   }
 }
 p {
@@ -234,7 +234,7 @@ hr.small {
   font-weight: 600;
 }
 .intro-header .post-heading .meta {
-  font-family: 'Computer Modern Serif', serif;
+  font-family: Georgia, serif;
   font-style: italic;
   font-weight: 300;
   font-size: 20px;
