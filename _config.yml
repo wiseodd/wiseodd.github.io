@@ -5,16 +5,14 @@ email: "kristiadi7@gmail.com"
 description: ""
 baseurl: ""
 url: "http://wiseodd.github.io"
-twitter_username: "wiseodd"
 github_username: "wiseodd"
-facebook_username: "agustinus.kristiadi7"
 
 # Build settings
 markdown: "kramdown"
 highlighter: "rouge"
 permalink: "pretty"
 paginate: 10
-timezone: "Asia/Jakarta"
+timezone: "Europe/Berlin"
 exclude: ["less", "node_modules", "Gruntfile.js", "package.json", "README.md"]
 plugins: ["jekyll-paginate", "jekyll-sitemap"]
 

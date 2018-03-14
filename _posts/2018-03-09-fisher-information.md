@@ -31,9 +31,12 @@ $$
     &= \int \nabla p(x \vert \theta) \, \text{d}x \\[5pt]
     &= \nabla \int p(x \vert \theta) \, \text{d}x \\[5pt]
     &= \nabla 1 \\[5pt]
-    &= 0 & \square
+    &= 0
 \end{align}
 $$
+
+\\( \square \\)
+{:.right}
 
 But how certain are we to our estimate? We can define an uncertainty measure around the expected estimate. That is, we look at the covariance of score of our model. Taking the result from above:
 
@@ -87,7 +90,10 @@ $$
 \end{align}
 $$
 
-Thus we have \\( \text{F} = -\mathop{\mathbb{E}}_{p(x \vert \theta)} \left[ \text{H}\_{\log p(x \vert \theta)} \right] \\).   \\( \square \\)
+Thus we have \\( \text{F} = -\mathop{\mathbb{E}}_{p(x \vert \theta)} \left[ \text{H}\_{\log p(x \vert \theta)} \right] \\).
+
+\\( \square \\)
+{:.right}
 
 Indeed knowing this result, we can see the role of \\( \text{F} \\) as a measure of curvature of the log likelihood function.
 

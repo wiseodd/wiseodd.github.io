@@ -482,3 +482,19 @@ body {
 .post li {
   margin-bottom: 0.5em;
 }
+
+.post li ol {
+  margin-top: 0px;
+}
+
+.right{
+  text-align: right !important;
+  margin-top: -30px !important;
+}
+
+.table {
+  width: auto;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
