@@ -231,7 +231,7 @@ grad_loglik_z = (t_train-y)/(y - y*y) * dz
 grad_loglik_W = grad_loglik_z * X_train
 ```
 
-The Empirical Fisher is given by the empirical covariance matrix of the log likelihood wrt. our training data:
+The Empirical Fisher is given by the empirical covariance matrix of the gradient of log likelihood wrt. our training data:
 
 ``` python
 F = np.cov(grad_loglik_W.T)
