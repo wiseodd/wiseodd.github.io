@@ -27,7 +27,7 @@ Now, we will try to interpret that in probabilistic setting.
 Let's take a look at Gaussian distribution. It is defined as follows:
 
 $$
-p(x \vert \mu, \sigma^2) = \frac{1}{Z} \, \exp \left( \frac{\Vert \mu - x \Vert_2^2}{2\sigma^2} \right)
+p(x \vert \mu, \sigma^2) = \frac{1}{Z} \, \exp \left( -\frac{\Vert \mu - x \Vert_2^2}{2\sigma^2} \right)
 $$
 
 where \\( Z \\) is normalizing constant, \\( \mu \\) is the mean, \\( \sigma^2 \\) is the variance.
@@ -35,13 +35,13 @@ where \\( Z \\) is normalizing constant, \\( \mu \\) is the mean, \\( \sigma^2 \
 If we set \\( \mu = \hat{x} \\) (i.e., our Gaussian is now centered in our data example) and \\( \sigma^2 = 1 \\), and we ignore the normalizing constant, then:
 
 $$
-p(x \vert \hat{x}) \propto \exp \left( \frac{1}{2} \Vert \hat{x} - x \Vert_2^2 \right)
+p(x \vert \hat{x}) \propto \exp \left( -\frac{1}{2} \Vert \hat{x} - x \Vert_2^2 \right)
 $$
 
 We could further applying \\( \log \\) to both sides:
 
 $$
-\log \, p(x \vert \hat{x}) \propto \frac{1}{2} \, \Vert \hat{x} - x \Vert_2^2
+\log \, p(x \vert \hat{x}) \propto -\frac{1}{2} \, \Vert \hat{x} - x \Vert_2^2
 $$
 
 we get the same equation as \\( L_2 \\) loss. In conclusion, therefore, minimizing \\( L_2 \\) loss, or MSE, is the same as maximizing the log-likelihood of a Gaussian. Therefore, we assume that our data, \\( x \\) comes from a Gaussian.
