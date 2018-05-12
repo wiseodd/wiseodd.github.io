@@ -1,13 +1,13 @@
 body {
   font-family: Georgia, serif;
-  font-size: 17px;
+  font-size: 18px;
   color: #404040;
   line-height: 1.5;
 }
 
 @media only screen and (min-width: 480px) {
   body {
-    font-size: 17px;
+    font-size: 18px;
   }
 }
 p {
@@ -497,4 +497,11 @@ body {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+}
+
+.container {
+  padding-right: 50px;
+  padding-left: 50px;
+  margin-right: auto;
+  margin-left: auto;
 }
