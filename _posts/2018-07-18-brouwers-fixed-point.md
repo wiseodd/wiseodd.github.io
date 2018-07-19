@@ -36,15 +36,15 @@ Given \\( f: \mathbb{B}^{d+1} \to \mathbb{B}^{d+1} \\) continuous, then there ex
 **Proof**  
 For contradiction, assume \\( \forall x \in \mathbb{B}^{d+1}: f(x) \neq x \\). We construct a map \\( r: \mathbb{B}^{d+1} \to \mathbb{S}^d \\), casting ray from the ball to its shell by extending the line segment between \\( x \\) and \\( f(x) \\).
 
-![Map r]({{ site.baseurl }}/img/2018-07-18-brouwers-fixed-point/map_r.png){:height="200px" width="200px"}
+![Map r]({{ site.baseurl }}/img/2018-07-18-brouwers-fixed-point/map_r.pdf){:height="200px" width="200px"}
 
 Observe that \\( r(x) \\) is continuous because \\( f(x) \\) is. Also, \\( x \in \mathbb{S}^d \implies r(x) = x \\). Therefore we have the following commutative diagram.
 
-![Commutative Diagram]({{ site.baseurl }}/img/2018-07-18-brouwers-fixed-point/comm_diag.png){:height="200px" width="200px"}
+![Commutative Diagram]({{ site.baseurl }}/img/2018-07-18-brouwers-fixed-point/comm_diag.pdf){:height="200px" width="200px"}
 
 Above, \\( i \\) is inclusion map, and \\( id \\) is identity map. We then look of the Reduced Homology of the above, and this gives us the following commutative diagram.
 
-![Commutative Diagram Homology]({{ site.baseurl }}/img/2018-07-18-brouwers-fixed-point/comm_diag_hom.png){:height="275px" width="275px"}
+![Commutative Diagram Homology]({{ site.baseurl }}/img/2018-07-18-brouwers-fixed-point/comm_diag_hom.pdf){:height="275px" width="275px"}
 
 As the diagram commute, then \\( \tilde{H}_d(\mathbb{S}^d) \xrightarrow{i^\*} \tilde{H}_d(\mathbb{B}^{d+1}) \xrightarrow{r^\*}  \tilde{H}_d(\mathbb{S}^d) \\) should be identity map on \\( \tilde{H}_d(\mathbb{S}^d) \\). By Lemma 2, \\( \tilde{H}_d(\mathbb{B}^{d+1}) = 0 \\). This implies \\( \tilde{H}_d(\mathbb{S}^d) = 0 \\). But this is a contradiction, as By Lemma 1, \\( \tilde{H}_d(\mathbb{S}^d) = \mathbb{Q} \\). Therefore there must be a fixed point.
 
