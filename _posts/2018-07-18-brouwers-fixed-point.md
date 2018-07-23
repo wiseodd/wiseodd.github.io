@@ -33,8 +33,7 @@ Equipped with these lemmas, we are ready to prove the special case of Brouwer's 
 Given \\( f: \mathbb{B}^{d+1} \to \mathbb{B}^{d+1} \\) continuous, then there exists \\( x
 \in \mathbb{B}^{d+1} \\) such that \\( f(x) = x \\).
 
-**Proof**  
-For contradiction, assume \\( \forall x \in \mathbb{B}^{d+1}: f(x) \neq x \\). We construct a map \\( r: \mathbb{B}^{d+1} \to \mathbb{S}^d \\), casting ray from the ball to its shell by extending the line segment between \\( x \\) and \\( f(x) \\).
+_Proof._ &nbsp;&nbsp; For contradiction, assume \\( \forall x \in \mathbb{B}^{d+1}: f(x) \neq x \\). We construct a map \\( r: \mathbb{B}^{d+1} \to \mathbb{S}^d \\), casting ray from the ball to its shell by extending the line segment between \\( x \\) and \\( f(x) \\).
 
 ![Map r]({{ site.baseurl }}/img/2018-07-18-brouwers-fixed-point/map_r.svg){:height="200px" width="200px"}
 

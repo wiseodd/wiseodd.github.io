@@ -44,8 +44,7 @@ One question still needs to be answered is what exactly is the connection betwee
 **Claim:**
 Fisher Information Matrix \\( \text{F} \\) is the Hessian of KL-divergence between two distributions \\( p(x \vert \theta) \\) and \\( p(x \vert \theta') \\), with respect to \\( \theta' \\), evaluated at \\( \theta' = \theta \\).
 
-**Proof:**
-KL-divergence can be decomposed into entropy and cross-entropy term, i.e.:
+_Proof._ &nbsp;&nbsp; KL-divergence can be decomposed into entropy and cross-entropy term, i.e.:
 
 $$
 \text{KL} [p(x \vert \theta) \, \Vert \, p(x \vert \theta')] = \mathop{\mathbb{E}}_{p(x \vert \theta)} [ \log p(x \vert \theta) ] - \mathop{\mathbb{E}}_{p(x \vert \theta)} [ \log p(x \vert \theta') ] \, .
@@ -92,8 +91,7 @@ Now we are ready to use the Fisher Information Matrix to enhance the gradient de
 **Claim:**
 Let \\( d \to 0 \\). The second order Taylor series expansion of KL-divergence is \\( \text{KL}[p(x \vert \theta) \, \Vert \, p(x \vert \theta + d)] \approx \frac{1}{2} d^\text{T} \text{F} d \\).
 
-**Proof:**
-We will use \\( p_{\theta} \\) as a notational shortcut for \\( p(x \vert \theta) \\). By definition, the second order Taylor series expansion of KL-divergence is:
+_Proof._ &nbsp;&nbsp; We will use \\( p_{\theta} \\) as a notational shortcut for \\( p(x \vert \theta) \\). By definition, the second order Taylor series expansion of KL-divergence is:
 
 $$
 \begin{align}

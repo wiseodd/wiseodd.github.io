@@ -20,8 +20,7 @@ that is, score function is the gradient of log likelihood function. The result a
 **Claim:**
 The expected value of score wrt. our model is zero.
 
-**Proof:**
-Below, the gradient is wrt. \\( \theta \\).
+_Proof._ &nbsp;&nbsp; Below, the gradient is wrt. \\( \theta \\).
 
 $$
 \begin{align}
@@ -65,8 +64,7 @@ One property of \\( \text{F} \\) that is not obvious is that it has the interpre
 **Claim:**
 The negative expected Hessian of log likelihood is equal to the Fisher Information Matrix \\( \text{F} \\).
 
-**Proof:**
-The Hessian of the log likelihood is given by the Jacobian of its gradient:
+_Proof._ &nbsp;&nbsp; The Hessian of the log likelihood is given by the Jacobian of its gradient:
 
 $$
 \begin{align}
