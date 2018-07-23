@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "Brouwer's Fixed Point Theorem: A Proof with Reduced Homology"
+title:      "Brouwer's Fixed Point Theorem: A proof with reduced homology"
 subtitle:   "A proof of special case (ball) of Brouwer's Fixed Point Theorem with Reduced Homology."
 date:       2018-07-18 10:00
 author:     "wiseodd"
