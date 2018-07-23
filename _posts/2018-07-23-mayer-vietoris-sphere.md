@@ -4,7 +4,7 @@ title:      "Reduced Betti number of sphere: Mayer-Vietoris Theorem"
 subtitle:   "A proof of reduced homology of sphere with Mayer-Vietoris sequence."
 date:       2018-07-23 10:00
 author:     "wiseodd"
-header-img: "img/homology.png"
+header-img: "img/2018-07-23-mayer-vietoris-sphere/sphere.svg"
 category:   techblog
 tags:       [math]
 ---
