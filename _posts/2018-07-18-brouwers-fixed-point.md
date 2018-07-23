@@ -50,3 +50,9 @@ As the diagram commute, then \\( \tilde{H}_d(\mathbb{S}^d) \xrightarrow{i^\*} \t
 
 \\( \square \\)
 {:.right}
+
+
+<h2 class="section-heading">References</h2>
+
+1. Hatcher, Allen. "Algebraic topology." (2001).
+
