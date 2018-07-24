@@ -9,7 +9,7 @@ category:   techblog
 tags:       [math]
 ---
 
-![Forest]({{ site.baseurl }}/img/2018-07-24-minkowski-dirichlet/forest.svg){:height="300px" width="300px"}
+![Forest]({{ site.baseurl }}/img/2018-07-24-minkowski-dirichlet/forest.svg){:height="250px" width="250px"}
 
 Suppose we are standing at the origin of bounded regular forest in \\( \mathbb{R}^2 \\), with diameter of \\(26\\)m, and all the trees inside have diameter of \\(0.16\\)m. Can we see outside this forest? This problem can be solved using Minkowski's Theorem. We will see the theorem itself first, and we shall see how can we answer that question. Furthermore, Minkowski's Theorem can also be applied to answer two other famous theorems, Dirichlet's Approximation Theorem, and Two Squares Theorem.
 
@@ -25,7 +25,7 @@ Pick arbitrary \\( x \in C' \cap (C' + v) \\). Then \\( x - v \in C' \\) by cons
 
 The claim that there exists non-zero integer \\( v \in \mathbb{Z}^d \setminus \\{ 0 \\} \\), such that \\( C' \cap (C' + v) \neq \emptyset \\) is not proven in this post. One can refer to Matoušek's book for the proof.
 
-![Minkowsi_forest]({{ site.baseurl }}/img/2018-07-24-minkowski-dirichlet/forest_minkowski.svg){:height="300px" width="300px"}
+![Minkowsi_forest]({{ site.baseurl }}/img/2018-07-24-minkowski-dirichlet/forest_minkowski.svg){:height="250px" width="250px"}
 
 Given Minkowski's Theorem, now we can answer our original question. We assume the trees are just lattice points, and our visibility line is now a visibility strip, which has wide of \\( 0.16 \\)m and length of \\( 26 \\)m. We note that the preconditions of Minkowski's Theorem are satisfied by this visibility strip, which has the volume of \\( \approx 4.16 > 4 = 2^d  \\). Therefore, there exists a lattice point other than the origin inside our visibility strip. Thus our vision outside is blocked by the tree.
 
