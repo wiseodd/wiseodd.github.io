@@ -125,7 +125,7 @@ Modifying loss:
 ``` python
 """ Vanilla GAN """
 # During discriminator forward-backward-update
-D_loss = -(torch.mean(torch.log(D_real) + torch.log(1- D_fake)))
+D_loss = torch.mean(torch.log(D_real) - torch.log(1- D_fake))
 # During generator forward-backward-update
 G_loss = -torch.mean(torch.log(D_fake))
 
