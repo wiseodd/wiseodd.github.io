@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "Brouwer's Fixed Point Theorem: A proof with reduced homology"
+title:      "Brouwer's Fixed Point Theorem: A Proof with Reduced Homology"
 subtitle:   "A proof of special case (ball) of Brouwer's Fixed Point Theorem with Reduced Homology."
 date:       2018-07-18 10:00
 author:     "wiseodd"
@@ -11,7 +11,7 @@ tags:       [math]
 
 This post is about the proof I found very interesting during the Topology course I took this semester. It highlights the application of Reduced Homology, which is a modification of Homology theory in Algebraic Topology. We will use two results from Reduced Homology as black-boxes for the proof. Everywhere, we will assume \\( \mathbb{Q} \\) is used as the coefficient of the Homology space.
 
-**Lemma 1 (Reduced Homology of spheres)**   
+**Lemma 1 (Reduced Homology of spheres)**
 Given a \\( d \\)-sphere \\( \mathbb{S}^d \\), then its reduced \\( p \\)-th Homology space is:
 
 $$
@@ -21,7 +21,7 @@ $$
 \\( \square \\)
 {:.right}
 
-**Lemma 2 (Reduced Homology of balls)**  
+**Lemma 2 (Reduced Homology of balls)**
 Given a \\( d \\)-ball \\( \mathbb{B}^d \\), then its reduced \\( p \\)-th Homology space is trivial, i.e. \\(\tilde{H}_p(\mathbb{B}^d) = 0 \\), for any \\( d \\) and \\( p \\).
 
 \\( \square \\)
@@ -29,7 +29,7 @@ Given a \\( d \\)-ball \\( \mathbb{B}^d \\), then its reduced \\( p \\)-th Homol
 
 Equipped with these lemmas, we are ready to prove the special case of Brouwer's Fixed Point Theorem, where we consider map from a ball to itself.
 
-**Brouwer's Fixed Point Theorem**  
+**Brouwer's Fixed Point Theorem**
 Given \\( f: \mathbb{B}^{d+1} \to \mathbb{B}^{d+1} \\) continuous, then there exists \\( x
 \in \mathbb{B}^{d+1} \\) such that \\( f(x) = x \\).
 
