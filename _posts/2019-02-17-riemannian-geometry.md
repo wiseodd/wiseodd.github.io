@@ -507,6 +507,74 @@ $$
 
 Thus the scalar curvature is a scalar field on $$\mathcal{M}$$.
 
+
+<h2 class="section-heading">The second fundamental form</h2>
+
+Let $$(\mathcal{M}, g)$$ be a Riemannian submanifold of a Riemannian manifold $$(\tilde{\mathcal{M}}, \tilde{g})$$. Then, $$g$$ is the induced metric $$g = \iota^*_\mathcal{M} \tilde{g}$$, where $$\iota_\mathcal{M}: \mathcal{M} \hookrightarrow \tilde{\mathcal{M}}$$ is the inclusion map. Note that, the expression $$\iota^*_\mathcal{M} \tilde{g}$$ is called the **_pullback metric_** or the **_induced metric_** of $$\tilde{g}$$ by $$\iota_\mathcal{M}$ and is defined by
+
+$$
+    \iota_\mathcal{M}^* \tilde{g}(u, v) := \tilde{g}(d\iota_\mathcal{M}(u), d\iota_\mathcal{M}(v)) \, ,
+$$
+
+for any $$u, v \in T_p \mathcal{M}$$. Also, recall that $$d\iota_\mathcal{M}$$ is the pushforward (tangent map) by $$\iota_\mathcal{M}$$. Intuitively, we map the tangent vectors $$u, v$$ of $$T_p \mathcal{M}$$ to some tangent vectors of $$T_{\iota_\mathcal{M}(p)} \tilde{\mathcal{M}}$$ and use $$\tilde{g}$$ as the metric.
+
+Note that, $$\tilde{\mathcal{M}}$$ is called the **_ambient manifold_** of the **_submanifold_** $$\mathcal{M}$$. Furthermore, in this section, we will denote any geometric object of the ambient manifold with tilde, e.g. $$\tilde{\nabla}, \tilde{Rm}$$, etc. Note also that, we can use the inner product notation $$\langle u, v \rangle$$ to refer to $$g$$ or $$\tilde{g}$$, since $$g$$ is just the restriction of $$\tilde{g}$$ to pairs of tangent vectors in $$T \mathcal{M}$$.
+
+We would like to compare the Levi-Civita connection of $$\mathcal{M}$$ with that of $$\tilde{\mathcal{M}}$$. First, we define orthogonal projection maps, called **_tangential_** and **_normal projections_** by
+
+$$
+\begin{align}
+    \pi^\top &: T \tilde{\mathcal{M}} \vert_\mathcal{M} \to T\mathcal{M} \\
+    \pi^\perp &: T \tilde{\mathcal{M}} \vert_\mathcal{M} \to N\mathcal{M} \, ,
+\end{align}
+$$
+
+where $$N\mathcal{M}$$ is the **_normal bundle_** of $$\mathcal{M}$$, i.e. the set of all vectors normal to $$\mathcal{M}$$. If $$X$$ is a section of $$T\tilde{\mathcal{M}}\vert_\mathcal{M}$$, we use the shorthand notations $$X^\top = \pi^\top X$$ and $$X^\perp = \pi^\perp X$$.
+
+Given $$X, Y \in \mathfrak{X}(\mathcal{M})$$, we can extend them to vector fields on an open subset of $$\tilde{\mathcal{M}}$$, apply the covariant derivative $$\tilde{\nabla}$$, and then decompose at $$p \in \mathcal{M}$$ to get
+
+$$
+    \tilde{\nabla}_X Y = (\tilde{\nabla}_X Y)^\top + (\tilde{\nabla}_X Y)^\perp \, .
+$$
+
+Let $$\Gamma(E)$$ be the space of smooth sections of bundle $$E$$. For the second part, we define the **_second fundamental form_** of $$\mathcal{M}$$ to be a map $$\text{II}: \mathfrak{X}(\mathcal{M}) \times \mathfrak{X}(\mathcal{M}) \to \Gamma(N\mathcal{M})$$ defined by
+
+$$
+    \text{II}(X, Y) = (\tilde{\nabla}_X Y)^\perp \, .
+$$
+
+Meanwhile, we can show that, the first part is the covariant derivative w.r.t. the Levi-Civita connection of the induced metric on $$\mathcal{M}$$. All in all, the above equation can be written as the **_Gauss formula_**:
+
+$$
+    \tilde{\nabla}_X Y = \nabla_X Y + \text{II}(X, Y) \, .
+$$
+
+Although the second fundamental form can also be used to evaluate extrinsic covariant derivatives of _normal_ vector fields (instead of _tangent_ ones above). For each normal vector field $$N \in \Gamma(N\mathcal{M})$$, we define a scalar-valued  symmetric bilinear form $$\text{II}_N: \mathfrak{X}(\mathcal{M}) \times \mathfrak{X}(\mathcal{M}) \to C^\infty(\mathcal{M})$$ by
+
+$$
+    \text{II}_N(X, Y) = \langle N, \text{II}(X, Y) \rangle \, .
+$$
+
+Let $$W_N: \mathfrak{X}(\mathcal{M}) \to \mathfrak{X}(\mathcal{M})$$ denote the self-adjoint linear map associated with this bilinear form, characterized by
+
+$$
+    \langle W_N(X), Y \rangle = \text{II}_N(X, Y) = \langle N, \text{II}(X, Y) \rangle \, .
+$$
+
+The map $$W_N$$ is called the **_Weingarten map_** in the direction of $$N$$. Furthermore we can show that the equation $$(\tilde{\nabla}_X N)^\top = -W_N(X)$$ holds and is called the **_Weingarten equation_**.
+
+In addition to describing the difference between the intrinsic and extrinsic connections, the second fundamental form describes the difference between the curvature tensors of $$\tilde{\mathcal{M}}$$ and $$\mathcal{M}$$. The explicit formula is called the **_Gauss equation_** and is given by
+
+$$
+    \tilde{Rm}(W, X, Y, Z) = Rm(W, X, Y, Z) - \langle \text{II}(W, Z), \text{II}(X, Y) \rangle + \langle \text{II}(W, Y), \text{II}(X, Z) \rangle \, .
+$$
+
+To give a geometric interpretation of the second fundamental form, we study the curvatures of curves. Let $$\gamma: I \to \mathcal{M}$$ be a smooth unit-speed curve. We define the **_curvature_** of $$\gamma$$ as the length of the acceleration vector field, i.e. the function $$\kappa: I \to \mathbb{R}$$ given by $$\kappa(t) := \lvert D_t \gamma'(t) \rvert$$. We can see this curvature of the curve as a quantitative measure of how far the curve deviates from being a geodesic. Note that, if $$\mathcal{M} = \mathbb{R}^n$$ the curvature agrees with the one defined in calculus.
+
+Now, suppose that $$\mathcal{M}$$ is a submanifold in the ambient manifold $$\tilde{\mathcal{M}}$$. Every regular curve $$\gamma: I \to \mathcal{M}$$ has two distinct curvature: its **_intrinsic curvature_** $$\kappa$$ as a curve in $$\mathcal{M}$$ and its **_extrinsic curvature_** $$\tilde{\kappa}$$ as a curve in $$\tilde{\mathcal{M}}$$. The second fundamental form can then be used to compute the relationship between the two: For $$p \in \mathcal{M}$$ and $$v \in T_p \mathcal{M}$$, (i) $$\text{II}(v, v)$$ is the $$\tilde{g}$$-acceleration at $$p$$ of the $$g$$-geodesic $$\gamma_v$$, and (ii) if $$v$$ is a unit vector, then $$\lvert \text{II}(v, v) \rvert$$ is the $$\tilde{g}$$-curvature of $$\gamma_v$$ at $$p$$.
+
+The intrinsic and extrinsic accelerations of a curve are usually different. A Riemannian submanifold $$(\mathcal{M}, g)$$ of $$(\tilde{\mathcal{M}}, \tilde{g})$$ is said to be **_totally geodesic_** if every $$\tilde{g}$$-geodesic that is tangent to $$\mathcal{M}$$ at some time $$t_0$$ stays in $$\mathcal{M}$$ for all $$t \in (t_0 - \epsilon, t_0 + \epsilon)$$.
+
 <h2 class="section-heading">References</h2>
 
 1. Lee, John M. "Smooth manifolds." Introduction to Smooth Manifolds. Springer, New York, NY, 2013. 1-31.
