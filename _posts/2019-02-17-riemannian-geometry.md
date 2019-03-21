@@ -18,9 +18,18 @@ We are interested in generalizing the notion of Euclidean space into arbitrary s
 
 **Example 1 (Euclidean spaces).** For each $$n \in \mathbb{N}$$, the Euclidean space $$\mathbb{R}^n$$ is a smooth $$n$$-manifold with a single chart $$\phi := \text{Id}_{\mathbb{R}^n}$$, the identity map, for all $$p \in \mathcal{M}$$. Thus, $$\phi$$ is a _global coordinate chart_.
 
+//
+{:.right}
+
 **Example 2 (Spaces of probability distributions).** Let $$\mathcal{M} := \{ p_{\theta}(x) : \theta \in \mathbb{R}^n \}$$, where $$p_{\theta}(x)$$ is a probability distribution over $$x$$, parametrized by $$\theta$$. Define a smooth chart $$p_{\theta}(x) \mapsto \theta$$. Then, $$\mathcal{M}$$ is a smooth $$n$$-manifold.
 
+//
+{:.right}
+
 **Remark 1.** We will drop $$n$$ when referring a smooth $$n$$-manifold from now on, for brevity sake. Furthermore, we will start to use the **_Einstein summation convention_**: repeated indexes above and below are implied to be summed, e.g. $$v_i w^i := \sum_i v_i w^i$$.
+
+//
+{:.right}
 
 
 <h2 class="section-heading">Tangent vectors and covectors</h2>
@@ -91,6 +100,9 @@ Let $$\{ V_k \}$$ and $$U$$ be real vector spaces. A map $$F: V_1 \times \dots \
 1. The _dot product_ in $$ \mathbb{R}^n $$ is a scalar-valued bilinear function of two vectors. E.g. for any $$ v, w \in \mathbb{R}^n $$, the dot product between them is $$ v \cdot w := \sum_i^n v^i w^i $$, which is linear on both $$ v $$ and $$ w $$.
 2. The _determinant_ is a real-valued multilinear function of $$ n $$ vectors in $$ \mathbb{R}^n $$.
 
+//
+{:.right}
+
 Let $$\{ W_l \}$$ also be real vector spaces and suppose
 
 $$
@@ -120,11 +132,17 @@ $$
 \end{align}
 $$
 
+//
+{:.right}
+
 **Example 5 (Tensor products of dual basis).** Let $$ \epsilon^1, \epsilon^2 $$ be the standard dual basis for $$ (\mathbb{R}^2)^* $$. Then, the tensor product $$ \epsilon^1 \otimes \epsilon^2: \mathbb{R}^2 \times \mathbb{R}^2 \to \mathbb{R} $$ is the bilinear function defined by
 
 $$
     \epsilon^1 \otimes \epsilon^2(x, y) = \epsilon^1 \otimes \epsilon^2((w, x), (y, z)) := wz \, .
 $$
+
+//
+{:.right}
 
 We use the notation $$  V_1^* \otimes \dots \otimes V_k^* $$ to denote the space $$ \text{L}(V_1, \dots, V_k; \mathbb{R}) $$. Let $$ V $$ be a finite-dimensional vector space. If $$ k \in \mathbb{N} $$, a **_covariant_ $$ k $$-tensor on $$ V $$** is an element of the $$ k $$-fold tensor product $$ V^* \otimes \dots \otimes V^* $$, which is a real-valued multilinear function of $$ k $$ elements of $$ V $$ to $$ \mathbb{R} $$. The number $$ k $$ is called the **_rank_** of the tensor.
 
@@ -164,6 +182,9 @@ $$
 $$
 
 Note that above, $$\delta_{ij}$$ is the Kronecker delta. Thus, the Euclidean metric can be represented by the $$n \times n$$ identity matrix.
+
+//
+{:.right}
 
 
 <h2 class="section-heading">The tangent-cotangent isomorphism</h2>
@@ -223,6 +244,9 @@ $$
 
 Thus, again it is coincide with the definition we are familiar with form calculus.
 
+//
+{:.right}
+
 All in all then, based on Example 7, we can compute the Riemannian gradient by raising the index of the Euclidean gradient, i.e. by applying the inverse Riemannian metric to the Euclidean gradient. In matrix notation, let $$G$$ be the matrix representation of $$g$$ and let $$\partial f$$ be the Euclidean gradient vector, then: $$\text{grad} \, f = G^{-1} \partial f$$.
 
 The interpretation of the gradient in Riemannian manifold is analogous to the one in Euclidean space: its direction is the direction of steepest ascent of $$f$$ and it is orthogonal to the level sets of $$f$$; and its length is the maximum directional derivative of $$f$$ in any direction.
@@ -270,6 +294,9 @@ $$
 
 the usual directional derivative, is a covariant derivative.
 
+//
+{:.right}
+
 There exists a unique affine connection for every Riemannian manifold $$(\mathcal{M}, g)$$ that satisfies
 
 1. Symmetry, i.e., $$\nabla_X Y - \nabla_Y X = [X, Y]$$
@@ -307,6 +334,9 @@ $$
 $$
 
 It is the same Hessian as we have seen in calculus.
+
+//
+{:.right}
 
 
 <h2 class="section-heading">Geodesics</h2>
@@ -416,7 +446,7 @@ $$
 
 Furthermore, we can show that $$(\mathcal{M}, g)$$ is a flat Riemannian manifold, then its Levi-Civita connection satisfies the flatness criterion.
 
-**Example 9 (Euclidean space is flat).** Let $$\mathbb{R}^n$$ with the Euclidean metric be a Riemannian manifold, equipped with the Euclidean connection $$\nabla$$. Then, given $$X, Y, Z$$ smooth vector fields:
+**Example 10 (Euclidean space is flat).** Let $$\mathbb{R}^n$$ with the Euclidean metric be a Riemannian manifold, equipped with the Euclidean connection $$\nabla$$. Then, given $$X, Y, Z$$ smooth vector fields:
 
 $$
 \begin{align}
@@ -438,6 +468,9 @@ $$
 $$
 
 Therefore, the Euclidean space with the Euclidean connection (which is the Levi-Civita connection on Euclidean space) is flat.
+
+//
+{:.right}
 
 Based on the above definition of the flatness criterion, then we can define a measure on how far away a manifold to be flat:
 
@@ -508,9 +541,27 @@ $$
 Thus the scalar curvature is a scalar field on $$\mathcal{M}$$.
 
 
+<h2 class="section-heading">Submanifolds</h2>
+
+Let $$\mathcal{M}$$ be a smooth manifold. An **_embedded or regular submanifold_** of $$\mathcal{M}$$ is a subset $$\mathcal{S} \subset \mathcal{M}$$ that is a manifold in the subspace topology, endowed with a smooth structure w.r.t. which the inclusion map $$\mathcal{S} \hookrightarrow \mathcal{M}$$ is a smooth embedding. We call the difference $$\text{dim} \, \mathcal{M} - \text{dim} \, \mathcal{S}$$ to be the **_codimension_** of $$\mathcal{S}$$ in $$\mathcal{M}$$, and $$\mathcal{M}$$ to be the **_ambient manifold_**. An **_embedded hypersurface_** is an embedded submanifold of codimension 1.
+
+**Example 11 (Graphs as submanifolds).** Suppose $$\mathcal{M}$$ is a smooth $$m$$-manifold, $$\mathcal{N}$$ is a smooth $$n$$-manifold, $$U \subset \mathcal{M}$$ is open, and $$f: U \to \mathcal{N}$$ is a smooth map. Let $$\Gamma(f) \subseteq \mathcal{M} \times \mathcal{N}$$ denote the graph of $$f$$, i.e.
+
+$$
+    \Gamma(f) := \{ (x, y) \in \mathcal{M} \times \mathcal{N} : x \in U, y = f(x) \} \, .
+$$
+
+Then $$\Gamma(f)$$ is an embedded $$m$$-submanifold of $$\mathcal{M} \times \mathcal{N}$$.
+
+Furthermore, if $$f: \mathcal{M} \to \mathcal{N}$$ is a smooth map (notice that we have defined $$f$$ globally here), then $$\Gamma(f)$$ is **_properly embedded_** in $$\mathcal{M} \times \mathcal{N}$$, i.e. the inclusion map is a [proper map](https://en.wikipedia.org/wiki/Proper_map).
+
+//
+{:.right}
+
+
 <h2 class="section-heading">The second fundamental form</h2>
 
-Let $$(\mathcal{M}, g)$$ be a Riemannian submanifold of a Riemannian manifold $$(\tilde{\mathcal{M}}, \tilde{g})$$. Then, $$g$$ is the induced metric $$g = \iota^*_\mathcal{M} \tilde{g}$$, where $$\iota_\mathcal{M}: \mathcal{M} \hookrightarrow \tilde{\mathcal{M}}$$ is the inclusion map. Note that, the expression $$\iota^*_\mathcal{M} \tilde{g}$$ is called the **_pullback metric_** or the **_induced metric_** of $$\tilde{g}$$ by $$\iota_\mathcal{M}$ and is defined by
+Let $$(\mathcal{M}, g)$$ be a Riemannian submanifold of a Riemannian manifold $$(\tilde{\mathcal{M}}, \tilde{g})$$. Then, $$g$$ is the induced metric $$g = \iota^*_\mathcal{M} \tilde{g}$$, where $$\iota_\mathcal{M}: \mathcal{M} \hookrightarrow \tilde{\mathcal{M}}$$ is the inclusion map. Note that, the expression $$\iota^*_\mathcal{M} \tilde{g}$$ is called the **_pullback metric_** or the **_induced metric_** of $$\tilde{g}$$ by $$\iota_\mathcal{M}$$ and is defined by
 
 $$
     \iota_\mathcal{M}^* \tilde{g}(u, v) := \tilde{g}(d\iota_\mathcal{M}(u), d\iota_\mathcal{M}(v)) \, ,
@@ -518,7 +569,7 @@ $$
 
 for any $$u, v \in T_p \mathcal{M}$$. Also, recall that $$d\iota_\mathcal{M}$$ is the pushforward (tangent map) by $$\iota_\mathcal{M}$$. Intuitively, we map the tangent vectors $$u, v$$ of $$T_p \mathcal{M}$$ to some tangent vectors of $$T_{\iota_\mathcal{M}(p)} \tilde{\mathcal{M}}$$ and use $$\tilde{g}$$ as the metric.
 
-Note that, $$\tilde{\mathcal{M}}$$ is called the **_ambient manifold_** of the **_submanifold_** $$\mathcal{M}$$. Furthermore, in this section, we will denote any geometric object of the ambient manifold with tilde, e.g. $$\tilde{\nabla}, \tilde{Rm}$$, etc. Note also that, we can use the inner product notation $$\langle u, v \rangle$$ to refer to $$g$$ or $$\tilde{g}$$, since $$g$$ is just the restriction of $$\tilde{g}$$ to pairs of tangent vectors in $$T \mathcal{M}$$.
+In this section, we will denote any geometric object of the ambient manifold with tilde, e.g. $$\tilde{\nabla}, \tilde{Rm}$$, etc. Note also that, we can use the inner product notation $$\langle u, v \rangle$$ to refer to $$g$$ or $$\tilde{g}$$, since $$g$$ is just the restriction of $$\tilde{g}$$ to pairs of tangent vectors in $$T \mathcal{M}$$.
 
 We would like to compare the Levi-Civita connection of $$\mathcal{M}$$ with that of $$\tilde{\mathcal{M}}$$. First, we define orthogonal projection maps, called **_tangential_** and **_normal projections_** by
 
@@ -574,6 +625,80 @@ To give a geometric interpretation of the second fundamental form, we study the 
 Now, suppose that $$\mathcal{M}$$ is a submanifold in the ambient manifold $$\tilde{\mathcal{M}}$$. Every regular curve $$\gamma: I \to \mathcal{M}$$ has two distinct curvature: its **_intrinsic curvature_** $$\kappa$$ as a curve in $$\mathcal{M}$$ and its **_extrinsic curvature_** $$\tilde{\kappa}$$ as a curve in $$\tilde{\mathcal{M}}$$. The second fundamental form can then be used to compute the relationship between the two: For $$p \in \mathcal{M}$$ and $$v \in T_p \mathcal{M}$$, (i) $$\text{II}(v, v)$$ is the $$\tilde{g}$$-acceleration at $$p$$ of the $$g$$-geodesic $$\gamma_v$$, and (ii) if $$v$$ is a unit vector, then $$\lvert \text{II}(v, v) \rvert$$ is the $$\tilde{g}$$-curvature of $$\gamma_v$$ at $$p$$.
 
 The intrinsic and extrinsic accelerations of a curve are usually different. A Riemannian submanifold $$(\mathcal{M}, g)$$ of $$(\tilde{\mathcal{M}}, \tilde{g})$$ is said to be **_totally geodesic_** if every $$\tilde{g}$$-geodesic that is tangent to $$\mathcal{M}$$ at some time $$t_0$$ stays in $$\mathcal{M}$$ for all $$t \in (t_0 - \epsilon, t_0 + \epsilon)$$.
+
+
+<h2 class="section-heading">Riemannian hypersurfaces</h2>
+
+We focus on the case when $$(\mathcal{M}, g)$$ is an embedded $$n$$-dimensional Riemannian submanifold of an $$(n+1)$$-dimensional Riemannian manifold $$(\tilde{\mathcal{M}}, \tilde{g})$$. That is, $$\mathcal{M}$$ is a hypersurface of $$\tilde{\mathcal{M}}$$.
+
+In this situation, at each point of $$\mathcal{M}$$, there are exactly two unit normal vectors. We choose one of these normal vector fields and call it $$N$$. We can replace the vector-valued second fundamental form above by a simpler scalar-valued form. The **_scalar second fundamental form_** of $$\mathcal{M}$$ is the symmetric covariant $$2$$-tensor field $$h = \text{II}_N$$, i.e.
+
+$$h(X, Y) := \langle N, \text{II}(X, Y) \rangle \enspace \enspace \enspace \text{for all } X, Y \in \mathfrak{X}(\mathcal{M}) \, .$$
+
+By the Gauss formula $$\tilde{\nabla}_X Y = \nabla_X Y + \text{II}(X, Y)$$ and noting that $$\nabla_X Y$$ is orthogonal to $$N$$, we can rewrite the definition as $$h(X, Y) = \langle N, \tilde{\nabla}_X Y \rangle$$. Furthermore, since $$N$$ is a unit vector spanning $$N\mathcal{M}$$, we can write $$\text{II}(X, Y) = h(X, Y)N$$. Note that the sign of $$h$$ depends on the normal vectors field chosen.
+
+The choice of $$N$$ also determines a Weingarten map $$W_N: \mathfrak{X}(\mathcal{M}) \to \mathfrak{X}(\mathcal{M})$$. In this special case of a hypersurface, we use the notation $$s = W_N$$ and call it the **_shape operator_** of $$\mathcal{M}$$. We can think of $$s$$ as the $$(1, 1)$$-tensor field on $$\mathcal{M}$$ obtained from $$h$$ by raising an index. It is characterized by
+
+$$\langle sX, Y \rangle = h(X, Y) \enspace \enspace \enspace \text{for all } X, Y \in \mathfrak{X}(\mathcal{M}) \, .$$
+
+As with $$h$$, the choice of $$N$$ determines the sign of $$s$$.
+
+Note that at every $$p \in \mathcal{M}$$, $$s$$ is a self-adjoint linear endomorphism of the tangent space $$T_p \mathcal{M}$$. Let $$v \in T_p \mathcal{M}$$. From linear algebra, we know that there is a unit vector $$v_0 \in T_p \mathcal{M}$$ such that $$v \mapsto \langle sv, v \rangle$$ achieve its maximum among all unit vectors. Every such vector is an eigenvector of $$s$$ with eigenvalue $$\lambda_0 = \langle s v_0, v_0 \rangle$$. Furthermore, $$T_p \mathcal{M}$$ has an orthonormal basis $$(b_1, \dots, b_n)$$ formed by the eigenvectors of $$s$$ and all of the eigenvalues $$(\kappa_1, \dots \kappa_n)$$ are real. (Note that this means for each $$i$$, $$s b_i = \kappa_i b_i)$$.) In this basis, both $$h$$ and $$s$$ are represented by diagonal matrices.
+
+The eigenvalues of $$s$$ at $$p \in \mathcal{M}$$ are called the **_principal curvatures_** of $$\mathcal{M}$$ at $$p$$, and the corresponding eigenvectors are called the **_principal directions_**. Note that the sign of the principal curvatures depend on the choice of $$N$$. But otherwise both the principal curvatures and directions are independent of the choice of coordinates.
+
+From the principal curvatures, we can compute other quantities: The **_Gaussian curvature_** which is defined as $$K := \text{det}(s)$$ and the **_mean curvature_** $$H := (1/n) \text{tr}(s)$$. In other words, $$K = \prod_i \kappa_i$$ and $$H = (1/n) \sum_i \kappa_i$$, since $$s$$ can be represented by a symmetric matrix.
+
+
+<h2 class="section-heading">Hypersurfaces of Euclidean space</h2>
+
+Assume that $$\mathcal{M} \subseteq \mathbb{R}^{n+1}$$ is an embedded Riemannian $$n$$-submanifold (with the induced metric from the Euclidean metric). We denote geometric objects on $$\mathbb{R}^{n+1}$$ with bar, e.g. $$\bar{g}$$, $$\overline{Rm}$$, etc. Observe that $$\overline{Rm} \equiv 0$$, which implies that the Riemann curvature tensor of a hypersurface in $$\mathbb{R}^{n+1}$$ is completely determined by the second fundamental form.
+
+In this setting we can give some very concrete geometric interpretation about quantities in hypersurfaces. First is for curves. For every $$v \in T_p \mathcal{M}$$, let $$\gamma = \gamma_v : I \to \mathcal{M}$$ be the $$g$$-geodesic in $$\mathcal{M}$$ with initial velocity $$v$$. The Gauss formula shows that the Euclidean acceleration of $$\gamma$$ at $$0$$ is $$\gamma''(0) = \overline{D}_t \gamma'(0) = h(v, v)N_p$$, thus $$\lvert h(v, v) \rvert$$ is the Euclidean curvature of $$\gamma$$ at $$0$$. Furthermore, $$h(v,v) = \langle \gamma''(0), N_p \rangle > 0$$ iff. $$\gamma''(0)$$ points in the same direction as $$N_p$$. That is $$h(v, v)$$ is positive if $$\gamma$$ is curving in the direction of $$N_p$$ and negative if it is curving away from $$N_p$$.
+
+We can show that the above Euclidean curvature can be interpreted in terms f the radius of the "best circular approximation", just in Calculus. Suppose $$\gamma: I \to \mathbb{R}^m$$ is a unit-speed curve, $$t_0 \in I$$, and $$\kappa(t_0) \neq 0$$. We define a unique unit-speed parametrized circle $$c: \mathbb{R} \to \mathbb{R}^m$$ as the **_osculating circle_** at $$\gamma(t_0)$$, with the property that $$c$$ and $$\gamma$$ have the same position, velocity, and acceleration at $$t=t_0$$. Then, the Euclidean curvature of $$\gamma$$ at $$t_0$$ is $$\kappa(t_0) = 1/R$$ where $$R$$ is the radius of the osculating circle.
+
+As mentioned before, to compute the curvature of a hypersurface in Euclidean space, we can compute the second fundamental form. Suppose $$X: U \to \mathcal{M}$$ is a smooth local parametrization of $$\mathcal{M}$$, $$(X_1, \dots, X_n)$$ is the local frame for $$T \mathcal{M}$$ determined by $$X$$, and $$N$$ is a unit normal field on $$\mathcal{M}$$. Then, the scalar second fundamental form is given by
+
+$$
+    h(X_i, X_j) = \left \langle \frac{\partial^2 X}{\partial u^i \partial u^j}, N \right \rangle \, .
+$$
+
+The implication of this is that it shows how the principal curvatures give a concise description of the local shape of the hypersurface by approximating the surface with the graph of a quadratic function. That is, we can show that there is an isometry $$\phi: \mathbb{R}^{n+1} \to \mathbb{R}^{n+1}$$ that takes $$p \in \mathcal{M}$$ to the origin and takes a neighborhood of it to a graph of the form $$x^{n+1} = f(x^1, \dots, x^n)$$, where
+
+$$
+    f(x) = \frac{1}{2} \sum_{i=1}^n\kappa_i (x^i)^2 + O(\lvert x \rvert^3) \, .
+$$
+
+Note that, this is the motivation of the common usage (in application) of the Hessian matrix and its eigenvalues as a measure of curvature of the graph of a function $$\mathbb{R}^n \to \mathbb{R}$$.
+
+We can write down a smooth vector field $$N = N^i \partial_i$$ on an open subset of $$\mathbb{R}^{n+1}$$ that restricts to a unit normal vector field along $$\mathcal{M}$$. Then, the shape operator can be computed straightforwardly using the Weingarten equation and observing that the Euclidean covariant derivatives of $$N$$ are just ordinary directional derivatives in Euclidean space. Thus, for every vector $$X = X^i \partial_j$$ tangent to $$\mathcal{M}$$, we have
+
+$$
+    sX = -\bar{\nabla}_X N = -\sum_{i,j=1}^{n+1} X^j (\partial_j N^i) \partial_i \, .
+$$
+
+**Example 12 (Shape operators of spheres).** The smooth vector field
+
+$$
+    N = \frac{1}{R} \sum_{i,j=1}^{n+1} x^i \partial_i
+$$
+
+is a (outward pointing) unit normal vector field along $$\mathbb{S}^n(R)$$. The shape operator is
+
+$$
+    sX = -\frac{1}{R} \sum_{i,j=1}^{n+1} X^j (\partial_j x^i) \partial_i = -\frac{1}{R} X \, ,
+$$
+
+where recall that, $$\partial_j x^i = \partial x^i / \partial x^j = \delta_{ij}$$. We can therefore write $$s$$ as a matrix $$s = (-1/R) \mathbf{I}$$ where $$\mathbf{I}$$ is the identity matrix. The principal curvatures are then all equal to $$-1/R$$, the mean curvature is $$H = -1/R$$, and the Gaussian curvature is $$K = (-1/R)^n$$. Note that, these curvatures are constant. These reflects the fact that the sphere bends the exact same way at every point.
+
+
+//
+{:.right}
+
+
+Although the Gaussian curvature is defined in terms of a particular embedding of a submanifold in the Euclidean space (i.e. it is an extrinsic quantity), it is actually an intrinsic invariant of the submanifold. Gauss showed in his **_Theorema Egregium_** that in an embedded $$2$$-dimensional Riemannian submanifold $$(\mathcal{M}, g)$$ of $$\mathbb{R}^3$$, for every point $$p \in \mathcal{M}$$, the Gaussian curvature of $$\mathcal{M}$$ at $$p$$ is equal to one-half the scalar curvature of $$g$$ at $$p$$, and thus it is a local isometry invariant of $$(\mathcal{M}, g)$$.
+
 
 <h2 class="section-heading">References</h2>
 
