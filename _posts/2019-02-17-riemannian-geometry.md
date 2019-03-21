@@ -649,6 +649,14 @@ The eigenvalues of $$s$$ at $$p \in \mathcal{M}$$ are called the **_principal cu
 
 From the principal curvatures, we can compute other quantities: The **_Gaussian curvature_** which is defined as $$K := \text{det}(s)$$ and the **_mean curvature_** $$H := (1/n) \text{tr}(s)$$. In other words, $$K = \prod_i \kappa_i$$ and $$H = (1/n) \sum_i \kappa_i$$, since $$s$$ can be represented by a symmetric matrix.
 
+The Gaussian curvature, which is a local isometric invariant, is connected to a global topological invariant, the [Euler characteristic](https://en.wikipedia.org/wiki/Euler_characteristic), through the **_Gauss-Bonnet theorem_**. Let $$(\mathcal{M}, g)$$ be a smoothly triangulated compact Riemannian 2-manifold, then
+
+$$
+    \int_\mathcal{M} K \, dA = 2 \pi \, \chi(\mathcal{M}) \, ,
+$$
+
+where $$dA$$ is its Riemannian density.
+
 
 <h2 class="section-heading">Hypersurfaces of Euclidean space</h2>
 
@@ -698,6 +706,20 @@ where recall that, $$\partial_j x^i = \partial x^i / \partial x^j = \delta_{ij}$
 
 
 Although the Gaussian curvature is defined in terms of a particular embedding of a submanifold in the Euclidean space (i.e. it is an extrinsic quantity), it is actually an intrinsic invariant of the submanifold. Gauss showed in his **_Theorema Egregium_** that in an embedded $$2$$-dimensional Riemannian submanifold $$(\mathcal{M}, g)$$ of $$\mathbb{R}^3$$, for every point $$p \in \mathcal{M}$$, the Gaussian curvature of $$\mathcal{M}$$ at $$p$$ is equal to one-half the scalar curvature of $$g$$ at $$p$$, and thus it is a local isometry invariant of $$(\mathcal{M}, g)$$.
+
+Suppose $$\mathcal{M}$$ is a Riemannian $$n$$-manifold with $$n \geq 2$$, $$p \in \mathcal{M}$$, and $$V \subset T_p \mathcal{M}$$ is a [star-shaped neighborhood](https://en.wikipedia.org/wiki/Star_domain) of zero on which $$\text{exp}_p$$ is a diffeomorphism onto an open set $$U \subset \mathcal{M}$$. Let $$\Pi$$ be any $$2$$-dimensional linear subspace of $$T_p \mathcal{M}$$. Since $$\Pi \cap V$$ is an embedded $$2$$-dim submanifold of $$V$$, it follows that $$\mathcal{S}_\Pi = \text{exp}_p(\Pi \cup V)$$ is an embedded $$2$$-dim submmanifold of $$U \subset \mathcal{M}$$ containing $$p$$, called the **_plane section_** determined by $$\Pi$$. We define the **_sectional curvature_** of $$\Pi$$, denoted by $$\text{sec}(\Pi)$$, to be the intrinsic Gaussian curvature at $$p$$ of the surface $$\mathcal{S}_\Pi$$ with the metric induced from the embedding $$\mathcal{S}_\Pi \subseteq \mathcal{M}$$. If $$v, w \in T_p \mathcal{M}$$ are linearly independent vectors, the sectional curvature's formula is given by
+
+$$
+    \text{sec}(v, w) := \frac{Rm_p(v, w, w, v)}{\lvert v \wedge w \rvert^2} \, ,
+$$
+
+where
+
+$$
+    \lvert v \wedge w \rvert := \sqrt{\lvert v \rvert^2 \lvert w \rvert^2 - \langle v, w \rangle^2} \, .
+$$
+
+We can show the connection between the sectional curvature and Ricci and scalar curvatures. $$Rc_p(v, v)$$ is the sum of the sectional curvatures of the $$2$$-planes spanned by $$(v, b_2), \dots, (v, b_n)$$, where $$(b_1, \dots, b_n)$$ is any orthonormal basis for $$T_p \mathcal{M}$$ with $$b_1 = v$$. Furthermore, the scalar curvature at $$p$$ is the sum of all sectional curvatures of the $$2$$-planes spanned by ordered pairs of distinct basis vectors in any orthonormal basis.
 
 
 <h2 class="section-heading">References</h2>
