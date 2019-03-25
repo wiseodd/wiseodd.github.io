@@ -700,7 +700,6 @@ $$
 
 where recall that, $$\partial_j x^i = \partial x^i / \partial x^j = \delta_{ij}$$. We can therefore write $$s$$ as a matrix $$s = (-1/R) \mathbf{I}$$ where $$\mathbf{I}$$ is the identity matrix. The principal curvatures are then all equal to $$-1/R$$, the mean curvature is $$H = -1/R$$, and the Gaussian curvature is $$K = (-1/R)^n$$. Note that, these curvatures are constant. These reflects the fact that the sphere bends the exact same way at every point.
 
-
 //
 {:.right}
 
@@ -720,6 +719,113 @@ $$
 $$
 
 We can show the connection between the sectional curvature and Ricci and scalar curvatures. $$Rc_p(v, v)$$ is the sum of the sectional curvatures of the $$2$$-planes spanned by $$(v, b_2), \dots, (v, b_n)$$, where $$(b_1, \dots, b_n)$$ is any orthonormal basis for $$T_p \M$$ with $$b_1 = v$$. Furthermore, the scalar curvature at $$p$$ is the sum of all sectional curvatures of the $$2$$-planes spanned by ordered pairs of distinct basis vectors in any orthonormal basis.
+
+
+<h2 class="section-heading">Lie groups</h2>
+
+A **_Lie group_** is a smooth manifold $$\G$$ that is also a group in the algebraic sense, with the property that the multiplication map $$m: \G \times \G \to \G$$ and inversion map $$i: \G \to \G$$, given by
+
+$$
+    m(g, h) := gh \, , \qquad i(g) := g^{-1} \, ,
+$$
+
+are both smooth for arbitrary $$g, h \in \G$$. We denote the identity element of $$G$$ by $$e$$.
+
+**Example 13 (Lie groups).** The following manifolds are Lie groups.
+
+1. The **_general linear group_** $$\GL(n, \R)$$ is the set of invertible $$n \times n$$ matrices with real elements. It is a group under matrix multiplication and it is a submanifold of the vector space $$\text{M}(n, \R)$$, the space of $$n \times n$$ matrices.
+
+2. The real number field $$\R$$ and the Euclidean space $$\R^n$$ are Lie groups under addition.
+
+//
+{:.right}
+
+If $$\G$$ and $$\mathcal{H}$$ are Lie groups, a **_Lie group homomorphism_** from $$\G$$ to $$\mathcal{H}$$ is a smooth map $$F: \G \to \mathcal{H}$$ that is also a group homomorphism. If $$F$$ is also a diffeomorphism, then it is **_Lie group isomorphism_**. We say that $$\G$$ and $$\mathcal{H}$$ are **_isomorphic Lie groups_**.
+
+If $$G$$ is a group and $$M$$ is a set, a **_left action_** of $$G$$ on $$M$$ is a map $$G \times M \to M$$ defined by $$(g, p) \mapsto g \cdot p$$ that satisfies
+
+$$
+\begin{alignat}{2}
+    g_1 \cdot (g_2 \cdot p) &= (g_1 g_2) \cdot p \qquad &&\text{for all } g_1, g_2 \in G, p \in M \, ; \\
+    e \cdot p &= p &&\text{for all } p \in M \, .
+\end{alignat}
+$$
+
+Analogously, a **_right action_** is defined as a map $$M \times G \to M$$ satisfying
+
+$$
+\begin{alignat}{2}
+    (p \cdot g_1) \cdot g_2 &= p \cdot (g_1 g_2) \qquad &&\text{for all } g_1, g_2 \in G, p \in M \, ; \\
+    p \cdot e &= p &&\text{for all } p \in M \, .
+\end{alignat}
+$$
+
+If $$M$$ is a smooth manifold, $$G$$ is a Lie, and the defining map is smooth, then the action is said to be **_smooth action_**.
+
+We can also give a name to an action, e.g. $$\theta: G \times M \to M$$ with $$(g, p) \mapsto \theta_g (p)$$. In this notation, the above conditions for the left action read
+
+$$
+\begin{align}
+    \theta_{g_1} \circ \theta_{g_2} &= \theta_{g_1 g_2} \, , \\
+    \theta_e &= \Id_M \, ,
+\end{align}
+$$
+
+while for a right action the first equation is replaced by $$\theta_{g_2} \circ \theta_{g_1} = \theta_{g_1 g_2}$$. For a smooth action, each map $$\theta_g : M \to M$$ is a diffeomorphism.
+
+For each $$p \in M$$, the **_orbit_** of $$p$$, denoted by $$G \cdot p$$, is the set of all images of $$p$$ under the action by elements of $$G$$:
+
+$$
+    G \cdot p := \{ g \cdot p : g \in G \} \, .
+$$
+
+The **_isotropy group_** or **_stabilizer_** of $$p$$, denoted by $$G_p$$, is the set of elements of $$G$$ that fix $$p$$ (implying $$G_p$$ is a subgroup of $$G$$):
+
+$$
+    G_p := \{ g \in G : g \cdot p = p \} \, .
+$$
+
+A group action is said to be **_transitive_** if for every pair of points $$p, q \in M$$, there exists $$g \in G$$ such that $$g \cdot p = q$$, i.e. if the only orbit is all of $$M$$. The action is said to be **_free_** if the only element of $$G$$ that fixes any element of $$M$$ is the identity: $$g \cdot p$$ for some $$p \in M$$ implies $$g = e$$, i.e. if every isotropy group is trivial.
+
+**Example 14 (Lie group actions).**
+
+1. If $$\G$$ is a Lie group and $$\M$$ is a smooth manifold, the **_trivial action_** of $$\G$$ on $$\M$$ is defined by $$g \cdot p = p$$ for all $$g \in \G$$ and $$p \in \M$$.
+
+2. The **_natural action_** of $$\GL(n, \R)$$ on $$\R^n$$ is the left action given by matrix multiplication $$(\b{A}, \vx) \mapsto \b{A} \vx$$.
+
+//
+{:.right}
+
+Let $$\G$$ be a Lie group, $$\M$$ and $$\N$$ be smooth manifolds endowed with smooth left or right $$\G$$-actions. A map $$F: \M \to \N$$ is **_equivariant_** w.r.t. the given actions if for each $$g \in G$$,
+
+$$
+\begin{alignat}{2}
+    F(g \cdot p) &= g \cdot F(p) \qquad &&\text{for left actions} \, , \\
+    F(p \cdot g) &= F(p) \cdot g &&\text{for right actions} \, .
+\end{alignat}
+$$
+
+If $$F: \M \to \N$$ is a smooth map that is equivariant w.r.t. a transitive smooth $$\G$$-action on $$\M$$ and any smooth $$\G$$-action on $$\N$$, then $$F$$ has **_constant rank_**, meaning that its rank is the same for all $$p \in \M$$. Thus, if $$F$$ is surjective, it is a smooth submersion; if it is injective, it is a smooth immersion; and if it is bijective, it is a diffeomorphism.
+
+**Example 15 (The orthogonal group).** A real $$n \times n$$ matrix $$\b{A}$$ is said to be **_orthogonal_** if it preserves the Euclidean dot product as a linear map:
+
+$$
+    (\b{A} \vx) \cdot (\b{A} \vx) = \vx \cdot \vy \qquad \text{for all} \, \vx, \vy \in \R^n \, .
+$$
+
+The set of all orthogonal $$n \times n$$ matrices $$\text{O}(n)$$ is a subgroup of $$\GL(n, \R)$$, called the **_orthogonal group_** of degree $$n$$.
+
+//
+{:.right}
+
+We would like to also study the theory of **_group representations_**, i.e. asking the question whether all Lie groups can be realized as Lie subgroups of $$\GL(n, \R)$$ or $$\GL(n, \C)$$. If $$\G$$ is a Lie group, a **_representation_** of $$\G$$ is a Lie group homomorphism from $$\G$$ to $$\GL(V)$$ for some finite-dimensional vector space $$V$$. Note that, $$\GL(V)$$ denotes the group of invertible linear transformations of $$V$$ which is a Lie group isomorphic to $$\GL(n, \R)$$. If a representation is injective, it is said to be **_faithful_**.
+
+There is a close connection between representations and group actions. An action of $$\G$$ on $$V$$ is said to be a **_linear action_** if for each $$g \in \G$$, the map $$V \to V$$ defined by $$x \mapsto g \cdot x$$ is linear.
+
+**Example 16 (Linear action).** If $$\rho: \G \to \GL(V)$$ is a representation of $$\G$$, there is an associated smooth linear action of $$\G$$ on $$V$$ given by $$g \cdot x = \rho(g) x$$. In fact, this holds for every linear action.
+
+//
+{:.right}
 
 
 <h2 class="section-heading">References</h2>
