@@ -505,6 +505,10 @@ body {
   margin-bottom: 0.2em;
 }
 
+.post li p {
+  margin: 0;
+}
+
 .post li ol {
   margin-top: 0px;
 }
