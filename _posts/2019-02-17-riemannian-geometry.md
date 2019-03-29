@@ -92,11 +92,39 @@ $$
 
 Moreover, for any $$v \in T_p \M$$, we call $$dF_p (v)$$ the **_pushforward_** of $$v$$ by $$F$$ at $$p$$. It differs from the previous definition of differential in the sense that this map is a linear map between tangent spaces of two manifolds. Furthermore the differential of $$F$$ can be seen as the generalization of the total derivative in Euclidean spaces, in which $$dF_p$$ is represented by the Jacobian matrix.
 
+
+<h2 class="section-heading">Vector fields</h2>
+
+If $$\M$$ is a smooth $$n$$-manifold, a **_vector field_** on $$\M$$ is a continuous map $$X: \M \to T\M$$, written as $$p \mapsto X_p$$, such that $$X_p \in T_p \M$$ for each $$p \in \M$$. If $$(U, (x^i))$$ is any smooth chart for $$\M$$, we write the value of $$X$$ at any $$p \in U \subset \M$$ as
+
+$$
+    X_p = X^i(p) \, \frac{\partial}{\partial x^i} \vert_p \, .
+$$
+
+This defines $$n$$ functions $$X^i: U \to \R$$, called the **_component functions_** of $$X$$. The restriction of $$X$$ to $$U$$ is a smooth vector field if and only if its component functions w.r.t. the chart are smooth.
+
+**Example 3 (Coordinate vector fields).** If $$(U, (x^i))$$ is any smooth chart on $$\M$$, then $$p \mapsto \partial/\partial x^i \vert_p$$ is a vector field on $$U$$, called the **_i-th coordinate vector field_**. It is smooth as its component functions are constant. This vector fields defines a basis of the tangent space at each point.
+
+//
+{:.right}
+
+**Example 4 (Gradient).** If $$f \in C^\infty(\M)$$ is a real-valued function on $$\M$$, then the gradient of $$f$$ is a vector field on $$\M$$. See the corresponding section below for more detail.
+
+//
+{:.right}
+
+We denote $$\mathfrak{X}(\M)$$ to be the set of all smooth vector fields on $$\M$$. It is a vector space under pointwise addition and scalar multiplication, i.e. $$(aX + bY)_p = aX_p + bY_p$$. The zero element is the zero vector field, whose value is $$0 \in T_p \M$$ for all $$p \in \M$$. If $$f \in C^\infty(\M)$$ and $$X \in \mathfrak{X}(\M)$$, then we define $$fX: \M \to T\M$$ by $$(fX)_p = f(p)X_p$$. Note that this defines a multiplication of a vector field with a smooth real-valued function. Furthermore, if in addition, $$g \in C^\infty(\M)$$ and $$Y \in \mathfrak{X}(\M)$$, then $$fX + gY$$ is also a smooth vector field.
+
+A **_local frame_** for $$\M$$ is an ordered $$n$$-tuple of vector fields $$(E_1, \dots, E_n)$$ defined on an open subset $$U \subseteq M$$ that is linearly independent and spans the tangent bundle, i.e. $$(E_1 \vert_p, \dots, E_n \vert_p)$$ form a basis for $$T_p \M$$ for each $$p \in \M$$. It is called a **_global frame_** if $$U = M$$, and a **_smooth frame_** if each $$E_i$$ is smooth.
+
+If $$X \in \mathfrak{X}(\M)$$ and $$f \in C^\infty(U)$$, we define $$Xf: U \to \R$$ by $$(Xf)(p) = X_p f$$. $$X$$ also defines a map $$C^\infty(\M) \to C^\infty(\M)$$ by $$f \to Xf$$ which is linear and Leibniz, thus it is a derivation. Moreover, derivations of $$C^\infty(\M)$$ can be identified with smooth vector fields, i.e. $$D: C^\infty(\M) \to C^\infty(\M)$$ is a derivation if and only if it is of the form $$Df = Xf$$ for some $$X \in \mathfrak{X}(\M)$$.
+
+
 <h2 class="section-heading">Tensors</h2>
 
 Let $$\{ V_k \}$$ and $$U$$ be real vector spaces. A map $$F: V_1 \times \dots \times V_k \to U$$ is said to be **_multilinear_** if it is linear as a function of each variable separately when the others are held fixed. That is, it is a generalization of the familiar linear and bilinear maps. Furthermore, we write the vector space of all multilinear maps $$ V_1 \times \dots \times V_k \to U $$ as $$ \text{L}(V_1, \dots, V_k; U) $$.
 
-**Example 3 (Multilinear functions).** Some examples of familiar multilinear functions are
+**Example 5 (Multilinear functions).** Some examples of familiar multilinear functions are
 1. The _dot product_ in $$ \R^n $$ is a scalar-valued bilinear function of two vectors. E.g. for any $$ v, w \in \R^n $$, the dot product between them is $$ v \cdot w := \sum_i^n v^i w^i $$, which is linear on both $$ v $$ and $$ w $$.
 2. The _determinant_ is a real-valued multilinear function of $$ n $$ vectors in $$ \R^n $$.
 
@@ -123,7 +151,7 @@ $$
 
 From the multilinearity of $$ F $$ and $$ G $$ it follows that $$ F \otimes G $$ is also multilinear, and is called the **_tensor product of $$ F $$ and $$ G $$_**. I.e. tensors and tensor products are multilinear map with codomain in $$ \R $$.
 
-**Example 4 (Tensor products of covectors).** Let $$ V $$ be a vector space and $$ \omega, \eta \in V^* $$. Recall that they both a linear map from $$ V $$ to $$ \R $$. Therefore the tensor product between them is
+**Example 6 (Tensor products of covectors).** Let $$ V $$ be a vector space and $$ \omega, \eta \in V^* $$. Recall that they both a linear map from $$ V $$ to $$ \R $$. Therefore the tensor product between them is
 
 $$
 \begin{align}
@@ -135,7 +163,7 @@ $$
 //
 {:.right}
 
-**Example 5 (Tensor products of dual basis).** Let $$ \epsilon^1, \epsilon^2 $$ be the standard dual basis for $$ (\R^2)^* $$. Then, the tensor product $$ \epsilon^1 \otimes \epsilon^2: \R^2 \times \R^2 \to \R $$ is the bilinear function defined by
+**Example 7 (Tensor products of dual basis).** Let $$ \epsilon^1, \epsilon^2 $$ be the standard dual basis for $$ (\R^2)^* $$. Then, the tensor product $$ \epsilon^1 \otimes \epsilon^2: \R^2 \times \R^2 \to \R $$ is the bilinear function defined by
 
 $$
     \epsilon^1 \otimes \epsilon^2(x, y) = \epsilon^1 \otimes \epsilon^2((w, x), (y, z)) := wz \, .
@@ -169,7 +197,7 @@ $$
 
 That is we can represent $$ g $$ as a symmetric, positive definite matrix $$ G $$ taking two tangent vectors as its arguments: $$ \inner{v, w}_g = v^\text{T} G w $$. Furthermore, we can define a norm w.r.t. $$g$$ to be $$\norm{\cdot}_g := \inner{v, v}_g$$ for any $$v \in T_p \M$$.
 
-**Example 6 (The Euclidean Metric).** The simplest example of a Riemannian metric is the familiar **_Euclidean metric_** $$g$$ of $$\R^n$$ using the standard coordinate. It is defined by
+**Example 8 (The Euclidean Metric).** The simplest example of a Riemannian metric is the familiar **_Euclidean metric_** $$g$$ of $$\R^n$$ using the standard coordinate. It is defined by
 
 $$
     g = \delta_{ij} \, dx^i dx^j \, ,
@@ -236,7 +264,7 @@ $$
     \text{grad} \, f = g^{ij} \frac{\partial f}{\partial x^i} \frac{\partial}{\partial x^j} \, .
 $$
 
-**Example 7 (Euclidean gradient).** On $$\R^n$$ with the Euclidean metric with the standard coordinate, the gradient of $$f: \R^n \to \R$$ is
+**Example 9 (Euclidean gradient).** On $$\R^n$$ with the Euclidean metric with the standard coordinate, the gradient of $$f: \R^n \to \R$$ is
 
 $$
     \text{grad} \, f = \delta^{ij} \, \frac{\partial f}{\partial x^i} \frac{\partial}{\partial x^j} = \sum_{i=1}^n \frac{\partial f}{\partial x^i} \frac{\partial}{\partial x^i} \, .
@@ -247,7 +275,7 @@ Thus, again it is coincide with the definition we are familiar with form calculu
 //
 {:.right}
 
-All in all then, based on Example 7, we can compute the Riemannian gradient by raising the index of the Euclidean gradient, i.e. by applying the inverse Riemannian metric to the Euclidean gradient. In matrix notation, let $$G$$ be the matrix representation of $$g$$ and let $$\partial f$$ be the Euclidean gradient vector, then: $$\text{grad} \, f = G^{-1} \partial f$$.
+All in all then, based on Example 9, we can compute the Riemannian gradient by raising the index of the Euclidean gradient, i.e. by applying the inverse Riemannian metric to the Euclidean gradient. In matrix notation, let $$G$$ be the matrix representation of $$g$$ and let $$\partial f$$ be the Euclidean gradient vector, then: $$\text{grad} \, f = G^{-1} \partial f$$.
 
 The interpretation of the gradient in Riemannian manifold is analogous to the one in Euclidean space: its direction is the direction of steepest ascent of $$f$$ and it is orthogonal to the level sets of $$f$$; and its length is the maximum directional derivative of $$f$$ in any direction.
 
@@ -286,7 +314,7 @@ $$
 
 The $$n^3$$ smooth functions $$\Gamma^k_{ij}: U \to \R$$ is called the **_connection coefficients_** or the **_Christoffel symbols_** of $$\nabla$$.
 
-**Example 8 (Covariant derivative in Euclidean spaces).** Let $$\R^n$$ with the Euclidean metric be a Riemannian manifold. Then
+**Example 10 (Covariant derivative in Euclidean spaces).** Let $$\R^n$$ with the Euclidean metric be a Riemannian manifold. Then
 
 $$
     (\nabla_Y X)_p = \lim_{h \to 0} \frac{Y_{p+hX_p} - Y_p}{h} \enspace \enspace \forall p \in \M \, ,
@@ -302,7 +330,7 @@ There exists a unique affine connection for every Riemannian manifold $$(\M, g)$
 1. Symmetry, i.e., $$\nabla_X Y - \nabla_Y X = [X, Y]$$
 2. Metric compatible, i.e., $$Z \inner{X, Y}_g = \inner{\nabla_Z X, Y}_g + \inner{X, \nabla_Z Y}_g$$,
 
-for all $$X, Y, Z \in \mathfrak{X}(\M)$$. It is called the **_Levi-Civita connection_**. Note that, $$[\cdot, \cdot]$$ is the **Lie bracket**, defined by $$[X, Y]f = X(Yf) - Y(Xf)$$ for all $$f \in C^\infty(\M)$$. Note also that, the connection shown in Example 8 is the Levi-Civita connection for Euclidean spaces with the Euclidean metric.
+for all $$X, Y, Z \in \mathfrak{X}(\M)$$. It is called the **_Levi-Civita connection_**. Note that, $$[\cdot, \cdot]$$ is the **Lie bracket**, defined by $$[X, Y]f = X(Yf) - Y(Xf)$$ for all $$f \in C^\infty(\M)$$. Note also that, the connection shown in Example 10 is the Levi-Civita connection for Euclidean spaces with the Euclidean metric.
 
 
 <h2 class="section-heading">Riemannian Hessians</h2>
@@ -327,7 +355,7 @@ $$
     \text{Hess} \, f = f_{; i,j} \, dx^i \otimes dx^j := \left( \frac{\partial f}{\partial x^i \partial x^j} - \Gamma^k_{ij} \frac{\partial f}{\partial x^k} \right) \, dx^i \otimes dx^j \, .
 $$
 
-**Example 9 (Euclidean Hessian).** Let $$\R^n$$ be a Euclidean space with the Euclidean metric and standard Euclidean coordinate. We can show that connection coefficients of the Levi-Civita connection are all $$0$$. Thus the Hessian is defined by
+**Example 11 (Euclidean Hessian).** Let $$\R^n$$ be a Euclidean space with the Euclidean metric and standard Euclidean coordinate. We can show that connection coefficients of the Levi-Civita connection are all $$0$$. Thus the Hessian is defined by
 
 $$
     \text{Hess} \, f = \left( \frac{\partial f}{\partial x^i \partial x^j} \right) \, dx^i \otimes dx^j \, .
@@ -446,7 +474,7 @@ $$
 
 Furthermore, we can show that $$(\M, g)$$ is a flat Riemannian manifold, then its Levi-Civita connection satisfies the flatness criterion.
 
-**Example 10 (Euclidean space is flat).** Let $$\R^n$$ with the Euclidean metric be a Riemannian manifold, equipped with the Euclidean connection $$\nabla$$. Then, given $$X, Y, Z$$ smooth vector fields:
+**Example 12 (Euclidean space is flat).** Let $$\R^n$$ with the Euclidean metric be a Riemannian manifold, equipped with the Euclidean connection $$\nabla$$. Then, given $$X, Y, Z$$ smooth vector fields:
 
 $$
 \begin{align}
@@ -545,7 +573,7 @@ Thus the scalar curvature is a scalar field on $$\M$$.
 
 Let $$\M$$ be a smooth manifold. An **_embedded or regular submanifold_** of $$\M$$ is a subset $$\mathcal{S} \subset \M$$ that is a manifold in the subspace topology, endowed with a smooth structure w.r.t. which the inclusion map $$\mathcal{S} \hookrightarrow \M$$ is a smooth embedding. We call the difference $$\text{dim} \, \M - \text{dim} \, \mathcal{S}$$ to be the **_codimension_** of $$\mathcal{S}$$ in $$\M$$, and $$\M$$ to be the **_ambient manifold_**. An **_embedded hypersurface_** is an embedded submanifold of codimension 1.
 
-**Example 11 (Graphs as submanifolds).** Suppose $$\M$$ is a smooth $$m$$-manifold, $$\mathcal{N}$$ is a smooth $$n$$-manifold, $$U \subset \M$$ is open, and $$f: U \to \mathcal{N}$$ is a smooth map. Let $$\Gamma(f) \subseteq \M \times \mathcal{N}$$ denote the graph of $$f$$, i.e.
+**Example 13 (Graphs as submanifolds).** Suppose $$\M$$ is a smooth $$m$$-manifold, $$\mathcal{N}$$ is a smooth $$n$$-manifold, $$U \subset \M$$ is open, and $$f: U \to \mathcal{N}$$ is a smooth map. Let $$\Gamma(f) \subseteq \M \times \mathcal{N}$$ denote the graph of $$f$$, i.e.
 
 $$
     \Gamma(f) := \{ (x, y) \in \M \times \mathcal{N} : x \in U, y = f(x) \} \, .
@@ -686,7 +714,15 @@ $$
     sX = -\bar{\nabla}_X N = -\sum_{i,j=1}^{n+1} X^j (\partial_j N^i) \partial_i \, .
 $$
 
-**Example 12 (Shape operators of spheres).** The smooth vector field
+Another way to get such smooth vector field is to work with a local defining function for $$\M$$, i.e. a smooth scalar field defined on some open subset $$U \subseteq \R^{n+1}$$ s.t. $$U \cap \M$$ is a regular level set of $$F$$. Then, we can take
+
+$$
+    N := \frac{\grad{F}}{\abs{\grad{F}}} \, .
+$$
+
+Because we know that the gradient is always normal to the level set.
+
+**Example 14 (Shape operators of spheres).** The smooth vector field
 
 $$
     N = \frac{1}{R} \sum_{i,j=1}^{n+1} x^i \partial_i
@@ -731,7 +767,7 @@ $$
 
 are both smooth for arbitrary $$g, h \in \G$$. We denote the identity element of $$G$$ by $$e$$.
 
-**Example 13 (Lie groups).** The following manifolds are Lie groups.
+**Example 15 (Lie groups).** The following manifolds are Lie groups.
 
 1. The **_general linear group_** $$\GL(n, \R)$$ is the set of invertible $$n \times n$$ matrices with real elements. It is a group under matrix multiplication and it is a submanifold of the vector space $$\text{M}(n, \R)$$, the space of $$n \times n$$ matrices.
 
@@ -787,7 +823,7 @@ $$
 
 A group action is said to be **_transitive_** if for every pair of points $$p, q \in M$$, there exists $$g \in G$$ such that $$g \cdot p = q$$, i.e. if the only orbit is all of $$M$$. The action is said to be **_free_** if the only element of $$G$$ that fixes any element of $$M$$ is the identity: $$g \cdot p$$ for some $$p \in M$$ implies $$g = e$$, i.e. if every isotropy group is trivial.
 
-**Example 14 (Lie group actions).**
+**Example 16 (Lie group actions).**
 
 1. If $$\G$$ is a Lie group and $$\M$$ is a smooth manifold, the **_trivial action_** of $$\G$$ on $$\M$$ is defined by $$g \cdot p = p$$ for all $$g \in \G$$ and $$p \in \M$$.
 
@@ -807,7 +843,7 @@ $$
 
 If $$F: \M \to \N$$ is a smooth map that is equivariant w.r.t. a transitive smooth $$\G$$-action on $$\M$$ and any smooth $$\G$$-action on $$\N$$, then $$F$$ has **_constant rank_**, meaning that its rank is the same for all $$p \in \M$$. Thus, if $$F$$ is surjective, it is a smooth submersion; if it is injective, it is a smooth immersion; and if it is bijective, it is a diffeomorphism.
 
-**Example 15 (The orthogonal group).** A real $$n \times n$$ matrix $$\b{A}$$ is said to be **_orthogonal_** if it preserves the Euclidean dot product as a linear map:
+**Example 17 (The orthogonal group).** A real $$n \times n$$ matrix $$\b{A}$$ is said to be **_orthogonal_** if it preserves the Euclidean dot product as a linear map:
 
 $$
     (\b{A} \vx) \cdot (\b{A} \vx) = \vx \cdot \vy \qquad \text{for all} \, \vx, \vy \in \R^n \, .
@@ -822,7 +858,7 @@ We would like to also study the theory of **_group representations_**, i.e. aski
 
 There is a close connection between representations and group actions. An action of $$\G$$ on $$V$$ is said to be a **_linear action_** if for each $$g \in \G$$, the map $$V \to V$$ defined by $$x \mapsto g \cdot x$$ is linear.
 
-**Example 16 (Linear action).** If $$\rho: \G \to \GL(V)$$ is a representation of $$\G$$, there is an associated smooth linear action of $$\G$$ on $$V$$ given by $$g \cdot x = \rho(g) x$$. In fact, this holds for every linear action.
+**Example 18 (Linear action).** If $$\rho: \G \to \GL(V)$$ is a representation of $$\G$$, there is an associated smooth linear action of $$\G$$ on $$V$$ given by $$g \cdot x = \rho(g) x$$. In fact, this holds for every linear action.
 
 //
 {:.right}
@@ -832,6 +868,7 @@ There is a close connection between representations and group actions. An action
 
 1. Lee, John M. "Smooth manifolds." Introduction to Smooth Manifolds. Springer, New York, NY, 2013. 1-31.
 2. Lee, John M. Riemannian manifolds: an introduction to curvature. Vol. 176. Springer Science & Business Media, 2006.
-3. Absil, P-A., Robert Mahony, and Rodolphe Sepulchre. Optimization algorithms on matrix manifolds. Princeton University Press, 2009.
-4. Boumal, Nicolas. Optimization and estimation on manifolds. Diss. Catholic University of Louvain, Louvain-la-Neuve, Belgium, 2014.
-5. Graphics: <https://tex.stackexchange.com/questions/261408/sphere-tangent-to-plane>.
+3. Fels, Mark Eric. "An Introduction to Differential Geometry through Computation." (2016).
+4. Absil, P-A., Robert Mahony, and Rodolphe Sepulchre. Optimization algorithms on matrix manifolds. Princeton University Press, 2009.
+5. Boumal, Nicolas. Optimization and estimation on manifolds. Diss. Catholic University of Louvain, Louvain-la-Neuve, Belgium, 2014.
+6. Graphics: <https://tex.stackexchange.com/questions/261408/sphere-tangent-to-plane>.
