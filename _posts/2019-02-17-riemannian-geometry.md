@@ -246,28 +246,28 @@ Let $$(\M, g)$$ be a Riemannian manifold, and let $$f: \M \to \R$$ be a real-val
 
 $$
 \begin{align}
-    \text{grad}& \, f := (df)^\sharp = \hat{g}^{-1}(df) \, .
+    \grad{f} := (df)^\sharp = \hat{g}^{-1}(df) \, .
 \end{align}
 $$
 
 For any $$p \in \M$$ and for any $$v \in T_p \M$$, the gradient satisfies
 
 $$
-    \inner{\text{grad} \, f, v}_g = vf \, .
+    \inner{\grad{f}, v}_g = vf \, .
 $$
 
-That is, for each $$p \in \M$$ and for any $$v \in T_p \M$$, $$\text{grad} \, f$$ is a vector in $$T_p \M$$ such that the inner product with $$v$$ is the directional derivative of $$f$$ in the direction of $$v$$. Observe the compatibility of this definition with standard multi-variable calculus: the directional derivative of a function in the direction of a vector is the dot product of its gradient and that vector.
+That is, for each $$p \in \M$$ and for any $$v \in T_p \M$$, $$\grad{f}$$ is a vector in $$T_p \M$$ such that the inner product with $$v$$ is the directional derivative of $$f$$ in the direction of $$v$$. Observe the compatibility of this definition with standard multi-variable calculus: the directional derivative of a function in the direction of a vector is the dot product of its gradient and that vector.
 
-In any smooth coordinate $$\{x^i\}$$, $$\text{grad} \, f$$ has the expression
+In any smooth coordinate $$\{x^i\}$$, $$\grad{f}$$ has the expression
 
 $$
-    \text{grad} \, f = g^{ij} \frac{\partial f}{\partial x^i} \frac{\partial}{\partial x^j} \, .
+    \grad{f} = g^{ij} \frac{\partial f}{\partial x^i} \frac{\partial}{\partial x^j} \, .
 $$
 
 **Example 9 (Euclidean gradient).** On $$\R^n$$ with the Euclidean metric with the standard coordinate, the gradient of $$f: \R^n \to \R$$ is
 
 $$
-    \text{grad} \, f = \delta^{ij} \, \frac{\partial f}{\partial x^i} \frac{\partial}{\partial x^j} = \sum_{i=1}^n \frac{\partial f}{\partial x^i} \frac{\partial}{\partial x^i} \, .
+    \grad{f} = \delta^{ij} \, \frac{\partial f}{\partial x^i} \frac{\partial}{\partial x^j} = \sum_{i=1}^n \frac{\partial f}{\partial x^i} \frac{\partial}{\partial x^i} \, .
 $$
 
 Thus, again it is coincide with the definition we are familiar with form calculus.
@@ -275,7 +275,7 @@ Thus, again it is coincide with the definition we are familiar with form calculu
 //
 {:.right}
 
-All in all then, based on Example 9, we can compute the Riemannian gradient by raising the index of the Euclidean gradient, i.e. by applying the inverse Riemannian metric to the Euclidean gradient. In matrix notation, let $$G$$ be the matrix representation of $$g$$ and let $$\partial f$$ be the Euclidean gradient vector, then: $$\text{grad} \, f = G^{-1} \partial f$$.
+All in all then, based on Example 9, we can compute the Riemannian gradient by raising the index of the Euclidean gradient, i.e. by applying the inverse Riemannian metric to the Euclidean gradient. In matrix notation, let $$G$$ be the matrix representation of $$g$$ and let $$\partial f$$ be the Euclidean gradient vector, then: $$\grad{f} = G^{-1} \partial f$$.
 
 The interpretation of the gradient in Riemannian manifold is analogous to the one in Euclidean space: its direction is the direction of steepest ascent of $$f$$ and it is orthogonal to the level sets of $$f$$; and its length is the maximum directional derivative of $$f$$ in any direction.
 
@@ -338,13 +338,13 @@ for all $$X, Y, Z \in \mathfrak{X}(\M)$$. It is called the **_Levi-Civita connec
 Let $$(\M, g)$$ be a Riemannian manifold equipped by the Levi-Civita connection $$\nabla$$. Given a scalar field $$f: \M \to \R$$ and any $$X, Y \in \mathfrak{X}(\M)$$, the **_Riemannian Hessian_** of $$f$$ is the covariant 2-tensor field $$\text{Hess}f := \nabla^2 f := \nabla \nabla f$$, defined by
 
 $$
-    \text{Hess} \, f(X, Y) := X(Yf) - (\nabla_X Y)f = \inner{\nabla_X \, \text{grad} f, Y}_g \, .
+    \text{Hess} \, f(X, Y) := X(Yf) - (\nabla_X Y)f = \inner{\nabla_X \, \grad{f}, Y}_g \, .
 $$
 
 Another way to define Riemannian Hessian is to treat is a linear map $$T_p \M \to T_p \M$$, defined by
 
 $$
-    \text{Hess}_{v} \, f = \nabla_v \, \text{grad} \, f \, ,
+    \text{Hess}_{v} \, f = \nabla_v \, \grad{f} \, ,
 $$
 
 for every $$p \in \M$$ and $$v \in T_p \M$$.
@@ -628,7 +628,7 @@ $$
     \tilde{\nabla}_X Y = \nabla_X Y + \two(X, Y) \, .
 $$
 
-Although the second fundamental form can also be used to evaluate extrinsic covariant derivatives of _normal_ vector fields (instead of _tangent_ ones above). For each normal vector field $$N \in \Gamma(N\M)$$, we define a scalar-valued  symmetric bilinear form $$\two_N: \mathfrak{X}(\M) \times \mathfrak{X}(\M) \to C^\infty(\M)$$ by
+The second fundamental form can also be used to evaluate extrinsic covariant derivatives of _normal_ vector fields (instead of _tangent_ ones above). For each normal vector field $$N \in \Gamma(N\M)$$, we define a scalar-valued  symmetric bilinear form $$\two_N: \mathfrak{X}(\M) \times \mathfrak{X}(\M) \to \R$$ by
 
 $$
     \two_N(X, Y) = \inner{N, \two(X, Y)} \, .
@@ -717,12 +717,12 @@ $$
 Another way to get such smooth vector field is to work with a local defining function for $$\M$$, i.e. a smooth scalar field defined on some open subset $$U \subseteq \R^{n+1}$$ s.t. $$U \cap \M$$ is a regular level set of $$F$$. Then, we can take
 
 $$
-    N := \frac{\grad{F}}{\abs{\grad{F}}} \, .
+    N := \frac{\grad{F}}{\norm{\grad{F}}} \, .
 $$
 
 Because we know that the gradient is always normal to the level set.
 
-**Example 14 (Shape operators of spheres).** The smooth vector field
+**Example 14 (Shape operators of spheres).** The function $$F: \R^{n+1} \to \R$$ with $$F(x) := \norm{x}^2$$ is a smooth defining function of any sphere in $$\mathbb{S}^{n}(R)$$. Thus, the normalized gradient vector field
 
 $$
     N = \frac{1}{R} \sum_{i,j=1}^{n+1} x^i \partial_i
@@ -738,6 +738,12 @@ where recall that, $$\partial_j x^i = \partial x^i / \partial x^j = \delta_{ij}$
 
 //
 {:.right}
+
+Lastly, for surfaces in $$\R^3$$, given a parametrization of $$X$$, the normal vector field can be computed via its components $$X_1$$ and $$X_2$$:
+
+$$
+    N = \frac{X_1 \times X_2}{\norm{X_1 \times X_2}} \, .
+$$
 
 
 Although the Gaussian curvature is defined in terms of a particular embedding of a submanifold in the Euclidean space (i.e. it is an extrinsic quantity), it is actually an intrinsic invariant of the submanifold. Gauss showed in his **_Theorema Egregium_** that in an embedded $$2$$-dimensional Riemannian submanifold $$(\M, g)$$ of $$\R^3$$, for every point $$p \in \M$$, the Gaussian curvature of $$\M$$ at $$p$$ is equal to one-half the scalar curvature of $$g$$ at $$p$$, and thus it is a local isometry invariant of $$(\M, g)$$.
