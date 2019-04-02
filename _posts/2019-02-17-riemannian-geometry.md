@@ -739,12 +739,13 @@ where recall that, $$\partial_j x^i = \partial x^i / \partial x^j = \delta_{ij}$
 //
 {:.right}
 
-Lastly, for surfaces in $$\R^3$$, given a parametrization of $$X$$, the normal vector field can be computed via its components $$X_1$$ and $$X_2$$:
+Lastly, for surfaces in $$\R^3$$, given a parametrization of $$X$$, the normal vector field can be computed via the cross product:
 
 $$
-    N = \frac{X_1 \times X_2}{\norm{X_1 \times X_2}} \, .
+    N = \frac{X_1 \times X_2}{\norm{X_1 \times X_2}} \, ,
 $$
 
+where $$X_1 := \partial_1 X$$ and $$X_2 := \partial_2 X$$, which together form a basis of the tangent space at each point on the surface.
 
 Although the Gaussian curvature is defined in terms of a particular embedding of a submanifold in the Euclidean space (i.e. it is an extrinsic quantity), it is actually an intrinsic invariant of the submanifold. Gauss showed in his **_Theorema Egregium_** that in an embedded $$2$$-dimensional Riemannian submanifold $$(\M, g)$$ of $$\R^3$$, for every point $$p \in \M$$, the Gaussian curvature of $$\M$$ at $$p$$ is equal to one-half the scalar curvature of $$g$$ at $$p$$, and thus it is a local isometry invariant of $$(\M, g)$$.
 
