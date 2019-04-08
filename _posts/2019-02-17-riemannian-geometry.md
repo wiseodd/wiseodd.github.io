@@ -66,7 +66,7 @@ $$
     df := \frac{\partial f}{\partial x^i} \, dx^i \, .
 $$
 
-The disjoint union of the tangent spaces at all points of $\M$ is called the **_tangent bundle_** of $\M$$
+The disjoint union of the tangent spaces at all points of $\M$ is called the **_tangent bundle_** of $\M$
 
 $$
     TM := \coprod_{p \in \M} T_p \M \, .
@@ -84,7 +84,7 @@ $$
     dF_p : T_p \M \to T_{F(p)} \mathcal{N} \, ,
 $$
 
-called the **_differential_** of $F$ at $p$, as follows. Given $v \in T_p \M$$:
+called the **_differential_** of $F$ at $p$, as follows. Given $v \in T_p \M$:
 
 $$
     dF_p (v)(f) := v(f \circ F) \, .
@@ -217,7 +217,7 @@ Note that above, $\delta_{ij}$ is the Kronecker delta. Thus, the Euclidean metri
 
 <h2 class="section-heading">The tangent-cotangent isomorphism</h2>
 
-Riemannian metric also provides a natural isomorphism between the tangent and cotangent space. Let $(\M, g)$ be a Riemannian manifold. We define an isomorphism $\hat{g}: T_p \M \to T_p^* \M$ as follows. For each $p \in \M$ and each $v \in T_p \M$$
+Riemannian metric also provides a natural isomorphism between the tangent and cotangent space. Let $(\M, g)$ be a Riemannian manifold. We define an isomorphism $\hat{g}: T_p \M \to T_p^* \M$ as follows. For each $p \in \M$ and each $v \in T_p \M$
 
 $$
     \hat{g}(v) = \inner{v, \cdot}_g \, .
@@ -275,7 +275,7 @@ Thus, again it is coincide with the definition we are familiar with form calculu
 //
 {:.right}
 
-All in all then, based on Example 9, we can compute the Riemannian gradient by raising the index of the Euclidean gradient, i.e. by applying the inverse Riemannian metric to the Euclidean gradient. In matrix notation, let $G$ be the matrix representation of $g$ and let $\partial f$ be the Euclidean gradient vector, then: $\grad{f} = G^{-1} \partial f$.
+All in all then, based on Example 9, we can compute the Riemannian gradient by raising the index of the Euclidean gradient, i.e. by applying the inverse Riemannian metric to the Euclidean gradient. Given a basis, in matrix notation, let $G$ be the matrix representation of $g$ and let $d$ be the matrix representation of $df$ (i.e. as a row vector containing all partial derivatives of $f$), then: $\grad{f} = d \, G^{-1}$.
 
 The interpretation of the gradient in Riemannian manifold is analogous to the one in Euclidean space: its direction is the direction of steepest ascent of $f$ and it is orthogonal to the level sets of $f$; and its length is the maximum directional derivative of $f$ in any direction.
 
@@ -300,8 +300,8 @@ $$
 
 which satisfies the following properties
 
-1. $C^\infty(\M)$-linearity in $X$, i.e., $\nabla_{fX+gY} Z = f \, \nabla_X Z + g \, \nabla_Y Z$$
-2. $\R$-linearity in Y, i.e., $\nabla_X (aY + bZ) = a \, \nabla_X Y + b \, \nabla_X Z$$
+1. $C^\infty(\M)$-linearity in $X$, i.e., $\nabla_{fX+gY} Z = f \, \nabla_X Z + g \, \nabla_Y Z$
+2. $\R$-linearity in Y, i.e., $\nabla_X (aY + bZ) = a \, \nabla_X Y + b \, \nabla_X Z$
 3. Leibniz rule, i.e., $\nabla_X (fY) = (Xf) Y + f \, \nabla_X Y$ .
 
 We call $\nabla_X Y$ the **_covariant derivative_** of $Y$ in the direction $X$. Note that the notation $Xf$ means $Xf(p) := D_{X_p} \vert_p f$ for all $p \in \M$, i.e. the directional derivative (it is a scalar field). Furthermore, notice that, covariant derivative and connection are the same thing and they are useful to generalize the notion of directional derivative to vector fields.
@@ -327,7 +327,7 @@ the usual directional derivative, is a covariant derivative.
 
 There exists a unique affine connection for every Riemannian manifold $(\M, g)$ that satisfies
 
-1. Symmetry, i.e., $\nabla_X Y - \nabla_Y X = [X, Y]$$
+1. Symmetry, i.e., $\nabla_X Y - \nabla_Y X = [X, Y]$
 2. Metric compatible, i.e., $Z \inner{X, Y}_g = \inner{\nabla_Z X, Y}_g + \inner{X, \nabla_Z Y}_g$,
 
 for all $X, Y, Z \in \mathfrak{X}(\M)$. It is called the **_Levi-Civita connection_**. Note that, $[\cdot, \cdot]$ is the **Lie bracket**, defined by $[X, Y]f = X(Yf) - Y(Xf)$ for all $f \in C^\infty(\M)$. Note also that, the connection shown in Example 10 is the Levi-Civita connection for Euclidean spaces with the Euclidean metric.
