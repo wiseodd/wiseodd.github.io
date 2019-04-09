@@ -275,7 +275,7 @@ Thus, again it is coincide with the definition we are familiar with form calculu
 //
 {:.right}
 
-All in all then, based on Example 9, we can compute the Riemannian gradient by raising the index of the Euclidean gradient, i.e. by applying the inverse Riemannian metric to the Euclidean gradient. Given a basis, in matrix notation, let $G$ be the matrix representation of $g$ and let $d$ be the matrix representation of $df$ (i.e. as a row vector containing all partial derivatives of $f$), then: $\grad{f} = d \, G^{-1}$.
+All in all then, based on Example 9, we can compute the Riemannian gradient by raising the index of the Euclidean gradient, i.e. by applying the inverse Riemannian metric to the differential $df$ of $f$. Given a basis, in matrix notation, let $G$ be the matrix representation of $g$ and let $d$ be the matrix representation of $df$ (i.e. as a row vector containing all partial derivatives of $f$), then: $\grad{f} = G^{-1} d^\T$.
 
 The interpretation of the gradient in Riemannian manifold is analogous to the one in Euclidean space: its direction is the direction of steepest ascent of $f$ and it is orthogonal to the level sets of $f$; and its length is the maximum directional derivative of $f$ in any direction.
 
