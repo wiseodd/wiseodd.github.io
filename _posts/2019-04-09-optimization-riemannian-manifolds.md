@@ -230,7 +230,7 @@ The most common objective function $f$ in the optimization problem on a statisti
 
 The metric tensor $g$ is represented by $n \times n$ matrix $F$, called the [_Fisher information matrix_](). The Riemannian gradient in this manifold is therefore can be represented by a column vector $h = F^{-1} d^\T$. Furthermore, as the manifold is $\R^n$, the construction of the retraction map we have discussed previously tells us that we can simply do addition $p + v$ for any $p \in \R^n$ and $v \in T_p \R^n$. This is well defined as there is a natural isomorphism between $\R^n$ and $T_p \R^n$. All in all, the gradient descent in this manifold is called the [_natural gradient descent_]() and is presented in Algorithm 4 below.
 
-**Algorithm 3 (Natural gradient descent).**
+**Algorithm 4 (Natural gradient descent).**
 1. Pick arbitrary $\theta_{(0)} \in \R^n$. Let $\alpha \in \R$ with $\alpha > 0$
 2. While the stopping criterion is not satisfied:
     1. Compute the gradient of $f$ at $\theta_{(t)}$, i.e. $h_{(t)} := F^{-1} d^\T$
