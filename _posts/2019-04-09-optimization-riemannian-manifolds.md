@@ -193,7 +193,11 @@ Let $p \in \M$ be arbitrary. We define a map $R_p: T\M \to \M$ called the **_ret
 1. $R_p(0) = p$
 2. $dR_p(0) = \text{Id}\_{T_p \M}$.
 
-The second property is called the **_local rigidity condition_** and it preserves gradients at $p$. In particular, the exponential map is a retraction.
+The second property is called the **_local rigidity_** condition and it preserves gradients at $p$. In particular, the exponential map is a retraction. Furthermore, if $d_g$ denotes the Riemannian distance and $t \in \R$, retraction can be seen as a first-order approximation of the exponential map, in the sense that
+
+$$
+    d_g(\exp_p(tv), R_p(tv)) = O(t^2) \, .
+$$
 
 On an arbitrary embedded submanifold $\S \in \R^{n+1}$, if $p \in \S$ and $v \in T_p \S$, viewing $p$ to be a point on the ambient manifold and $v$ to be a point on the ambient tangent space $T_p \R^{n+1}$, we can compute $R_p(v)$ by (i) moving along $v$ to get $p + v$ and then (ii) project the point $p+v$back to $\S$.
 
