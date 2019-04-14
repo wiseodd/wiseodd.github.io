@@ -96,13 +96,17 @@ hr.small {
   letter-spacing: 1px;
 }
 @media only screen and (max-width: 768px) {
+  body {
+    font-size: 17px;
+  }
+
   .navbar-custom .navbar-brand {
     font-size: 14px;
   }
 
   .container {
-    padding-left: 15px !important;
-    padding-right: 15px !important;
+    padding-left: 25px !important;
+    padding-right: 25px !important;
     /*font-size: 16px !important;*/
   }
 }
@@ -530,4 +534,9 @@ body {
   padding-left: 50px;
   margin-right: auto;
   margin-left: auto;
+}
+
+@font-face {
+  font-family: 'Times New Roman';
+  src: url(../fonts/times-new-roman.ttf) format('truetype');
 }
