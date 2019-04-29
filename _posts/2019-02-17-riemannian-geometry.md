@@ -21,7 +21,7 @@ We are interested in generalizing the notion of Euclidean space into arbitrary s
 //
 {:.right}
 
-**Example 2 (Spaces of probability distributions).** Let $\M := \{ p_{\theta}(x) : \theta \in \R^n \}$, where $p_{\theta}(x)$ is a probability distribution over $x$, parametrized by $\theta$. Define a smooth chart $p_{\theta}(x) \mapsto \theta$. Then, $\M$ is a smooth $n$-manifold.
+**Example 2 (Spaces of matrices).** Let $\text{M}(m \times n, \R)$ denote the set of $m \times n$ matrices with real entries. We can identify it with $\R^{mn}$ and as before, this is a smooth $mn$-dimensional manifold. Some of its subsets, e.g. the general linear group $\text{GL}(n, \R)$ and the space of full rank matrices, are smooth manifolds.
 
 //
 {:.right}
