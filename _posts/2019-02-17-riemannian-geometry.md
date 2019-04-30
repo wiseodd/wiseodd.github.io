@@ -34,7 +34,7 @@ We are interested in generalizing the notion of Euclidean space into arbitrary s
 
 <h2 class="section-heading">Tangent vectors and covectors</h2>
 
-At each point $p \in \M$, there exists a vector space $T_p \M$, called the **_tangent space_** of $p$. An element $v \in T_p \M$ is called the **_tangent vector_**. Let $f: \M \to \R$ be a smooth function. In local coordinate $\{x^1, \dots, x^n\}$ defined around $p$, the coordinate vectors $\{ \partial/\partial x^1, \dots, \partial/\partial x^n \}$ form a **_coordinate basis_** for $T_p \M$.
+At each point $p \in \M$, there exists a vector space $T_p \M$, called the **_tangent space_** of $p$. An element $v \in T_p \M$ is called the **_tangent vector_**. Let $f: \M \to \R$ be a smooth function. In local coordinate $\\{x^1, \dots, x^n\\}$ defined around $p$, the coordinate vectors $\\{ \partial/\partial x^1, \dots, \partial/\partial x^n \\}$ form a **_coordinate basis_** for $T_p \M$.
 
 A tangent vector $v \in T_p \M$ can also be seen as a **_derivation_**, a linear map $C^\infty(\M) \to \R$ that follows Leibniz rule (product rule of derivative), i.e.
 
@@ -44,7 +44,7 @@ $$
 
 Thus, we can also see $T_p \M$ to be the set of all derivations of $C^\infty(\M)$ at $p$.
 
-For each $p \in \M$ there also exists the dual space $T_p^* \M$ of $T_p \M$, called the **_cotangent space_** at $p$. Each element $\omega \in T_p^* \M$ is called the **_tangent covector_**, which is a linear functional $\omega: T_p \M \to \R$ acting on tangent vectors at $p$. Given the same local coordinate as above, the basis for the cotangent space at $p$ is called the **_dual coordinate basis_** and is given by $\{ dx^1, \dots, dx^n \}$, such that $dx^i(\partial/\partial x^j) = \delta^i_j$ the Kronecker delta. Note that, this implies that if $v := v^i \, \partial/\partial x^i$, then $dx^i(v) = v^i$.
+For each $p \in \M$ there also exists the dual space $T_p^* \M$ of $T_p \M$, called the **_cotangent space_** at $p$. Each element $\omega \in T_p^* \M$ is called the **_tangent covector_**, which is a linear functional $\omega: T_p \M \to \R$ acting on tangent vectors at $p$. Given the same local coordinate as above, the basis for the cotangent space at $p$ is called the **_dual coordinate basis_** and is given by $\\{ dx^1, \dots, dx^n \\}$, such that $dx^i(\partial/\partial x^j) = \delta^i_j$ the Kronecker delta. Note that, this implies that if $v := v^i \, \partial/\partial x^i$, then $dx^i(v) = v^i$.
 
 Tangent vectors and covectors follow different transformation rules. We call an object with lower index, e.g. the components of tangent covector $\omega_i$ and the coordinate basis $\partial/\partial x^i =: \partial_i$, to be following the **_covariant_** transformation rule. Meanwhile an object with upper index, e.g. the components a tangent vector $v^i$ and the dual coordinate basis $dx^i$, to be following the **_contravariant_** transformation rule. These stem from how an object transform w.r.t. change of coordinate. Recall that a vector, when all the basis vectors are scaled up by a factor of $k$, the coefficients in its linear combination will be scaled by $1/k$, thus it is said that a vector transforms _contra_-variantly (the opposite way to the basis). Analogously, we can show that when we apply the same transformation to the dual basis, the covectors coefficients will be scaled by $k$, thus it transforms the same way to the basis (_co_-variantly).
 
@@ -54,7 +54,7 @@ $$
     df_p(v) := vf \enspace \enspace \text{for} \, v \in T_p\M \, .
 $$
 
-Concretely, in smooth coordinates $\{ x^i \}$ around $p$, we can show that it can be written as
+Concretely, in smooth coordinates $\\{ x^i \\}$ around $p$, we can show that it can be written as
 
 $$
     df_p := \frac{\partial f}{\partial x^i} (p) \, dx^i \, \vert_p \, ,
@@ -117,12 +117,12 @@ We denote $\mathfrak{X}(\M)$ to be the set of all smooth vector fields on $\M$. 
 
 A **_local frame_** for $\M$ is an ordered $n$-tuple of vector fields $(E_1, \dots, E_n)$ defined on an open subset $U \subseteq M$ that is linearly independent and spans the tangent bundle, i.e. $(E_1 \vert_p, \dots, E_n \vert_p)$ form a basis for $T_p \M$ for each $p \in \M$. It is called a **_global frame_** if $U = M$, and a **_smooth frame_** if each $E_i$ is smooth.
 
-If $X \in \mathfrak{X}(\M)$ and $f \in C^\infty(U)$, we define $Xf: U \to \R$ by $(Xf)(p) = X_p f$. $X$ also defines a map $C^\infty(\M) \to C^\infty(\M)$ by $f \to Xf$ which is linear and Leibniz, thus it is a derivation. Moreover, derivations of $C^\infty(\M)$ can be identified with smooth vector fields, i.e. $D: C^\infty(\M) \to C^\infty(\M)$ is a derivation if and only if it is of the form $Df = Xf$ for some $X \in \mathfrak{X}(\M)$.
+If $X \in \mathfrak{X}(\M)$ and $f \in C^\infty(U)$, we define $Xf: U \to \R$ by $(Xf)(p) = X_p f$. $X$ also defines a map $C^\infty(\M) \to C^\infty(\M)$ by $f \mapsto Xf$ which is linear and Leibniz, thus it is a derivation. Moreover, derivations of $C^\infty(\M)$ can be identified with smooth vector fields, i.e. $D: C^\infty(\M) \to C^\infty(\M)$ is a derivation if and only if it is of the form $Df = Xf$ for some $X \in \mathfrak{X}(\M)$.
 
 
 <h2 class="section-heading">Tensors</h2>
 
-Let $\{ V_k \}$ and $U$ be real vector spaces. A map $F: V_1 \times \dots \times V_k \to U$ is said to be **_multilinear_** if it is linear as a function of each variable separately when the others are held fixed. That is, it is a generalization of the familiar linear and bilinear maps. Furthermore, we write the vector space of all multilinear maps $ V_1 \times \dots \times V_k \to U $ as $ \text{L}(V_1, \dots, V_k; U) $.
+Let $\\{ V_k \\}$ and $U$ be real vector spaces. A map $F: V_1 \times \dots \times V_k \to U$ is said to be **_multilinear_** if it is linear as a function of each variable separately when the others are held fixed. That is, it is a generalization of the familiar linear and bilinear maps. Furthermore, we write the vector space of all multilinear maps $ V_1 \times \dots \times V_k \to U $ as $ \text{L}(V_1, \dots, V_k; U) $.
 
 **Example 5 (Multilinear functions).** Some examples of familiar multilinear functions are
 1. The _dot product_ in $ \R^n $ is a scalar-valued bilinear function of two vectors. E.g. for any $ v, w \in \R^n $, the dot product between them is $ v \cdot w := \sum_i^n v^i w^i $, which is linear on both $ v $ and $ w $.
@@ -131,7 +131,7 @@ Let $\{ V_k \}$ and $U$ be real vector spaces. A map $F: V_1 \times \dots \times
 //
 {:.right}
 
-Let $\{ W_l \}$ also be real vector spaces and suppose
+Let $\\{ W_l \\\}$ also be real vector spaces and suppose
 
 $$
 \begin{align}
@@ -181,9 +181,9 @@ Analogously, we define a **_contravariant $ k $-tensor on $ V $_** to be an elem
 
 So far we have no mechanism to measure the length of (tangent) vectors like we do in standard Euclidean geometry, where the length of a vector $v$ is measured in term of the dot product $ \sqrt{v \cdot v} $. Thus, we would like to add a structure that enables us to do just that to our smooth manifold $\M$.
 
-A **_Riemannian metric_** $ g $ on $ \M $ is a smooth symmetric covariant 2-tensor field on $ \M $ that is positive definite at each point. Furthermore, for each $ p \in \M $,  $ g_p $ defines an inner product on $ T_p \M $, written $ \inner{v, w}_g = g_p(v, w) $ for all $ v, w \in T_p \M $. We call a tuple $(\M, g)$ to be **_Riemannian manifold_**.
+A **_Riemannian metric_** $ g $ on $ \M $ is a smooth symmetric covariant 2-tensor field on $ \M $ that is positive definite at each point. Furthermore, for each $ p \in \M $,  $ g_p $ defines an inner product on $ T_p \M $, written $ \inner{v, w}_g = g_p(v, w) $ for all $ v, w \in T_p \M $. We call a tuple $(\M, g)$ to be a **_Riemannian manifold_**.
 
-In any smooth local coordinate $\{x^i\}$, a Riemannian metric can be written as tensor product
+In any smooth local coordinate $\\{x^i\\}$, a Riemannian metric can be written as tensor product
 
 $$
     g = g_{ij} \, dx^i \otimes dx^j \, ,
@@ -200,7 +200,7 @@ That is we can represent $ g $ as a symmetric, positive definite matrix $ G $ ta
 **Example 8 (The Euclidean Metric).** The simplest example of a Riemannian metric is the familiar **_Euclidean metric_** $g$ of $\R^n$ using the standard coordinate. It is defined by
 
 $$
-    g = \delta_{ij} \, dx^i dx^j \, ,
+    g = \delta_{ij} \, dx^i \otimes dx^j \, ,
 $$
 
 which, if applied to vectors $v, w \in T_p \R^n$, yields
@@ -217,13 +217,13 @@ Note that above, $\delta_{ij}$ is the Kronecker delta. Thus, the Euclidean metri
 
 <h2 class="section-heading">The tangent-cotangent isomorphism</h2>
 
-Riemannian metric also provides a natural isomorphism between the tangent and cotangent space. Let $(\M, g)$ be a Riemannian manifold. We define an isomorphism $\hat{g}: T_p \M \to T_p^* \M$ as follows. For each $p \in \M$ and each $v \in T_p \M$
+Riemannian metrics also provide an isomorphism between the tangent and cotangent space: They allow us to convert vectors to covectors and vice versa. Let $(\M, g)$ be a Riemannian manifold. We define an isomorphism $\hat{g}: T_p \M \to T_p^* \M$ as follows. For each $p \in \M$ and each $v \in T_p \M$
 
 $$
     \hat{g}(v) = \inner{v, \cdot}_g \, .
 $$
 
-Notice that that $\hat{g}(v)$ is in $T_p^* \M$ as it is a linear functional over $T_p \M$. In any smooth coordinate $\{x^i\}$, by definition we can write $g = g_{ij} \, dx^i dx^j$. Thus we can write the isomorphism above as
+Notice that that $\hat{g}(v)$ is in $T_p^* \M$ as it is a linear functional over $T_p \M$. In any smooth coordinate $\\{x^i\\}$, by definition we can write $g = g_{ij} \, dx^i dx^j$. Thus we can write the isomorphism above as
 
 $$
     \hat{g}(v) = (g_{ij} \, v^i) \, dx^j =: v_i \, dx^j \, .
@@ -258,7 +258,7 @@ $$
 
 That is, for each $p \in \M$ and for any $v \in T_p \M$, $\grad{f}$ is a vector in $T_p \M$ such that the inner product with $v$ is the derivation of $f$ by $v$. Observe the compatibility of this definition with standard multi-variable calculus: the directional derivative of a function in the direction of a vector is the dot product of its gradient and that vector.
 
-In any smooth coordinate $\{x^i\}$, $\grad{f}$ has the expression
+In any smooth coordinate $\\{x^i\\}$, $\grad{f}$ has the expression
 
 $$
     \grad{f} = g^{ij} \frac{\partial f}{\partial x^i} \frac{\partial}{\partial x^j} \, .
@@ -287,7 +287,7 @@ $$
     D_X \vert_p Y = \lim_{h \to 0} \frac{Y_{p+hX_p} - Y_p}{h} \, .
 $$
 
-However, we will have problems: We have not defined what this expression means $p+hX_p$. Furthermore, as $Y_{p+hX_p}$ and $Y_p$ live in different vector spaces $T_{p+hX_p} \M$ and $T_p \M$, it does not make sense to subtract them, unless there is a natural isomorphism between each $T_p \M$ and $\M$ itself, as in Euclidean spaces. Hence, we need to add an additional structure, called **_connection_** that allows us to compare different tangent vectors from different tangent spaces of nearby points.
+However, we will have problems: We have not defined what this expression $p+hX_p$ means. Furthermore, as $Y_{p+hX_p}$ and $Y_p$ live in different vector spaces $T_{p+hX_p} \M$ and $T_p \M$, it does not make sense to subtract them, unless there is a natural isomorphism between each $T_p \M$ and $\M$ itself, as in Euclidean spaces. Hence, we need to add an additional structure, called **_connection_** that allows us to compare different tangent vectors from different tangent spaces of nearby points.
 
 Specifically, we define the **_affine connection_** to be a connection in the tangent bundle of $\M$. Let $\mathfrak{X}(\M)$ be the space of vector fields on $\M$; $X, Y, Z \in \mathfrak{X}(\M)$; $f, g \in C^\infty(\M)$; and $a, b \in \R$. The affine connection is given by the map
 
@@ -335,7 +335,7 @@ for all $X, Y, Z \in \mathfrak{X}(\M)$. It is called the **_Levi-Civita connecti
 
 <h2 class="section-heading">Riemannian Hessians</h2>
 
-Let $(\M, g)$ be a Riemannian manifold equipped by the Levi-Civita connection $\nabla$. Given a scalar field $f: \M \to \R$ and any $X, Y \in \mathfrak{X}(\M)$, the **_Riemannian Hessian_** of $f$ is the covariant 2-tensor field $\text{Hess}f := \nabla^2 f := \nabla \nabla f$, defined by
+Let $(\M, g)$ be a Riemannian manifold equipped by the Levi-Civita connection $\nabla$. Given a scalar field $f: \M \to \R$ and any $X, Y \in \mathfrak{X}(\M)$, the **_Riemannian Hessian_** of $f$ is the covariant 2-tensor field $\text{Hess} \, f := \nabla^2 f := \nabla \nabla f$, defined by
 
 $$
     \text{Hess} \, f(X, Y) := X(Yf) - (\nabla_X Y)f = \inner{\nabla_X \, \grad{f}, Y}_g \, .
@@ -349,7 +349,7 @@ $$
 
 for every $p \in \M$ and $v \in T_p \M$.
 
-In any local coordinate $\{x^i\}$, it is defined by
+In any local coordinate $\\{x^i\\}$, it is defined by
 
 $$
     \text{Hess} \, f = f_{; i,j} \, dx^i \otimes dx^j := \left( \frac{\partial f}{\partial x^i \partial x^j} - \Gamma^k_{ij} \frac{\partial f}{\partial x^k} \right) \, dx^i \otimes dx^j \, .
@@ -379,13 +379,13 @@ $$
 
 called the **_covariant derivative along $\gamma$_**, satisfying (i) linearity over $\R$, (ii) Leibniz rule, and (iii) if it $V \in \mathfrak{X}(\gamma)$ is extendible, then for all $\tilde{V}$ of $V$, we have that $ D_t V(t) = \nabla_{\gamma'(t)} \tilde{V}$.
 
-For every smooth curve $\gamma: I \to \M$, we define the **_acceleration_** of $\gamma$ to be the vector field $D_t \gamma'$ along $\gamma$. A smooth curve $\gamma$ is called a **_geodesic_** with respect to $\nabla$ if its acceleration is zero, i.e. $D_t \gamma' = 0 \enspace \forall t \in I$. In term of smooth coordinates $\{x^i\}$, if we write $\gamma$ in term of its components $\gamma(t) := \{x^1(t), \dots, x^n(t)\}$, then it follows that $\gamma$ is a geodesic if and only if its component functions satisfy the following **_geodesic equation_**:
+For every smooth curve $\gamma: I \to \M$, we define the **_acceleration_** of $\gamma$ to be the vector field $D_t \gamma'$ along $\gamma$. A smooth curve $\gamma$ is called a **_geodesic_** with respect to $\nabla$ if its acceleration is zero, i.e. $D_t \gamma' = 0 \enspace \forall t \in I$. In term of smooth coordinates $\\{x^i\\}$, if we write $\gamma$ in term of its components $\gamma(t) := \\{x^1(t), \dots, x^n(t) \\}$, then it follows that $\gamma$ is a geodesic if and only if its component functions satisfy the following **_geodesic equation_**:
 
 $$
     \ddot{x}^k(t) + \dot{x}^i(t) \, \dot{x}^j(t) \, \Gamma^k_{ij}(x(t)) = 0 \, ,
 $$
 
-where we use $x(t)$ as an abbreviation for $\{x^1(t), \dots, x^n(t)\}$. Observe that, this gives us a hint that to compute a geodesic we need to solve a system of second-order ODE for the real-valued functions $x^1, \dots, x^n$.
+where we use $x(t)$ as an abbreviation for $\\{x^1(t), \dots, x^n(t)\\}$. Observe that, this gives us a hint that to compute a geodesic we need to solve a system of second-order ODE for the real-valued functions $x^1, \dots, x^n$.
 
 Suppose $\gamma: [a, b] \to \M$ is a smooth curve segment with domain in the interval $[a, b]$. The **_length_** of $\gamma$ is
 
@@ -396,7 +396,7 @@ $$
 where $\gamma'$ is the derivative (the velocity vector) of $\gamma$. We can then use curve segments as "measuring tapes" to measure the **_Riemannian distance_** from $p$ to $q$ for any $p, q \in \M$$
 
 $$
-    d_g(p, q) := \inf \{L_g(\gamma) \, \vert \, \gamma: [a, b] \to \M \enspace \text{s.t.} \enspace \gamma(a) = p, \, \gamma(b) = q\} \, ,
+    d_g(p, q) := \inf \, \{L_g(\gamma) \, \vert \, \gamma: [a, b] \to \M \enspace \text{s.t.} \enspace \gamma(a) = p, \, \gamma(b) = q\} \, ,
 $$
 
 over all curve segments $\gamma$ which have endpoints at $p$ and $q$. We call the particular $\gamma$ such that $L_g(\gamma) = d_g(p, q)$ as the **_length-minimizing curve_**. We can show that all geodesics are locally length-minimizing, and all length-minimizing curves are geodesics.
@@ -411,7 +411,7 @@ Given $t_0 \in I$ and $v \in T_{\gamma(t_0)} \M$, we can show there exists a uni
 $$
 \begin{align}
     &P^\gamma_{t_0 t_1} : T_{\gamma(t_0)} \M \to T_{\gamma(t_1)} \M \\
-    &P^\gamma_{t_0 t_1}(v) := V(t_1) \, ,
+    &P^\gamma_{t_0 t_1}(v) = V(t_1) \, ,
 \end{align}
 $$
 
@@ -436,7 +436,7 @@ Finally, if $A$ is a smooth vector field on $\M$, then $A$ is parallel on $\M$ i
 
 <h2 class="section-heading">The exponential map</h2>
 
-Geodesics with proportional initial velocities are related in simple way. Let $(\M, g)$ be a Riemannian manifold equipped with the Levi-Civita connection. For every $p \in \M$, $v \in T_p \M$, and $c, t \in \R$,
+Geodesics with proportional initial velocities are related in a simple way. Let $(\M, g)$ be a Riemannian manifold equipped with the Levi-Civita connection. For every $p \in \M$, $v \in T_p \M$, and $c, t \in \R$,
 
 $$
     \gamma_{cv} (t) = \gamma_{v} (ct) \, ,
@@ -505,13 +505,13 @@ Based on the above definition of the flatness criterion, then we can define a me
 $$
 \begin{align}
     &R: \mathfrak{X}(\M) \times \mathfrak{X}(\M) \times \mathfrak{X}(\M) \to \mathfrak{X}(\M) \\
-    &R(X, Y)Z := \nabla_X \nabla_Y Z - \nabla_Y \nabla_X Z - \nabla_{[X, Y]} Z \, ,
+    &R(X, Y)Z = \nabla_X \nabla_Y Z - \nabla_Y \nabla_X Z - \nabla_{[X, Y]} Z \, ,
 \end{align}
 $$
 
 which is a multilinear map over $C^\infty (\M)$, and is therefore a $(1, 3)$-tensor field on $\M$.
 
-We can then define a covariant 4-tensor called the **_(Riemann) curvature tensor_** to be the $(0, 4)$-tensor field $Rm := R^\flat$, by lowering the contravariant index of $R$. Its action on a vector fields is given by
+We can then define a covariant 4-tensor called the **_(Riemann) curvature tensor_** to be the $(0, 4)$-tensor field $Rm := R^\flat$, by lowering the contravariant index of $R$. Its action on vector fields is given by
 
 $$
     Rm(X, Y, Z, W) := \inner{R(X, Y)Z, W}_g \, .
@@ -530,7 +530,7 @@ Working with $4$-tensors are complicated, thus we want to construct simpler tens
 $$
 \begin{align}
     &\text{tr}: T^{(k+1, l+1)}(V) \to T^{(k,l)}(V) \\
-    &(\text{tr} \, F)(\omega^1, \dots, \omega^k, v_1, \dots, v_l) := \text{tr}(F(\omega^1, \dots, \omega^k, \cdot, v_1, \dots, v_l, \cdot)) \, ,
+    &(\text{tr} \, F)(\omega^1, \dots, \omega^k, v_1, \dots, v_l) = \text{tr}(F(\omega^1, \dots, \omega^k, \cdot, v_1, \dots, v_l, \cdot)) \, ,
 \end{align}
 $$
 
@@ -648,9 +648,9 @@ $$
     \tilde{Rm}(W, X, Y, Z) = Rm(W, X, Y, Z) - \inner{\two(W, Z), \two(X, Y)} + \inner{\two(W, Y), \two(X, Z)} \, .
 $$
 
-To give a geometric interpretation of the second fundamental form, we study the curvatures of curves. Let $\gamma: I \to \M$ be a smooth unit-speed curve. We define the **_curvature_** of $\gamma$ as the length of the acceleration vector field, i.e. the function $\kappa: I \to \R$ given by $\kappa(t) := \abs{D_t \gamma'(t)}$. We can see this curvature of the curve as a quantitative measure of how far the curve deviates from being a geodesic. Note that, if $\M = \R^n$ the curvature agrees with the one defined in calculus.
+To give a geometric interpretation of the second fundamental form, we study the curvatures of curves. Let $\gamma: I \to \M$ be a smooth unit-speed curve. We define the **_curvature_** of $\gamma$ as the length of the acceleration vector field, i.e. the function $\kappa: I \to \R$ given by $\kappa(t) := \norm{D_t \gamma'(t)}$. We can see this curvature of the curve as a quantitative measure of how far the curve deviates from being a geodesic. Note that, if $\M = \R^n$ the curvature agrees with the one defined in calculus.
 
-Now, suppose that $\M$ is a submanifold in the ambient manifold $\tilde{\M}$. Every regular curve $\gamma: I \to \M$ has two distinct curvature: its **_intrinsic curvature_** $\kappa$ as a curve in $\M$ and its **_extrinsic curvature_** $\tilde{\kappa}$ as a curve in $\tilde{\M}$. The second fundamental form can then be used to compute the relationship between the two: For $p \in \M$ and $v \in T_p \M$, (i) $\two(v, v)$ is the $\tilde{g}$-acceleration at $p$ of the $g$-geodesic $\gamma_v$, and (ii) if $v$ is a unit vector, then $\abs{\two(v, v)}$ is the $\tilde{g}$-curvature of $\gamma_v$ at $p$.
+Now, suppose that $\M$ is a submanifold in the ambient manifold $\tilde{\M}$. Every regular curve $\gamma: I \to \M$ has two distinct curvature: its **_intrinsic curvature_** $\kappa$ as a curve in $\M$ and its **_extrinsic curvature_** $\tilde{\kappa}$ as a curve in $\tilde{\M}$. The second fundamental form can then be used to compute the relationship between the two: For $p \in \M$ and $v \in T_p \M$, (i) $\two(v, v)$ is the $\tilde{g}$-acceleration at $p$ of the $g$-geodesic $\gamma_v$, and (ii) if $v$ is a unit vector, then $\norm{\two(v, v)}$ is the $\tilde{g}$-curvature of $\gamma_v$ at $p$.
 
 The intrinsic and extrinsic accelerations of a curve are usually different. A Riemannian submanifold $(\M, g)$ of $(\tilde{\M}, \tilde{g})$ is said to be **_totally geodesic_** if every $\tilde{g}$-geodesic that is tangent to $\M$ at some time $t_0$ stays in $\M$ for all $t \in (t_0 - \epsilon, t_0 + \epsilon)$.
 
@@ -663,7 +663,7 @@ In this situation, at each point of $\M$, there are exactly two unit normal vect
 
 $$h(X, Y) := \inner{N, \two(X, Y)} \enspace \enspace \enspace \text{for all } X, Y \in \mathfrak{X}(\M) \, .$$
 
-By the Gauss formula $\tilde{\nabla}_X Y = \nabla_X Y + \two(X, Y)$ and noting that $\nabla_X Y$ is orthogonal to $N$, we can rewrite the definition as $h(X, Y) = \inner{N, \tilde{\nabla}_X Y}$. Furthermore, since $N$ is a unit vector spanning $N\M$, we can write $\two(X, Y) = h(X, Y)N$. Note that the sign of $h$ depends on the normal vectors field chosen.
+By the Gauss formula $\tilde{\nabla}_X Y = \nabla_X Y + \two(X, Y)$ and noting that $\nabla_X Y$ is orthogonal to $N$, we can rewrite the definition as $h(X, Y) = \inner{N, \tilde{\nabla}_X Y}$. Furthermore, since $N$ is a unit vector spanning $N\M$, we can write $\two(X, Y) = h(X, Y)N$. Note that the sign of $h$ depends on the normal vector field chosen.
 
 The choice of $N$ also determines a Weingarten map $W_N: \mathfrak{X}(\M) \to \mathfrak{X}(\M)$. In this special case of a hypersurface, we use the notation $s = W_N$ and call it the **_shape operator_** of $\M$. We can think of $s$ as the $(1, 1)$-tensor field on $\M$ obtained from $h$ by raising an index. It is characterized by
 
@@ -690,7 +690,7 @@ where $dA$ is its Riemannian density.
 
 Assume that $\M \subseteq \R^{n+1}$ is an embedded Riemannian $n$-submanifold (with the induced metric from the Euclidean metric). We denote geometric objects on $\R^{n+1}$ with bar, e.g. $\bar{g}$, $\overline{Rm}$, etc. Observe that $\overline{Rm} \equiv 0$, which implies that the Riemann curvature tensor of a hypersurface in $\R^{n+1}$ is completely determined by the second fundamental form.
 
-In this setting we can give some very concrete geometric interpretation about quantities in hypersurfaces. First is for curves. For every $v \in T_p \M$, let $\gamma = \gamma_v : I \to \M$ be the $g$-geodesic in $\M$ with initial velocity $v$. The Gauss formula shows that the Euclidean acceleration of $\gamma$ at $0$ is $\gamma''(0) = \overline{D}_t \gamma'(0) = h(v, v)N_p$, thus $\abs{h(v, v)}$ is the Euclidean curvature of $\gamma$ at $0$. Furthermore, $h(v,v) = \inner{\gamma''(0), N_p} > 0$ iff. $\gamma''(0)$ points in the same direction as $N_p$. That is $h(v, v)$ is positive if $\gamma$ is curving in the direction of $N_p$ and negative if it is curving away from $N_p$.
+In this setting we can give some very concrete geometric interpretation about quantities in hypersurfaces. First is for curves. For every $v \in T_p \M$, let $\gamma = \gamma_v : I \to \M$ be the $g$-geodesic in $\M$ with initial velocity $v$. The Gauss formula shows that the Euclidean acceleration of $\gamma$ at $0$ is $\gamma^{\prime\prime}(0) = \overline{D}_t \gamma'(0) = h(v, v)N_p$, thus $\norm{h(v, v)}$ is the Euclidean curvature of $\gamma$ at $0$. Furthermore, $h(v,v) = \inner{\gamma^{\prime\prime}(0), N_p} > 0$ iff. $\gamma^{\prime\prime}(0)$ points in the same direction as $N_p$. That is $h(v, v)$ is positive if $\gamma$ is curving in the direction of $N_p$ and negative if it is curving away from $N_p$.
 
 We can show that the above Euclidean curvature can be interpreted in terms f the radius of the "best circular approximation", just in Calculus. Suppose $\gamma: I \to \R^m$ is a unit-speed curve, $t_0 \in I$, and $\kappa(t_0) \neq 0$. We define a unique unit-speed parametrized circle $c: \R \to \R^m$ as the **_osculating circle_** at $\gamma(t_0)$, with the property that $c$ and $\gamma$ have the same position, velocity, and acceleration at $t=t_0$. Then, the Euclidean curvature of $\gamma$ at $t_0$ is $\kappa(t_0) = 1/R$ where $R$ is the radius of the osculating circle.
 
@@ -706,18 +706,16 @@ $$
     f(x) = \frac{1}{2} \sum_{i=1}^n\kappa_i (x^i)^2 + O(\abs{x}^3) \, .
 $$
 
-Note that, this is the motivation of the common usage (in application) of the Hessian matrix and its eigenvalues as a measure of curvature of the graph of a function $\R^n \to \R$.
-
 We can write down a smooth vector field $N = N^i \partial_i$ on an open subset of $\R^{n+1}$ that restricts to a unit normal vector field along $\M$. Then, the shape operator can be computed straightforwardly using the Weingarten equation and observing that the Euclidean covariant derivatives of $N$ are just ordinary directional derivatives in Euclidean space. Thus, for every vector $X = X^i \partial_j$ tangent to $\M$, we have
 
 $$
     sX = -\bar{\nabla}_X N = -\sum_{i,j=1}^{n+1} X^j (\partial_j N^i) \partial_i \, .
 $$
 
-Another way to get such smooth vector field is to work with a local defining function for $\M$, i.e. a smooth scalar field defined on some open subset $U \subseteq \R^{n+1}$ s.t. $U \cap \M$ is a regular level set of $F$. Then, we can take
+One common way to get such smooth vector field is to work with a local defining function $F$ for $\M$, i.e. a smooth scalar field defined on some open subset $U \subseteq \R^{n+1}$ s.t. $U \cap \M$ is a regular level set of $F$. Then, we can take
 
 $$
-    N := \frac{\grad{F}}{\norm{\grad{F}}} \, .
+    N = \frac{\grad{F}}{\norm{\grad{F}}} \, .
 $$
 
 Because we know that the gradient is always normal to the level set.
@@ -752,13 +750,13 @@ Although the Gaussian curvature is defined in terms of a particular embedding of
 Suppose $\M$ is a Riemannian $n$-manifold with $n \geq 2$, $p \in \M$, and $V \subset T_p \M$ is a [star-shaped neighborhood](https://en.wikipedia.org/wiki/Star_domain) of zero on which $\text{exp}\_p$ is a diffeomorphism onto an open set $U \subset \M$. Let $\Pi$ be any $2$-dimensional linear subspace of $T_p \M$. Since $\Pi \cap V$ is an embedded $2$-dim submanifold of $V$, it follows that $\mathcal{S}\_\Pi = \text{exp}\_p(\Pi \cup V)$ is an embedded $2$-dim submmanifold of $U \subset \M$ containing $p$, called the **_plane section_** determined by $\Pi$. We define the **_sectional curvature_** of $\Pi$, denoted by $\text{sec}(\Pi)$, to be the intrinsic Gaussian curvature at $p$ of the surface $\mathcal{S}\_\Pi$ with the metric induced from the embedding $\mathcal{S}\_\Pi \subseteq \M$. If $v, w \in T_p \M$ are linearly independent vectors, the sectional curvature's formula is given by
 
 $$
-    \text{sec}(v, w) := \frac{Rm_p(v, w, w, v)}{\abs{v \wedge w}^2} \, ,
+    \text{sec}(v, w) := \frac{Rm_p(v, w, w, v)}{\norm{v \wedge w}^2} \, ,
 $$
 
 where
 
 $$
-    \abs{v \wedge w} := \sqrt{\abs{v}^2 \abs{w}^2 - \inner{v, w}^2} \, .
+    \norm{v \wedge w} := \sqrt{\norm{v}^2 \norm{w}^2 - \inner{v, w}^2} \, .
 $$
 
 We can show the connection between the sectional curvature and Ricci and scalar curvatures. $Rc_p(v, v)$ is the sum of the sectional curvatures of the $2$-planes spanned by $(v, b_2), \dots, (v, b_n)$, where $(b_1, \dots, b_n)$ is any orthonormal basis for $T_p \M$ with $b_1 = v$. Furthermore, the scalar curvature at $p$ is the sum of all sectional curvatures of the $2$-planes spanned by ordered pairs of distinct basis vectors in any orthonormal basis.
@@ -783,7 +781,7 @@ are both smooth for arbitrary $g, h \in \G$. We denote the identity element of $
 //
 {:.right}
 
-If $\G$ and $\mathcal{H}$ are Lie groups, a **_Lie group homomorphism_** from $\G$ to $\mathcal{H}$ is a smooth map $F: \G \to \mathcal{H}$ that is also a group homomorphism. If $F$ is also a diffeomorphism, then it is **_Lie group isomorphism_**. We say that $\G$ and $\mathcal{H}$ are **_isomorphic Lie groups_**.
+If $\G$ and $\mathcal{H}$ are Lie groups, a **_Lie group homomorphism_** from $\G$ to $\mathcal{H}$ is a smooth map $F: \G \to \mathcal{H}$ that is also a group homomorphism. If $F$ is also a diffeomorphism, then it is a **_Lie group isomorphism_**. We say that $\G$ and $\mathcal{H}$ are **_isomorphic Lie groups_**.
 
 If $G$ is a group and $M$ is a set, a **_left action_** of $G$ on $M$ is a map $G \times M \to M$ defined by $(g, p) \mapsto g \cdot p$ that satisfies
 
@@ -803,7 +801,7 @@ $$
 \end{alignat}
 $$
 
-If $M$ is a smooth manifold, $G$ is a Lie, and the defining map is smooth, then the action is said to be **_smooth action_**.
+If $M$ is a smooth manifold, $G$ is a Lie group, and the defining map is smooth, then the action is said to be **_smooth action_**.
 
 We can also give a name to an action, e.g. $\theta: G \times M \to M$ with $(g, p) \mapsto \theta_g (p)$. In this notation, the above conditions for the left action read
 
@@ -816,13 +814,13 @@ $$
 
 while for a right action the first equation is replaced by $\theta_{g_2} \circ \theta_{g_1} = \theta_{g_1 g_2}$. For a smooth action, each map $\theta_g : M \to M$ is a diffeomorphism.
 
-For each $p \in M$, the **_orbit_** of $p$, denoted by $G \cdot p$, is the set of all images of $p$ under the action by elements of $G$$:
+For each $p \in M$, the **_orbit_** of $p$, denoted by $G \cdot p$, is the set of all images of $p$ under the action by elements of $G$:
 
 $$
     G \cdot p := \{ g \cdot p : g \in G \} \, .
 $$
 
-The **_isotropy group_** or **_stabilizer_** of $p$, denoted by $G_p$, is the set of elements of $G$ that fix $p$ (implying $G_p$ is a subgroup of $G$$):
+The **_isotropy group_** or **_stabilizer_** of $p$, denoted by $G_p$, is the set of elements of $G$ that fix $p$ (implying $G_p$ is a subgroup of $G$):
 
 $$
     G_p := \{ g \in G : g \cdot p = p \} \, .
