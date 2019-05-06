@@ -79,7 +79,7 @@ Although it seems innocent enough (we only replace $\R^n$ with $\M$ from the Euc
 First, we shall discuss about the gradient of $f$ on $\M$. By definition, $\grad{f}$ is a vector field on $\M$, i.e. $\grad{f} \in \mathfrak{X}(\M)$ and at each $p \in \M$, $\gradat{f}{p}$ is a tangent vector in $T_p \M$. Let the differential $df$ of $f$ be a one one-form, which, in given coordinates $\vx_p := (x^1(p), \dots, x^n(p))$, has the form
 
 $$
-    df = \partder{f}{x^i} dx_i \, .
+    df = \partder{f}{x^i} dx^i \, .
 $$
 
 Then, the gradient of $f$ is obtained by raising an index of $df$. That is,
