@@ -454,12 +454,12 @@ and then define the **_exponential map_**
 
 $$
 \begin{align}
-    &\text{Exp}: \mathcal{E} \to \M \\
-    &\text{Exp}(v) = \gamma_v(1) \, .
+    &\text{exp}: \mathcal{E} \to \M \\
+    &\text{exp}(v) = \gamma_v(1) \, .
 \end{align}
 $$
 
-For each $p \in \M$, the **_restricted exponential map_** at $p$, denoted $\text{Exp}_p$ is the restriction of $\text{Exp}$ to the set $\mathcal{E}_p := \mathcal{E} \cap T_p \M$.
+For each $p \in \M$, the **_restricted exponential map_** at $p$, denoted $\text{exp}_p$ is the restriction of $\text{exp}$ to the set $\mathcal{E}_p := \mathcal{E} \cap T_p \M$.
 
 The interpretation of the (restricted) exponential maps is that, given a point $p$ and tangent vector $v$, we follow a geodesic which has the property $\gamma(0) = p$ and $\gamma'(0) = v$. This is then can be seen as the generalization of moving around the Euclidean space by following straight line in the direction of velocity vector.
 
