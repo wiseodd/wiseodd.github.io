@@ -586,6 +586,29 @@ Furthermore, if $f: \M \to \mathcal{N}$ is a smooth map (notice that we have def
 //
 {:.right}
 
+Suppose $\M$ and $\N$ are smooth manifolds. Let $F: \M \to \N$ be a smooth map and $p \in \M$. We define the rank of $F$ at $p$ to be the **_rank_** of the linear map $dF_p: T_p\M \to T_{F(p)\N}$, i.e. the rank of the Jacobian matrix of $F$ in coordinates. If $F$ has the same rank $r$ at any point, we say that it has **_constant rank_**, written $\rank{F} = r$. Note that it is bounded by $\min \\{ \dim{\M}, \dim{\N} \\}$ and if it is equal to this bound, we say $F$ has **_full rank_** at $p$.
+
+A smooth map $F: \M \to \N$ is called a **_smooth submersion_** if $dF$ is surjective at each point ($\rank{F} = \dim{\N}$). It is called a **_smooth immersion_** if $dF$ is injective at each point ($\rank{F} = \dim{\M}$).
+
+**Example 14 (Submersions and immersions).**
+1. Suppose $\M_1, \dots, \M_k$ are smooth manifolds. Then each projection maps $\pi_i: \M_1 \times \dots \times \M_k \to \M_i$ is a smooth submersion. In particular $\pi: \R^{n+k} \to \R^n$ is a smooth submersion.
+2. If $\gamma: I \to \M$ is a smooth curve in a smooth manifold $\M$, then $\gamma$ is a smooth immersion if and only if $\gamma'(t) \neq 0$ for all $t \in I$.
+
+//
+{:.right}
+
+If $\M$ and $\N$ are smooth manifolds. A **_diffeomorphism_** from $\M$ to $\N$ is a smooth bijective map $F: \M \to \N$ that has a smooth inverse, and $\M$ and $\N$ are said to be **_diffeomorphic_**. $F$ is called a **_local diffeomorphism_** if every point $p \in \M$ has a neighborhood $U$ such that $F(U)$ is open in $\N$ and $F\vert_U: U \to F(U)$ is a diffeomorphism. We can show that $F$ is a local diffeomorphism if and only if it is both a smooth immersion and submersion. Furthermore, if $\dim{\M} = \dim{\N}$ and $F$ is either a smooth immersion or submersion, then it is a local diffeomorphism.
+
+The _Global rank theorem_ says that if $\M$ and $\N$ are smooth manifolds, and suppose $F: \M \to \N$ is a smooth map of constant rank, then it is (a) a smooth submersion if it is injective, (b) a smooth immersion if it is injective, and (c) a diffeomorphism if it is bijective.
+
+If $\M$ and $\N$ are smooth manifolds, a **_smooth embedding_** of $\M$ into $\N$ is a smooth immersion $F: \M \to \N$ that is also a topological embedding (homeomorphism onto its image in the subspace topology).
+
+**Example 15 (Smooth embeddings).** If $\M$ is a smooth manifold and $U \subseteq \M$ is an open submanifold, the inclusion $U \hookrightarrow \M$ is a smooth embedding.
+
+//
+{:.right}
+
+Let $F: \M \to \N$ be an injective smooth immersion. If any of these condition holds, then $F$ is a smooth embedding: (a) $F$ is an open or closed map, (b) $F$ is a proper map, (c) $\M$ is compact, and (d) $\M$ has empty boundary and $\dim{\M} = \dim{\N}$.
 
 <h2 class="section-heading">The second fundamental form</h2>
 
@@ -720,7 +743,7 @@ $$
 
 Because we know that the gradient is always normal to the level set.
 
-**Example 14 (Shape operators of spheres).** The function $F: \R^{n+1} \to \R$ with $F(x) := \norm{x}^2$ is a smooth defining function of any sphere in $\mathbb{S}^{n}(R)$. Thus, the normalized gradient vector field
+**Example 16 (Shape operators of spheres).** The function $F: \R^{n+1} \to \R$ with $F(x) := \norm{x}^2$ is a smooth defining function of any sphere in $\mathbb{S}^{n}(R)$. Thus, the normalized gradient vector field
 
 $$
     N = \frac{1}{R} \sum_{i,j=1}^{n+1} x^i \partial_i
@@ -772,7 +795,7 @@ $$
 
 are both smooth for arbitrary $g, h \in \G$. We denote the identity element of $G$ by $e$.
 
-**Example 15 (Lie groups).** The following manifolds are Lie groups.
+**Example 17 (Lie groups).** The following manifolds are Lie groups.
 
 1. The **_general linear group_** $\GL(n, \R)$ is the set of invertible $n \times n$ matrices with real elements. It is a group under matrix multiplication and it is a submanifold of the vector space $\text{M}(n, \R)$, the space of $n \times n$ matrices.
 
@@ -828,7 +851,7 @@ $$
 
 A group action is said to be **_transitive_** if for every pair of points $p, q \in M$, there exists $g \in G$ such that $g \cdot p = q$, i.e. if the only orbit is all of $M$. The action is said to be **_free_** if the only element of $G$ that fixes any element of $M$ is the identity: $g \cdot p$ for some $p \in M$ implies $g = e$, i.e. if every isotropy group is trivial.
 
-**Example 16 (Lie group actions).**
+**Example 18 (Lie group actions).**
 
 1. If $\G$ is a Lie group and $\M$ is a smooth manifold, the **_trivial action_** of $\G$ on $\M$ is defined by $g \cdot p = p$ for all $g \in \G$ and $p \in \M$.
 
@@ -848,7 +871,7 @@ $$
 
 If $F: \M \to \N$ is a smooth map that is equivariant w.r.t. a transitive smooth $\G$-action on $\M$ and any smooth $\G$-action on $\N$, then $F$ has **_constant rank_**, meaning that its rank is the same for all $p \in \M$. Thus, if $F$ is surjective, it is a smooth submersion; if it is injective, it is a smooth immersion; and if it is bijective, it is a diffeomorphism.
 
-**Example 17 (The orthogonal group).** A real $n \times n$ matrix $\b{A}$ is said to be **_orthogonal_** if it preserves the Euclidean dot product as a linear map:
+**Example 19 (The orthogonal group).** A real $n \times n$ matrix $\b{A}$ is said to be **_orthogonal_** if it preserves the Euclidean dot product as a linear map:
 
 $$
     (\b{A} \vx) \cdot (\b{A} \vx) = \vx \cdot \vy \qquad \text{for all} \, \vx, \vy \in \R^n \, .
@@ -863,7 +886,7 @@ We would like to also study the theory of **_group representations_**, i.e. aski
 
 There is a close connection between representations and group actions. An action of $\G$ on $V$ is said to be a **_linear action_** if for each $g \in \G$, the map $V \to V$ defined by $x \mapsto g \cdot x$ is linear.
 
-**Example 18 (Linear action).** If $\rho: \G \to \GL(V)$ is a representation of $\G$, there is an associated smooth linear action of $\G$ on $V$ given by $g \cdot x = \rho(g) x$. In fact, this holds for every linear action.
+**Example 20 (Linear action).** If $\rho: \G \to \GL(V)$ is a representation of $\G$, there is an associated smooth linear action of $\G$ on $V$ given by $g \cdot x = \rho(g) x$. In fact, this holds for every linear action.
 
 //
 {:.right}
