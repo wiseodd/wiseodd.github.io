@@ -161,13 +161,13 @@ called the exponential map. The exponential map is the generalization of "moving
 Let $p \in \mathbb{S}^n(r)$ and $0 \neq v \in T_p \mathbb{S}^n(r)$ be arbitrary. The curve $\gamma_v: \R \to \R^{n+1}$ given by
 
 $$
-    \gamma_v(t) = \cos \left( \frac{t\norm{v}}{r} \right) p + \sin \left( \frac{t\norm{v}}{r} \right) r \frac{v}{\norm{v}} \, ,
+    \gamma_v(t) = \cos \left( t\norm{v} \right) p + \sin \left( t\norm{v} \right) r \frac{v}{\norm{v}} \, ,
 $$
 
 is a geodesic, as its image is the great circle formed by the intersection of $\mathbb{S}^n(r)$ with the linear subspace of $\R^{n+1}$ spanned by $\left\\{ p, r \frac{v}{\norm{v}} \right\\}$. Therefore the exponential map on $\mathbb{S}^n(r)$ is given by
 
 $$
-    \exp_p(v) = \cos \left( \frac{\norm{v}}{r} \right) p + \sin \left( \frac{\norm{v}}{r} \right) r \frac{v}{\norm{v}} \, .
+    \exp_p(v) = \cos \left( \norm{v} \right) p + \sin \left( \norm{v} \right) r \frac{v}{\norm{v}} \, .
 $$
 
 //
