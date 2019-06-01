@@ -164,7 +164,7 @@ As corollary, we have the following algorithm:
 
 <h2 class="section-heading">Simple Implementation Example</h2>
 
-**Remark.** _The implementation below is based on the empirical FIM, thus does not reflect the true natural gradient. To use the true FIM, one need to take the expectation of the outer product of the gradient w.r.t. the predictive distribution. For example, one can do Monte Carlo approximation by drawing random labels to compute the loss and subsequently compute the FIM. Note that the calculation of the vanilla gradient remains unchanged._
+**Remark.** _The implementation below is based on the empirical FIM, thus does not reflect the true natural gradient. (See <https://arxiv.org/abs/1905.12558>.) To use the true FIM, one need to take the expectation of the outer product of the gradient w.r.t. the predictive distribution. For example, one can do Monte Carlo approximation by drawing random labels to compute the loss and subsequently compute the FIM. Note that the calculation of the vanilla gradient remains unchanged._
 
 Let's consider logistic regression problem. The training data is drawn from a mixture of Gaussians centered at \\( (-1, -1) \\) and \\( (1, 1) \\). We assign different labels for each mode. The code is as follows:
 
