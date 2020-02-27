@@ -16,7 +16,7 @@ I was wondering, how do I do the OAuth authentication flow? Turned out, it's rea
 First, create an Flask route to redirect the user to Twitter login page:
 
 
-``` python
+{% highlight python %}
 consumer_key = ''
 consumer_secret = ''
 callback = 'http://yourdoamain.com/callback'
@@ -27,14 +27,14 @@ def auth():
     url = auth.get_authorization_url()
     session['request_token'] = auth.request_token
     return redirect(url)
-```
+{% endhighlight %}
 
 What it does is to create an authentication handler according to your Twitter app's keys, and your predefined callback. This callback URL should point to your another Flask endpoint that I'll describe after this. Then, you'll need to redirect your user to the authorization URL that Tweepy constructed for you. Here, we save the `request_token` to the session because we need it to get the user's access token in the next endpoint. Session is a great way to handle states between requests.
 
 Next, let's handle the case after user has logged in via Twitter. Twitter will redirect the user to your predefined callback URL.
 
 
-``` python
+{% highlight python %}
 @app.route('/callback')
 def twitter_callback():
     request_token = session['request_token']
@@ -47,7 +47,7 @@ def twitter_callback():
     session['token'] = (auth.access_token, auth.access_token_secret)
 
     return redirect('/app')
-```
+{% endhighlight %}
 
 Here, we get the `request_token` that we've saved from the previous request on `/auth`. As session is unique per user, it's guaranteed that there's no token mixup between users. Because the `request_token` won't be used anymore, it's recommended to delete it.
 
@@ -58,7 +58,7 @@ The next is simple, just call Tweepy's `get_access_token` function and pass the 
 Now that we have user's access token and secret token, we can use it to call Twitter API.
 
 
-``` python
+{% highlight python %}
 @app.route('/app')
 def request_twitter:
     token, token_secret = session['token']
@@ -67,7 +67,7 @@ def request_twitter:
     api = tweepy.API(auth)
 
     return api.me()
-```
+{% endhighlight %}
 
 To use the token, we'll need to get it from the session, then pass it to Tweepy `OAuthHandler` object, and create an API object based on that. Then, we could use the API object to request the Twitter REST and Streaming API.
 

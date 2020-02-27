@@ -22,13 +22,13 @@ Let's say we have a Standard Normal from which we want to sample with Slice Samp
 The PDF and inverse PDF of Standard Normal are as follow in Python code:
 
 
-``` python
+{% highlight python %}
 def p(x):
     return np.exp(-(x**2) / 2) / (np.sqrt(2*np.pi))
 
 def p_inv(y):
     return np.sqrt(-2 * np.log(y * np.sqrt(2*np.pi)))
-```
+{% endhighlight %}
 
 Here's the inverse PDF of that Gaussian:
 
@@ -52,7 +52,7 @@ The example above is for Standard Normal, the special case of Gaussian. If we wa
 Let's see that in the code. Here, in the code, I picked an arbitrary parameter for the Gaussian, `mu=65` and `sigma=32`.
 
 
-``` python
+{% highlight python %}
 import numpy as np
 import scipy.stats as st
 import seaborn as sns
@@ -92,7 +92,7 @@ if __name__ == '__main__':
     x = np.arange(-100, 250)
     plt.plot(x, p(x))
     plt.show()
-```
+{% endhighlight %}
 
 Here's the sampling result. The green curve is the real PDF of `Normal(65, 32)`.
 

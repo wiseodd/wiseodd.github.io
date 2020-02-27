@@ -54,15 +54,15 @@ This should be the shortest ever implementation note in my blog.
 
 We just need to change the original GAN's \\( G \\) objective from:
 
-``` python
+{% highlight python %}
 G_loss = -torch.mean(log(D_fake))
-```
+{% endhighlight %}
 
 to:
 
-``` python
+{% highlight python %}
 G_loss = 0.5 * torch.mean((log(D_fake) - log(1 - D_fake))**2)
-```
+{% endhighlight %}
 
 And we're done. For full code, check out <https://github.com/wiseodd/generative-models>.
 

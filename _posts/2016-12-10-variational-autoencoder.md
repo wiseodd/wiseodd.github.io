@@ -134,7 +134,7 @@ $$
 
 First, let's implement the encoder net \\( Q(z \vert X) \\), which takes input \\( X \\) and outputting two things: \\( \mu(X) \\) and \\( \Sigma(X) \\), the parameters of the Gaussian.
 
-``` python
+{% highlight python %}
 from tensorflow.examples.tutorials.mnist import input_data
 from keras.layers import Input, Dense, Lambda
 from keras.models import Model
@@ -157,7 +157,7 @@ inputs = Input(shape=(784,))
 h_q = Dense(512, activation='relu')(inputs)
 mu = Dense(n_z, activation='linear')(h_q)
 log_sigma = Dense(n_z, activation='linear')(h_q)
-```
+{% endhighlight %}
 
 That is, our \\( Q(z \vert X) \\) is a neural net with one hidden layer. In this implementation, our latent variable is two dimensional, so that we could easily visualize it. In practice though, more dimension in latent variable should be better.
 
@@ -181,7 +181,7 @@ where \\( \epsilon \sim N(0, 1) \\).
 
 Now, during backpropagation, we don't care anymore with the sampling process, as it is now outside of the network, i.e. doesn't depend on anything in the net, hence the gradient won't flow through it.
 
-``` python
+{% highlight python %}
 def sample_z(args):
     mu, log_sigma = args
     eps = K.random_normal(shape=(m, n_z), mean=0., std=1.)
@@ -190,22 +190,22 @@ def sample_z(args):
 
 # Sample z ~ Q(z|X)
 z = Lambda(sample_z)([mu, log_sigma])
-```
+{% endhighlight %}
 
 Now we create the decoder net \\( P(X \vert z) \\):
 
-``` python
+{% highlight python %}
 # P(X|z) -- decoder
 decoder_hidden = Dense(512, activation='relu')
 decoder_out = Dense(784, activation='sigmoid')
 
 h_p = decoder_hidden(z)
 outputs = decoder_out(h_p)
-```
+{% endhighlight %}
 
 Lastly, from this model, we can do three things: reconstruct inputs, encode inputs into latent variables, and generate data from latent variable. So, we have three Keras models:
 
-``` python
+{% highlight python %}
 # Overall VAE model, for reconstruction and training
 vae = Model(inputs, outputs)
 
@@ -218,11 +218,11 @@ d_in = Input(shape=(n_z,))
 d_h = decoder_hidden(d_in)
 d_out = decoder_out(d_h)
 decoder = Model(d_in, d_out)
-```
+{% endhighlight %}
 
 Then, we need to translate our loss into Keras code:
 
-``` python
+{% highlight python %}
 def vae_loss(y_true, y_pred):
     """ Calculate loss = reconstruction loss + KL loss for each data in minibatch """
     # E[log P(X|z)]
@@ -231,14 +231,14 @@ def vae_loss(y_true, y_pred):
     kl = 0.5 * K.sum(K.exp(log_sigma) + K.square(mu) - 1. - log_sigma, axis=1)
 
     return recon + kl
-```
+{% endhighlight %}
 
 and then train it:
 
-``` python
+{% highlight python %}
 vae.compile(optimizer='adam', loss=vae_loss)
 vae.fit(X_train, X_train, batch_size=m, nb_epoch=n_epoch)
-```
+{% endhighlight %}
 
 And that's it, the implementation of VAE in Keras!
 

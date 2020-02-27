@@ -39,7 +39,7 @@ We could see that the algorithm is quite similar to the original GAN. However, t
 
 The base implementation of GAN could be found in [the past post]({% post_url 2016-09-17-gan-tensorflow %}). We need only to modify traditional GAN with respect to those items above. So first, let's update our \\( D \\):
 
-``` python
+{% highlight python %}
 """ Vanilla GAN """
 def discriminator(x):
     D_h1 = tf.nn.relu(tf.matmul(x, D_W1) + D_b1)
@@ -51,11 +51,11 @@ def discriminator(x):
     D_h1 = tf.nn.relu(tf.matmul(x, D_W1) + D_b1)
     out = tf.matmul(D_h1, D_W2) + D_b2
     return out
-```
+{% endhighlight %}
 
 Next, we modify our loss by simply removing the \\( \log \\):
 
-``` python
+{% highlight python %}
 """ Vanilla GAN """
 D_loss = -tf.reduce_mean(tf.log(D_real) + tf.log(1. - D_fake))
 G_loss = -tf.reduce_mean(tf.log(D_fake))
@@ -63,18 +63,18 @@ G_loss = -tf.reduce_mean(tf.log(D_fake))
 """ WGAN """
 D_loss = tf.reduce_mean(D_real) - tf.reduce_mean(D_fake)
 G_loss = -tf.reduce_mean(D_fake)
-```
+{% endhighlight %}
 
 We then clip the weight of \\( D \\) after each gradient descent update:
 
-``` python
+{% highlight python %}
 # theta_D is list of D's params
 clip_D = [p.assign(tf.clip_by_value(p, -0.01, 0.01)) for p in theta_D]
-```
+{% endhighlight %}
 
 Lastly, we train \\( D \\) more:
 
-``` python
+{% highlight python %}
 D_solver = (tf.train.RMSPropOptimizer(learning_rate=5e-5)
             .minimize(-D_loss, var_list=theta_D))
 G_solver = (tf.train.RMSPropOptimizer(learning_rate=5e-5)
@@ -93,7 +93,7 @@ for it in range(1000000):
         [G_solver, G_loss],
         feed_dict={z: sample_z(mb_size, z_dim)}
     )
-```
+{% endhighlight %}
 
 And that is it.
 
@@ -103,7 +103,7 @@ The base implementation of original GAN could be found in [the past post]({% pos
 
 First, update \\( D \\):
 
-``` python
+{% highlight python %}
 """ Vanilla GAN """
 D = torch.nn.Sequential(
     torch.nn.Linear(X_dim, h_dim),
@@ -118,11 +118,11 @@ D = torch.nn.Sequential(
     torch.nn.ReLU(),
     torch.nn.Linear(h_dim, 1),
 )
-```
+{% endhighlight %}
 
 Modifying loss:
 
-``` python
+{% highlight python %}
 """ Vanilla GAN """
 # During discriminator forward-backward-update
 D_loss = torch.mean(torch.log(D_real) - torch.log(1- D_fake))
@@ -134,21 +134,21 @@ G_loss = -torch.mean(torch.log(D_fake))
 D_loss = -(torch.mean(D_real) - torch.mean(D_fake))
 # During generator forward-backward-update
 G_loss = -torch.mean(D_fake)
-```
+{% endhighlight %}
 
 Weight clipping:
 
-``` python
+{% highlight python %}
 D_loss.backward()
 D_solver.step()
 
 for p in D.parameters():
     p.data.clamp_(-0.01, 0.01)
-```
+{% endhighlight %}
 
 Train \\( D \\) more:
 
-``` python
+{% highlight python %}
 G_solver = optim.RMSprop(G.parameters(), lr=5e-5)
 D_solver = optim.RMSprop(D.parameters(), lr=5e-5)
 
@@ -157,7 +157,7 @@ for it in range(1000000):
         """ Dicriminator forward-loss-backward-update """
 
     """ Generator forward-loss-backward-update """
-```
+{% endhighlight %}
 
 <h2 class="section-heading">References</h2>
 

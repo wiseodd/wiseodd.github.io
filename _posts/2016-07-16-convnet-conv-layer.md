@@ -35,10 +35,10 @@ The implication is very nice: we can reuse our knowledge and thought process whe
 
 Alright, let's define our function:
 
-``` python
+{% highlight python %}
 def conv_forward(X, W, b, stride=1, padding=1):
     pass
-```
+{% endhighlight %}
 
 Our conv layer will accept an input in `X: DxCxHxW` dimension, input filter `W: NFxCxHFxHW`, and bias `b: Fx1`, where:
 
@@ -68,7 +68,7 @@ To make the operation compatible, we will arrange our filter to `1x9`. Now, if w
 
 Let's see the code for that.
 
-``` python
+{% highlight python %}
 # Let this be 3x3 convolution with stride = 1 and padding = 1
 # Suppose our X is 5x1x10x10, X_col will be a 9x500 matrix
 X_col = im2col_indices(X, h_filter, w_filter, padding=padding, stride=stride)
@@ -82,7 +82,7 @@ out = W_col @ X_col + b
 # i.e. for each of our 5 images, we have 20 results with size of 10x10
 out = out.reshape(n_filters, h_out, w_out, n_x)
 out = out.transpose(3, 0, 1, 2)
-```
+{% endhighlight %}
 
 That basically it for the forward computation of the convolution layer. It's similar to the feed forward layer with two additions: `im2col` operation and thinkering about the dimension of our matrices.
 
@@ -96,36 +96,36 @@ Thankfully because we're using the `im2col` trick, we at least could reuse our k
 
 First let's compute our bias gradient.
 
-``` python
+{% highlight python %}
 db = np.sum(dout, axis=(0, 2, 3))
 db = db.reshape(n_filter, -1)
-```
+{% endhighlight %}
 
 Remember that the matrix we're dealing with, i.e. `dout` is a `5x20x10x10` matrix, similar to the output of the forward computation step. As the bias is added to each of our filter, we're accumulating the gradient to the dimension that represent of the number of filter, which is the second dimension. Hence the sum is operated on all axis except the second.
 
 Next, we will compute the gradient of the the filters `dW`.
 
-``` python
+{% highlight python %}
 # Transpose from 5x20x10x10 into 20x10x10x5, then reshape into 20x500
 dout_reshaped = dout.transpose(1, 2, 3, 0).reshape(n_filter, -1)
 # 20x500 x 500x9 = 20x9
 dW = dout_reshaped @ X_col.T
 # Reshape back to 20x1x3x3
 dW = dW.reshape(W.shape)
-```
+{% endhighlight %}
 
 It's similar with the normal feed forward layer, except with more convoluted (ha!) dimension manipulation.
 
 Lastly, the input gradient `dX`. We're almost there!
 
-``` python
+{% highlight python %}
 # Reshape from 20x1x3x3 into 20x9
 W_reshape = W.reshape(n_filter, -1)
 # 9x20 x 20x500 = 9x500
 dX_col = W_reshape.T @ dout_reshaped
 # Stretched out image to the real image: 9x500 => 5x1x10x10
 dX = col2im_indices(dX_col, X.shape, h_filter, w_filter, padding=padding, stride=stride)
-```
+{% endhighlight %}
 
 Again, it's the same as feed forward layer with some careful reshaping! At the end though, we're getting the gradient of the stretched image (recall the use of `im2col`). To undo this, and getting the real image gradient, we're going to de-im2col that. We're going to apply the operation called `col2im` to the stretched image. And now we have our image input gradient!
 
@@ -134,7 +134,7 @@ Again, it's the same as feed forward layer with some careful reshaping! At the e
 
 Here's the full source code for the forward and backward computation of the conv layer.
 
-``` python
+{% highlight python %}
 def conv_forward(X, W, b, stride=1, padding=1):
     cache = W, b, stride, padding
     n_filters, d_filter, h_filter, w_filter = W.shape
@@ -175,7 +175,7 @@ def conv_backward(dout, cache):
     dX = col2im_indices(dX_col, X.shape, h_filter, w_filter, padding=padding, stride=stride)
 
     return dX, dW, db
-```
+{% endhighlight %}
 
 Also check out the complete code in my repository: <https://github.com/wiseodd/hipsternet>!
 

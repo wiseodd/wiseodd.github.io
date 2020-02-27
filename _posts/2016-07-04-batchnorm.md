@@ -39,7 +39,7 @@ Now that we know how to do forward and backward propagation for BatchNorm, let's
 
 As always, I will reuse the code from previous posts. It's in my repo here: <https://github.com/wiseodd/hipsternet>.
 
-``` python
+{% highlight python %}
 def batchnorm_forward(X, gamma, beta):
     mu = np.mean(X, axis=0)
     var = np.var(X, axis=0)
@@ -50,7 +50,7 @@ def batchnorm_forward(X, gamma, beta):
     cache = (X, X_norm, mu, var, gamma, beta)
 
     return out, cache, mu, var
-```
+{% endhighlight %}
 
 This is the forward propagation algorithm. It's simple. However, remember that we're normalizing each dimension of activations. So, if our activations over a minibatch is MxN matrix, then we want the mean and variance to be 1xN: one value of mean and variance for each dimension. So, if we normalize our activations matrix with that, each dimension will have zero mean and one variance.
 
@@ -58,7 +58,7 @@ At the end, we're also spitting out the intermediate variable used for normaliza
 
 This is how we use that above method:
 
-``` python
+{% highlight python %}
 # Input to hidden
 h1 = X @ W1 + b1
 
@@ -67,13 +67,13 @@ h1, bn1_cache, mu, var = batchnorm_forward(h1, gamma1, beta1)
 
 # ReLU
 h1[h1 < 0] = 0
-```
+{% endhighlight %}
 
 In the BatchNorm paper, they insert the BatchNorm layer before nonlinearity. But it's not set in a stone.
 
 For the backprop, here's the implementation:
 
-``` python
+{% highlight python %}
 def batchnorm_backward(dout, cache):
     X, X_norm, mu, var, gamma, beta = cache
 
@@ -91,11 +91,11 @@ def batchnorm_backward(dout, cache):
     dbeta = np.sum(dout, axis=0)
 
     return dX, dgamma, dbeta
-```
+{% endhighlight %}
 
 For the explanation of the code, refer to the derivation of the BatchNorm gradient in the last section. As we can see, we're also returning derivative of gamma and beta: the linear transform for BatchNorm. It will be used to update the model, so that the net could also learn them.
 
-``` python
+{% highlight python %}
 # h1
 dh1 = dh2 @ W2.T
 
@@ -107,7 +107,7 @@ dh1 *= u1
 
 # BatchNorm
 dh1, dgamma1, dbeta1 = batchnorm_backward(dh2, bn2_cache)
-```
+{% endhighlight %}
 
 Remember, the order of backprop is important! We will get wrong result if we swap the BatchNorm gradient with ReLU gradient for example.
 
@@ -115,22 +115,22 @@ Remember, the order of backprop is important! We will get wrong result if we swa
 
 One more thing we need to take care of is that we want to fix the normalization at test time. That means we don't want to normalize our activations with the test set. Hence, as we're essentially using SGD, which is stochastic, we're going to estimate the mean and variance of our activations using running average.
 
-``` python
+{% highlight python %}
 # BatchNorm training forward propagation
 h2, bn2_cache, mu, var = batchnorm_forward(h2, gamma2, beta2)
 bn_params['bn2_mean'] = .9 * bn_params['bn2_mean'] + .1 * mu
 bn_params['bn2_var'] = .9 * bn_params['bn2_var'] + .1 * var
-```
+{% endhighlight %}
 
 There, we store each BatchNorm layer's running mean and variance while training. It's a decaying running average.
 
 Then, at the test time, we just use that running average for the normalization:
 
-``` python
+{% highlight python %}
 # BatchNorm inference forward propagation
 h2 = (h2 - bn_params['bn2_mean']) / np.sqrt(bn_params['bn2_var'] + 1e-8)
 h2 = gamma2 * h2 + beta2
-```
+{% endhighlight %}
 
 And that's it. Our implementation of BatchNorm is now complete. Now the test!
 

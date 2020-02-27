@@ -168,7 +168,7 @@ As corollary, we have the following algorithm:
 
 Let's consider logistic regression problem. The training data is drawn from a mixture of Gaussians centered at \\( (-1, -1) \\) and \\( (1, 1) \\). We assign different labels for each mode. The code is as follows:
 
-``` python
+{% highlight python %}
 import numpy as np
 from sklearn.utils import shuffle
 
@@ -181,11 +181,11 @@ X, t = shuffle(X, t)
 
 X_train, X_test = X[:150], X[:50]
 t_train, t_test = t[:150], t[:50]
-```
+{% endhighlight %}
 
 Next, we consider our model. It is a simple linear model (without bias) with sigmoid output. Thus naturally, we use binary cross entropy loss:
 
-``` python
+{% highlight python %}
 # Initialize weight
 W = np.random.randn(2, 1) * 0.01
 
@@ -196,11 +196,11 @@ def sigm(x):
 
 def NLL(y, t):
     return -np.mean(t*np.log(y) + (1-t)*np.log(1-y))
-```
+{% endhighlight %}
 
 Inside the training loop, the forward pass looks like:
 
-``` python
+{% highlight python %}
 # Forward
 z = X_train @ W
 y = sigm(z)
@@ -208,40 +208,40 @@ loss = NLL(y, t_train)
 
 # Loss
 print(f'Loss: {loss:.3f}')
-```
+{% endhighlight %}
 
 The gradient of the loss function wrt. parameter \\( w \\) is then as follows:
 
-``` python
+{% highlight python %}
 dy = (y-t_train)/(m * (y - y*y))
 dz = sigm(z)*(1-sigm(z))
 dW = X_train.T @ (dz * dy)
-```
+{% endhighlight %}
 
 At this point we are ready to do update step for vanilla gradient descent:
 
-``` python
+{% highlight python %}
 W = W - alpha * dW
-```
+{% endhighlight %}
 
 For natural gradient descent, we need some extra works. Firstly we need to compute the gradient of log likelihood wrt. \\( w \\), without summing, as we will do this when we compute the covariance.
 
-``` python
+{% highlight python %}
 grad_loglik_z = (t_train-y)/(y - y*y) * dz
 grad_loglik_W = grad_loglik_z * X_train
-```
+{% endhighlight %}
 
 The Empirical Fisher is given by the empirical covariance matrix of the gradient of log likelihood wrt. our training data:
 
-``` python
+{% highlight python %}
 F = np.cov(grad_loglik_W.T)
-```
+{% endhighlight %}
 
 To do the update step, we need to take the product of \\( \text{F}^{-1} \\) with the gradient of loss:
 
-``` python
+{% highlight python %}
 W = W - alpha * np.linalg.inv(F) @ dW
-```
+{% endhighlight %}
 
 The complete script to reproduce this can be found at:
 <https://gist.github.com/wiseodd/1c9f5006310f5ee03bd4682b4c03020a>.

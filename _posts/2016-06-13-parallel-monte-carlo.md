@@ -25,7 +25,7 @@ Suppose we have this `sample()` method that sample from an unknown target distri
 
 What we want is to infer the distribution of `p`. For this example we will use `p = (0.3, 0.2, 0.1, 0.1, 0.3)`. Remember, we don't know the true `p`! So pretend that our program don't know that!
 
-``` python
+{% highlight python %}
 import numpy as np
 import time
 
@@ -40,11 +40,11 @@ def sample():
 
     # Return item index
     return np.argmax(np.random.multinomial(1, p))
-```
+{% endhighlight %}
 
 So, we're wondering what's our distribution looks like. We could draw a huge amount of samples and normalize them to get the distribution.
 
-``` python
+{% highlight python %}
 from collections import Counter
 
 
@@ -63,18 +63,18 @@ def monte_carlo(iter=1000):
     p.update([(item, prob / float(iter)) for item, prob in p.items()])
 
     return p
-```
+{% endhighlight %}
 
 Let's try running our simulation!
 
-```
+{% highlight shell %}
 In [0]: %time monte_carlo(iter=1000)
 
 CPU times: user 91 ms, sys: 28.5 ms, total: 120 ms
 Wall time: 1min 42s
 
 Out[0]: {0: 0.29, 1: 0.198, 2: 0.103, 3: 0.101, 4: 0.308}
-```
+{% endhighlight %}
 
 Try to compare the result of our Monte Carlo simulation with the true distribution of `p`! It's very close to our true `p`!
 
@@ -84,7 +84,7 @@ We finished our simulation in 100s. Now imagine if our unknown target distributi
 
 Let's try to speed that up by parallelizing it. But first we need to modify our `sample()` method so that it won't use the same random seed across all of the processes, as we will get the same "random" results, which would be pointless. Calling `np.random.seed()` would do the trick.
 
-``` python
+{% highlight python %}
 import multiprocessing as mp
 
 
@@ -107,13 +107,13 @@ def _parallel_mc(iter=1000):
     res = [f.get() for f in future_res]
 
     return res
-```
+{% endhighlight %}
 
 Here, we're using Python's `multiprocessing.Pool` module, which we define that we use 4 workers for our Monte Carlo simulation. `Pool` class has some very useful methods like `map` and `apply_async`. Because our simulation doesn't take any argument, we will use `apply_asnyc`.
 
 Let's use that method for our new parallel Monte Carlo!
 
-``` python
+{% highlight python %}
 def parallel_monte_carlo(iter=1000):
     samples = _parallel_mc(iter)
 
@@ -125,20 +125,20 @@ def parallel_monte_carlo(iter=1000):
     p.update([(item, prob / float(iter)) for item, prob in p.items()])
 
     return p
-```
+{% endhighlight %}
 
 We just swapped our `for` loop in `monte_carlo()` method with the new `_parallel_mc()` method. The rest is the same as before, we were only changing one line of code.
 
 Here's the result:
 
-```
+{% highlight shell %}
 In [1]: %time parallel_monte_carlo(iter=1000)
 
 CPU times: user 289 ms, sys: 258 ms, total: 547 ms
 Wall time: 28.3 s
 
 Out[1]: {0: 0.31, 1: 0.185, 2: 0.099, 3: 0.105, 4: 0.301}
-```
+{% endhighlight %}
 
 100s down to 28s? ~4x of speedup! It's scaled linearly with the number of processes we stated in `Pool` because practically the `sample()` method run in uniform time: ~0.1s. In the real world problem though, it will wildly vary. But linear growth of speedup compared to the number of processes would be the baseline.
 

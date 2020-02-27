@@ -16,45 +16,45 @@ First thing first, this post is from a web developer who had essentially ZERO kn
 
 First let’s install the dependencies: Python, pip, and PostgreSQL
 
-``` bash
+{% highlight shell %}
 Ubuntu:
 sudo apt-get install python python-dev postgresql-9.3 postgresql-server-dev-9.3
 sudo easy_install pip
 
 OSX:
 brew install python pip postgres
-```
+{% endhighlight %}
 
 Now we’ll install virtualenv. This is not necessary, but will improve our development greatly as virtualenv will let us have clean and reproducible Python development environment.
 
-``` bash
+{% highlight shell %}
 sudo pip install virtualenv virtualenvwrapper
-```
+{% endhighlight %}
 
 And then, register virtualenvwrapper to our shell. Add these lines to your `.bashrc` (Ubuntu) or `.zshrc` (OSX).
 
-``` bash
+{% highlight shell %}
 export WORKON_HOME=~/.virtualenv
 source /usr/local/bin/virtualenvwrapper.sh
-```
+{% endhighlight %}
 
 Then, you’ll need to log out to apply the change.
 
 Now, we’ll create new virtualenv for our blog, then install Wagtail.
 
-``` bash
+{% highlight shell %}
 mkvirtualenv yourblogname
 pip install wagtail==1.0b2
 wagtail start yourblogname
-```
+{% endhighlight %}
 
 Now we’ve scaffolded our blog project structure! We can start our development now. However, by default, Wagtail uses SQLite for its database, which is alright for development purpose. For production environment, I strongly recommend to use more heavy duty database, namely PostgreSQL. So let’s make Wagtail uses PostgreSQL.
 
 Open up the requirements.txt on your project directory, then uncomment this line that says `psycopg2==2.5.2`. This will tell pip to install psycopg2 dependency which is needed for Python to interface with PostgreSQL. After that run:
 
-``` bash
+{% highlight shell %}
 pip install -r requirements.txt
-```
+{% endhighlight %}
 
 There are some hurdles though, when using PostgreSQL for the first time. I’m experienced with database, but mainly with Oracle and MySQL. PostgreSQL is a bit different and coming from that MySQL it’s hard at first.
 
@@ -66,24 +66,24 @@ What we want to do is to:
 
 Of course, you can use whatever name you want, but same name will simplify our live, so hey why not. So, run this:
 
-``` bash
+{% highlight shell %}
 sudo su - postgres
 createdb yourblogname
 psql yourblogname
-```
+{% endhighlight %}
 
 Now we’re inside PostgreSQL shell. We’ll create the user, then grant the permission to yourblogname database.
 
-``` sql
+{% highlight sql %}
 CREATE ROLE yourblogname WITH PASSWORD ‘yourpassword’
 GRANT ALL PRIVILEGES ON DATABASE yourblogname TO yourblogname
-```
+{% endhighlight %}
 
 Then use `CTRL+D` to exit psql and type `exit` to exit user postgres’ shell.
 
 Now we have to tell our blog to use PostgreSQL instead of SQLite. In your `yourblogname/settings/base.py`, comment out SQLite database entry:
 
-``` python
+{% highlight python %}
 # # SQLite (simplest install)
 # DATABASES = {
 #     'default': {
@@ -91,11 +91,11 @@ Now we have to tell our blog to use PostgreSQL instead of SQLite. In your `yourb
 #         'NAME': join(PROJECT_ROOT, 'db.sqlite3'),
 #     }
 # }
-```
+{% endhighlight %}
 
 Then, uncomment PostgreSQL entry, and fill it with our database information:
 
-``` python
+{% highlight python %}
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -107,7 +107,7 @@ DATABASES = {
         'CONN_MAX_AGE': 600,  # number of seconds database connections should persist for
     }
 }
-```
+{% endhighlight %}
 
 One of the problem I encountered was because I set `HOST` to be empty, which in turn will use socket connection, and gave me this error:
 
@@ -119,16 +119,16 @@ So, make sure to fill `HOST` with `localhost` or `127.0.0.1`
 
 After that, we’ll write our initial database to PostgreSQL:
 
-``` bash
+{% highlight shell %}
 ./manage.py makemigrations
 ./manage.py migrate
-```
+{% endhighlight %}
 
 Also, don't forget to create an admin account so that we could get inside the admin panel.
 
-``` bash
+{% highlight shell %}
 ./manage.py createsuperuser
-```
+{% endhighlight %}
 
 If everything is good, then we have our database ready, and we’re ready to actually code our blog!
 

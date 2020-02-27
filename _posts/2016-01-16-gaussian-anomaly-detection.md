@@ -25,16 +25,16 @@ Now, how do we calculate the maximum likelihood? It turns out, the Maximum Likel
 
 So, let's say we have these data:
 
-``` python
+{% highlight python %}
 X = np.array([10, 14, 12, 1200, 25, 120, 54, 32, 18, 23])
-```
+{% endhighlight %}
 
 The best fit Gaussian for those data is `N(mu_MLE, std_MLE)`, that is, Gaussian parameterized by the maximum likelihood estimation of its parameters.
 
-``` python
+{% highlight python %}
 mu = np.mean(X) # 150.8
 sigma = np.std(X) # 351.1199
-```
+{% endhighlight %}
 
 So, that's it! We've fitted our data into `N(150.8, 351.1199)`!
 
@@ -44,7 +44,7 @@ Now, what's left is the evaluation phase. We want to know, based our Gaussian, w
 
 We could intuitively define the threshold by looking at the plot of our Gaussian above. The anomalies would be the data that fall under the low probability areas of the Gaussian, because being in the low probability area, that data is _highly unlikely_ to be distributed in our distribution. Those low probability areas are the left and the right tails of the Gaussian. So, we could say that, for example, 25% area under the tails are the anomaly regions.
 
-``` python
+{% highlight python %}
 # Thresholds: 25 percent of left tail and 25 percent of right tail
 t1, t2 = 25, 75
 
@@ -58,7 +58,7 @@ y_test = st.norm.cdf(X_test, mu, sigma)
 for y in y_test:
     if y < t1 or y > t2:
         print 'Anomaly!'
-```
+{% endhighlight %}
 <p></p>
 
 <h2 class="section-heading">Bayesian Method</h2>
@@ -67,25 +67,25 @@ We could also use Bayesian method to fit the Gaussian. The obvious advantage of 
 
 For this, I will use Python library called PyMC. First of all, we need to specify a prior for all of the parameters we want to find: mean and standard deviation. Pretend that I know nothing about those parameters, so the logical choice of prior will be Uniform prior.
 
-``` python
+{% highlight python %}
 # Prior
 mu = pymc.Uniform('mu', 0, 1000)
 sigma = pymc.Uniform('sigma', 0, 1000)
-```
+{% endhighlight %}
 
 Now, we need to express our data in term of likelihood function. Because we're assuming the normality of our data, we will use Gaussian likelihood function. And because we already have our data `X`, we will set this as `observed=True`.
 
-``` python
+{% highlight python %}
 # Likelihood
 likelihood = pymc.Normal('likelihood', mu, sigma**-2, observed=True, value=X)
-```
+{% endhighlight %}
 
 The only thing left is to infer the posterior distribution of our mean and standard deviation.
 
-``` python
+{% highlight python %}
 mcmc = pymc.MCMC([mu, sigma, likelihood])
 mcmc.sample(iter=11000, burn=1000)
-```
+{% endhighlight %}
 
 Here's our posterior distributions obtained after 11000 MCMC iteration:
 
@@ -93,9 +93,9 @@ Here's our posterior distributions obtained after 11000 MCMC iteration:
 
 As you can see, we get a distribution, not just a point estimate for our parameters. That means, we can do a lot more analysis to these result compared to MLE result. For now though, we will just take a point estimate of mean and standard deviation, just like MLE. Because the distributions are rather skewed, we will use median as our point estimates.
 
-``` python
+{% highlight python %}
 mu = stats['mu']['quantiles'][50] # 171.0512
 sigma = stats['sigma']['quantiles'][50] # 398.2883
-```
+{% endhighlight %}
 
 Now, we could just plug those parameters to the Gaussian, and we get our fitted Gaussian distribution. Using the same idea, you could determine whether a new data point is an anomaly or not.

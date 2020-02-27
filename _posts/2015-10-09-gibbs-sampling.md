@@ -28,7 +28,7 @@ The derivation of conditional distribution of Multivariate Gaussian could be fou
 Let's inspect the Gibbs Sampler code, shall we.
 
 
-``` python
+{% highlight python %}
 import numpy as np
 import seaborn as sns
 
@@ -63,7 +63,7 @@ if __name__ == '__main__':
 
     samples = gibbs_sampling(mus, sigmas)
     sns.jointplot(samples[:, 0], samples[:, 1])
-```
+{% endhighlight %}
 
 Really really really simple. The main algorithm is just what, 10 line of codes? Including whitespaces.
 

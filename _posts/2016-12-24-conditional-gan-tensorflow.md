@@ -45,15 +45,15 @@ I'd like to direct the reader to the [previous post about GAN]({% post_url 2016-
 
 The first additional code for CGAN is here:
 
-``` python
+{% highlight python %}
 y = tf.placeholder(tf.float32, shape=[None, y_dim])
-```
+{% endhighlight %}
 
 We are adding new input to hold our variable we are conditioning our CGAN to.
 
 Next, we add it to both our generator net and discriminator net:
 
-``` python
+{% highlight python %}
 def generator(z, y):
     # Concatenate z and y
     inputs = tf.concat(concat_dim=1, values=[z, y])
@@ -74,40 +74,40 @@ def discriminator(x, y):
     D_prob = tf.nn.sigmoid(D_logit)
 
     return D_prob, D_logit
-```
+{% endhighlight %}
 
 The problem we have here is how to incorporate the new variable \\( y \\) into \\( D(X) \\) and \\( G(z) \\). As we are trying to model the joint conditional, the simplest way to do it is to just concatenate both variables. Hence, in \\( G(z, y) \\), we are concatenating \\( z \\) and \\( y \\) before we feed it into the networks. The same procedure is applied to \\( D(X, y) \\).
 
 Of course, as our inputs for \\( D(X, y) \\) and \\( G(z, y) \\) is now different than the original GAN, we need to modify our weights:
 
-``` python
+{% highlight python %}
 # Modify input to hidden weights for discriminator
 D_W1 = tf.Variable(shape=[X_dim + y_dim, h_dim]))
 
 # Modify input to hidden weights for generator
 G_W1 = tf.Variable(shape=[Z_dim + y_dim, h_dim]))
-```
+{% endhighlight %}
 
 That is, we just adjust the dimensionality of our weights.
 
 Next, we just use our new networks:
 
-``` python
+{% highlight python %}
 # Add additional parameter y into all networks
 G_sample = generator(Z, y)
 D_real, D_logit_real = discriminator(X, y)
 D_fake, D_logit_fake = discriminator(G_sample, y)
-```
+{% endhighlight %}
 
 And finally, when training, we also feed the value of \\( y \\) into the networks:
 
-``` python
+{% highlight python %}
 X_mb, y_mb = mnist.train.next_batch(mb_size)
 
 Z_sample = sample_Z(mb_size, Z_dim)
 _, D_loss_curr = sess.run([D_solver, D_loss], feed_dict={X: X_mb, Z: Z_sample, y:y_mb})
 _, G_loss_curr = sess.run([G_solver, G_loss], feed_dict={Z: Z_sample, y:y_mb})
-```
+{% endhighlight %}
 
 As an example above, we are training our GAN with MNIST data, and the conditional variable \\( y \\) is the labels.
 
@@ -116,7 +116,7 @@ As an example above, we are training our GAN with MNIST data, and the conditiona
 
 At test time, we want to generate new data samples with certain label. For example, we set the label to be 5, i.e. we want to generate digit "5":
 
-``` python
+{% highlight python %}
 n_sample = 16
 Z_sample = sample_Z(n_sample, Z_dim)
 
@@ -125,7 +125,7 @@ y_sample = np.zeros(shape=[n_sample, y_dim])
 y_sample[:, 5] = 1
 
 samples = sess.run(G_sample, feed_dict={Z: Z_sample, y:y_sample})
-```
+{% endhighlight %}
 
 Above, we just sample \\( z \\), and then construct the conditional variables. In our example case, the conditional variables is a collection of one-hot vectors with value 1 in the 5th index. The last thing we need to is to run the network with those variables as inputs.
 

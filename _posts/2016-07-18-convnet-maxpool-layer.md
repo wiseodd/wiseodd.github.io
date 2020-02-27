@@ -35,7 +35,7 @@ It's just the same as conv layer with one exception: max instead of dot product.
 
 As we already know that maxpool layer is similar to conv layer, implementing it is somewhat easier.
 
-``` python
+{% highlight python %}
 # Let say our input X is 5x10x28x28
 # Our pooling parameter are: size = 2x2, stride = 2, padding = 0
 # i.e. result of 10 filters of 3x3 applied to 5 imgs of 28x28 with stride = 1 and padding = 1
@@ -59,7 +59,7 @@ out = out.reshape(h_out, w_out, n, d)
 
 # Transpose to get 5x10x14x14 output
 out = out.transpose(2, 3, 0, 1)
-```
+{% endhighlight %}
 
 That's it for the forward computation of maxpool layer. However, instead of getting the maximum value directly, we did an intermediate step: getting the maximum index first. This is because the index are useful for the backward computation.
 
@@ -79,7 +79,7 @@ Recall, how do we compute the gradient for ReLU layer. We let the gradient pass 
 
 Maxpool layer is similar, because that's essentially what max operation do in backpropagation.
 
-``` python
+{% highlight python %}
 # X_col and max_idx are the intermediate variables from the forward propagation step
 
 # Suppose our output from forward propagation step is 5x10x14x14
@@ -104,7 +104,7 @@ dX = col2im_indices(dX_col, (n * d, 1, h, w), size, size, padding=0, stride=stri
 
 # Reshape back to match the input dimension: 5x10x28x28
 dX = dX.reshape(X.shape)
-```
+{% endhighlight %}
 
 Recall the ReLU gradient is `dX[X <= 0] = 0`, as we're doing `max(0, x)` in ReLU. We're basically applying that to our stretched image patches. Only, we start with 0 matrix and put the gradient in the correct location, and we're taking the max of the image patch, instead of comparing it with 0 like we do in ReLU.
 

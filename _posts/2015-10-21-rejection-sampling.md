@@ -16,7 +16,7 @@ As with MCMC method like Metropolis-Hastings and Gibbs Sampling, Rejection Sampl
 For clearer picture, let's dive into the code.
 
 
-``` python
+{% highlight python %}
 import numpy as np
 import scipy.stats as st
 import seaborn as sns
@@ -58,7 +58,7 @@ if __name__ == '__main__':
 
     s = rejection_sampling(iter=100000)
     sns.distplot(s)
-```
+{% endhighlight %}
 
 The target distribution that I want to sample here is a mixture of Gaussian: `N(30, 10) + N(80, 20)`. Take a note that this distribution is not normalized. Here's what it looks like.
 

@@ -32,7 +32,7 @@ $$ g(I) = \frac{1}{1 + {\lVert \nabla I \rVert}^2} $$
 
 So, we could implement it with the code below:
 
-``` python
+{% highlight python %}
 import numpy as np
 import scipy.ndimage
 import scipy.signal
@@ -60,13 +60,13 @@ img = img - np.mean(img)
 img_smooth = scipy.ndimage.filters.gaussian_filter(img, sigma)
 
 F = stopping_fun(img_smooth)
-```
+{% endhighlight %}
 
 ![LSM]({{ site.baseurl }}/img/2016-11-20-levelset-segmentation/lsm_g.png)
 
 So that's it, we have our \\( F \\). We could plug it into the PDE directly then:
 
-``` python
+{% highlight python %}
 def default_phi(x):
     # Initialize surface phi at the border (5px from the border) of the image
     # i.e. 1 outside the curve, and -1 inside the curve
@@ -84,7 +84,7 @@ for i in range(n_iter):
     dphi_t = F * dphi_norm
 
     phi = phi + dt * dphi_t
-```
+{% endhighlight %}
 
 And here's the segmentation result after several iteration:
 
@@ -101,7 +101,7 @@ $$ \frac{\partial \phi}{\partial t} = g(I) {\lVert \nabla \phi \rVert} div \left
 
 The first term is the smoothing term, it moves the curve into the direction of its curvature. The second term is the balloon term, controlling the speed of the curve propagation with parameter \\( v \\). Lastly, the third term is the image attachment term that helps the curve to converge.
 
-``` python
+{% highlight python %}
 def curvature(f):
     fy, fx = grad(f)
     norm = np.sqrt(fx**2 + fy**2)
@@ -138,7 +138,7 @@ for i in range(n_iter):
     dphi_t = smoothing + balloon + attachment
 
     phi = phi + dt * dphi_t
-```
+{% endhighlight %}
 
 Finally, here's the result of using GAC formulation of Level Set Method for segmenting the same image above:
 

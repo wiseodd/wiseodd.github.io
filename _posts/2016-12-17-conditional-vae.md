@@ -44,7 +44,7 @@ The conditional variable \\( c \\) could be anything. We could assume it comes f
 
 Let's use MNIST for example. We could use the label as our conditional variable \\( c \\). In this case, \\( c \\) is categorically distributed, or in other words, it takes form as an one-hot vector of label:
 
-``` python
+{% highlight python %}
 mnist = input_data.read_data_sets('MNIST_data', one_hot=True)
 X_train, y_train = mnist.train.images, mnist.train.labels
 X_test, y_test = mnist.test.images, mnist.test.labels
@@ -59,21 +59,21 @@ n_epoch = 20
 # Q(z|X,y) -- encoder
 X = Input(batch_shape=(m, n_x))
 cond = Input(batch_shape=(m, n_y))
-```
+{% endhighlight %}
 
 The natural question to arise is how do we incorporate the new conditional variable into our existing neural net? Well, let's do the simplest thing: concatenation.
 
-``` python
+{% highlight python %}
 inputs = merge([X, cond], mode='concat', concat_axis=1)
 
 h_q = Dense(512, activation='relu')(inputs)
 mu = Dense(n_z, activation='linear')(h_q)
 log_sigma = Dense(n_z, activation='linear')(h_q)
-```
+{% endhighlight %}
 
 Similarly, the decoder is also concatenated with the conditional vector:
 
-``` python
+{% highlight python %}
 def sample_z(args):
     mu, log_sigma = args
     eps = K.random_normal(shape=(m, n_z), mean=0., std=1.)
@@ -90,11 +90,11 @@ decoder_out = Dense(784, activation='sigmoid')
 
 h_p = decoder_hidden(z_cond)
 outputs = decoder_out(h_p)
-```
+{% endhighlight %}
 
 The rest is similar to VAE. Heck, even we don't need to modify the objective. Everything is already expressed in our neural net models.
 
-``` python
+{% highlight python %}
 def vae_loss(y_true, y_pred):
     """ Calculate loss = reconstruction loss + KL loss for each data in minibatch """
     # E[log P(X|z,y)]
@@ -103,7 +103,7 @@ def vae_loss(y_true, y_pred):
     kl = 0.5 * K.sum(K.exp(log_sigma) + K.square(mu) - 1. - log_sigma, axis=1)
 
     return recon + kl
-```
+{% endhighlight %}
 
 For the full explanation of the code, please refer to my [original VAE post]({% post_url 2016-12-10-variational-autoencoder %}). The full code could be found in my Github repo: <https://github.com/wiseodd/generative-models>.
 

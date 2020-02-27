@@ -133,7 +133,7 @@ Given the finite difference formulation to solve the LSM's PDE, we could now imp
 
 As we see, first we need to provide initial values. Then at every iteration, we look at the zero level set of \\( \phi \\), and we get our curve evolution! For example in Python using matplotlib, it would be something like this:
 
-``` python
+{% highlight python %}
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -151,7 +151,7 @@ for i in range(it):
     # plot the zero level curve of phi
     plt.contour(phi, 0)
     plt.show()
-```
+{% endhighlight %}
 
 As we can see, the core of LSM could be implemented with just a few lines of code. Bear in mind, this is the simplest formulation of LSM. There are many sophisticated variations of LSM which modifies \\( \frac{\phi(x(t), t)}{\partial t} \\).
 

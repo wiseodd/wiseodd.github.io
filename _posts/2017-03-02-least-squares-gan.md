@@ -59,7 +59,7 @@ Let's outline the modifications done by LSGAN to the original GAN:
 
 So let's begin by doing the the first checklist:
 
-``` python
+{% highlight python %}
 G = torch.nn.Sequential(
     torch.nn.Linear(z_dim, h_dim),
     torch.nn.ReLU(),
@@ -76,11 +76,11 @@ D = torch.nn.Sequential(
 
 G_solver = optim.Adam(G.parameters(), lr=lr)
 D_solver = optim.Adam(D.parameters(), lr=lr)
-```
+{% endhighlight %}
 
 The rest is straightforward, following the loss function above.
 
-``` python
+{% highlight python %}
 for it in range(1000000):
     # Sample data
     z = Variable(torch.randn(mb_size, z_dim))
@@ -109,7 +109,7 @@ for it in range(1000000):
     G_loss.backward()
     G_solver.step()
     reset_grad()
-```
+{% endhighlight %}
 
 The full code is available at <https://github.com/wiseodd/generative-models>.
 

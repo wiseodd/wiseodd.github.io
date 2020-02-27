@@ -16,7 +16,7 @@ This post should be quick as it is just a port of the previous Keras code. For t
 
 Let's begin with importing stuffs.
 
-``` python
+{% highlight python %}
 import torch
 import torch.nn.functional as nn
 import torch.autograd as autograd
@@ -37,11 +37,11 @@ y_dim = mnist.train.labels.shape[1]
 h_dim = 128
 c = 0
 lr = 1e-3
-```
+{% endhighlight %}
 
 Now, recall in VAE, there are two networks: encoder \\( Q(z \vert X) \\) and decoder \\( P(X \vert z) \\). So, let's build our \\( Q(z \vert X) \\) first:
 
-``` python
+{% highlight python %}
 def xavier_init(size):
     in_dim = size[0]
     xavier_stddev = 1. / np.sqrt(in_dim / 2.)
@@ -63,20 +63,20 @@ def Q(X):
     z_mu = h @ Whz_mu + bhz_mu.repeat(h.size(0), 1)
     z_var = h @ Whz_var + bhz_var.repeat(h.size(0), 1)
     return z_mu, z_var
-```
+{% endhighlight %}
 
 Our \\( Q(z \vert X) \\) is a two layers net, outputting the \\( \mu \\) and \\( \Sigma \\), the parameter of encoded distribution. So, let's create a function to sample from it:
 
-``` python
+{% highlight python %}
 def sample_z(mu, log_var):
     # Using reparameterization trick to sample from a gaussian
     eps = Variable(torch.randn(mb_size, Z_dim))
     return mu + torch.exp(log_var / 2) * eps
-```
+{% endhighlight %}
 
 Let's construct the decoder \\( P(z \vert X) \\), which is also a two layers net:
 
-``` python
+{% highlight python %}
 Wzh = xavier_init(size=[Z_dim, h_dim])
 bzh = Variable(torch.zeros(h_dim), requires_grad=True)
 
@@ -88,7 +88,7 @@ def P(z):
     h = nn.relu(z @ Wzh + bzh.repeat(z.size(0), 1))
     X = nn.sigmoid(h @ Whx + bhx.repeat(h.size(0), 1))
     return X
-```
+{% endhighlight %}
 
 Note, the use of `b.repeat(X.size(0), 1)` is because this [Pytorch issue](https://github.com/pytorch/pytorch/issues/491).
 
@@ -96,7 +96,7 @@ Note, the use of `b.repeat(X.size(0), 1)` is because this [Pytorch issue](https:
 
 Now, the interesting stuff: training the VAE model. First, as always, at each training step we do forward, loss, backward, and update.
 
-``` python
+{% highlight python %}
 params = [Wxh, bxh, Whz_mu, bhz_mu, Whz_var, bhz_var,
           Wzh, bzh, Whx, bhx]
 
@@ -121,33 +121,33 @@ for it in range(100000):
     # Housekeeping
     for p in params:
         p.grad.data.zero_()
-```
+{% endhighlight %}
 
 Now, the forward step:
 
-``` python
+{% highlight python %}
     z_mu, z_var = Q(X)
     z = sample_z(z_mu, z_var)
     X_sample = P(z)
-```
+{% endhighlight %}
 
 That is it. We just call the functions we defined before. Let's continue with the loss, which consists of two parts: reconstruction loss and KL-divergence of the encoded distribution:
 
-``` python
+{% highlight python %}
     recon_loss = nn.binary_cross_entropy(X_sample, X, size_average=False)
     kl_loss = 0.5 * torch.sum(torch.exp(z_var) + z_mu**2 - 1. - z_var)
     loss = recon_loss + kl_loss
-```
+{% endhighlight %}
 
 Backward and update step is as easy as calling a function, as we use Autograd feature from Pytorch:
 
-``` python
+{% highlight python %}
     # Backward
     loss.backward()
 
     # Update
     solver.step()
-```
+{% endhighlight %}
 
 After that, we could inspect the loss, or maybe visualizing \\( P(X \vert z) \\) to check the progression of the training every now and then.
 

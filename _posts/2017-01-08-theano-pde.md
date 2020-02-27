@@ -46,7 +46,7 @@ Visualizing the function:
 
 Now, let's implement this. First, we create the mesh, the solution space:
 
-``` python
+{% highlight python %}
 # Create 21x21 mesh grid
 m = 21
 mesh_range = np.arange(-1, 1, 2/(m-1))
@@ -54,34 +54,34 @@ x, y = np.meshgrid(mesh_range, mesh_range)
 
 # Initial condition
 U = np.exp(-5 * (x**2 + y**2))
-```
+{% endhighlight %}
 
 We then create an indexing scheme that select the point north, west, south, and east of any given point. We do this so that we could implement this in vectorized manner.
 
-``` python
+{% highlight python %}
 # [1, 2, ... , 19, 19]
 n = list(range(1, m-1)) + [m-2]
 e = n
 # [0, 0, 1, 2, ... , 18]
 s = [0] + list(range(0, m-2))
 w = s
-```
+{% endhighlight %}
 
 Having those indices, we could translate the PDE solution above in the code:
 
-``` python
+{% highlight python %}
 def pde_step(U):
     return (U[n, :]+U[:, e]+U[s, :]+U[:, w])/4.
-```
+{% endhighlight %}
 
 Finally, we iteratively apply this update function.
 
-``` python
+{% highlight python %}
 U_step = U
 
 for it in range(500):
     U_step = pde_step(U_step)
-```
+{% endhighlight %}
 
 Here is the result:
 
@@ -94,7 +94,7 @@ Again, as we do not consider boundary value problem, the surface is diminishing 
 
 Translating the Numpy code to Theano is straightforward with caveat. The only thing different in the initialization is the variables: instead of Numpy array, we are now using Theano tensor.
 
-``` python
+{% highlight python %}
 import theano as th
 from theano import tensor as T
 
@@ -115,20 +115,20 @@ w = s
 
 def pde_step(U):
     return (U[n, :]+U[:, e]+U[s, :]+U[:, w])/4.
-```
+{% endhighlight %}
 
 We are using Theano's shared variables for our mesh variables as they are constants.
 
 In the iteration part, things get little more interesting. In Theano, we replace loop with `scan` function. It is unintuitive at first, though.
 
-``` python
+{% highlight python %}
 k = 5
 
 # Batch process the PDE calculation, calculate together k steps
 result, updates = th.scan(fn=pde_step, outputs_info=U, n_steps=k)
 final_result = result[-1]
 calc_pde = th.function(inputs=[U], outputs=final_result, updates=updates)
-```
+{% endhighlight %}
 
 What it does is to apply function `pde_step` repeatedly for `k` steps, and we initialize the tensor we are interested in with the initial state of `U`.
 
@@ -136,14 +136,14 @@ The output of this `scan` function is the result of each time step, in this case
 
 Finally, we wrap this into a Theano's function. The input is the current value of `U` and the output is `U` after applying `pde_step`, `k` times on `U`.
 
-``` python
+{% highlight python %}
 U_step = U.eval()
 
 for it in range(100):
     # Every k steps, draw the graphics
     U_step = calc_pde(U_step)
     draw_plot(x_arr, y_arr, U_step)
-```
+{% endhighlight %}
 
 We could think of our `calc_pde` as a batch processing of `k` iterations of our PDE. After each batch, we could use the latest `U` for e.g. visualization.
 
@@ -156,7 +156,7 @@ TensorFlow is definitely an interesting library, on par with Theano in Deep Lear
 
 This piece of codes:
 
-``` python
+{% highlight python %}
 n = list(range(1, m-1)) + [m-2]
 e = n
 s = [0] + list(range(0, m-2))
@@ -164,7 +164,7 @@ w = s
 
 def pde_step(U):
     return (U[n, :]+U[:, e]+U[s, :]+U[:, w])/4.
-```
+{% endhighlight %}
 
 does not have any difference at all in Numpy and Theano version. However, we could not do this (at least easily) in TensorFlow.
 

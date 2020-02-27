@@ -46,7 +46,7 @@ Notice that CoGAN draws samples from each marginal distribution. That means, we 
 
 In this implementation, we are going to learn joint distribution of two domains of MNIST data: normal MNIST data and rotated MNIST data (90 degree). Notice that those domains of data share the same high level representation (digit), and only differ on the presentation (low level features). Here's the code to generate those training sets:
 
-``` python
+{% highlight python %}
 X_train = mnist.train.images
 half = int(X_train.shape[0] / 2)
 
@@ -56,11 +56,11 @@ X_train1 = X_train[:half]
 X_train2 = X_train[half:].reshape(-1, 28, 28)
 X_train2 = scipy.ndimage.interpolation.rotate(X_train2, 90, axes=(1, 2))
 X_train2 = X_train2.reshape(-1, 28*28)
-```
+{% endhighlight %}
 
 Let's declare the generators first, which are two layers fully connected nets, with first weight (input to hidden) shared:
 
-``` python
+{% highlight python %}
 """ Shared Generator weights """
 G_shared = torch.nn.Sequential(
     torch.nn.Linear(z_dim, h_dim),
@@ -78,11 +78,11 @@ G2_ = torch.nn.Sequential(
     torch.nn.Linear(h_dim, X_dim),
     torch.nn.Sigmoid()
 )
-```
+{% endhighlight %}
 
 Then we make a wrapper for those nets:
 
-``` python
+{% highlight python %}
 def G1(z):
     h = G_shared(z)
     X = G1_(h)
@@ -93,13 +93,13 @@ def G2(z):
     h = G_shared(z)
     X = G2_(h)
     return X
-```
+{% endhighlight %}
 
 Notice that `G_shared` are being used in those two nets.
 
 The discriminators are also two layers nets, similar to the generators, but share weights on the last section: hidden to output.
 
-``` python
+{% highlight python %}
 """ Shared Discriminator weights """
 D_shared = torch.nn.Sequential(
     torch.nn.Linear(h_dim, 1),
@@ -129,11 +129,11 @@ def D2(X):
     h = D2_(X)
     y = D_shared(h)
     return y
-```
+{% endhighlight %}
 
 Next, we construct the optimizer:
 
-``` python
+{% highlight python %}
 D_params = (list(D1_.parameters()) + list(D2_.parameters()) +
             list(D_shared.parameters()))
 G_params = (list(G1_.parameters()) + list(G2_.parameters()) +
@@ -141,19 +141,19 @@ G_params = (list(G1_.parameters()) + list(G2_.parameters()) +
 
 G_solver = optim.Adam(G_params, lr=lr)
 D_solver = optim.Adam(D_params, lr=lr)
-```
+{% endhighlight %}
 
 Now we are ready to train CoGAN. At each training iteration, we do these steps below. First, we sample images from both marginal training sets, and \\( z \\) from our prior:
 
-``` python
+{% highlight python %}
 X1 = sample_x(X_train1, mb_size)
 X2 = sample_x(X_train2, mb_size)
 z = Variable(torch.randn(mb_size, z_dim))
-```
+{% endhighlight %}
 
 Then, train the discriminators by using using `X1` for `D1` and `X2` for `D2`. On both discriminators, we use the same `z`. The loss function is just vanilla GAN loss.
 
-``` python
+{% highlight python %}
 G1_sample = G1(z)
 D1_real = D1(X1)
 D1_fake = D1(G1_sample)
@@ -163,29 +163,29 @@ D1_loss = torch.mean(-torch.log(D1_real + 1e-8) -
 
 D2_loss = torch.mean(-torch.log(D2_real + 1e-8) -
                      torch.log(1. - D2_fake + 1e-8))
-```
+{% endhighlight %}
 
 Then we just add up those loss. During backpropagation, `D_shared` will naturally get gradients from both `D1` and `D2`, i.e. sum of both branches. All we need to do to get the average is to scale them:
 
-``` python
+{% highlight python %}
 D_loss = D1_loss + D2_loss
 D_loss.backward()
 
 # Average the gradients
 for p in D_shared.parameters():
     p.grad.data = 0.5 * p.grad.data
-```
+{% endhighlight %}
 
 As we have all the gradients, we could update the weights:
 
-``` python
+{% highlight python %}
 D_solver.step()
 reset_grad()
-```
+{% endhighlight %}
 
 For generators training, the procedure is similar to discriminators training, where we need to average the loss of `G1` and `G2` w.r.t. `G_shared`.
 
-``` python
+{% highlight python %}
 # Generator
 G1_sample = G1(z)
 D1_fake = D1(G1_sample)
@@ -205,7 +205,7 @@ for p in G_shared.parameters():
 
 G_solver.step()
 reset_grad()
-```
+{% endhighlight %}
 
 <h2 class="section-heading">Results</h2>
 

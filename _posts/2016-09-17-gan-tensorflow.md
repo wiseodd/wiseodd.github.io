@@ -38,7 +38,7 @@ At the equilibrium point, which is the optimal point in minimax game, the first 
 
 By the definition of GAN, we need two nets. This could be anything, be it a sophisticated net like convnet or just a two layer neural net. Let's be simple first and use a two layer nets for both of them. We'll use TensorFlow for this purpose.
 
-``` python
+{% highlight python %}
 # Discriminator Net
 X = tf.placeholder(tf.float32, shape=[None, 784], name='X')
 
@@ -76,7 +76,7 @@ def discriminator(x):
     D_prob = tf.nn.sigmoid(D_logit)
 
     return D_prob, D_logit
-```
+{% endhighlight %}
 
 Above, `generator(z)` takes 100-dimensional vector and returns 786-dimensional vector, which is MNIST image (28x28). `z` here is the prior for the \\( G(Z) \\). In a way it learns a mapping between the prior space to \\( P_{data} \\).
 
@@ -86,14 +86,14 @@ Now, let's declare the Adversarial Process for training this GAN. Here's the tra
 
 ![GAN Algorithm]({{ site.baseurl }}/img/2016-09-17-gan-tensorflow/algorithm.png)
 
-``` python
+{% highlight python %}
 G_sample = generator(Z)
 D_real, D_logit_real = discriminator(X)
 D_fake, D_logit_fake = discriminator(G_sample)
 
 D_loss = -tf.reduce_mean(tf.log(D_real) + tf.log(1. - D_fake))
 G_loss = -tf.reduce_mean(tf.log(D_fake))
-```
+{% endhighlight %}
 
 Above, we use negative sign for the loss functions because they need to be maximized, whereas TensorFlow's optimizer can only do minimization.
 
@@ -101,7 +101,7 @@ Also, as per the paper's suggestion, it's better to maximize `tf.reduce_mean(tf.
 
 Then we train the networks one by one with those Adversarial Training, represented by those loss functions above.
 
-``` python
+{% highlight python %}
 # Only update D(X)'s parameters, so var_list = theta_D
 D_solver = tf.train.AdamOptimizer().minimize(D_loss, var_list=theta_D)
 # Only update G(X)'s parameters, so var_list = theta_G
@@ -116,7 +116,7 @@ for it in range(1000000):
 
     _, D_loss_curr = sess.run([D_solver, D_loss], feed_dict={X: X_mb, Z: sample_Z(mb_size, Z_dim)})
     _, G_loss_curr = sess.run([G_solver, G_loss], feed_dict={Z: sample_Z(mb_size, Z_dim)})
-```
+{% endhighlight %}
 
 And we're done! We can see the training process by sampling \\( G(Z) \\) every now and then:
 
@@ -136,14 +136,14 @@ What about `generator(Z)`? It wants to maximize the probability of fake data! It
 
 Hence, we could formulate the loss as follow.
 
-``` python
+{% highlight python %}
 # Alternative losses:
 # -------------------
 D_loss_real = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(D_logit_real, tf.ones_like(D_logit_real)))
 D_loss_fake = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(D_logit_fake, tf.zeros_like(D_logit_fake)))
 D_loss = D_loss_real + D_loss_fake
 G_loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(D_logit_fake, tf.ones_like(D_logit_fake)))
-```
+{% endhighlight %}
 
 We're using the Logistic Loss, following the notion above. Changing the loss functions won't affect the GAN we're training as this is just a different way to think and formulate the problem.
 

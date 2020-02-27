@@ -25,7 +25,7 @@ We will follow this model for a single LSTM cell:
 
 Let's implement it!
 
-``` python
+{% highlight python %}
 import numpy as np
 
 
@@ -45,13 +45,13 @@ model = dict(
     bo=np.zeros((1, H)),
     by=np.zeros((1, D))
 )
-```
+{% endhighlight %}
 
 Above, we're declaring our LSTM net model. Notice that from the formula above, we're concatenating the old hidden state `h` with current input `x`, hence the input for our LSTM net would be `Z = H + D`. And because our LSTM layer wants to output `H` neurons, each weight matrices' size would be `ZxH` and each bias vectors' size would be `1xH`.
 
 One difference is for `Wy` and `by`. This weight and bias would be used for fully connected layer, which would be fed to a softmax layer. The resulting output should be a probability distribution over all possible items in vocabulary, which would be the size of `1xD`. Hence, `Wy`'s size must be `HxD` and `by`'s size must be `1xD`.
 
-``` python
+{% highlight python %}
 def lstm_forward(X, state):
     m = model
     Wf, Wi, Wc, Wo, Wy = m['Wf'], m['Wi'], m['Wc'], m['Wo'], m['Wy']
@@ -82,7 +82,7 @@ def lstm_forward(X, state):
     cache = ... # Add all intermediate variables to this cache
 
     return prob, state, cache
-```
+{% endhighlight %}
 
 The above code is for the forward step for a single LSTM cell, which identically follows the formula above. The only additions are the one-hot encoding and the hidden-input concatenation process.
 
@@ -90,7 +90,7 @@ The above code is for the forward step for a single LSTM cell, which identically
 
 Now, we will dive into the main point of this post: LSTM backward computation. We will assume that derivative function for `sigmoid` and `tanh` are already known.
 
-``` python
+{% highlight python %}
 def lstm_backward(prob, y_train, d_next, cache):
     # Unpack the cache variable to get the intermediate variables used in forward step
     ... = cache
@@ -154,7 +154,7 @@ def lstm_backward(prob, y_train, d_next, cache):
     state = (dh_next, dc_next)
 
     return grad, state
-```
+{% endhighlight %}
 
 A bit long isn't it? However, actually it's easy enough to derive the LSTM gradients if you understand how to take a partial derivative of a function and how to do chain rule, albeit some tricky stuffs are going on here. For this, I would recommend [CS231n](http://cs231n.github.io/optimization-2/).
 
@@ -171,7 +171,7 @@ With the forward and backward computation implementations in hands, we could sti
 
 This training step consists of three steps: forward computation, loss calculation, and backward computation.
 
-``` python
+{% highlight python %}
 def train_step(X_train, y_train, state):
     probs = []
     caches = []
@@ -206,7 +206,7 @@ def train_step(X_train, y_train, state):
             grads[k] += grad[k]
 
     return grads, loss, state
-```
+{% endhighlight %}
 
 In the full training step, first we're do full forward propagation on all items in training set, then store the results which are the softmax probabilities and cache of each timestep into a list, because we are going to use it in backward step.
 

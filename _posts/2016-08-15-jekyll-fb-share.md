@@ -32,7 +32,7 @@ So, in my case, I want the image and the description that are displayed in my Fa
 
 Now, open your `_include/head.html` template, and this piece of code inside the `<head>` tag.
 
-``` html
+{% highlight html %}
 {% raw %}
 {% if page.header-img %}
     <meta property="og:image" content="{{ site.url }}/{{ page.header-img }}" />
@@ -40,7 +40,7 @@ Now, open your `_include/head.html` template, and this piece of code inside the 
 
 <meta property="og:description" content="{{ page.subtitle }}" />
 {% endraw %}
-```
+{% endhighlight %}
 
 And voila! The next time you share your blog post to Facebook, the post's `header-img` and `subtitle` will be used!
 

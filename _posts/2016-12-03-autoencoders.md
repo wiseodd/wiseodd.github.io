@@ -20,7 +20,7 @@ It turns out, the hidden layer(s) of neural net learns a very interesting respre
 
 In its simplest form, Autoencoder is a two layer net, i.e. a neural net with one hidden layer. The input and output are the same, and we learn how to reconstruct the input, for example using the \\( \ell_{2} \\) norm.
 
-``` python
+{% highlight python %}
 from tensorflow.examples.tutorials.mnist import input_data
 from keras.layers import Input, Dense, Conv2D, MaxPooling2D, UpSampling2D, Flatten, Reshape
 from keras.models import Model
@@ -43,7 +43,7 @@ outputs = Dense(784)(h)
 model = Model(input=inputs, output=outputs)
 model.compile(optimizer='adam', loss='mse')
 model.fit(X, X, batch_size=64, nb_epoch=5)
-```
+{% endhighlight %}
 
 One question that might surface is if we are essentially learning an identity mapping, why do we even bother using a fancy algorithm? Isn't identity mapping trivial? Well, we are trying to learn identity mapping with some constraints, hence it's non trivial. The constraints might arise because of the architectural decision of the neural net.
 
@@ -54,7 +54,7 @@ Consider this. In our implementation above, we use a hidden layer with dimension
 
 Another way we can constraint the reconstruction of Autoencoder is to impose a constraint in its loss. We could, for example, add a reguralization term in the loss function. Doing this will make our Autoencoder to learn sparse representation of data.
 
-``` python
+{% highlight python %}
 inputs = Input(shape=(784,))
 h = Dense(64, activation='sigmoid', activity_regularizer=activity_l1(1e-5))(inputs)
 outputs = Dense(784)(h)
@@ -62,7 +62,7 @@ outputs = Dense(784)(h)
 model = Model(input=inputs, output=outputs)
 model.compile(optimizer='adam', loss='mse')
 model.fit(X, X, batch_size=64, nb_epoch=5)
-```
+{% endhighlight %}
 
 Notice in our hidden layer, we added an \\( \ell_{1} \\) penalty. As a result, the representation is now sparser compared to the vanilla Autoencoder. We could see that by looking at the statistics of the hidden layer. The mean value of vanilla Autoencoder is 0.512477, whereas Sparse Autoencoder 0.148664.
 
@@ -71,7 +71,7 @@ Notice in our hidden layer, we added an \\( \ell_{1} \\) penalty. As a result, t
 
 One natural thought that might arise is to extend the Autoencoder beyond just single layer.
 
-``` python
+{% highlight python %}
 inputs = Input(shape=(784,))
 h = Dense(128, activation='relu')(inputs)
 encoded = Dense(64, activation='relu', activity_regularizer=activity_l1(1e-5))(h)
@@ -81,7 +81,7 @@ outputs = Dense(784)(h)
 model = Model(input=inputs, output=outputs)
 model.compile(optimizer='adam', loss='mse')
 model.fit(X, X, batch_size=64, nb_epoch=5)
-```
+{% endhighlight %}
 
 Now our implementation uses 3 hidden layers instead of just one. We could pick any layer as the feature representation, but for simplicity sake, let's make it simmetrical and use the middle-most layer.
 
@@ -90,7 +90,7 @@ Now our implementation uses 3 hidden layers instead of just one. We could pick a
 
 We then naturally extend our thinking: can we use convnet instead of FCN?
 
-``` python
+{% highlight python %}
 inputs = Input(shape=(28, 28, 1))
 h = Conv2D(4, 3, 3, activation='relu', border_mode='same')(inputs)
 encoded = MaxPooling2D((2, 2))(h)
@@ -101,7 +101,7 @@ outputs = Conv2D(1, 3, 3, activation='relu', border_mode='same')(h)
 model = Model(input=inputs, output=outputs)
 model.compile(optimizer='adam', loss='mse')
 model.fit(X, X, batch_size=64, nb_epoch=5)
-```
+{% endhighlight %}
 
 Above we could see that instead of using fully connected layer, we use convolution and pooling layers as seen in convnet.
 

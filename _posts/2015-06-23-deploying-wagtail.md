@@ -35,7 +35,7 @@ For number 7, we need to restart uwsgi because when uwsgi started, it will "comp
 We already know that Django has multiple setting files: base.py, dev.py, and production.py. In our production environment we surely want to use production.py file to override our base.py. To make our life easier, we can put a script to automatically pick which setting file we have to use depending on what environment we are in. To do this, we'll edit our `__init__.py` inside the settings directory.
 
 
-``` python
+{% highlight python %}
 # settings/__init__.py
 
 import os
@@ -46,14 +46,14 @@ if ENV == 'dev':
     from .dev import *
 elif ENV == 'prod':
     from .production import *
-```
+{% endhighlight %}
 
 First, we find an environment variable named 'MYBLOG_ENV' in our operating system, with 'dev' as the default value. If that environment variable value is 'dev', we use dev.py, otherwise we use production.py. As simple as that. To create the environment variable, there are two ways, first by add it directly to the system, or put it in uwsgi. I will go with the second option because, just like the use of virtualenv, it aligns with our spirit of software environment isolation. This this line to your uwsgi config file, and restart uwsgi to apply the change:
 
 
-```
+{% highlight shell %}
 env=MYBLOG_ENV=prod
-```
+{% endhighlight %}
 
 Now, our Wagtail app in the production server will always use production.py, and whenever we open it in our development machine, it will use dev.py setting. Neat!
 
@@ -67,17 +67,17 @@ I spent a lot of time trying to figure out how to deploy this blog. I'd say most
 *Error 500:* Don't forget to do all of the above steps! I encountered this problem because I didn't compress my static files
 Cannot upload image: The root cause is you don't have libjpeg and libpng in your machine
 
-``` bash
+{% highlight shell %}
 sudo apt-get install libjpeg-dev libpng12-dev
 pip uninstall pillow
 pip install PIL --allow-external PIL --allow-unverified PIL
 pip install pillow
-```
+{% endhighlight %}
 
 Images, CSS, JS won't load: In production setting, we have to serve our static files ourselves. Probably you forgot to serve the "static" directory in the nginx. Check out your nginx sites-availables:
 
 
-``` nginx
+{% highlight nginx %}
 location /static/ {
     root /your/project/path;
 }
@@ -85,17 +85,17 @@ location /static/ {
 location /media/ {
     root /your/project/path;
 }
-```
+{% endhighlight %}
 
 Probably also because the nginx doesn't have the permission to access the directories.
 
 
-``` bash
+{% highlight shell %}
 chmod 664 -R static
 chmod 664 -R media
 chown -R yourusername:www-data static
 chown -R yourusername:www-data media
-```
+{% endhighlight %}
 
 Aaaaaand that's it! Now your Wagtail site should be up and running nicely in the production server!
 

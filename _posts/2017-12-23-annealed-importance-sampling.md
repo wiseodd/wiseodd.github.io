@@ -76,7 +76,7 @@ assuming we have symmetric proposal, e.g. \\( N(0, I) \\).
 
 To make it more concrete, we can look at the simple implementation of AIS. We first define our target function:
 
-``` python
+{% highlight python %}
 import numpy as np
 import scipy.stats as st
 import matplotlib.pyplot as plt
@@ -87,11 +87,11 @@ def f_0(x):
     Target distribution: \propto N(-5, 2)
     """
     return np.exp(-(x+5)**2/2/2)
-```
+{% endhighlight %}
 
 Next we define our proposal function and distribution, as we assume we can easily sample independent points from it:
 
-``` python
+{% highlight python %}
 def f_j(x, beta):
     """
     Intermediate distribution: interpolation between f_0 and f_n
@@ -101,11 +101,11 @@ def f_j(x, beta):
 
 # Proposal distribution: 1/Z * f_n
 p_n = st.norm(0, 1)
-```
+{% endhighlight %}
 
 Lastly, we define our transition function:
 
-``` python
+{% highlight python %}
 def T(x, f, n_steps=10):
     """
     Transition distribution: T(x'|x) using n-steps Metropolis sampler
@@ -121,11 +121,11 @@ def T(x, f, n_steps=10):
             x = x_prime
 
     return x
-```
+{% endhighlight %}
 
 Then, we are ready to do the sampling:
 
-``` python
+{% highlight python %}
 x = np.arange(-10, 5, 0.1)
 
 n_inter = 50  # num of intermediate dists
@@ -151,16 +151,16 @@ for t in range(n_samples):
 
     samples[t] = x
     weights[t] = np.exp(w)  # Transform back using exp
-```
+{% endhighlight %}
 
 Notice, in the code above we do log-sum-exp trick to avoid underflow when computing \\( w \\).
 
 After the iteration finished, we have with ourselves our samples and their corresponding weights, from which we can compute the expectation as in importance sampling:
 
-``` python
+{% highlight python %}
 # Compute expectation
 a = 1/np.sum(weights) * np.sum(weights * samples)
-```
+{% endhighlight %}
 
 In this example, the result should be very close to the mean of our target Gaussian i.e. \\( -5 \\).
 

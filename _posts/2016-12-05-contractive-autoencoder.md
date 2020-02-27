@@ -67,7 +67,7 @@ $$ \begin{align}
 
 Translated to code:
 
-``` python
+{% highlight python %}
 import numpy as np
 
 
@@ -82,11 +82,11 @@ h = sigmoid(Z)  # 32x64
 Wj_sqr = np.sum(W.T**2, axis=1)  # Marginalize i (note the transpose), 64x1
 dhj_sqr = (h * (1 - h))**2  # Derivative of h, 32x64
 J_norm = np.sum(dhj_sqr * Wj_sqr, axis=1) # 32x1, i.e. 1 jacobian norm for each data point
-```
+{% endhighlight %}
 
 Putting all of those together, we have our full Contractive Autoencoder implemented in Keras:
 
-``` python
+{% highlight python %}
 from keras.layers import Input, Dense
 from keras.models import Model
 import keras.backend as K
@@ -115,7 +115,7 @@ def contractive_loss(y_pred, y_true):
 
 model.compile(optimizer='adam', loss=contractive_loss)
 model.fit(X, X, batch_size=N_batch, nb_epoch=5)
-```
+{% endhighlight %}
 
 And that is it! The full code could be found in my Github repository: <https://github.com/wiseodd/hipsternet>.
 
