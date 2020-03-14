@@ -7,7 +7,7 @@ layout: page
     <a href="{{ post.url | prepend: site.baseurl }}">
         <div class="row">
             <div class="col-sm-4">
-                <img src="/{% if post.header-img %}{{ post.header-img }}{% else %}{{ site.header-img }}{% endif %}">
+                <img style="max-height: 200px" src="/{% if post.header-img %}{{ post.header-img }}{% else %}{{ site.header-img }}{% endif %}">
             </div>
             <div class="col-sm-8">
                 <h2 class="post-title">

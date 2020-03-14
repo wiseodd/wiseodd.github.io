@@ -1,10 +1,10 @@
 ---
 layout:     post
-title:      "De Rham Cohomology"
-subtitle:   "One of the most ubiquitous applications in the field of geometry is the optimization problem. In this article we will discuss the familiar optimization problem on Euclidean spaces by focusing on the gradient descent method, and generalize them on Riemannian manifolds."
-date:       2019-03-11 12:00
+title:      "Towards de Rham Cohomology, Part I: Covector Fields"
+subtitle:   "In this three-part series, we will built our intuition towards de Rham cohomology. Particularly, in this article, we begin by studying covector fields on smooth manifolds. We then talk about the question of identifying conservative covector fields, which motivates the future article on de Rham cohomology."
+date:       2019-03-14 08:00
 author:     "wiseodd"
-header-img: "img/manifold.svg"
+header-img: "img/VectorField.svg"
 category:   techblog
 tags:       [math]
 ---
@@ -17,9 +17,9 @@ $$
 
 This kind of vector field is important since it (i) has zero curl (i.e. irrotational) and (ii) a line integral w.r.t. to this vector field is easy to compute. In term of dynamical systems, having zero (or less) curl could be beneficial since it can potentially converge to an equilibrium point faster.
 
-Because of the reasons above, it is important to have an easy way to check whether a given vector field is conservative or not, other than proving that the function $f$ itself exists or not. In this article, we will see a more general view of vector fields on a smooth manifold and attempt to answer this question in this setting. Important ingredients for this are differential forms and de Rham cohomology groups.
+Because of the reasons above, it is important to have an easy way to check whether a given vector field is conservative or not, other than proving that the function $f$ itself exists or not. In this article, we will see a more general view of these concepts on a smooth manifold and attempt to answer this question in this setting. Important ingredients for this are differential forms and de Rham cohomology groups.
 
-We will begin by re-interpreting Euclidean vector fields as covector fields on a smooth manifold. We will then re-define the term ''conservative'' in this context. A necessary condition for a covector field to be conservative will then be presented. Finally, we devote a bit of our time in constructing de Rham cohomology groups, which we will use to answer the reverse direction of the previous statement.
+We will begin by re-interpreting Euclidean vector fields as covector fields on smooth manifolds. We will then re-define the term ''conservative'' in this context. A necessary condition for a covector field to be conservative will then be presented. Finally, we will see that to identify a conservative covector field, one needs to take global topological properties of the manifold. This post can be seen as a summary of Lee's smooth manifolds book [1] with additional notes from myself.
 
 
 <h2 class="section-heading">Covector fields on smooth manifolds</h2>
@@ -30,7 +30,7 @@ $$
     T^*M := \coprod_{p \in M} T^*_p M
 $$
 
-is called the **_cotangent bundle_** of $M$ (see [the notes on Riemannian geometry]({% post_url 2019-02-17-riemannian-geometry %})). A **_covector field_** (also known as a differential 1-form) is a function $M \to T^\*M$ defined by $p \mapsto \omega(p) \in T^*_pM$. That is, a covector field assigns at each point a covector in the cotangent space of that point. Covector fields is the dual of vector field: whereas vector fields can be thought as assigning each point of $M$ with an arrow, covector fields can be thought as assigning at each point of $M$ a function that "measure" the corresponding arrow.
+is called the **_cotangent bundle_** of $M$ (see [the notes on Riemannian geometry]({% post_url 2019-02-17-riemannian-geometry %})). A **_covector field_** (also known as a differential 1-form) is a function $M \to T^\*M$ defined by $p \mapsto \omega(p) \in T^*_pM$. That is, a covector field assigns at each point a covector in the cotangent space of that point. Covector fields is the dual of vector field: whereas vector fields can be thought as assigning each point of $M$ with an arrow, covector fields can be thought as assigning at each point of $M$ a function that "measure" arrows at that point.
 
 One important application of covector fields is that they generalize the notion of gradient vector field in the Euclidean space to smooth manifolds. To see this, let $f \in C^\infty(M)$. We define a covector field $df$, called the **_differential of f_**, by
 
@@ -166,12 +166,66 @@ Therefore, this shows that in $\R^2 \setminus \\{ 0 \\}$, closedness does not ne
 
 What if we restrict the domain of $\omega$ to be the right half-plane $U := \\{ (x, y): x > 0 \\}$ of $\R^2$? There, if we define $f: U \to \R$ by $\tan^{-1} y/x$, which is a smooth function on $U$, we can verify that $\omega = df$. Thus, in this case $\omega$ is exact and therefore conservative by Theorem 2.
 
-As a further note, this problem can be seen more clearly if we think $f$ as the angle function $\theta = \tan^{-1} y/x$ of polar coordinates. On $\R^2 \setminus \\{ 0 \\}$, there are some discontinuities in $\theta$ which makes it non-smooth. One such discontinuities is at $\theta = 0$, since in this case either $y$ or both $y$ and $x$ must be zero.
+As a further note, this problem can be seen more clearly if we think $f$ as the angle function $\theta = \tan^{-1} y/x$ of polar coordinates. On $\R^2 \setminus \\{ 0 \\}$, there are some discontinuities in $\theta$ which makes it non-smooth. One such discontinuities is at $\theta = 0$, since in this case $y$ must be zero.
 
 //
 {:.right}
 
+This example is the principal motivation of de Rham cohomology, which we will look into in a future article: we need to take into account the global topological properties of the domain of a covector field to answer whether it is exact or not. We can formalize the observation above in the following theorem.
+
+**Theorem 5 (Poincaré Lemma for Covector Fields).** _Let $U$ be a star-shaped open subset of $\R^n$ or $\mathbb{H}^n$. That is, $U$ has the following property: There exists $c \in U$ s.t. for every $x \in U$, the line segment from $c$ to $x$ is entirely contained in $U$. Then every closed covector field on $U$ is exact._
+
+_Proof._ Let $\omega = \omega_i dx^i$ be a closed covector field on $U$. Without loss of generality, we can assume that $c = 0$. For any $x \in U$, let $\gamma_x: [0, 1] \to U$ be the line segment from $0$ to $x$, defined by $\gamma_x(t) := tx$. Since $U$ is star-shape, the image of $\gamma_x$ lies entirely in $U$ for each $x \in U$. Define $f: U \to \R$ by
+
+$$
+    f(x) := \int_{\gamma_x} \omega \, .
+$$
+
+We need to show that $\omega = df$, i.e. $\partial f / \partial x^j = \omega_j$ for all $j$. We note that
+
+$$
+    f(x) = \int_0^1 \omega_{\gamma_x(t)}(\gamma'_x(t)) \, dt = \int_0^1 \left( \sum_{i=1}^n \omega_i(tx) x^i \right) \, dt \, ,
+$$
+
+where we have taken a similar step to the computation in Example 4. Now we need to compute the partial derivatives of $f$. Notice that all terms in the integrand are smooth. Hence, by [Leibniz's theorem](https://en.wikipedia.org/wiki/Leibniz_integral_rule), we can exchange the differentiation and integral to obtain
+
+$$
+\begin{align}
+    \frac{\partial f}{\partial x^j}(x) &= \int_0^1 \left( \sum_{i=1}^n \frac{\partial}{\partial x^j} \omega_i(tx) x^i \right) \, dt \\
+        &= \int_0^1 \left( \sum_{i=1}^n \frac{\partial \omega_i}{\partial x^j}(tx) t x^i + \omega_i(tx) \delta^i_j \right) \, dt \\
+        &= \int_0^1 \left( \sum_{i=1}^n \frac{\partial \omega_i}{\partial x^j}(tx) t x^i + \omega_j(tx) \right) \, dt \, .
+\end{align}
+$$
+
+Now, since $\omega$ is closed, we have $\partial \omega_i / \partial x^j = \partial \omega_j / \partial x^i$, and thus
+
+$$
+\begin{align}
+    \frac{\partial f}{\partial x^j}(x) &= \int_0^1 \left( \sum_{i=1}^n \frac{\partial \omega_j}{\partial x^i}(tx) t x^i + \omega_j(tx) \right) \, dt \\
+        &= \int_0^1 \frac{d}{dt}(t \omega_j(tx)) \, dt \\
+        &= \left[ t \omega_j(tx) \right]_{t=0}^{t=1} \\
+        &= \omega_j(x) \, ,
+\end{align}
+$$
+
+as required.
+
+$\square$
+{:.right}
+
+Here is a corollary of this theorem which states that every closed covector field is _locally_ exact, regardless of the global topology of the space.
+
+**Corollary 6.** _Let $\omega$ be a closed covector field on a smooth manifold $M$. Then every point of $M$ has a neighborhood on which $\omega$ is exact._
+
+_Proof._ We need to show that for every $p \in M$, there exists a neighborhood $U$ containing $p$ s.t. $\omega$ is exact on $U$. Therefore, let $p \in M$ be arbitrary. Since $\omega$ is closed, by definition, we can pick some smooth coordinate ball $U$ containing $p$. Since balls are convex and therefore star-shaped, Theorem 5 implies that $\omega$ is exact on $U$. Since $p$ is arbitrary, this property holds for every $p \in M$. Thus $\omega$ is locally exact.
+
+$\square$
+{:.right}
+
+This corollary is useful in e.g. local analysis of a dynamical system around an equilibrium point: To show that the corresponding covector field is conservative, one only needs to show that its mixed partial derivatives commute there.
+
+In the second part of this series of articles, we will generalize the notion of differential. We will talk about the _exterior derivative_ of higher order differential forms. The exterior derivative is an essential ingredient for defining de Rham cohomology, which will be studied in the third and final part of this series.
+
 <h2 class="section-heading">References</h2>
 
 1. Lee, John M. "Smooth manifolds." Introduction to Smooth Manifolds. Springer, New York, NY, 2013. 1-31.
-2. Lee, John M. Riemannian manifolds: an introduction to curvature. Vol. 176. Springer Science & Business Media, 2006.
