@@ -179,8 +179,8 @@ t = np.vstack([np.zeros([100, 1]), np.ones([100, 1])])
 
 X, t = shuffle(X, t)
 
-X_train, X_test = X[:150], X[:50]
-t_train, t_test = t[:150], t[:50]
+X_train, X_test = X[:150], X[150:]
+t_train, t_test = t[:150], t[150:]
 {% endhighlight %}
 
 Next, we consider our model. It is a simple linear model (without bias) with sigmoid output. Thus naturally, we use binary cross entropy loss:
