@@ -2,7 +2,7 @@
 layout:     post
 title:      "Towards de Rham Cohomology, Part II: Differential Forms and the Exterior Derivative"
 subtitle:   "In this three-part series, we will built our intuition towards de Rham cohomology. Particularly, in this article, we begin by studying the generalization of covector fields on smooth manifolds: the differential forms. We then talk about the exterior derivative which is the centerpiece of the future article on de Rham cohomology."
-date:       2019-04-17 15:00
+date:       2020-04-17 15:00
 author:     "wiseodd"
 header-img: "img/VectorField.svg"
 category:   techblog

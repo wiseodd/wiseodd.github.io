@@ -2,7 +2,7 @@
 layout:     post
 title:      "De Rham Cohomology"
 subtitle:   "De Rham cohomology groups are algebraic objects which are useful for identifying, on a given manifold, whether a closed differential form is exact and therefore conservative or not. Remarkably, these groups are topological invariant: Two manifolds that are homeomorphic to each other have isomorphic de Rham groups."
-date:       2019-05-01 08:00
+date:       2020-05-01 08:00
 author:     "wiseodd"
 header-img: "img/VectorField.svg"
 category:   techblog

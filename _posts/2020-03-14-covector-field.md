@@ -2,7 +2,7 @@
 layout:     post
 title:      "Towards de Rham Cohomology, Part I: Covector Fields"
 subtitle:   "In this three-part series, we will built our intuition towards de Rham cohomology. Particularly, in this article, we begin by studying covector fields on smooth manifolds. We then talk about the question of identifying conservative covector fields, which motivates the future article on de Rham cohomology."
-date:       2019-03-14 08:00
+date:       2020-03-14 08:00
 author:     "wiseodd"
 header-img: "img/VectorField.svg"
 category:   techblog
