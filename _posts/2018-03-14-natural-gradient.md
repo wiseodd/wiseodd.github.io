@@ -35,9 +35,9 @@ We can see the problem when using only Euclidean metric in parameter space from 
 
 In both images, the distance of those Gaussians are the same, i.e. 4, according to Euclidean metric (red line). However, clearly in distribution space, i.e. when we are taking into account the shape of the Gaussians, the distance is different in the first and second image. In the first image, the KL-divergence should be lower as there is more overlap between those Gaussians. Therefore, if we only work in parameter space, we cannot take into account this information about the distribution realized by the parameter.
 
-The other nice property of working in distribution space instead of parameter space is that in distribution space, it is invariant to parameterization of the distribution. As an illustration, consider a Gaussian. We can parametrize it with its covariance matrix or precision matrix. Covariance and precision matrix are different to each other (up to special condition, e.g. identity matrix), even though it induces the same Gaussian. Thus, a single point in distribution space are possibly mapped into two different points in the parameter space. If we work in distribution space, then we only care about the resulting Gaussian.
+<!-- The other nice property of working in distribution space instead of parameter space is that in distribution space, it is invariant to parameterization of the distribution. As an illustration, consider a Gaussian. We can parametrize it with its covariance matrix or precision matrix. Covariance and precision matrix are different to each other (up to special condition, e.g. identity matrix), even though it induces the same Gaussian. Thus, a single point in distribution space are possibly mapped into two different points in the parameter space. If we work in distribution space, then we only care about the resulting Gaussian. -->
 
-<h2 class="section-heading">Fisher and KL-divergence</h2>
+<h2 class="section-heading">Fisher Information and KL-divergence</h2>
 
 One question still needs to be answered is what exactly is the connection between Fisher Information Matrix and KL-divergence? It turns out, Fisher Information Matrix defines the local curvature in distribution space for which KL-divergence is the metric.
 
@@ -162,7 +162,7 @@ As corollary, we have the following algorithm:
     5. Update the parameter: \\( \theta = \theta - \alpha \, \tilde{\nabla}\_\theta \mathcal{L}(\theta) \\), where \\( \alpha \\) is the learning rate.
 2. Until convergence.
 
-<h2 class="section-heading">Simple Implementation Example</h2>
+<!-- <h2 class="section-heading">Simple Implementation Example</h2>
 
 **Remark.** _The implementation below is based on the empirical FIM, thus does not reflect the true natural gradient. (See <https://arxiv.org/abs/1905.12558>.) To use the true FIM, one need to take the expectation of the outer product of the gradient w.r.t. the predictive distribution. For example, one can do Monte Carlo approximation by drawing random labels to compute the loss and subsequently compute the FIM. Note that the calculation of the vanilla gradient remains unchanged._
 
@@ -254,7 +254,7 @@ How good is natural gradient descent compared to the vanilla gradient descent? B
 | Vanilla Gradient Descent | 0.4058  | 0.106  |
 {:.table-bordered}
 
-At least in this very simple setting, natural gradient descent converges twice as fast as the vanilla counterpart. Furthermore, it converges faster consistently, as shown by the standard deviation.
+At least in this very simple setting, natural gradient descent converges twice as fast as the vanilla counterpart. Furthermore, it converges faster consistently, as shown by the standard deviation. -->
 
 <h2 class="section-heading">Discussion</h2>
 
