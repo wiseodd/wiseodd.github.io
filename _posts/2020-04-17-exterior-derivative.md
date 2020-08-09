@@ -111,7 +111,7 @@ $$
 
 which is familiar to us, since it is just the differential of $f$.
 
-**Proposition 1 (Some properties of $d$ on $\R^n$).** Let $d$ be the exterior derivative defined above. Then $d$ is linear over $\R$ and $d \circ d \equiv 0$.
+**Proposition 1 (Some properties of $d$ on $\R^n$).** _Let $d$ be the exterior derivative defined above. Then $d$ is linear over $\R$ and $d \circ d \equiv 0$._
 
 _Proof._ Let $\omega, \nu$ be smooth $k$-forms, $x$ be a coordinate chart, and $a, b \in \R$ be constants. For brevity, let $z^i := dx^i \wedge dx^{j_1} \dots \wedge dx^{j_k}$ By definition of $d$:
 

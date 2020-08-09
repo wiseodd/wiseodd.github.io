@@ -71,14 +71,14 @@ Remarkably, de Rham cohomology is a _diffeomorphism invariance_. One can show (t
 
 The computation of de Rham cohomology groups is in general not easy. One can use homotopy invariance or Mayer-Vietoris theorem to do so. However, a lot of pre-requisites about topology is required and is thus outside of the scope of this post. However, for completeness, we will show them below. The first is about contractible manifolds.
 
-**Theorem 2 (Cohomology of Contractible Manifolds).** If $M$ is a contractible smooth manifold then $H^p_\text{dR}(M) = 0$ for $p \geq 1$.
+**Theorem 2 (Cohomology of Contractible Manifolds).** _If $M$ is a contractible smooth manifold then $H^p\_\text{dR}(M) = 0$ for $p \geq 1$._
 
 $\square$
 {:.right}
 
 As a consequence we can generalize the Poincaré Lemma for covector fields (Theorem 5 [here]({% post_url 2020-03-14-covector-field %})) to higher order differential forms.
 
-**Theorem 3 (The Poincaré Lemma).** If $U$ is a star-shaped open subset of $\R^n$, then $H^p_\text{dR}(U) = 0$ for $p \geq 1$.
+**Theorem 3 (The Poincaré Lemma).** _If $U$ is a star-shaped open subset of $\R^n$, then $H^p\_\text{dR}(U) = 0$ for $p \geq 1$._
 
 _Proof._ $U$ star-shaped implies that it is contractible.
 
@@ -88,7 +88,7 @@ $\square$
 
 A particular consequence is that, we can now see why we do not need to bother about the main question of this post in Euclidean spaces.
 
-**Theorem 4 (Cohomology of Euclidean Spaces).** For any integers $n \geq 0$ and $p \geq 1$, we have that $H^p_\text{dR}(\R^n) = 0$.
+**Theorem 4 (Cohomology of Euclidean Spaces).** _For any integers $n \geq 0$ and $p \geq 1$, we have that $H^p\_\text{dR}(\R^n) = 0$._
 
 _Proof._ $\R^n$ is star-shaped for any $n \geq 0$.
 
@@ -98,7 +98,7 @@ $\square$
 
 Finally, the following result (the proof requires Mayer-Vietoris theorem) formalizes what we have stated in Example 1.
 
-**Theorem 5 (Cohomology of Punctured Euclidean Space).** Let $n \geq 2$ be an integer, $x \in \R^n$, and $M := \R^n \setminus \\{ x \\}$. Then, the only nontrivial de Rham groups of $M$ are $H^0_\text{dR}(M)$ and $H^{n-1}\_\text{dR}(M)$.
+**Theorem 5 (Cohomology of Punctured Euclidean Space).** _Let $n \geq 2$ be an integer, $x \in \R^n$, and $M := \R^n \setminus \\{ x \\}$. Then, the only nontrivial de Rham groups of $M$ are $H^0\_\text{dR}(M)$ and $H^{n-1}\_\text{dR}(M)$._
 
 $\square$
 {:.right}
