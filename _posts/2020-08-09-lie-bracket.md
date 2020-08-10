@@ -107,10 +107,10 @@ Let $X, Y \in \mathfrak{X}(M)$ and $f \in C^\infty(M)$. We know that applying $X
 
 $$
 \begin{align*}
-    XY(fg) &= X(f \, Yg + g \, Yf) \\
-        &= X(x x \, \partial g/\partial y + y x \, \partial f/\partial y) \\
-        &= X(x^2) \\
-        &= \partial x^2/\partial x \\
+    XY(fg) &= X(f \, Yg + g \, Yf) \\[5pt]
+        &= X \left( x x \frac{\partial g}{\partial y} + y x \frac{\partial f}{\partial y} \right) \\[5pt]
+        &= X(x^2) \\[5pt]
+        &= \frac{\partial x^2}{\partial x} \\[5pt]
         &= 2x.
 \end{align*}
 $$
@@ -119,9 +119,9 @@ However,
 
 $$
 \begin{align*}
-    (XY)(fg) &= f \, XYg + g \, XYf \\
-        &= x \, X(x \, \partial g/\partial y) + y \, X(x \, \partial f/\partial y) \\
-        &= x \, \partial x/\partial x \\
+    (XY)(fg) &= f \, XYg + g \, XYf \\[5pt]
+        &= x \, X \left( x \frac{\partial g}{\partial y} \right) + y \, X \left(x \frac{\partial f}{\partial y} \right) \\[5pt]
+        &= x \, \partial x/\partial x \\[5pt]
         &= x,
 \end{align*}
 $$
@@ -143,9 +143,9 @@ _Proof._ Let $X, Y \in \mathfrak{X}(M)$ be arbitrary. Since we identify vector f
 
 $$
 \begin{align*}
-    [X, Y](\alpha f + \beta g) &= XY(\alpha f + \beta g) - YX(\alpha f + \beta g) \\
-        &= X(\alpha Yf + \beta Yg) - Y(\alpha Xf + \beta Xg) \\
-        &= \alpha XYf - \alpha YXf + \beta XYg - \beta YXg \\
+    [X, Y](\alpha f + \beta g) &= XY(\alpha f + \beta g) - YX(\alpha f + \beta g) \\[5pt]
+        &= X(\alpha Yf + \beta Yg) - Y(\alpha Xf + \beta Xg) \\[5pt]
+        &= \alpha XYf - \alpha YXf + \beta XYg - \beta YXg \\[5pt]
         &= \alpha [X, Y]f + \beta [X, Y]g.
 \end{align*}
 $$
@@ -154,12 +154,12 @@ Now, for the Leibniz property, let $f, g \in C^\infty(M)$ be arbitrary smooth fu
 
 $$
 \begin{align*}
-    [X, Y](fg) &= X(Y(fg)) - Y(X(fg)) \\
-        &= X(f \, Yg + g \, Yf) - Y(f \, Xg + g \, Xf) \\
-        &= X(f \, Yg) + X(g \, Yf) - Y(f \, Xg) - Y(g \, Xf) \\
-        &= f \, XYg + Yg \, Xf + g \, XYf + Yf \, Xg - f \, YXg - Xg \, Yf - g \, YXf - Xf \, Yg \\
-        &= f \, XYg + g \, XYf - f \, YXg - g \, YXf \\
-        &= f (XYg - YXg) + g (XYf - YXf) \\
+    [X, Y]&(fg) = X(Y(fg)) - Y(X(fg)) \\[5pt]
+        &= X(f \, Yg + g \, Yf) - Y(f \, Xg + g \, Xf) \\[5pt]
+        &= X(f \, Yg) + X(g \, Yf) - Y(f \, Xg) - Y(g \, Xf) \\[5pt]
+        &= f \, XYg + Yg \, Xf + g \, XYf + Yf \, Xg - f \, YXg - Xg \, Yf - g \, YXf - Xf \, Yg \\[5pt]
+        &= f \, XYg + g \, XYf - f \, YXg - g \, YXf \\[5pt]
+        &= f (XYg - YXg) + g (XYf - YXf) \\[5pt]
         &= f \, [X, Y]g + g \, [X, Y]f.
 \end{align*}
 $$
@@ -173,7 +173,7 @@ $\square$
 The value of the vector field $[X, Y]$ at $p \in M$ is the derivation at $p$ given by
 
 $$
-    [X, Y]\_p f = X_p(Yf) - Y_p (Xf).
+    [X, Y]_p f = X_p(Yf) - Y_p (Xf).
 $$
 
 It can be computed in coordinate via the following formula.
@@ -195,9 +195,9 @@ _Proof._ Since $[X, Y] \in \mathfrak{X}(M)$, its action on $f \in C^\infty(M)$ i
 
 $$
 \begin{align*}
-    [X, Y]f &= X^i \, \frac{\partial}{\partial x^i} \left( Y^j \frac{\partial f}{\partial x^j} \right) -  Y^j \, \frac{\partial}{\partial x^j} \left( X^i \frac{\partial f}{\partial x^i} \right) \\[10pt]
-        &= X^i Y^j \, \frac{\partial^2 f}{\partial x^i \partial x^j} + X^i \, \frac{\partial Y^j}{\partial x^i} \frac{\partial f}{\partial x^j} - Y^j X^i \, \frac{\partial^2 f}{\partial x^i \partial x^j} - Y^j \, \frac{\partial X^i}{\partial x^j} \frac{\partial f}{\partial x^i} \\[10pt]
-        &= X^i \, \frac{\partial Y^j}{\partial x^i} \frac{\partial f}{\partial x^j} - Y^j \, \frac{\partial X^i}{\partial x^j} \frac{\partial f}{\partial x^i} \\[10pt]
+    [X, Y]f &= X^i \, \frac{\partial}{\partial x^i} \left( Y^j \frac{\partial f}{\partial x^j} \right) -  Y^j \, \frac{\partial}{\partial x^j} \left( X^i \frac{\partial f}{\partial x^i} \right) \\[5pt]
+        &= X^i Y^j \, \frac{\partial^2 f}{\partial x^i \partial x^j} + X^i \, \frac{\partial Y^j}{\partial x^i} \frac{\partial f}{\partial x^j} - Y^j X^i \, \frac{\partial^2 f}{\partial x^i \partial x^j} - Y^j \, \frac{\partial X^i}{\partial x^j} \frac{\partial f}{\partial x^i} \\[5pt]
+        &= X^i \, \frac{\partial Y^j}{\partial x^i} \frac{\partial f}{\partial x^j} - Y^j \, \frac{\partial X^i}{\partial x^j} \frac{\partial f}{\partial x^i} \\[5pt]
         &= \left( X^i \, \frac{\partial Y^j}{\partial x^i} - Y^i \, \frac{\partial X^j}{\partial x^i} \right) \frac{\partial f}{\partial x^j},
 \end{align*}
 $$
@@ -218,7 +218,7 @@ A less trivial example: Let $X, Y \in \mathfrak{X}(\R^3)$ be defined by
 
 $$
 \begin{align*}
-    X &:= x \frac{\partial}{\partial x} + \frac{\partial}{\partial y} + x(y + 1) \frac{\partial}{\partial z}, \\[10pt]
+    X &:= x \frac{\partial}{\partial x} + \frac{\partial}{\partial y} + x(y + 1) \frac{\partial}{\partial z}, \\[5pt]
     Y &:= \frac{\partial}{\partial x} + y \frac{\partial}{\partial z}.
 \end{align*}
 $$
@@ -227,8 +227,8 @@ Then, using the concise coordinate formula of $[X, Y]$, we have
 
 $$
 \begin{align*}
-    [X, Y] &= \left( X(1) - Y(x) \right) \frac{\partial}{\partial x} + \left( X(0) - Y(1) \right) \frac{\partial}{\partial y} + \left( X(y) - Y(x(y + 1)) \right) \frac{\partial}{\partial z} \\[10pt]
-        &= \left( 0 - 1 \right) \frac{\partial}{\partial x} + \left( 0 - 0 \right) \frac{\partial}{\partial y} + \left( 1 - (y + 1) \right) \frac{\partial}{\partial z} \\[10pt]
+    [X, Y] &= \left( X(1) - Y(x) \right) \frac{\partial}{\partial x} + \left( X(0) - Y(1) \right) \frac{\partial}{\partial y} + \left( X(y) - Y(x(y + 1)) \right) \frac{\partial}{\partial z} \\[5pt]
+        &= \left( 0 - 1 \right) \frac{\partial}{\partial x} + \left( 0 - 0 \right) \frac{\partial}{\partial y} + \left( 1 - (y + 1) \right) \frac{\partial}{\partial z} \\[5pt]
         &= - \frac{\partial}{\partial x} - y \frac{\partial}{\partial z}.
 \end{align*}
 $$
@@ -246,7 +246,7 @@ Now we look into the properties of the Lie bracket, which are summarized in the 
 
 $$
 \begin{align*}
-    [aX + bY, Z] &= a[X, Z] + b[Y, Z] \\
+    [aX + bY, Z] &= a[X, Z] + b[Y, Z] \\[5pt]
     [Z, aX + bY] &= a[Z, X] + b[Z, Y].
 \end{align*}
 $$
@@ -273,8 +273,8 @@ _Proof._ First we first prove the bilinearity. Let $f \in C^\infty(M)$ be arbitr
 
 $$
 \begin{align*}
-    [aX + bY, Z]f &= (aX + bY)(Zf) - Z(aX + bY)f \\
-        &= a XZf + b YZf - a ZXf - b ZYf \\
+    [aX + bY, Z]f &= (aX + bY)(Zf) - Z(aX + bY)f \\[5pt]
+        &= a XZf + b YZf - a ZXf - b ZYf \\[5pt]
         &= a[X, Z]f + b[Y, Z]f .
 \end{align*}
 $$
@@ -291,10 +291,10 @@ Now, we prove the Jacobi identity. For any $f \in C^\infty(M)$, we have
 
 $$
 \begin{align*}
-    ([X, [Y, Z]] &+ [Y, [Z, X]] + [Z, [X, Y]])f = [X, [Y, Z]]f + [Y, [Z, X]]f + [Z, [X, Y]]f \\
-        &= X[Y, Z]f - [Y, Z]Xf + Y[Z, X]f - [Z, X]Yf + Z[X, Y]f - [X, Y]Z f \\
-        &= XYZf - XZYf - YZXf + ZYXf + YZXf - YXZf \\
-        &\qquad - ZXYf + XZYf + ZXYf - ZYXf - XYZf + YXZf \\
+    ([X, [Y, Z]] &+ [Y, [Z, X]] + [Z, [X, Y]])f = [X, [Y, Z]]f + [Y, [Z, X]]f + [Z, [X, Y]]f \\[5pt]
+        &= X[Y, Z]f - [Y, Z]Xf + Y[Z, X]f - [Z, X]Yf + Z[X, Y]f - [X, Y]Z f \\[5pt]
+        &= XYZf - XZYf - YZXf + ZYXf + YZXf - YXZf \\[5pt]
+        &\qquad - ZXYf + XZYf + ZXYf - ZYXf - XYZf + YXZf \\[5pt]
         &= 0.
 \end{align*}
 $$
@@ -303,10 +303,10 @@ Lastly, for (iv), let $h \in C^\infty(M)$ be arbitrary. We then use the definiti
 
 $$
 \begin{align*}
-    [fX, gY] &= (fX)(gY)h - (gY)(fX)h \\
-        &= (fX)(g \, (Yh)) - (gY)(f \, (Xh)) \\
-        &= g \, (fX)(Yh) + (Yh)(fXg) - f \, (gY)(Xh) - (Xh)(gYf) \\
-        &= (fg (XY))h - (fg (YX))h + ((fXg)Y)h - ((gYf)X)h \\
+    [fX, gY] &= (fX)(gY)h - (gY)(fX)h \\[5pt]
+        &= (fX)(g \, (Yh)) - (gY)(f \, (Xh)) \\[5pt]
+        &= g \, (fX)(Yh) + (Yh)(fXg) - f \, (gY)(Xh) - (Xh)(gYf) \\[5pt]
+        &= (fg (XY))h - (fg (YX))h + ((fXg)Y)h - ((gYf)X)h \\[5pt]
         &= fg \, [X, Y]h + ((fXg)Y)h - ((gYf)X)h .
 \end{align*}
 $$
