@@ -1,7 +1,7 @@
 body {
   font-family: Times, serif;
   font-size: 19px;
-  color: #404040;
+  color: black;
   line-height: 1.25;
 }
 
@@ -52,18 +52,18 @@ pre {
 }
 
 a {
-  color: #404040;
+  color: black;
 }
 .post a {
-  color: #337ab7;
+  color: blue;
 }
 #aboutme a {
-  color: #337ab7;
+  color: blue;
 }
-a:hover,
+/*a:hover,
 a:focus {
   color: #0085a1;
-}
+}*/
 blockquote {
   color: #808080;
   font-style: italic;
@@ -97,7 +97,7 @@ hr.small {
 }
 @media only screen and (max-width: 768px) {
   body {
-    font-size: 17px;
+    font-size: 18px;
   }
 
   .navbar-custom .navbar-brand {
@@ -275,7 +275,7 @@ hr.small {
   }
 }
 .post-preview > a {
-  color: #404040;
+  color: black;
 }
 .post-preview > a:hover,
 .post-preview > a:focus {
@@ -318,7 +318,7 @@ hr.small {
 }
 .post-preview .post-meta > a {
   text-decoration: none;
-  color: #404040;
+  color: black;
 }
 .post-preview .post-meta > a:hover,
 .post-preview .post-meta > a:focus {
