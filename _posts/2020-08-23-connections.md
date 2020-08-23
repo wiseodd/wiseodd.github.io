@@ -10,6 +10,10 @@ tags:       [math]
 ---
 
 
+_**Disclaimer.** This post is my study notes on Lee's geometry books [1, 2], containing a condensed (in terms of topics) yet more verbose (in terms of details e.g. in the proofs) version of Lee's writings along with my personal interpretation and commentaries._
+<br/><br/>
+
+
 Previously, we studied [Lie derivatives]({% post_url 2020-08-16-lie-derivative %}), which can be used to compute the directional derivative of a vector field in the direction of another. However, as it turns out, Lie derivatives are not suitable for taking directional derivatives of vector fields along _curves_:
 
 

@@ -9,6 +9,11 @@ category:   techblog
 tags:       [math]
 ---
 
+
+_**Disclaimer.** This post is my study notes on Lee's geometry books [1, 2], containing a condensed (in terms of topics) yet more verbose (in terms of details e.g. in the proofs) version of Lee's writings along with my personal interpretation and commentaries._
+<br/><br/>
+
+
 A tensor, i.e. a multilinear map, can be symmetric or alternating, covariant or contravariant. Here, we focus on alternating covariant tensors. "Covariant" means that they take vectors as arguments and output a real number. "Alternating" means that this real number changes sign whenever two of those arguments are interchanged. These tensors are important and has special name: **_$k$-covectors_**.
 
 We will begin by studying an important tool for manipulating $k$-covectors on $V$: the wedge product. We will then see how can we generalize $k$-covectors in smooth manifold setting, in the form of differential forms. The key of this article (and de Rham cohomology) is the exterior derivative of differential forms. As always, this is article is based on Lee's smooth manifold book [1].

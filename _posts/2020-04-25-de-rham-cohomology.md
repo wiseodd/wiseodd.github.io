@@ -10,6 +10,10 @@ tags:       [math]
 ---
 
 
+_**Disclaimer.** This post is my study notes on Lee's geometry books [1, 2], containing a condensed (in terms of topics) yet more verbose (in terms of details e.g. in the proofs) version of Lee's writings along with my personal interpretation and commentaries._
+<br/><br/>
+
+
 One of the central points of the previous two posts about [covector fields]({% post_url 2020-03-14-covector-field %}) and [differential forms]({% post_url 2020-04-17-exterior-derivative %}) is the identification of closed and exact forms. If $d$ is the exterior derivative, a smooth differential form $\omega$ is **_closed_** if $d\omega = 0$. Meanwhile $\omega$ is **_exact_** if it can be written as $\omega = d\eta$. Since $d \circ d = 0$, every exact form is closed.
 
 In Euclidean space, if $\omega$ is a covector field ($1$-form), the converse is true: In this space we can equivalently think about a conservative vector field, and see that it fulfills both conditions above. But, what about higher degree forms in an arbitrary smooth manifold? It turns out, the answer of this question depends on the topology of the manifold, as has been suggested in Example 4 of this [post]({% post_url 2020-03-14-covector-field %}): In a punctured Euclidean space $\R^n \setminus \{ 0 \}$, a closed form is not necessarily exact due to the existence of the "hole" in $\R^n$.

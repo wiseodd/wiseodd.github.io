@@ -9,6 +9,10 @@ category:   techblog
 tags:       [math]
 ---
 
+
+_**Disclaimer.** This post is my study notes on Lee's geometry books [1, 2], containing a condensed (in terms of topics) yet more verbose (in terms of details e.g. in the proofs) version of Lee's writings along with my personal interpretation and commentaries._
+<br/><br/>
+
 In vector calculus, we know that a vector field $V: U \to \R^3$ defined on an open subset $U \subseteq \R^3$ is called conservative if there exists $f \in C^1(U)$ such that
 
 $$

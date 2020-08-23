@@ -10,6 +10,10 @@ tags:       [math]
 ---
 
 
+_**Disclaimer.** This post is my study notes on Lee's geometry books [1, 2], containing a condensed (in terms of topics) yet more verbose (in terms of details e.g. in the proofs) version of Lee's writings along with my personal interpretation and commentaries._
+<br/><br/>
+
+
 [The Lie bracket]({% post_url 2020-03-14-covector-field %}) is a useful operator for combining two smooth vector fields on a smooth manifold. However, even after seeing its definition and properties, at this point its geometric meaning is still unclear. But before we can attempt to answer this question, we need to study two prerequisites: integral curves and flows. As always, the Einstein's summation convention is employed.
 
 

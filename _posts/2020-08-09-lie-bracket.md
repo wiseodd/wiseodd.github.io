@@ -10,6 +10,10 @@ tags:       [math]
 ---
 
 
+_**Disclaimer.** This post is my study notes on Lee's geometry books [1, 2], containing a condensed (in terms of topics) yet more verbose (in terms of details e.g. in the proofs) version of Lee's writings along with my personal interpretation and commentaries._
+<br/><br/>
+
+
 In the previous post, we have studied [covector fields]({% post_url 2020-03-14-covector-field %}), which can be seen as attaching each point $p$ on a manifold $M$ a covector in the cotangent space $T_p^* M$. Now, we are going to study vector fields (without "co"), which can be seen as attaching an arrow (a tangent vector) at each point of $M$. But first, we review what the definition of tangent vector.
 
 
