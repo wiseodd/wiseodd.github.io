@@ -1,8 +1,8 @@
 ---
 layout:     post
 title:      "Covariant Derivatives of Tensor Fields"
-subtitle:   "Build upon the problem of taking directional derivatives of vector fields on manifolds, we discuss very important concepts in Riemannian geometry: connections, covariant derivatives, and parallel transport. They will play a major role in our eventual discussion about curvatures."
-date:       2020-08-29 06:00
+subtitle:   "We have seen the definition of covariant derivatives of vector fields in the previous post. It turns out a connection in the tangent bundle of a smooth manifold also induces covariant derivatives of tensor fields on the manifold. In this post, we will study this."
+date:       2020-08-30 06:00
 author:     "wiseodd"
 header-img: "img/manifold.svg"
 category:   techblog
@@ -21,7 +21,7 @@ We have seen the definition of covariant derivatives of vector fields in the pre
 
 To people in applied math and engineering fields, tensors seem to mean "multi-dimensional arrays" (I am looking at you, deep learning). However, it actually has more abstract interpretation than that: tensors are simply multilinear maps. This is somewhat similar to what matrices are to linear maps.
 
-Suppose $V_1, \dots, V_k$ and $W$ are (real) vector spaces. A map $F: V_1 \times \dots \times V_k \to W$ is said to be **_multilinear_** if it is linear as a function of each variable separately, when all the others are held fixed. That is:
+Suppose $V_1, \dots, V_k$ and $W$ are (real) vector spaces. A map $F: V_1 \times \dots \times V_k \to W$ is said to be **_multilinear_** if it is linear as a function of each variable separately when all the others are held fixed. That is:
 
 $$
     F(v_1, \dots, \alpha v_i + \beta v_i', \dots, v_k) = \alpha F(v_1, \dots, v_i, \dots, v_k) + \beta F(v_1, \dots, v_i', \dots, v_k) .
@@ -128,7 +128,7 @@ $$
     (\Phi A)(\omega, v) := \omega(Av) .
 $$
 
-<!-- We need to show that $\Phi$ is linear, injective, and surjective. Linearity can easily be shown by noting that endomorphisms and covectors are linear map. For injectivity, suppose $\Phi A = \Phi B$. This means for arbitrary $\omega, v$ we have that $\omega(Av) = \omega(Bv)$. Therefore, $\omega((A-B)v) = 0$ and it follows that $A = B$ by the arbitrariness of $\omega$ and $v$. -->
+<!-- We need to show that $\Phi$ is linear, injective, and surjective. Linearity can easily be shown by noting that endomorphisms and covectors are linear maps. For injectivity, suppose $\Phi A = \Phi B$. This means for arbitrary $\omega, v$ we have that $\omega(Av) = \omega(Bv)$. Therefore, $\omega((A-B)v) = 0$ and it follows that $A = B$ by the arbitrariness of $\omega$ and $v$. -->
 
 
 Furthermore, we define $\Phi': T^{(1, 1)}(V) \to \mathrm{End}(V)$ by defining the action of $\Phi' F$ on $v \in V$ by
@@ -229,7 +229,7 @@ $$
 
 _is induced by a smooth $(k, l)$-tensor field as above if and only if it is multilinear over $C^\infty(M)$._
 
-_Proof._ Lemma 12.24 in [1]. The proof requires knowledge about vector bundle, which is out of the scope of this post.
+_Proof._ Lemma 12.24 in [1]. The proof requires knowledge about vector bundles, which is out of the scope of this post.
 
 $\square$
 {:.right}
@@ -241,7 +241,7 @@ By definition (which we have seen in the previous post), a connection in $TM$ is
 
 **Note.** we use the notation $\inner{\omega, X}$ to denotes the action of a covector field $\omega$ on a vector field $X$, i.e. $\omega(X)$, or equivalently, the action of vector field $X$ seen point-wise as the element of the double dual $(T_p^\*)^\* M$ on a covector fields $\omega$, i.e. $X(\omega)$.
 
-**Proposition 3.** _Let $M$ be a smooth $n$-manifold and $\nabla$ be a connection in $TM$. Then $\nabla$ uniquely determines a connection in each tensor bundle $T^{(k, l)}TM$, also denoted by $\nabla$, such that the following conditions are satisfied:_
+**Proposition 3.** _Let $M$ be a smooth $n$-manifold and $\nabla$ a connection in $TM$. Then $\nabla$ uniquely determines a connection in each tensor bundle $T^{(k, l)}TM$, also denoted by $\nabla$, such that the following conditions are satisfied:_
 
 _(i) In $T^{(1, 0)}TM = TM$, $\nabla$ agrees with the given connection._
 
@@ -392,6 +392,283 @@ Thus, the terms $F(\dots, \nu, \dots)\,Xf$ and $F(\dots, \eta, \dots)\,Xg$ will 
 Once we know that $\nabla_X \, F$ is a smooth tensor field, we need to check that it satisfies the defining properties of a connection. First up, linearity over $C^\infty(M)$ in $X$ and linearity over $\R$ in $F$ can easily be check (somewhat tediously, like the computation above) by considering the formula in (b) and the one for $\nabla_X \, \omega$, along with the fact that $F$ itself is linear over $\R$. The product rule in $F$ follows easily from the fact that differentiation of functions by $X$ satisfies the product rule.
 
 $\square$
+{:.right}
+
+
+For computation, it is more convenient to work in local coordinates. The following proposition shows how to compute the components of a covariant derivative in terms of a local frame.
+
+
+**Proposition 4.** _Let $M$ be a smooth $n$-manifold and $\nabla$ a connection in $TM$. Let $(E_i)$ be a local frame, $(\epsilon^j)$ its dual coframe, and $\\{ \Gamma^i\_{jk} \\}$ are the connection coefficient of $\nabla$ w.r.t. this local frame. Let $X \in \mathfrak{X}(M)$ and let $X^i\,E_i$ be its local expression in terms of this frame._
+
+_(a) The covariant derivative of a $1$-form $\omega= \omega_i\,\epsilon^i$ is given locally by_
+
+$$
+    \nabla_X\,\omega = \left( X(\omega_k) - X^j \, \omega_i \, \Gamma^i_{jk} \right) \epsilon^k .
+$$
+
+_(b) If $F \in \gamma(T^{(k,l)} TM)$ is expressed locally as_
+
+$$
+    F = F^{i_1 \dots i_k}_{j_1 \dots j_l} \, E_{i_1} \otimes \dots \otimes E_{i_k} \otimes \epsilon^{j_1} \otimes \dots \otimes \epsilon^{j_l} ,
+$$
+
+_then the covariant derivative of $F$ is given locally by_
+
+$$
+\begin{align}
+    \nabla_X\,F = &\left( X\left( F^{i_1 \dots i_k}_{j_1 \dots j_l} \right) + \sum_{s=1}^k X^m \, F^{i_1 \dots p \dots i_k}_{j_1 \dots j_l} \, \Gamma^{i_s}_{mp} - \sum_{s=1}^l X^m \, F^{i_1 \dots i_k}_{j_1 \dots p \dots j_l} \, \Gamma^p_{m j_s} \right) \times \\[5pt]
+        &E_{i_1} \otimes \dots \otimes E_{i_k} \otimes \epsilon^{j_1} \otimes \dots \otimes \epsilon^{j_l} .
+\end{align}
+$$
+
+_Proof._ We begin with the covariant derivative of $1$-forms. By the formula from the proof of Proposition 3:
+
+$$
+\begin{align}
+    (\nabla_X\,\omega)(Y) &= X(\omega(Y)) - \omega(\nabla_X\,Y) \\[5pt]
+        &= X^i\,E_i(\omega_j\,Y^j) - \omega_k\,\epsilon^k(X^l\,Y^m\,\Gamma^o_{lm}\,E_m + X(Y^m)\,E_m) \\[5pt]
+        &= X^i (\omega_j \, E_i(Y^j) +  E_i(\omega_j) \, Y^j) - \omega_k\,(X^l\,Y^k\,\Gamma^o_{lk} + X^p\,E_p(Y^k)) \\[5pt]
+        &= X^i \, \omega_j \, E_i(Y^j) + X^i \, E_i(\omega_j) \, Y^j  - \omega_k \, X^l \, \Gamma^o_{lk} \, Y^k - X^p \, \omega_k \, E_p(Y^k) \\[5pt]
+        &= X(\omega_j) \, Y^j  - X^l \, \omega_k \, \Gamma^o_{lk} \, Y^k \\[5pt]
+        &= X(\omega_k) \, Y^k  - X^j \, \omega_i \, \Gamma^i_{jk} \, Y^k .
+\end{align}
+$$
+
+The second-to-last step follows since the first and last terms in the previous step cancel each other out. In the last step, we just renamed the dummy indices. Recalling that
+
+$$
+    \epsilon^k(Y) = \epsilon^k(Y^i\,E_i) = Y^i\,\delta^k_i = Y^k ,
+$$
+
+we conclude that
+
+$$
+    \nabla_X\,\omega = \left( X(\omega_k) \, Y^k  - X^j \, \omega_i \, \Gamma^i_{jk} \, Y^k \right) \epsilon^k .
+$$
+
+Now we prove for the general $(k, l)$-tensors case. First, we denote the indices with parentheses to mean the $i$-th vector/covector argument. For example:
+
+$$
+    Y_{(i)} = Y_{(i)}^j \, E_j \qquad \text{and} \qquad  \omega^{(i)} = \omega^{(i)}_j \, \epsilon^{j} .
+$$
+
+We focus on the formula given by (b) of Proposition 3. By induction, the coordinate representation of the first term is:
+
+$$
+\begin{align}
+     X \left( F^{i_1 \dots i_k}_{j_1 \dots j_l} \, \omega^{(1)}_{i_1} \dots \omega^{(k)}_{i_k} \, Y_{(1)}^{j_1} \dots Y_{(l)}^{j_l} \right) &= X \left( F^{i_1 \dots i_k}_{j_1 \dots j_l} \right) \omega^{(1)}_{i_1} \dots Y_{(l)}^{j_l} +  F^{i_1 \dots i_k}_{j_1 \dots j_l} \, X (\omega^{(1)}_{i_1}) \dots Y_{(l)}^{j_l} \\[5pt]
+        &+ \dots + F^{i_1 \dots i_k}_{j_1 \dots j_l} \, \omega^{(1)}_{i_1} \dots X (Y_{(l)}^{j_l}) .
+\end{align}
+$$
+
+For the second term, using the formula form $1$-form above, together with the linearity of $F$, we have in coordinates that
+
+$$
+\begin{align}
+    F^{i_1 \dots i_k}_{j_1 \dots j_l} \, X(\omega^{(1)}_{i_1})& \dots Y^{j_l} - F^{i_1 \dots i_k}_{j_1 \dots j_l} \, (X^p \, \omega^{(1)}_{q} \, \Gamma^{q}_{p i_1}) \dots Y_{(l)}^{j_l} + \dots \\[5pt]
+        &+ F^{i_1 \dots i_k}_{j_1 \dots j_l} \, \omega^{(1)}_{i_1} \dots X(\omega^{(1)}_{i_k}) \dots Y_{(l)}^{j_l} - F^{i_1 \dots i_k}_{j_1 \dots j_l} \, \omega^{(1)}_{i_1} \dots (X^p \, \omega^{(k)}_{q} \, \Gamma^{q}_{p i_k}) \dots Y_{(l)}^{j_l} .
+\end{align}
+$$
+
+Likewise, using the formula for covariant derivatives for vector fields, for the last term we have
+
+$$
+\begin{align}
+    F^{i_1 \dots i_k}_{j_1 \dots j_l} \, \omega^{(1)}_{i_1} \dots X(Y_{(1)}^{j_1})& \dots Y_{(l)}^{j_l} + F^{i_1 \dots i_k}_{j_1 \dots j_l} \, \omega^{(1)}_{i_1} \dots (X^p \, Y_{(1)}^q \, \Gamma^{j_1}_{p q}) \dots Y_{l}^{j_l} + \dots \\[5pt]
+        &+ F^{i_1 \dots i_k}_{j_1 \dots j_l} \, \omega^{(1)}_{i_1} \dots X(Y_{(l)}^{j_l}) + F^{i_1 \dots i_k}_{j_1 \dots j_l} \, \omega^{(1)}_{i_1} \dots (X^p \, Y_{(l)}^q \, \Gamma^{j_1}_{p q}) .
+\end{align}
+$$
+
+Observe that all positive terms in the second formula above cancel with the corresponding terms in the first formula. Furthermore, all odd terms in the last formula cancel with the corresponding terms in the first formula. Thus, we are left with:
+
+$$
+\begin{align}
+    &X \left( F^{i_1 \dots i_k}_{j_1 \dots j_l} \, \omega^{(1)}_{i_1} \dots \omega^{(k)}_{i_k} \, Y_{(1)}^{j_1} \dots Y_{(l)}^{j_l} \right) \\[5pt]
+        &- F^{i_1 \dots i_k}_{j_1 \dots j_l} \, (X^p \, \omega^{(1)}_{q} \, \Gamma^{q}_{p i_1}) \dots Y_{(l)}^{j_l} - \dots - F^{i_1 \dots i_k}_{j_1 \dots j_l} \, \omega^{(1)}_{i_1} \dots (X^p \, \omega^{(k)}_{q} \, \Gamma^{q}_{p i_k}) \dots Y_{(l)}^{j_l} \\[5pt]
+            & F^{i_1 \dots i_k}_{j_1 \dots j_l} \, \omega^{(1)}_{i_1} \dots (X^p \, Y_{(1)}^q \, \Gamma^{j_1}_{p q}) \dots Y_{l}^{j_l} + \dots + F^{i_1 \dots i_k}_{j_1 \dots j_l} \, \omega^{(1)}_{i_1} \dots (X^p \, Y_{(l)}^q \, \Gamma^{j_1}_{p q}) ,
+\end{align}
+$$
+
+for the first, second, and third terms respectively. We can then plug them into the formula in (b) of Proposition 3. Then write the summation compactly and rename the dummy indices. Finally, using the arguments that $E_i(\omega) = \omega_i$ and $\epsilon^i(Y) = Y^i$, we can move all components of the arguments $\omega^{(i)}, \dots, Y_{(l)}$ outside, and introduce the basis $E_{i_1} \otimes \dots \otimes \epsilon^{j_l}$. We have now arrived at the claimed formula.
+
+$\square$
+{:.right}
+
+
+<h2 class="section-heading">Total Covariant Derivatives</h2>
+
+
+Since the covariant derivative $\nabla_X\,F$ of a tensor field is linear over $C^\infty(M)$ in $X$, the covariant derivatives of $F$ in all directions can be encoded in a single tensor field whose rank is one more than the rank of $F$. This is because that linearity property guarantees that the resulting map will still be multilinear over $C^\infty(M)$ and thus defines a smooth tensor field.
+
+
+**Proposition 5 (The Total Covariant Derivative).** _Let $M$ be a smooth manifold and $\nabla$ a connection in $TM$. For every smooth tensor field $F \in \Gamma(T^{(k, l)} TM)$, the map_
+
+$$
+    \nabla\,F : \underbrace{\mathcal{T}^1(M) \times \dots \times \mathcal{T}^1(M)}_{k \text{ times}} \times \underbrace{\mathfrak{X}(M) \times \dots \times \mathfrak{X}(M)}_{l+1 \text{ times}} \to C^\infty(M)
+$$
+
+_given by_
+
+$$
+    (\nabla\,F)(\omega^1, \dots, \omega^k, Y_1, \dots, Y_l, X) := (\nabla_X\,F)(\omega^1, \dots, \omega^k, Y_1, \dots, Y_l) ,
+$$
+
+_defines a smooth $(k, l+1)$-tensor field on $M$ called the **total covariant derivative** of $F$._
+
+_Proof._ Follows directly from Lemma 2: $\nabla_X\,F$ is a tensor field, so it is multilinear over $C^\infty(M)$ in all of its $k+l$ arguments. The linearity over $C^\infty(M)$ of $\nabla_X\,F$ in $X$ (by definition of a connection) implies that $\nabla\,F$ is multilinear over $C^\infty(M)$ over all its $k + l + 1$ arguments and thus defines a smooth tensor field.
+
+$\square$
+{:.right}
+
+
+When writing the components of a total covariant derivative in terms of a local frame, it is standard practice to use a semicolon to separate indices resulting from differentiation from the preceding indices. For example, if $Y = Y^i\,E_i$ is a vector field (i.e. a $(1,0)$-tensor field), the component of the $(1, 1)$-tensor field $\nabla\,Y$ are written as ${Y^i}\_{;j}$, so that
+
+$$
+    \nabla\,Y = {Y^i}_{;j} \, E_i \otimes \epsilon^j  \qquad \text{with } {Y^i}_{;j} := E_j\,Y^i + Y^k\,\Gamma^i_{jk} .
+$$
+
+For a covector field $\omega = \omega_i\,\epsilon^j$, we have
+
+$$
+    \nabla\,\omega = \omega_{i;j} \, \epsilon^i \otimes \epsilon^j \qquad \text{with } \omega_{i;j} := E_j\,\omega^i - \omega_k\,\Gamma^{k}_{ij} .
+$$
+
+In general, the following proposition gives a formula for the components of total covariant derivatives of arbitrary tensor fields.
+
+
+**Proposition 6.** _Let $M$ be a smooth manifold and let $\nabla$ be a connection in $TM$. Let $(E_i)$ be a smooth local frame for $TM$ and $\\{ \Gamma^i\_{jk} \\}$ the corresponding connection coefficients. The components of the total covariant derivative of a $(k, l)$-tensor field $F$ w.r.t. this frame are given by_
+
+$$
+    F^{i_1 \dots i_k}_{j_1 \dots j_l; m} = E_m\left( F^{i_1 \dots i_k}_{j_1 \dots j_l} \right) + \sum_{s=1}^k \, F^{i_1 \dots p \dots i_k}_{j_1 \dots j_l} \Gamma^{i_s}_{m p} - \sum_{s=1}^l \, F^{i_1 \dots i_k}_{j_1 \dots p \dots j_l} \Gamma^p_{m j_s} .
+$$
+
+_Proof._ In terms the local frame, we have
+
+$$
+    \nabla\,F = F^{i_1 \dots i_k}_{j_1 \dots j_l; m} \, E_{i_1} \otimes \dots \otimes E_{i_k} \otimes \epsilon^{j_1} \otimes \dots \otimes \epsilon^{j_l} \otimes \epsilon^m .
+$$
+
+Thus, we have that
+
+$$
+    \nabla\,F(\omega^{(1)}, \dots, \omega^{(k)}, Y_{(1)}, \dots, Y_{(l)}, X) = F^{i_1 \dots i_k}_{j_1 \dots j_l; m} \, \omega^{(1)}_{i_1} \dots Y_{(l)}^{(j_l)} \, X^m .
+$$
+
+Comparing the r.h.s. to the coordinate formula for the coefficients of $\nabla_X\,F$---while also noticing that $X = X^m\,E_m$, we realize that we must divide the formula for $\nabla_X\,F$ by $X_m$. The claim follows directly.
+
+$\square$
+{:.right}
+
+
+<h2 class="section-heading">Second Covariant Derivatives</h2>
+
+Having defined the tensor field $\nabla\,F$ for a $(k,l)$-tensor field $F$, we can in turn take its total covariant derivative to obtain a $(k, l+2)$-tensor field $\nabla^2\,F := \nabla(\nabla\,F)$. Given $X, Y \in \mathfrak{X}(M)$, we define:
+
+$$
+    \nabla^2_{X,Y}\,F(\dots) := \nabla^2\,F(\dots, Y, X) .
+$$
+
+Note that we have the order of $X$ and $Y$ reversed. This is because our convention for the total covariant derivative in Proposition 5. Meanwhile, it is conventional to let $\nabla^2_{X,Y}$ stand for differentiating first in the $X$ direction, then in the $X$ direction.
+
+Note that $\nabla^2_{X, Y}\,F$ is not the same as $\nabla_X(\nabla_Y\,F))$ since the former is linear over $C^\infty(M)$ in $Y$, while the latter is not. Proposition 8 will show the relationship between the two, which requires the following lemma.
+
+
+**Lemma 7.** _Let $M$ be a smooth manifold and $\nabla$ a connection in $TM$. For every smooth $(k, l)$-tensor field $F$ and every vector field $X$,_
+
+$$
+    \nabla_X\,F = \mathrm{tr}(\nabla\,F \otimes X) .
+$$
+
+_Proof._ Let $(E_i)$ be a smooth local frame for $TM$, $(\epsilon^i)$ its dual coframe, and $\\{ \Gamma^i_{jk} \\}$ the corresponding connection coefficients. In terms of this frame, we can write $X = X^p\,E_p$.
+
+The coordinate formula for $\nabla\,F \otimes X$ is
+
+$$
+\begin{align}
+    \nabla\,F \otimes X &= F^{i_1 \dots i_k}_{j_1 \dots j_l; m} \, E_{i_1} \otimes \omega^{j_l} \otimes \omega^m \otimes (X^p\,E_p) \\[5pt]
+        &= F^{i_1 \dots i_k}_{j_1 \dots j_l; m} \, X^p \, E_{i_1} \otimes \omega^{j_l} \otimes \omega^m \otimes E_p .
+\end{align}
+$$
+
+By definition of trace, we set the last two indices ($m$ and $p$) as equal and the sum them up (automatically). Thus we have, by Proposition 6, the following component formula for $\mathrm{tr}(\nabla\,F \otimes X)$:
+
+$$
+    F^{i_1 \dots i_k}_{j_1 \dots j_l; m} \, X^m = X\left( F^{i_1 \dots i_k}_{j_1 \dots j_l} \right) + \sum_{s=1}^k \, X^m \, F^{i_1 \dots p \dots i_k}_{j_1 \dots j_l} \Gamma^{i_s}_{m p} - \sum_{s=1}^l \, X^m \, F^{i_1 \dots i_k}_{j_1 \dots p \dots j_l} \Gamma^p_{m j_s} .
+$$
+
+This is none other than the component formula for $\nabla_X\,F$ shown in Proposition 4 (b).
+
+$\square$
+{:.right}
+
+
+**Proposition 8.** _Let $M$ be a smooth manifold and $\nabla$ a connection in $TM$. For every smooth tensor field $F$,_
+
+$$
+    \nabla^2_{X,Y}\,F = \nabla_X(\nabla_Y\,F) - \nabla_{(\nabla_X\,Y)}\,F .
+$$
+
+_Proof._ By Lemma 7, we can write
+
+$$
+    \nabla_Y\,F = \mathrm{tr}(\nabla\,F \otimes Y) .
+$$
+
+Using Lemma 7 again and recalling that $\nabla^2_{X,Y}\,F(\dots) = \nabla^2\,F(\dots, Y, X)$, we can write
+
+$$
+    \nabla^2_{X,Y}\,F = \mathrm{tr}(\mathrm{tr}(\nabla^2\,F \otimes X) \otimes Y) .
+$$
+
+Therefore, since $\nabla_X$ commutes with trace and satisfies the product rule w.r.t. tensor product (cf. Proposition 3), we have by repeated application of Lemma 7 that
+
+$$
+\begin{align}
+    \nabla_X(\nabla_Y\,F) &= \nabla_X(\mathrm{tr}(\nabla\,F \otimes Y)) \\[5pt]
+        &= \mathrm{tr}(\nabla_X(\nabla\,F \otimes Y)) \\[5pt]
+        &= \mathrm{tr}(\nabla\,F \otimes \nabla_X\,Y + \nabla_X(\nabla\,F) \otimes Y) \\[5pt]
+        &= \mathrm{tr}(\nabla\,F \otimes \nabla_X\,Y) + \mathrm{tr}(\underbrace{\mathrm{tr}(\nabla^2\,F \otimes X)}_\text{by Lemma 7} \otimes Y) \\[5pt]
+        &= \nabla_{(\nabla_X\,Y)}\,F + \nabla^2_{X,Y}\,F .
+\end{align}
+$$
+
+By rearranging, we obtain the claim.
+
+$\square$
+{:.right}
+
+
+**Example 9 (The Covariant Hessian).** Let $f \in C^\infty(M) = \Gamma(T^{(0, 0)} TM)$. Then
+
+$$
+    \nabla\,f \in \Gamma(T^{(0, 1)} TM) = \mathcal{T}^1(M) = \Omega^1(M) ,
+$$
+
+is just the $1$-form $df$, i.e. the differential of $f$, because both $\nabla\,f$ and $df$ have the same action on vector fields:
+
+$$
+    \nabla\,f(X) = \nabla_X\,f = Xf = df(X) .
+$$
+
+The $2$-tensor $\nabla^2\,f = \nabla\,(df)$ is called the **_covariant Hessian_** of $f$. Proposition 3 and 8 show that its action on $X, Y \in \mathfrak{X}(M)$ can be computed by
+
+$$
+\begin{align}
+    (\nabla^2\,f)(Y, X) &= \nabla^2_{X,Y}\,f = \nabla_X(\nabla_Y\,F) - \nabla_{(\nabla_X\,Y)}\,f \\[5pt]
+        &= \nabla_X(Yf) - (\nabla_X\,Y)\,f \\[5pt]
+        &= X(Y(f)) - (\nabla_X\,Y)\,f .
+\end{align}
+$$
+
+In any local coordinates $(x^i)$, it is given by
+
+$$
+    \nabla^2\,f = f_{;ij} \, dx^i \otimes dx^j, \qquad \text{with } f_{;ij} := \partial_j \, \partial_i \, f + (\partial_k \, f) \, \Gamma^k_{ij} .
+$$
+
+In Euclidean spaces, where $\Gamma^k_{ij} \equiv 0$, the matrix $(f_{;ij})$ is the usual Hessian matrix (collection of second partial derivatives of $f$).
+
+//
 {:.right}
 
 <h2 class="section-heading">References</h2>
