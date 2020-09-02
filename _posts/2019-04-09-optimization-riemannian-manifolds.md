@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "Optimization and Gradient Descent on Riemannian Manifolds"
-subtitle:   "One of the most ubiquitous applications in the field of geometry is the optimization problem. In this article we will discuss the familiar optimization problem on Euclidean spaces by focusing on the gradient descent method, and generalize them on Riemannian manifolds."
+subtitle:   "One of the most ubiquitous applications in the field of differential geometry is the optimization problem. In this article we will discuss the familiar optimization problem on Euclidean spaces by focusing on the gradient descent method, and generalize them on Riemannian manifolds."
 date:       2019-02-22 12:00
 author:     "wiseodd"
 header-img: "img/manifold.svg"
@@ -9,7 +9,7 @@ category:   techblog
 tags:       [math]
 ---
 
-Geometry can be seen as a generalization of calculus on Riemannian manifolds. Objects in calculus such as gradient, Jacobian, and Hessian on $\R^n$ are adapted on arbitrary Riemannian manifolds. This fact let us also generalize one of the most ubiquitous problem in calculus: the optimization problem. The implication of this generalization is far-reaching: We can make a more general and thus flexible assumption regarding the domain of our optimization, which might fit real-world problems better or has some desirable properties.
+Differential geometry can be seen as a generalization of calculus on Riemannian manifolds. Objects in calculus such as gradient, Jacobian, and Hessian on $\R^n$ are adapted on arbitrary Riemannian manifolds. This fact let us also generalize one of the most ubiquitous problem in calculus: the optimization problem. The implication of this generalization is far-reaching: We can make a more general and thus flexible assumption regarding the domain of our optimization, which might fit real-world problems better or has some desirable properties.
 
 In this article, we will focus on the most popular optimization there is, esp. in machine learning: the gradient descent method. We will begin with a review on the optimization problem of a real-valued function on $\R^n$, which we should have been familiar with. Next, we will adapt the gradient descent method to make it work in optimization problem of a real-valued function on an arbitrary Riemannian manifold $(\M, g)$. Lastly, we will discuss how [natural gradient descent]({% post_url 2018-03-14-natural-gradient %}) method can be seen from this perspective, instead of purely from the second-order optimization point-of-view.
 
