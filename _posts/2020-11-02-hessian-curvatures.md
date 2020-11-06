@@ -78,7 +78,7 @@ $$
     h(X, Y) := \inner{N, \mathrm{II}(X,Y)} .
 $$
 
-Furthermore, we define the **_shape operator_** of $L$ as the map $W_N$, mapping a vector field to another vector field on $L$, characterized by
+Furthermore, we define the **_shape operator_** of $L$ as the map $s$, mapping a vector field to another vector field on $L$, characterized by
 
 $$
     \inner{s(X), Y} = h(X,Y) .
@@ -163,7 +163,7 @@ where $N^{d+1}$ is the $(d+1)$-st component function (it is a function $\R^{d+1}
 {:.right}
 
 
-Finally, we show the connection between the principal curvatures with the scalar second fundamental form, and hence the principal curvatures with the Hessian. The following proposition says that at a critical point, the unit normal vector can be chosen as $(0, \dots, 0, 1)$ and thus the scalar second fundamental form coincides with the Hessian of $\ell$. Furthermore, by orthonormalizing the basis for the tangent space at that point, we can show that the matrix of the scalar second fundamental form in this case is exactly the matrix shape operator at $p$ and thus the Hessian encodes the principal curvatures at that point.
+Finally, we show the connection between the principal curvatures with the scalar second fundamental form, and hence the principal curvatures with the Hessian. The following proposition says that at a critical point, the unit normal vector can be chosen as $(0, \dots, 0, 1)$ and thus the scalar second fundamental form coincides with the Hessian of $\ell$. Furthermore, by orthonormalizing the basis for the tangent space at that point, we can show that the matrix of the scalar second fundamental form in this case is exactly the matrix of the shape operator at $p$ and thus the Hessian encodes the principal curvatures at that point.
 
 
 **Proposition 2.** _Suppose $L \subseteq \R^{d+1}$ is a loss landscape with its graph parametrization and let $\theta\_* \in \R^d$ be a critical point of $\ell$ and $p\_* := (\theta\_*^1, \dots, \theta\_*^d, \ell(\theta\_*)) \in L$. Then the matrix of the shape operator $s$ of $L$ at $p\_*$ is equal to the Hessian matrix of $\ell$ at $\theta\_*$._
@@ -183,7 +183,7 @@ As a side note, we can actually have a more general statement: At any point in a
 
 In deep learning, there have been interesting works connecting the "flatness" of the loss landscape's local minima with the generalization performance of an NN. The conjecture is that the flatter a minimum is, the better the network generalizes. "Flatness" here often refers to the eigenvalues or trace of the Hessian matrix at the minima. However, this has been disputed by e.g. [4] and rightly so.
 
-As we have seen previously, at a minimum, the principal and mean curvature (the eigenvalues and trace of the Hessian of $\ell$, resp.) are not intrinsic. Different parametrization of $L$ can yield different principal and mean curvatures. Just like the illustration with the plane and the half-cylinder above, [4] illustrates this directly in the loss landscape. In particular, we can apply a bijective transformation $\varphi$ to the original parameter space $\R^d$ s.t. the resulting loss landscape is isometric to the original loss landscape and the particular minimum $\theta_\*$ does not change, i.e. $\varphi(\theta_\*) = \theta_\*$. In the figure below, the length of the red curves is the same.
+As we have seen previously, at a minimum, the principal and mean curvature (the eigenvalues and trace of the Hessian of $\ell$, resp.) are not intrinsic. Different parametrization of $L$ can yield different principal and mean curvatures. Just like the illustration with the plane and the half-cylinder above, [4] illustrates this directly in the loss landscape. In particular, we can apply a bijective transformation $\varphi$ to the original parameter space $\R^d$ s.t. the resulting loss landscape is isometric to the original loss landscape and the particular minimum $\theta_\*$ does not change, i.e. $\varphi(\theta_\*) = \theta_\*$. See the following figure for an illustration (we assume that the length of the red curves below is the same).
 
 
 ![Unit normal field]({{ site.baseurl }}/img/2020-11-01-hessian-curvatures/reparametrization_curvatures.png){:width="80%"}
