@@ -23,7 +23,7 @@ Now let us equip the smooth manifold $M$ with a Riemannian metric, say $g$. The 
 
 $$
 \begin{align}
-    g_{ij} &= g_{ij}(\theta) := \E_{\N(x \mid \mu, \sigma)} \left( \frac{\partial \log \N(x \mid \mu, \sigma)}{\partial \theta^i} \, \frac{\partial \log \N(x \mid \mu, \sigma)}{\partial \theta^i}^\top \right) \\
+    g_{ij} &= g_{ij}(\theta) := \E_{\N(x \mid \mu, \sigma)} \left( \frac{\partial \log \N(x \mid \mu, \sigma)}{\partial \theta^i} \, \frac{\partial \log \N(x \mid \mu, \sigma)}{\partial \theta^j} \right) \\
         %
         &= -\E_{\N(x \mid \mu, \sigma)} \left( \frac{\partial^2 \log \N(x \mid \mu, \sigma)}{\partial \theta^i \, \partial \theta^j} \right) .
 \end{align}
