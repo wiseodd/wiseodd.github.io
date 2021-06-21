@@ -49,7 +49,7 @@ $$
 
 Note in particular that the matrix $G$ is positive definite for any $(\mu, \sigma)$ and thus gives a notion of inner product in the tangent bundle of $M$. Therefore, the tuple $(M, g)$ is a Riemannian manifold.
 
-One more structure is needed for computing the curvature(s) of $M$. We need to equip $(M, g)$ with an affine connection. Here, we will use the Levi-Civita connection $\nabla$ of $g$. Now we are ready to investigate the curvature of $(M, g)$.
+One more structure is needed for computing the curvature(s) of $M$. We need to equip $(M, g)$ with an affine connection. Here, we will use the Levi-Civita connection $\nabla$ of $g$.
 
 **Note.** _We will use the Einstein summation convention from now on. For example, $\Gamma^k\_{ij} \Gamma^l\_{km} = \sum_k \Gamma^k\_{ij} \Gamma^l\_{km}$._
 
@@ -140,7 +140,7 @@ $$
 But the definition of $Rm$ implies that $Rm(\partial_1, \partial_2, \partial_2, \partial_1) = R_{1221}$, i.e. the element $1,2,2,1$ of the multidimensional array representation of $Rm$ in coordinates. Moreover, by definition, $g_{ij} = \inner{\partial_1, \partial_2}$. And so:
 
 $$
-    \text{sec}(\partial_1, \partial_2) = \frac{R_{1221}}{\inner{g_{11} g_{22} - g_{12}^2}} = \frac{R_{1221}}{\det g} ,
+    \text{sec}(\partial_1, \partial_2) = \frac{R_{1221}}{g_{11} g_{22} - (g_{12})^2} = \frac{R_{1221}}{\det g} ,
 $$
 
 since $g$ is symmetric. Note that this is but the definition of the Gaussian curvature---indeed, in dimension $2$, the sectional and the Gaussian curvatures coincide.
