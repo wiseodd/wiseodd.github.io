@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "A Manifold of Gaussian Distributions"
+title:      "The Curvature of the Manifold of Gaussian Distributions"
 subtitle:   "The Gaussian probability distribution is central in statistics and machine learning. As it turns out, by equipping the set of all Gaussians p.d.f. with a Riemannian metric given by the Fisher information, we can see it as a Riemannian manifold. In this post, we will prove that this manifold can be covered by a single coordinate chart and has a constant negative curvature."
 date:       2021-06-21 08:00
 author:     "wiseodd"
