@@ -107,7 +107,7 @@ $$
 \begin{align}
     q_{ij} &= 0 \quad \text{if } j \not\in A_i \\
     q_{ij} &> 0 \quad \text{if } j \in A_i \\
-    & {\textstyle\sum_{j=1}^n} q_{ij} = 1 .
+    & {\textstyle\sum_{j=1}^m} q_{ij} = 1 .
 \end{align}
 $$
 
@@ -194,9 +194,9 @@ $$
     g_{ij}(x) = A(\abs{x}) + \delta_{ij} \frac{\abs{x} B(\abs{x})}{x_i} ,
 $$
 
-for any $x \in \R^n_{> 0}$. Therefore, this is the form of the invariant metric under sufficient statistics in $\S^{n-1} \subset R^n_{>0}$, i.e. when $n=m$ in the Markov embedding.
+for any $x \in \R^n_{> 0}$. Therefore, this is the form of the invariant metric under sufficient statistics in $\S^{n-1} \subset \R^n_{>0}$, i.e. when $n=m$ in the Markov embedding.
 
-Let us therefore restrict $g$ to $\S^{n-1}$. For each $\theta \in \S^{n-1}$, the tangent space $T_\theta \S^{n-1}$ is orthogonal to the line $x^1 = x^2 = \dots = x^n$, which direction is given by the vector $\mathbf{1} = (1, \dots, 1) \in R^n_{>0}$. This is a vector normal to $\S^{n-1}$, implying that any $v \in T_\theta \S^{n-1}$ satisfies $\inner{\mathbf{1}, v}\_g = 0$, i.e. $\sum_{i=1}^n v^i = 0$.
+Let us therefore restrict $g$ to $\S^{n-1}$. For each $\theta \in \S^{n-1}$, the tangent space $T_\theta \S^{n-1}$ is orthogonal to the line $x^1 = x^2 = \dots = x^n$, which direction is given by the vector $\mathbf{1} = (1, \dots, 1) \in \R^n_{>0}$. This is a vector normal to $\S^{n-1}$, implying that any $v \in T_\theta \S^{n-1}$ satisfies $\inner{\mathbf{1}, v}\_g = 0$, i.e. $\sum_{i=1}^n v^i = 0$.
 
 Moreover, if $\theta \in \S^{n-1}$, then $\abs{\theta} = \sum_{i=1}^n \theta^i = 1$ by definition. Thus, $A(1)$ and $B(1)$ are constants. So, if $v, w \in T_\theta \S^{n-1}$, we have:
 
