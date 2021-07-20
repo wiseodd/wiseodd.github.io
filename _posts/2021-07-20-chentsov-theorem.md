@@ -122,13 +122,13 @@ We call this map a **_Markov embedding_**. The name suggests that $f$ embeds $\R
 The result of Campbell (1986) characterizes the form of the Riemannian metric in $\R^n_{>0}$ that is invariant under any Markov embedding.
 
 
-**Lemma 3 (Campbell, 1986).** _Let $g$ be a Riemannian metric on $\R^m\_{>0}$ where $m \geq 2$. Suppose that every Markov embedding on $(\R^m\_{>0}, g)$ is an isometry. Then_
+**Lemma 3 (Campbell, 1986).** _Let $g$ be a Riemannian metric on $\R^n\_{>0}$ where $n \geq 2$. Suppose that every Markov embedding on $(\R^n\_{>0}, g)$ is an isometry. Then_
 
 $$
     g_{ij}(x) = A(\abs{x}) + \delta_{ij} \frac{\abs{x} B(\abs{x})}{x_i} ,
 $$
 
-_where $\abs{x} = \sum\_{i=1}^m x\_i$, $\delta\_{ij}$ is the Kronecker delta, and $A, B \in C^\infty(\R\_{>0})$ satisfying $B > 0$ and $A + B > 0$._
+_where $\abs{x} = \sum\_{i=1}^n x\_i$, $\delta\_{ij}$ is the Kronecker delta, and $A, B \in C^\infty(\R\_{>0})$ satisfying $B > 0$ and $A + B > 0$._
 
 _Proof._  See Campbell (1986) and Amari (2016, Sec. 3.5).
 
