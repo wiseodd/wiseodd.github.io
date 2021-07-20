@@ -28,7 +28,7 @@ $$
 
 The following proposition shows the behavior of $\I$ under sufficient statistics.
 
-**Proposition 1.** The Fisher information is invariant under sufficient statistics.
+**Proposition 1.** _The Fisher information is invariant under sufficient statistics._
 
 _Proof._ Let $T$ be a sufficient statistic and so $p_\theta(x) := g_\theta(T(x)) h(x)$. Notice that this implies
 
@@ -69,7 +69,7 @@ be the set of the parametric densities $p_\theta(x)$. We can treat $M$ as a smoo
 
 Let us assume that $\I$ is positive-definite everywhere, and each $\I_{ij}$ is smooth. Then we can use it as (the coordinates representation of) a Riemannian metric for $M$. This is because $\I$ is a covariant 2-tensor. (Recall the definition of a Riemannian metric.)
 
-**Proposition 2.** The component functions $\I_{ij}$ of $\I$ follows the covariant transformation rule.
+**Proposition 2.** _The component functions $\I\_{ij}$ of $\I$ follows the covariant transformation rule._
 
 _Proof._ Let $\theta \mapsto \varphi$ be a change of coordinates and let $\ell(\varphi) := \log p_\varphi(x)$. The component function $\I_{ij}(\theta)$ in the "old" coordinates is expressed in terms of the "new" ones, as follows:
 
@@ -195,9 +195,6 @@ $$
 $$
 
 for any $x \in \R^n_{> 0}$. Therefore, this is the form of the invariant metric under sufficient statistics in $\S^{n-1} \subset R^n_{>0}$, i.e. when $n=m$ in the Markov embedding.
-
-
-[Image Here!]
 
 Let us therefore restrict $g$ to $\S^{n-1}$. For each $\theta \in \S^{n-1}$, the tangent space $T_\theta \S^{n-1}$ is orthogonal to the line $x^1 = x^2 = \dots = x^n$, which direction is given by the vector $\mathbf{1} = (1, \dots, 1) \in R^n_{>0}$. This is a vector normal to $\S^{n-1}$, implying that any $v \in T_\theta \S^{n-1}$ satisfies $\inner{\mathbf{1}, v}\_g = 0$, i.e. $\sum_{i=1}^n v^i = 0$.
 
