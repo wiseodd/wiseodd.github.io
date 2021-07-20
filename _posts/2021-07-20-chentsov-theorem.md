@@ -101,7 +101,7 @@ Here, we shall see a stronger statement, due to Chentsov in 1972, about the Fish
 
 Originally, Chentsov's theorem is described on the space of Categorical probability distributions over the sample space $\Omega := \\{ 1, \dots, n \\}$, i.e. the probability simplex. We use the result of Campbell (1986) as a stepping stone. To do so, we need to define the so-called *Markov embeddings*.
 
-Let $\\{ A_1, \dots, A_m \\}$ be a partition $\Omega$, where $2 \leq n leq m$. We define a conditional probability table $Q$ of size $n \times m$ where
+Let $\\{ A_1, \dots, A_m \\}$ be a partition $\Omega$, where $2 \leq n \leq m$. We define a conditional probability table $Q$ of size $n \times m$ where
 
 $$
 \begin{align}
