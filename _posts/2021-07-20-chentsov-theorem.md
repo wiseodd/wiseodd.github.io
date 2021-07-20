@@ -2,7 +2,7 @@
 layout:     post
 title:      "Chentsov's Theorem"
 subtitle:   "The Fisher information is often the default choice of the Riemannian metric for manifolds of probability distributions. In this post, we study Chentsov's theorem, which justifies this choice. It says that the Fisher information is the unique Riemannian metric (up to a scaling constant) that is invariant under sufficient statistics. This fact makes the Fisher metric stands out from other choices."
-date:       2021-07-20 08:00
+date:       2021-07-20 00:00
 author:     "wiseodd"
 header-img: "img/manifold.svg"
 category:   techblog
