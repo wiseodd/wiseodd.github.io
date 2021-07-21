@@ -188,7 +188,7 @@ Now we are ready to state the main result.
 
 **Theorem 5 (Chentsov, 1972).** _The Fisher information is the unique Riemannian metric on $\S^{n-1}$ that is invariant under sufficient statistics, up to a multiplicative constant._
 
-_Proof._ By Lemma 2, the invariant metric under Markov embeddings in $\R^n_{> 0}$ is given by
+_Proof._ By Lemma 3, the invariant metric under Markov embeddings in $\R^n_{> 0}$ is given by
 
 $$
     g_{ij}(x) = A(\abs{x}) + \delta_{ij} \frac{\abs{x} B(\abs{x})}{x_i} ,
@@ -214,7 +214,7 @@ $$
     g_{ij}(\theta) = \delta_{ij} \frac{B(1)}{\theta_i} .
 $$
 
-Recalling that $B(1)$ is a constant, by Lemma 2, we have $g_{ij}(\theta) \propto \I_{ij}(\theta)$.
+Recalling that $B(1)$ is a constant, by Lemma 4, we have $g_{ij}(\theta) \propto \I_{ij}(\theta)$.
 
 \\( \square \\)
 {:.right}
