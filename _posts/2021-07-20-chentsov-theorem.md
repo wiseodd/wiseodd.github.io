@@ -114,7 +114,7 @@ $$
 That is, the $i$-th row of $Q$ gives probabilities signifying the membership of each $j \in \Omega$ in $A_i$. Based on this, we define a map $f: \R^n_{> 0} \to \R^m_{>0}$ by
 
 $$
-    y_j := \sum_{i=1}^n q_{ij} x_i \qquad \forall\enspace j = 1, \dots, m .
+    y_j := \sum_{i=1}^n q_{ij} x^i \qquad \forall\enspace j = 1, \dots, m .
 $$
 
 We call this map a **_Markov embedding_**. The name suggests that $f$ embeds $\R^n_{> 0}$ in a higher-dimensional space $\R^m_{> 0}$.
@@ -125,10 +125,10 @@ The result of Campbell (1986) characterizes the form of the Riemannian metric in
 **Lemma 3 (Campbell, 1986).** _Let $g$ be a Riemannian metric on $\R^n\_{>0}$ where $n \geq 2$. Suppose that every Markov embedding on $(\R^n\_{>0}, g)$ is an isometry. Then_
 
 $$
-    g_{ij}(x) = A(\abs{x}) + \delta_{ij} \frac{\abs{x} B(\abs{x})}{x_i} ,
+    g_{ij}(x) = A(\abs{x}) + \delta_{ij} \frac{\abs{x} B(\abs{x})}{x^i} ,
 $$
 
-_where $\abs{x} = \sum\_{i=1}^n x\_i$, $\delta\_{ij}$ is the Kronecker delta, and $A, B \in C^\infty(\R\_{>0})$ satisfying $B > 0$ and $A + B > 0$._
+_where $\abs{x} = \sum\_{i=1}^n x^i$, $\delta\_{ij}$ is the Kronecker delta, and $A, B \in C^\infty(\R\_{>0})$ satisfying $B > 0$ and $A + B > 0$._
 
 _Proof._  See Campbell (1986) and Amari (2016, Sec. 3.5).
 
@@ -136,14 +136,14 @@ _Proof._  See Campbell (1986) and Amari (2016, Sec. 3.5).
 {:.right}
 
 
-Lemma 3 is a general statement about the invariant metric in $\R^n_{>0}$ and it does not say anything about sufficient statistics and probability distributions. To get the main result, we restrict ourselves to the $(n-1)$-**_probability simplex_** $\S^{n-1} \subset \R^n_{>0}$, which is the space of (Categorical) probability distribution.
+Lemma 3 is a general statement about the invariant metric in $\R^n_{>0}$ and it does not say anything about sufficient statistics and probability distributions. To get the main result, we restrict ourselves to the $(n-1)$-**_probability simplex_** $\Delta^{n-1} \subset \R^n_{>0}$, which is the space of (Categorical) probability distribution.
 
 The fact that the Fisher information is the unique invariant metric under sufficient statistics follows from the fact that when $n = m$, the Markov embedding reduces to a permutation of the components of $x \in \R^n_{>0}$---i.e. the permutation of $\Omega$. This is because permutations of $\Omega$ are sufficient statistics for Categorical distribution.
 
-Let us, therefore, connect the result in Lemma 3 with the Fisher information on $\S^{n-1}$. We give the latter in the following lemma.
+Let us, therefore, connect the result in Lemma 3 with the Fisher information on $\Delta^{n-1}$. We give the latter in the following lemma.
 
 
-**Lemma 4.** _The Fisher information of a Categorical distribution $p\_\theta(z)$ where $z$ takes values in $\Omega = \\{ 1, \dots, n \\}$ and $\theta = \\{ \theta^1, \dots, \theta^n \\} \in \S^{n-1}$ is given by_
+**Lemma 4.** _The Fisher information of a Categorical distribution $p\_\theta(z)$ where $z$ takes values in $\Omega = \\{ 1, \dots, n \\}$ and $\theta = \\{ \theta^1, \dots, \theta^n \\} \in \Delta^{n-1}$ is given by_
 
 $$
     \I_{ij}(\theta) = \delta_{ij} \frac{1}{\theta^i} .
@@ -186,19 +186,19 @@ Using similar step, we can show that $\I_{ij}(\theta) = 0$ for $i \neq j$ becaus
 Now we are ready to state the main result.
 
 
-**Theorem 5 (Chentsov, 1972).** _The Fisher information is the unique Riemannian metric on $\S^{n-1}$ that is invariant under sufficient statistics, up to a multiplicative constant._
+**Theorem 5 (Chentsov, 1972).** _The Fisher information is the unique Riemannian metric on $\Delta^{n-1}$ that is invariant under sufficient statistics, up to a multiplicative constant._
 
 _Proof._ By Lemma 3, the invariant metric under Markov embeddings in $\R^n_{> 0}$ is given by
 
 $$
-    g_{ij}(x) = A(\abs{x}) + \delta_{ij} \frac{\abs{x} B(\abs{x})}{x_i} ,
+    g_{ij}(x) = A(\abs{x}) + \delta_{ij} \frac{\abs{x} B(\abs{x})}{x^i} ,
 $$
 
-for any $x \in \R^n_{> 0}$. Therefore, this is the form of the invariant metric under sufficient statistics in $\S^{n-1} \subset \R^n_{>0}$, i.e. when $n=m$ in the Markov embedding.
+for any $x \in \R^n_{> 0}$. Therefore, this is the form of the invariant metric under sufficient statistics in $\Delta^{n-1} \subset \R^n_{>0}$, i.e. when $n=m$ in the Markov embedding.
 
-Let us therefore restrict $g$ to $\S^{n-1}$. For each $\theta \in \S^{n-1}$, the tangent space $T_\theta \S^{n-1}$ is orthogonal to the line $x^1 = x^2 = \dots = x^n$, which direction is given by the vector $\mathbf{1} = (1, \dots, 1) \in \R^n_{>0}$. This is a vector normal to $\S^{n-1}$, implying that any $v \in T_\theta \S^{n-1}$ satisfies $\inner{\mathbf{1}, v}\_g = 0$, i.e. $\sum_{i=1}^n v^i = 0$.
+Let us therefore restrict $g$ to $\Delta^{n-1}$. For each $\theta \in \Delta^{n-1}$, the tangent space $T_\theta \Delta^{n-1}$ is orthogonal to the line $x^1 = x^2 = \dots = x^n$, which direction is given by the vector $\mathbf{1} = (1, \dots, 1) \in \R^n_{>0}$. This is a vector normal to $\Delta^{n-1}$, implying that any $v \in T_\theta \Delta^{n-1}$ satisfies $\inner{\mathbf{1}, v}\_g = 0$, i.e. $\sum_{i=1}^n v^i = 0$.
 
-Moreover, if $\theta \in \S^{n-1}$, then $\abs{\theta} = \sum_{i=1}^n \theta^i = 1$ by definition. Thus, $A(1)$ and $B(1)$ are constants. So, if $v, w \in T_\theta \S^{n-1}$, we have:
+Moreover, if $\theta \in \Delta^{n-1}$, then $\abs{\theta} = \sum_{i=1}^n \theta^i = 1$ by definition. Thus, $A(1)$ and $B(1)$ are constants. So, if $v, w \in T_\theta \Delta^{n-1}$, we have:
 
 $$
 \begin{align}
@@ -211,7 +211,7 @@ $$
 Therefore $A(1)$ does not contribute to the inner product and we may, w.l.o.g., write the metric as a diagonal matrix:
 
 $$
-    g_{ij}(\theta) = \delta_{ij} \frac{B(1)}{\theta_i} .
+    g_{ij}(\theta) = \delta_{ij} \frac{B(1)}{\theta^i} .
 $$
 
 Recalling that $B(1)$ is a constant, by Lemma 4, we have $g_{ij}(\theta) \propto \I_{ij}(\theta)$.
