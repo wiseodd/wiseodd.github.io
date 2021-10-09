@@ -1,10 +1,10 @@
 # Site settings
 title: "Agustinus Kristiadi's Blog"
 header-img: "img/home-bg.jpg"
-email: "kristiadi@pm.me"
+email: "agustinus@kristia.de"
 description: ""
 baseurl: ""
-url: "http://wiseodd.github.io"
+url: "https://agustinus.kristia.de"
 github_username: "wiseodd"
 
 # Build settings
