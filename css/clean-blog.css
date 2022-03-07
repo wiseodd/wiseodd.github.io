@@ -1,13 +1,13 @@
 body {
-  font-family: Times, serif;
-  font-size: 19px;
+  font-family: 'EB Garamond', serif;
+  font-size: 20px;
   color: black;
   line-height: 1.25;
 }
 
 @media only screen and (min-width: 480px) {
   body {
-    font-size: 19px;
+    font-size: 20px;
   }
 }
 p {
@@ -97,7 +97,7 @@ hr.small {
 }
 @media only screen and (max-width: 768px) {
   body {
-    font-size: 18px;
+    font-size: 20px;
   }
 
   .navbar-custom .navbar-brand {
@@ -534,9 +534,4 @@ body {
   padding-left: 50px;
   margin-right: auto;
   margin-left: auto;
-}
-
-@font-face {
-  font-family: 'Times New Roman';
-  src: url(../fonts/times-new-roman.ttf) format('truetype');
 }
