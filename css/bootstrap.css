@@ -1102,8 +1102,9 @@ a {
 }
 a:hover,
 a:focus {
-  color: #23527c;
+  /* color: #23527c; */
   text-decoration: underline;
+  /* opacity: 0.75; */
 }
 a:focus {
   outline: thin dotted;

@@ -55,10 +55,10 @@ a {
   color: black;
 }
 .post a {
-  color: blue;
+  color: #305ea8;
 }
 #aboutme a {
-  color: blue;
+  color: #305ea8;
 }
 /*a:hover,
 a:focus {
@@ -161,14 +161,16 @@ hr.small {
   }*/
   .navbar-custom.is-fixed .navbar-brand:hover,
   .navbar-custom.is-fixed .navbar-brand:focus {
-    color: #0085a1;
+    color: white;
+    opacity: 0.75;
   }
-  /*.navbar-custom.is-fixed .nav li a {
+  /* .navbar-custom.is-fixed .nav li a {
     color: #404040;
-  }*/
+  } */
   .navbar-custom.is-fixed .nav li a:hover,
   .navbar-custom.is-fixed .nav li a:focus {
-    color: #0085a1;
+    color: white;
+    opacity: 0.75;
   }
   .navbar-custom.is-visible {
     /* if the user changes the scrolling direction, we show the header */
@@ -181,12 +183,14 @@ hr.small {
 }
 .navbar-default .navbar-brand:hover {
   color: white;
+  opacity: 0.75;
 }
 .navbar-default .navbar-nav>li>a {
   color: white;
 }
 .navbar-default .navbar-nav>li>a:hover {
   color: white;
+  opacity: 0.75;
 }
 .intro-header {
   background: no-repeat center center;
@@ -280,7 +284,7 @@ hr.small {
 .post-preview > a:hover,
 .post-preview > a:focus {
   text-decoration: none;
-  color: #0085a1;
+  color: rgba(0, 0, 0, 0.65);
 }
 .post-preview > a .post-title {
   font-size: 24px;
@@ -356,6 +360,12 @@ footer .copyright {
   font-size: 14px;
   text-align: center;
   margin-bottom: 0;
+}
+footer li a:hover,
+footer li a:focus {
+  /* color: #23527c; */
+  text-decoration: underline;
+  opacity: 0.75;
 }
 .floating-label-form-group {
   font-size: 14px;
@@ -450,8 +460,8 @@ form .row:first-child .floating-label-form-group {
 .pager li > a:hover,
 .pager li > a:focus {
   color: white;
-  background-color: #0085a1;
-  border: 1px solid #0085a1;
+  background-color: black;
+  /* border: 1px solid #0085a1; */
 }
 .pager .disabled > a,
 .pager .disabled > a:hover,
@@ -461,16 +471,16 @@ form .row:first-child .floating-label-form-group {
   background-color: #404040;
   cursor: not-allowed;
 }
-::-moz-selection {
-  color: white;
-  text-shadow: none;
-  background: #0085a1;
-}
-::selection {
-  color: white;
-  text-shadow: none;
-  background: #0085a1;
-}
+/* ::-moz-selection { */
+/*   color: white; */
+/*   text-shadow: none; */
+/*   background: rgba(0, 0, 0, 0.5); */
+/* } */
+/* ::selection { */
+/*   color: white; */
+/*   text-shadow: none; */
+/*   background: rgba(0, 0, 0, 0.5); */
+/* } */
 img {
   margin: auto;
 }
