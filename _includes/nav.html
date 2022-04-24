@@ -15,7 +15,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                {% assign pages = site.pages | sort: 'weight' | reverse %}
+                {% assign pages = site.pages | sort: 'order' %}
 
                 {% for page in pages %}
                     {% if page.title %}
