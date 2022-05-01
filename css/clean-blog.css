@@ -7,7 +7,7 @@ body {
 
 @media only screen and (min-width: 480px) {
   body {
-    font-size: 20px;
+    font-size: 19px;
   }
 }
 p {
@@ -103,7 +103,7 @@ hr.small {
 }
 @media only screen and (max-width: 768px) {
   body {
-    font-size: 20px;
+    font-size: 17px;
   }
 
   .navbar-custom .navbar-brand {
