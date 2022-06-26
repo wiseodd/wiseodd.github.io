@@ -48,7 +48,7 @@ which we can immediately identify as the characteristic function of a Gaussian w
 This result is very useful in Bayesian machine learning, especially to obtain the predictive distribution of a Bayesian regression model.
 For instance, when one knows that the distribution over the regressor's output is a Gaussian $\N(f \mid \mu, \sigma^2)$ and we assume that the output is noisy $\N(y \mid f, s^2)$.
 
-**Corollary.** _Let $p(y \mid f) = \N(y \mid f, s^2)$ and $p(f) = \N(f \mid \mu, \sigma^2)$ are Gaussians on $\R$. Then,_
+**Corollary 2 (Predictive Distribution of Bayesian Regression).** _Let $p(y \mid f) = \N(y \mid f, s^2)$ and $p(f) = \N(f \mid \mu, \sigma^2)$ are Gaussians on $\R$. Then,_
 
 $$
   p(y) = \int_\R p(y \mid f) \, p(f) \,df = \N(y \mid f, \sigma^2 + s^2) .
@@ -99,7 +99,7 @@ $$
   \Phi(z) = \frac{1}{2} \left( 1 + \mathrm{erf}\left(\frac{z}{\sqrt{2}}\right) \right) .
 $$
 
-**Proposition 2 (The Probit Integral).** _If $\N(x \mid \mu, \sigma^2)$ be a Gaussian on $\R$ and $a, b \in \R$ then_
+**Proposition 3 (The Probit Integral).** _If $\N(x \mid \mu, \sigma^2)$ be a Gaussian on $\R$ and $a, b \in \R$ then_
 
 $$
   \int_{\R} \Phi(ax + b) \, \N(x \mid \mu, \sigma^2) \,dx = \Phi\left(\frac{a\mu + b}{\sqrt{1 + a^2 \sigma^2}}\right).
@@ -145,20 +145,20 @@ That is, their graphs have a similar "S-shape".
 Moreover, their images are both $[0, 1]$.
 However, they are a bit different---the probit function is more "horizontally stretched" compared to the logistic function.
 
-So, the strategy to approximate the integral above is as follows: (i) horizontally "contract" the probit function and then (ii) use Proposition 2 to get an analytic approximation to the integral.
+So, the strategy to approximate the integral above is as follows: (i) horizontally "contract" the probit function and then (ii) use Proposition 3 to get an analytic approximation to the integral.
 
 For the first step, this can be done by a simple change of coordinate: stretch the domain of the probit function with a constant $\lambda$, i.e., $z \mapsto \lambda z$.
 There are several "good" values for $\lambda$, but commonly it is chosen to be $\lambda = \sqrt{\pi/8}$, which makes the probit function have the same derivative as the logistic function at zero.
-That is, we have the approximation $\sigma(z) \approx \Phi(\lambda z) = \Phi(\pi/8 \, z)$.
+That is, we have the approximation $\sigma(z) \approx \Phi(\lambda z) = \Phi(\sqrt{\pi/8} \, z)$.
 
-**Corollary 3.** _If $\N(z \mid m, s^2)$ is a Gaussian on $\R$, then_
+**Corollary 4.** _If $\N(z \mid m, s^2)$ is a Gaussian on $\R$, then_
 
 $$
   \int_{\R} \Phi(\lambda z) \, \N(z \mid m, s^2) \, dz = \Phi\left( \frac{m}{\sqrt{\lambda^{-2} + s^2}} \right) .
 $$
 
 _Proof._
-By Proposition 2, we have
+By Proposition 3, we have
 
 $$
 \begin{align}
@@ -173,7 +173,7 @@ $$
 
 Now we are ready to obtain the final approximation, often called the **_probit approximation_**.
 
-**Proposition 4 (The Probit Approximation)** _If $\N(z \mid m, s^2)$ is a Gaussian on $\R$ and $\sigma(z) \approx \Phi\left(\sqrt{\pi/8} \, z\right)$, then_
+**Proposition 5 (The Probit Approximation)** _If $\N(z \mid m, s^2)$ is a Gaussian on $\R$ and $\sigma(z) \approx \Phi\left(\sqrt{\pi/8} \, z\right)$, then_
 
 $$
   \int_{\R} \sigma(z) \, \N(z \mid m, s^2) \, dz \approx \sigma\left( \frac{m}{\sqrt{1 + \pi/8 \, s^2}} \right) .
@@ -181,7 +181,7 @@ $$
 
 _Proof._
 Let $\lambda = \sqrt{\pi/8}$.
-Using Corollary 3 and substituting $\Phi(z) \approx \sigma\left(\lambda^{-1} \, z\right)$:
+Using Corollary 4 and substituting $\Phi(z) \approx \sigma\left(\lambda^{-1} \, z\right)$:
 
 $$
 \begin{align}
