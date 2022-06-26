@@ -11,7 +11,7 @@ category:   techblog
 Gaussian distributions are very useful in Bayesian inference due to their (many!) convenient properties.
 In this post we take a look at two of them: the convolution of two Gaussian pdfs and the integral of the probit function w.r.t. a Gaussian measure.
 
-<h2 class="section-heading">Convolution and the Predictive Distribution of Linear Regression</h2>
+<h2 class="section-heading">Convolution and the Predictive Distribution of Gaussian Regression</h2>
 
 Let's start with the **_convolution_** $\N(z_1 \mid \mu_1, \sigma^2_1) * \N(z_2 \mid \mu_2, \sigma^2_2)$ of two Gaussians $\N(z_1 \mid \mu_1, \sigma^2_1)$ and $\N(z_2 \mid \mu_2, \sigma^2_2)$ on $\R$:
 
@@ -48,7 +48,7 @@ which we can immediately identify as the characteristic function of a Gaussian w
 This result is very useful in Bayesian machine learning, especially to obtain the predictive distribution of a Bayesian regression model.
 For instance, when one knows that the distribution over the regressor's output is a Gaussian $\N(f \mid \mu, \sigma^2)$ and we assume that the output is noisy $\N(y \mid f, s^2)$.
 
-**Corollary 2 (Predictive Distribution of Bayesian Regression).** _Let $p(y \mid f) = \N(y \mid f, s^2)$ and $p(f) = \N(f \mid \mu, \sigma^2)$ are Gaussians on $\R$. Then,_
+**Corollary 2 (Gaussian Regression).** _Let $p(y \mid f) = \N(y \mid f, s^2)$ and $p(f) = \N(f \mid \mu, \sigma^2)$ are Gaussians on $\R$. Then,_
 
 $$
   p(y) = \int_\R p(y \mid f) \, p(f) \,df = \N(y \mid f, \sigma^2 + s^2) .
