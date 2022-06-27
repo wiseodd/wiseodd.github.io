@@ -208,7 +208,7 @@ $$
 where the Gaussian is defined on $\R^k$ and the softmax function is identified by its components $\exp(z_i)/\sum_{j=1}^k \exp(z_j)$ for $i = 1, \dots, k$.
 
 
-**Proposition 6 (Multiclass Probit Approximation).** _If $\N(z \mid \mu, \varSigma)$ is a Gaussian on $\R^k$ and $\sigma(z) \approx \Phi(\sqrt{\pi/8}\,z)$, then_
+**Proposition 6 (Multiclass Probit Approximation; Gibbs, 1998).** _If $\N(z \mid \mu, \varSigma)$ is a Gaussian on $\R^k$ and $\sigma(z) \approx \Phi(\sqrt{\pi/8}\,z)$, then_
 
 $$
   \int_{\R^k} \mathrm{softmax}(z) \, \N(z \mid \mu, \varSigma) \, dz \approx \mathrm{softmax}\left( \frac{\mu}{\sqrt{1 + \pi/8 \, \diag \varSigma}} \right) ,
@@ -217,7 +217,7 @@ $$
 _where the division in the r.h.s. is component-wise._
 
 _Proof._
-The proof is based on [2].
+The proof is based on [3].
 Notice that we can write the $i$-th component of $\mathrm{softmax}(z)$ as $1/(1 + \sum_{j \neq i} \exp(-(z_i - z_j)))$.
 So, for each $i = 1, \dots, k$, using $z_{ij} := z_i - z_j$, we can write
 
@@ -232,9 +232,16 @@ $$
 Then, we use the following approximations (which admittedly might be quite loose):
 
 1. $\E(f(x)) \approx f(\E(x))$,
-2. the mean-field approximation $\N(z \mid \mu, \varSigma) \approx \N(z \mid \mu, \diag{\varSigma})$,
-3. approximating the marginal $z_i - z_j \sim \N(z_{ij} \mid \mu_i - \mu_j, \varSigma_{ii} - \varSigma_{jj})$ by assuming $\varSigma_{jj} \to 0$, i.e. $z_i - z_j \sim \N(z_{ij} \mid \mu_i - \mu_j, \varSigma_{ii})$, and
-4. Using the probit approximation (Proposition 5),
+2. the mean-field approximation $\N(z \mid \mu, \varSigma) \approx \N(z \mid \mu, \diag{\varSigma})$, and thus we have $z_i - z_j \sim \N(z_{ij} \mid \mu_i - \mu_j, \varSigma_{ii} + \varSigma_{jj})$, and
+3. using the probit approximation (Proposition 5), with a further approximation
+
+$$
+\begin{align}
+  \int_{\R} \sigma(z_{ij}) \, \N(z_{ij} \mid \mu_i - \mu_j, \varSigma_{ii} + \varSigma_{jj}) \, dz_{ij} &\approx \sigma \left( \frac{\mu_i - \mu_j}{\sqrt{1 + \pi/8 \, \varSigma_{ii} + \varSigma_{jj}}} \right) \\[5pt]
+    %
+    &\approx \sigma \left( \frac{\mu_i}{\sqrt{1 + \pi/8 \, \varSigma_{ii}}} - \frac{\mu_j}{\sqrt{1 + \pi/8 \, \varSigma_{jj}}} \right) ,
+\end{align}
+$$
 
 we obtain
 
@@ -242,9 +249,11 @@ $$
 \begin{align}
   \int_{\R^k} \mathrm{softmax}_i(z) \, \N(z \mid \mu, \varSigma) &\approx \frac{1}{2-K+\sum_{j \neq i} \frac{1}{\E \sigma(z_{ij})}} \\[5pt]
     %
-    &= \frac{1}{2-K+\sum_{j \neq i} \frac{1}{\sigma \left( \frac{\mu_i - \mu_j}{\sqrt{1 + \pi/8 \, \varSigma_{ii}}} \right)}} \\[5pt]
+    &\approx \frac{1}{2-K+\sum_{j \neq i} \frac{1}{\sigma \left( \frac{\mu_i}{\sqrt{1 + \pi/8 \, \varSigma_{ii}}} - \frac{\mu_j}{\sqrt{1 + \pi/8 \, \varSigma_{jj}}} \right)}} \\[5pt]
     %
-    &= \frac{1}{1 + \sum_{j \neq i} \exp\left( \frac{\mu_i - \mu_j}{\sqrt{1 + \pi/8 \, \varSigma_{ii}}} \right)} .
+    &= \frac{1}{1 + \sum_{j \neq i} \exp\left( -\left(\frac{\mu_i}{\sqrt{1 + \pi/8 \, \varSigma_{ii}}} - \frac{\mu_j}{\sqrt{1 + \pi/8 \, \varSigma_{jj}}} \right)\right)} \\[5pt]
+    %
+    &= \frac{\exp\left(\mu_i/\sqrt{1 + \pi/8 \, \varSigma_{ii}}\right)}{\sum_{j=1}^k \exp\left(\mu_j/\sqrt{1 + \pi/8 \, \varSigma_{jj}}\right)}
 \end{align}
 $$
 
@@ -256,4 +265,5 @@ We identify the last equation above as the $i$-th component of $\mathrm{softmax}
 <h2 class="section-heading">References</h2>
 
 1. Ng, Edward W., and Murray Geller. "A table of integrals of the error functions." _Journal of Research of the National Bureau of Standards B 73_, no. 1 (1969): 1-20.
-2. Lu, Zhiyun, Eugene Ie, and Fei Sha. "Mean-Field Approximation to Gaussian-Softmax Integral with Application to Uncertainty Estimation." _arXiv preprint arXiv:2006.07584_ (2020).
+2. Gibbs, Mark N. _Bayesian Gaussian processes for regression and classification_. Dissertation, University of Cambridge, 1998.
+3. Lu, Zhiyun, Eugene Ie, and Fei Sha. "Mean-Field Approximation to Gaussian-Softmax Integral with Application to Uncertainty Estimation." _arXiv preprint arXiv:2006.07584_ (2020).
