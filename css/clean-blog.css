@@ -7,7 +7,7 @@ body {
 
 @media only screen and (min-width: 480px) {
   body {
-    font-size: 19px;
+    font-size: 17px;
   }
 }
 p {
@@ -43,8 +43,8 @@ h6,
 
 #aboutme h4 {
   margin-top: 0px !important;
-  margin-bottom: 0.25em !important;
-  font-size: 19px;
+  margin-bottom: 0em !important;
+  font-size: 17px;
 }
 
 #aboutme h5 {
