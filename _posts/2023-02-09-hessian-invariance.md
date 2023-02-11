@@ -222,7 +222,7 @@ $$
   \det \tilde{\mathbf{E}} = \cancel{(\det \mathbf{J})} \cancel{(\det \mathbf{J})^{-1}} (\det \mathbf{E}) = \det \mathbf{E} .
 $$
 
-That is, the determinant of the Hessian, seen as a shape operator, is invariant!
+That is, **the determinant of the Hessian, seen as a shape operator, is invariant!**
 
 What about the trace of $\mathbf{E}$?
 Recall that $\tr{\mathbf{A}\mathbf{B}} = \tr{\mathbf{B}\mathbf{A}}$.
@@ -234,7 +234,7 @@ $$
 \end{align}
 $$
 
-and so the trace is also invariant.
+and so **the trace is also invariant**.
 
 Finally, we can also show a general invariance result for eigenvalues.
 Recall that $\lambda$ is an eigenvalue of the linear operator $\mathbf{E}$ if $\mathbf{E} \mathbf{v} = \lambda \mathbf{v}$ for an eigenvector $\mathbf{v}$.
@@ -260,7 +260,7 @@ $$
 where the last step is done by multiplying both sides by the inverse of the Jacobian---recall that $\varphi$ is invertible.
 
 Therefore, we identify that $\lambda = \tilde\lambda$.
-Since $\lambda$ is an arbitrary eigenvalue, this invariance holds for all eigenvalues of $\mathbf{E}$.
+Since $\lambda$ is an arbitrary eigenvalue, we conclude that **all eigenvalues of $\mathbf{E}$ are invariant**.
 
 
 <h2 class="section-heading">Non-Invariance from the Tensor Analysis Viewpoint</h2>
