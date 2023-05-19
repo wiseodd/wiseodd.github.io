@@ -90,17 +90,21 @@ $$
 
 Note that in the above, we can immediately cross out partial derivatives that depend on $\theta^1 = \mu$ since we know that $g_{ij}$ does not depend on $\mu$ for all $i, j = 1, 2$. Meanwhile, we know immediately that the second term is zero because $g$ is diagonal---in particular $g^{ij} = 0$ for $i \neq j$.
 
-Now, for $k=2$, we can easily show (the hardest part is to keep track the indices) that $\Gamma^2\_{12} = \Gamma^2\_{21} = \Gamma^2\_{22} = 0$. Meanwhile,
+Now, for $k=2$, we can easily show (the hardest part is to keep track the indices) that $\Gamma^2\_{12} = \Gamma^2\_{21}=$. Meanwhile,
 
 $$
 \begin{align}
-    \Gamma^2_{11} &= \frac{1}{2} \underbrace{g^{21}}_{0} \dots + \frac{1}{2} g^{22} \left( \cancel{\frac{\partial g_{12}}{\partial \theta^1}} + \cancel{\frac{\partial g_{12}}{\partial \theta^1}} - \frac{\partial g_{11}}{\partial \theta^2} \right) \\
+    \Gamma^2_{11} &= \frac{1}{2} \underbrace{g^{21}}_{0} \dots + \frac{1}{2} g^{22} \left( \underbrace{\frac{\partial g_{12}}{\partial \theta^1}}_{0} + \underbrace{\frac{\partial g_{12}}{\partial \theta^1}}_{0} - \frac{\partial g_{11}}{\partial \theta^2} \right) \\
         %
         &= -\frac{1}{2} \frac{\sigma^2}{2} \frac{\partial}{\partial \sigma} \left( \frac{1}{\sigma^2} \right) \\
         %
-        &= \frac{1}{2\sigma} .
+        &= -\frac{1}{\cancel{2}} \frac{\cancel{\sigma^2}}{2} \left(-\cancel{2} \frac{1}{\sigma^{\cancel{3}}}\right) \\
+        %
+        &= \frac{1}{2\sigma} ,
 \end{align}
 $$
+
+and similar computation gives $\Gamma^2_{22} = -\frac{1}{\sigma}$.
 
 So, all in all, $\Gamma$ is given by
 
@@ -113,7 +117,7 @@ $$
         %
         \begin{pmatrix}
             \frac{1}{2\sigma} & 0 \\
-            0 & 0
+            0 & -\frac{1}{\sigma}
         \end{pmatrix} & \text{if } k = 2  .
     \end{cases}
 $$
@@ -173,20 +177,20 @@ Now, we can cross out the partial derivative term w.r.t. $\mu$ since we know alr
 
 $$
 \begin{align}
-    R_{1221} &= g_{11} \left( - \frac{\partial \Gamma^1_{12}}{\partial \sigma} - \Gamma^1_{12} \Gamma^1_{21} \right) \\
+    R_{1221} &= g_{11} \left( - \frac{\partial \Gamma^1_{12}}{\partial \sigma} + \Gamma^2_{22} \Gamma^1_{12} - \Gamma^1_{12} \Gamma^1_{21} \right) \\
         %
-        &= \frac{1}{\sigma^2} \left( -\frac{\partial}{\partial \sigma} \left( -\frac{1}{\sigma} \right) - \left( -\frac{1}{\sigma} \right)^2 \right) \\
+        &= \frac{1}{\sigma^2} \left( -\frac{\partial}{\partial \sigma} \left( -\frac{1}{\sigma} \right) + \cancel{\left( -\frac{1}{\sigma} \right)^2} - \cancel{\left( -\frac{1}{\sigma} \right)^2} \right) \\
         %
-        &= \frac{1}{\sigma^2} \left( -\frac{2}{\sigma^2} - \frac{1}{\sigma^2} \right) \\
+        &= \frac{1}{\sigma^2} \left( -\frac{1}{\sigma^2} \right) \\
         %
-        &= -\frac{2}{\sigma^4} .
+        &= -\frac{1}{\sigma^4} .
 \end{align}
 $$
 
 Thus, the sectional curvature is given by
 
 $$
-    \text{sec}(\partial_1, \partial_2) = \frac{-\frac{2}{\sigma^4}}{\frac{2}{\sigma^4}} = -1 .
+    \text{sec}(\partial_1, \partial_2) = \frac{-\frac{1}{\sigma^4}}{\frac{2}{\sigma^4}} = -\frac{1}{2} .
 $$
 
 Note in particular that this sectional curvature does not depend on both $\mu$ and $\sigma$, i.e. it is constant. Hence, $M$ is a manifold of constant negative curvature. I.e., we can think of $M$ as a saddle surface.
