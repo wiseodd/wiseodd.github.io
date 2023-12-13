@@ -1,15 +1,18 @@
 ---
 layout:     post
-title:      "Volume Forms and Why MAP Estimation is Invariant Under Change of Variables"
-subtitle:   "From elementary probability theory, it is well known that a probability density function (pdf) is _not_ invariant under an arbitrary change of variables (reparametrization). In this article we'll see that pdf are actually invariant when we see a pdf in its entirety, as a volume form in differential geometry."
-date:       2023-12-11 00:00
+title:      "Volume Forms and Probability Density Functions Under Change of Variables"
+subtitle:   "From elementary probability theory, it is well known that a probability density function (pdf) is not invariant under an arbitrary change of variables (reparametrization). In this article we'll see that pdf are actually invariant when we see a pdf in its entirety, as a volume form and a Radon-Nikodym derivative in differential geometry."
+date:       2023-12-13 00:00
 author:     "wiseodd"
-header-img: "img/manifold.svg"
+header-img: "img/manifold2.svg"
 category:   techblog
 ---
 
 Suppose we have $\R^n$ equipped with the Cartesian **_coordinates_**; the latter represents a point in $\R^n$ with $x = (x^1, \dots, x^n)$, an $n$-tuple of numbers via the identity function $\mathrm{Id}_{\R^n}$---this is because $\R^n$ itself is already defined as the space of tuples of $n$ numbers.
-(Note that $v^i$ is not a power, but just indexing; we write $(v^i)^2$ if we need to take the power.)
+(Note that $v^i$ is not a power, but just indexing; we write e.g. $(v^i)^2$ if we need to take the power.)
+
+![Coordinates]({{ site.baseurl }}/img/2023-12-13-volume-form/01_coords.jpg){:width="50%"}
+
 Here are some interesting objects to study in this setting.
 
 
@@ -17,6 +20,9 @@ Here are some interesting objects to study in this setting.
 
 In $\R^d$, we usually have the standard Euclidean inner product $\inner{v, w} = \sum_{i=1}^n v^i w^i$ where $v = (v^1, \dots, v^n)$ and $w = (w^1, \dots, w^n)$ are two vectors.
 We can write an inner product in terms of an inner product matrix $\inner{v, w} = v^\top G w$.
+
+![Metric]({{ site.baseurl }}/img/2023-12-13-volume-form/02_metric.jpeg){:width="50%"}
+
 The matrix $G$, which is symmetric positive definite, is called (the matrix representation of) a **_Riemannian metric_**.
 In the case of the Euclidean inner product, we have $G = I$, the identity $n \times n$ matrix.
 
@@ -28,6 +34,8 @@ This is a differential form of degree $n$, meaning that it takes $n$ vectors as 
 There is a deeper meaning in the notation, but for the purpose of this post, it suffices to say that $dx$ measures the volume of a parallelepiped spanned by $n$ vectors.
 Indeed, the evaluation $dx(v_1, \dots, v_n)$ on vectors $v_1, \dots, v_n$ is obtained by computing a determinant of the matrix obtained by stacking the tuples $v_1, \dots, v_n$.
 An important fact is that if $f: \R^n \to \R$ is any continuous function on $\R^n$, then $f \, dx$ is also a volume form.
+
+![Metric]({{ site.baseurl }}/img/2023-12-13-volume-form/03_dx.jpeg){:width="50%"}
 
 The Riemannian metric $G$ and the volume form $dx$ can be combined to obtain a special volume form
 
@@ -63,12 +71,14 @@ $$
   p_G := \frac{p \, dx}{dV_G} = \frac{p \, dx}{\sqrt{\abs{\det{G}}} \, dx} = p \, \abs{\det{G}}^{-\frac{1}{2}} ,
 $$
 
-which is a pdf under $dV_G$ since it's still positive (note that $G$ is positive-definite) and it integrates to one under $dV_G$:
+which is a pdf under $dV_G$ since it's still positive (note that $G$ is positive-definite) and
 
 $$
   \require{cancel}
-  \int_{\R^n} p \, \abs{\det{G}}^{-\frac{1}{2}} \, dV_G = \int_{\R^n} p \, \cancel{\abs{\det{G}}^{-\frac{1}{2}}} \, \cancel{\abs{\det{G}}^{\frac{1}{2}}} \, dx = 1 .
+  \int_{\R^n} p \, \abs{\det{G}}^{-\frac{1}{2}} \, dV_G = \int_{\R^n} p \, \cancel{\abs{\det{G}}^{-\frac{1}{2}}} \, \cancel{\abs{\det{G}}^{\frac{1}{2}}} \, dx = 1 ,
 $$
+
+i.e., it integrates to one under $dV_G$.
 
 
 
@@ -77,6 +87,9 @@ $$
 Now, assume that we have another coordinates for $\R^n$, say, representing each element of $\R^n$ with $y = (y^1, \dots, y^n)$ instead.
 The change of coordinates function, mapping $x \mapsto y$ is a diffeomorphism---a differentiable function with a differentiable inverse.
 Let's call it $\varphi$; and call its $n \times n$ Jacobian matrix $J = [\partial y^i / \partial x^j]\_{i,j=1}^n$ with inverse $J^{-1} = [\partial x^i / \partial y^j]_{ij=1}^n$.
+
+![Change of coordinates]({{ site.baseurl }}/img/2023-12-13-volume-form/04_cov.jpeg){:width="60%"}
+
 Here are some rules for transforming a metric and a volume form.
 
 If $G$ is a matrix representation of a Riemannian metric in $x$-coordinates, then
@@ -89,6 +102,7 @@ is the matrix representation of the same metric in $y$-coordinates.
 Consequently, the determinant of the metric $\abs{\det G}$ transforms into $\abs{\det G} \, \abs{J^{-1}}^2$.
 This transformation rule ensure if $\hat{v}, \hat{w}$ are the representations of $v, w$ in $y$-coordinates, then $\hat{v}^\top \widehat{G} \hat{w} = v^\top G w$.
 That is, the value of the inner product is independent of the choice of coordinates.
+In other words, this rule is to make sure we are referring to the same abstract object (in this case inner product, which is an abstract function) even when we use a different representation.
 
 Now, if $f \, dx$ is a volume form in $x$-coordinates, then
 
@@ -97,8 +111,10 @@ $$
 $$
 
 is the same volume form in $y$-coordinates.
-In particular, we have the relation $dx = \abs{\det J^{-1}} \, dy$.
+In particular, we have the relation $dx = \abs{\det J^{-1}} \, dy$ [2, Corollary 14.21].
 Again, this rule is to ensure coordinate independence.
+
+![Volume form under change of coordinates]({{ site.baseurl }}/img/2023-12-13-volume-form/05_dx-cov.jpeg){:width="75%"}
 
 As a consequence, integrals are also invariant under a change of coordinates:
 
@@ -120,9 +136,12 @@ $$
 $$
 
 and this is known to be problematic because of the additional Jacobian-determinant term.
-For instance, the mode $\argmax p_y$ of $p_y$ doesn't correspond to the mode $\argmax p_x$ of $p_x$, see e.g. [1, Sec. 5.2.1.4].
+
+![Pdf under change of coordinates]({{ site.baseurl }}/img/2023-12-13-volume-form/06_density-cov.jpeg){:width="70%"}
+
+For instance, the mode $\argmax p_y$ of $p_y$ doesn't correspond to the mode $\argmax p_x$ of $p_x$.
 That is, modes of pdfs are not coordinate-independent.
-_Maximum a posterior_ (MAP) estimation, which is the standard estimation method for neural networks is thus pathological since an arbitrary reparametrization/change of variables will yield a different MAP estimate.
+_Maximum a posterior_ (MAP) estimation, which is the standard estimation method for neural networks is thus pathological since an arbitrary reparametrization/change of variables will yield a different MAP estimate, see e.g. [1, Sec. 5.2.1.4]
 Or are they?
 
 The reason for the above transformation rule between $p_x$ and $p_y$ is to ensure invariance in the integration, to ensure that $p_y$ is a valid pdf w.r.t. $dy$:
@@ -140,6 +159,8 @@ $$
 However, as we have seen before, $\abs{\det J^{-1}}$ is part of the transformation of $dx$, i.e. $dx = \abs{\det J^{-1}} dy$!
 So, the problem in pdf maximization is actually because we attribute the Jacobian-determinant to the wrong part of the volume measure $p_x \, dx$.
 This can only be detected if we see things holistically as the transformation of the whole volume form, and not just view it as the transformation of the function $p_x$ independently.
+
+![Pdf under change of coordinates, correctly]({{ site.baseurl }}/img/2023-12-13-volume-form/07_density-cov-correct.jpeg){:width="70%"}
 
 This leads to a very straightforward solution to the non-invariance problem.
 Simply transform $p_x$ into $p_y = (p_x \circ \varphi^{-1})$.
@@ -219,3 +240,4 @@ Then, the correct transformations can easily be applied without confusion.
 <h2 class="section-heading">References</h2>
 
 1. Murphy, Kevin P. Machine learning: a probabilistic perspective. MIT Press, 2012.
+2. Lee, John M. Introduction to Smooth Manifolds. 2003.
