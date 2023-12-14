@@ -194,7 +194,7 @@ We now don't have the $\abs{\det{J^{-1}}}$ term anymore.
 So we can't apply the relation $dx = \abs{\det{J^{-1}}} \, dy$ to complete the steps.
 What gives?
 
-This is actually because there is a Jacobian-determinant term that we forgot about because we don't see things as a whole.
+This is actually because there is a Jacobian-determinant term that we forget about because we don't see things as a whole.
 The complete way to see a pdf is in terms of the Radon-Nikodym derivative.
 So, let's see, in $x$-coordinates, we have:
 
@@ -205,7 +205,7 @@ $$
 Now in $y$-coordinates, we have the following by transforming both the volume forms in the numerator and the denominator:
 
 $$
-  p_{\widehat{G}} = \frac{(p_x \circ \varphi^{-1}) \, \abs{\det{J^{-1}}} \, dy}{\abs{\det{G}}^{\frac{1}{2}} \, \abs{\det{J^{-1}}} \, dy} = (p_x \circ \varphi^{-1}) \, \abs{\det{G}}^{-\frac{1}{2}} .
+  p_{\widehat{G}} = \frac{(p_x \circ \varphi^{-1}) \, \cancel{\abs{\det{J^{-1}}} \, dy}}{\abs{\det{G}}^{\frac{1}{2}} \, \cancel{\abs{\det{J^{-1}}} \, dy}} = (p_x \circ \varphi^{-1}) \, \abs{\det{G}}^{-\frac{1}{2}} .
 $$
 
 Compare this to before: we now don't have the Jacobian-determinant term!
@@ -215,7 +215,7 @@ $$
 \begin{align}
   \int_{\varphi(\R^n)} p_{\widehat{G}} \, dV_{\widehat{G}} &= \int_{\varphi(\R^n)} (p_x \circ \varphi^{-1}) \, \cancel{\abs{\det{G}}^{-\frac{1}{2}}} \, \cancel{\abs{\det G}^{\frac{1}{2}}} \, \underbrace{\abs{\det J^{-1}} \, dy}_{=dx} \\
     %
-    &= \int_{\R^n} p_x \, dx \\
+    &= \int_{\R^n} p_x \, dx \\[5pt]
     %
     &= 1 .
 \end{align}
