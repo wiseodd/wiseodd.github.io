@@ -52,7 +52,7 @@ Indeed, technically speaking, it is the unique volume form that evaluates to one
 
 <h2 class="section-heading">Volume Forms and Measures</h2>
 
-A volume form $f \, dx$ induces a measure via $\mu(A) = \int_A f \, dx$ for $A$ Borel measurable subset of $\R^n$.
+A non-negative volume form $f \, dx$ induces a measure via $\mu(A) = \int_A f \, dx$ for $A$ Borel measurable subset of $\R^n$.
 One can then see that $dx$ is the volume form corresponding to the Lebesgue measure $\mu(A) = \int_A dx$.
 
 Suppose we have a probability measure (with support $\R^n$) and assume that it can be expressed as $P(A) = \int_A p \, dx$.
