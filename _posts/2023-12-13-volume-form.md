@@ -32,7 +32,7 @@ In the case of the Euclidean inner product, we have $G = I$, the identity $n \ti
 Another interesting object is the **_volume form_** $dx$.
 This is a differential form of degree $n$, meaning that it takes $n$ vectors as arguments and returns a number.
 There is a deeper meaning in the notation, but for the purpose of this post, it suffices to say that $dx$ measures the volume of a parallelepiped spanned by $n$ vectors.
-Indeed, the evaluation $dx(v_1, \dots, v_n)$ on vectors $v_1, \dots, v_n$ is obtained by computing a determinant of the matrix obtained by stacking the tuples $v_1, \dots, v_n$.
+Indeed, the evaluation $dx(v_1, \dots, v_n)$ on vectors $v_1, \dots, v_n$ is obtained by computing the determinant of the matrix resulting from stacking the tuples $v_1, \dots, v_n$.
 An important fact is that if $f: \R^n \to \R$ is any continuous function on $\R^n$, then $f \, dx$ is also a volume form.
 
 ![Metric]({{ site.baseurl }}/img/2023-12-13-volume-form/03_dx.jpeg){:width="50%"}
@@ -45,17 +45,17 @@ $$
 
 called the **_Riemannian volume form_**.
 In the case of $\R^n$ with the Cartesian coordinates and the standard dot product, $G = I$, so, $dV_G = dx$ is a special case.
-The idea here is that non-identity $G$ "distort" the Cartesian grids and thus the volume changes proportionally to the distortion.
+The idea here is that non-identity $G$'s "distort" the Cartesian grids and thus the volume changes proportionally to the distortion.
 For this reason, $dV_G$ is _the_ natural volume form for any choice of metric and any manifold in general.
 Indeed, technically speaking, it is the unique volume form that evaluates to one on parallelepipeds spanned by orthonormal basis vectors.
 
 
 <h2 class="section-heading">Volume Forms and Measures</h2>
 
-A differential form $f \, dx$ induces a measure via $\mu(A) = \int_A f \, dx$ for $A$ Borel measurable subset of $\R^n$.
+A volume form $f \, dx$ induces a measure via $\mu(A) = \int_A f \, dx$ for $A$ Borel measurable subset of $\R^n$.
 One can then see that $dx$ is the volume form corresponding to the Lebesgue measure $\mu(A) = \int_A dx$.
 
-Suppose we have a probability measure (with support in $\R^n$) and assume that it can be expressed as $P(A) = \int_A p \, dx$.
+Suppose we have a probability measure (with support $\R^n$) and assume that it can be expressed as $P(A) = \int_A p \, dx$.
 Then, $p$ is the probability density function (pdf) of $P$ under the reference measure $dx$, i.e., it is positive everywhere $p > 0$ and it integrates to one under $dx$, that is, $\int_{\R^n} p \, dx = 1$.
 
 Another way to define $p$ as a pdf is via the Radon-Nikodym derivative
@@ -88,7 +88,7 @@ Now, assume that we have another coordinates for $\R^n$, say, representing each 
 The change of coordinates function, mapping $x \mapsto y$ is a diffeomorphism---a differentiable function with a differentiable inverse.
 Let's call it $\varphi$; and call its $n \times n$ Jacobian matrix $J = [\partial y^i / \partial x^j]\_{i,j=1}^n$ with inverse $J^{-1} = [\partial x^i / \partial y^j]_{ij=1}^n$.
 
-![Change of coordinates]({{ site.baseurl }}/img/2023-12-13-volume-form/04_cov.jpeg){:width="60%"}
+![Change of coordinates]({{ site.baseurl }}/img/2023-12-13-volume-form/04_cov.jpeg){:width="70%"}
 
 Here are some rules for transforming a metric and a volume form.
 
