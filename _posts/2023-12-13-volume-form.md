@@ -100,7 +100,7 @@ $$
 
 is the matrix representation of the same metric in $y$-coordinates.
 Consequently, the determinant of the metric $\abs{\det G}$ transforms into $\abs{\det G} \, \abs{J^{-1}}^2$.
-This transformation rule ensure if $\hat{v}, \hat{w}$ are the representations of $v, w$ in $y$-coordinates, then $\hat{v}^\top \widehat{G} \hat{w} = v^\top G w$.
+This transformation rule is to ensure that if $\hat{v}, \hat{w}$ are the representations of $v, w$ in $y$-coordinates, then $\hat{v}^\top \widehat{G} \hat{w} = v^\top G w$.
 That is, the value of the inner product is independent of the choice of coordinates.
 In other words, this rule is to make sure we are referring to the same abstract object (in this case inner product, which is an abstract function) even when we use a different representation.
 
@@ -205,8 +205,11 @@ $$
 Now in $y$-coordinates, we have the following by transforming both the volume forms in the numerator and the denominator:
 
 $$
-  p_{\widehat{G}} = \frac{(p_x \circ \varphi^{-1}) \, \cancel{\abs{\det{J^{-1}}} \, dy}}{\abs{\det{G}}^{\frac{1}{2}} \, \cancel{\abs{\det{J^{-1}}} \, dy}} = (p_x \circ \varphi^{-1}) \, \abs{\det{G}}^{-\frac{1}{2}} .
+  p_{\widehat{G}} = \frac{(p_x \circ \varphi^{-1}) \, \cancel{\abs{\det{J^{-1}}} \, dy}}{(\abs{\det{G}}^{\frac{1}{2}} \circ \varphi^{-1}) \, \cancel{\abs{\det{J^{-1}}} \, dy}} = (p_x \circ \varphi^{-1}) \, \abs{\det{G}}^{-\frac{1}{2}} .
 $$
+
+The key is to view $\abs{\det{G}}^{\frac{1}{2}}$ as a function in front of $dx$, which, by the transformation rule discussed previously, transforms into $\abs{\det{G}}^{\frac{1}{2}} \circ \varphi^{-1}$.
+For brevity, we might as well write it down as $\abs{\det{G}}^{\frac{1}{2}}$, just remember that the domain of this function is the $y$-coordinates.
 
 Compare this to before: we now don't have the Jacobian-determinant term!
 Performing the integration as before:
