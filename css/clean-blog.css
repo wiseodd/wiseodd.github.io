@@ -1,13 +1,18 @@
 body {
-  font-family: 'Amiri', serif;
+  font-family: serif;
   font-size: 20px;
   color: black;
   line-height: 1.25;
 }
 
+#aboutme div {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 350;
+}
+
 @media only screen and (min-width: 480px) {
   body {
-    font-size: 17px;
+    font-size: 18px;
   }
 }
 p {
@@ -53,8 +58,9 @@ h6,
   font-size: 17px;
 }
 
-pre {
-  font-size: 14px;
+code, pre {
+  font-size: 15px;
+  font-family: 'Iosevka Web', monospace;
 }
 
 a {
@@ -89,7 +95,7 @@ hr.small {
   left: 0;
   width: 100%;
   z-index: 3;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 .navbar-custom .navbar-brand {
   color: white;
@@ -97,7 +103,7 @@ hr.small {
 }
 .navbar-custom .nav li a {
   text-transform: uppercase;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 800;
   letter-spacing: 1px;
 }
@@ -243,7 +249,6 @@ hr.small {
   font-size: 24px;
   line-height: 1.1;
   display: block;
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 300;
   margin: 10px 0 0;
 }
@@ -262,13 +267,11 @@ hr.small {
   display: block;
 }
 .intro-header .post-heading .subheading {
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 24px;
   margin: 10px 0 30px;
   font-weight: 600;
 }
 .intro-header .post-heading .meta {
-  font-family: Georgia, serif;
   font-style: italic;
   font-weight: 300;
   font-size: 20px;
@@ -283,6 +286,11 @@ hr.small {
   .intro-header .post-heading .subheading {
     font-size: 30px;
   }
+}
+.post-preview div {
+  margin-bottom: 3em;
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 350;
 }
 .post-preview > a {
   color: black;
@@ -424,7 +432,6 @@ form .row:first-child .floating-label-form-group {
   border-top: 1px solid #eeeeee;
 }
 .btn {
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 800;
@@ -447,7 +454,6 @@ form .row:first-child .floating-label-form-group {
 }
 .pager li > a,
 .pager li > span {
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 800;
@@ -550,4 +556,8 @@ body {
   padding-left: 50px;
   margin-right: auto;
   margin-left: auto;
+}
+
+#publication i {
+  color: seagreen;
 }
