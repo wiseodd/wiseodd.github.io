@@ -1,31 +1,45 @@
 ---
 layout: default
 ---
+
 <!-- Post Content -->
-<article style="padding-top: 125px;">
+<article style="padding-top: 125px">
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="post">
-          <h1 style="text-align: center; font-size: 36px; padding-bottom: 2em;">{{ page.title }}</h1>
+          <h1 style="text-align: center; font-size: 36px; padding-bottom: 2em">
+            {{ page.title }}
+          </h1>
           {{ content }}
         </div>
-        <hr>
+        <hr />
         <ul class="pager">
           {% if page.previous.url %}
           <li class="previous">
-            <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">&larr; Previous Post</a>
+            <a
+              href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}"
+              data-toggle="tooltip"
+              data-placement="top"
+              title="{{page.previous.title}}"
+              >&larr; Previous Post</a
+            >
           </li>
-          {% endif %}
-          {% if page.next.url %}
+          {% endif %} {% if page.next.url %}
           <li class="next">
-            <a href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}">Next Post &rarr;</a>
+            <a
+              href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}"
+              data-toggle="tooltip"
+              data-placement="top"
+              title="{{page.next.title}}"
+              >Next Post &rarr;</a
+            >
           </li>
           {% endif %}
         </ul>
-        <hr>
+        <hr />
       </div>
     </div>
   </div>
 </article>
-<hr>
+<hr />
