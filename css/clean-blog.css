@@ -1,12 +1,13 @@
 body {
-  font-family: serif;
+  font-family: "Roboto Condensed", sans-serif;
   font-size: 20px;
-  color: black;
   line-height: 1.25;
+  background-color: #fbfaf7;
+  color: #000;
 }
 
 #aboutme div {
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
   font-weight: 350;
 }
 
@@ -19,7 +20,8 @@ p {
   line-height: 1.25;
   margin: 20px 0;
 }
-ul, ol {
+ul,
+ol {
   margin: 20px 0;
 }
 h1,
@@ -58,13 +60,17 @@ h6,
   font-size: 17px;
 }
 
-code, pre {
+code,
+pre {
   font-size: 15px;
-  font-family: 'Iosevka Web', monospace;
+  font-family: "Iosevka Web", monospace;
 }
 
 a {
   color: black;
+}
+.post {
+  font-family: serif;
 }
 .post a {
   color: #305ea8;
@@ -95,7 +101,7 @@ hr.small {
   left: 0;
   width: 100%;
   z-index: 3;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
 }
 .navbar-custom .navbar-brand {
   color: white;
@@ -197,10 +203,10 @@ hr.small {
   color: white;
   opacity: 0.75;
 }
-.navbar-default .navbar-nav>li>a {
+.navbar-default .navbar-nav > li > a {
   color: white;
 }
-.navbar-default .navbar-nav>li>a:hover {
+.navbar-default .navbar-nav > li > a:hover {
   color: white;
   opacity: 0.75;
 }
@@ -305,7 +311,7 @@ hr.small {
   margin-bottom: 10px;
 }
 
-@media only screen and (max-width : 768px) {
+@media only screen and (max-width: 768px) {
   .post-preview > a .post-title {
     margin-top: 30px;
   }
@@ -316,7 +322,7 @@ hr.small {
   }
 }
 
-@media only screen and (min-width : 768px) {
+@media only screen and (min-width: 768px) {
   .post-preview > a .post-title {
     margin-top: 0;
   }
@@ -412,10 +418,18 @@ footer li a:focus {
   vertical-align: middle;
   vertical-align: baseline;
   opacity: 0;
-  -webkit-transition: top 0.3s ease,opacity 0.3s ease;
-  -moz-transition: top 0.3s ease,opacity 0.3s ease;
-  -ms-transition: top 0.3s ease,opacity 0.3s ease;
-  transition: top 0.3s ease,opacity 0.3s ease;
+  -webkit-transition:
+    top 0.3s ease,
+    opacity 0.3s ease;
+  -moz-transition:
+    top 0.3s ease,
+    opacity 0.3s ease;
+  -ms-transition:
+    top 0.3s ease,
+    opacity 0.3s ease;
+  transition:
+    top 0.3s ease,
+    opacity 0.3s ease;
 }
 .floating-label-form-group::not(:first-child) {
   padding-left: 14px;
@@ -539,7 +553,7 @@ body {
   margin-top: 0px;
 }
 
-.right{
+.right {
   text-align: right !important;
   margin-top: -30px !important;
 }
