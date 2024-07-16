@@ -7,7 +7,6 @@ body {
 }
 
 #aboutme div {
-  font-family: "Roboto Condensed", sans-serif;
   font-weight: 350;
 }
 
@@ -101,7 +100,6 @@ hr.small {
   left: 0;
   width: 100%;
   z-index: 3;
-  font-family: "Roboto Condensed", sans-serif;
 }
 .navbar-custom .navbar-brand {
   color: white;
@@ -295,7 +293,6 @@ hr.small {
 }
 .post-preview div {
   margin-bottom: 3em;
-  font-family: "Roboto Condensed", sans-serif;
   font-weight: 350;
 }
 .post-preview > a {
