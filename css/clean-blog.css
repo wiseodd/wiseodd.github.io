@@ -111,6 +111,11 @@ hr.small {
   font-weight: 800;
   letter-spacing: 1px;
 }
+@media only screen and (max-width: 512px) {
+  img {
+    width: 100% !important;
+  }
+}
 @media only screen and (max-width: 768px) {
   body {
     font-size: 17px;
