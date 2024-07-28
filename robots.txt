@@ -1,4 +1,0 @@
-Sitemap: https://wiseodd.github.io/sitemap.xml
-
-User-agent: *
-Disallow: /img/
