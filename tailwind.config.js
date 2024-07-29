@@ -63,8 +63,7 @@ const config = {
       },
       fontFamily: {
         sans: [...fontFamily.sans],
-        serif: [...fontFamily.serif],
-        satoshi: ["Satoshi", "sans"],
+        serif: ["Times", fontFamily.serif],
       },
     },
   },
