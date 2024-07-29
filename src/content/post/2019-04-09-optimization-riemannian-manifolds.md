@@ -11,7 +11,7 @@ In this article, we will focus on the most popular optimization there is, esp. i
 
 ## Optimization problem and the gradient descent
 
-Let $\R^n$ be the usual Euclidean space (i.e. a Riemannian manifold $(\R^n, \bar{g})$ where $\bar{g}\_{ij} = \delta_{ij}$) and let $f: \R^n \to \R$ be a real-valued function. An (unconstrained) optimization problem on this space has the form
+Let $\R^n$ be the usual Euclidean space (i.e. a Riemannian manifold $(\R^n, \bar{g})$ where $\bar{g}_{ij} = \delta_{ij}$) and let $f: \R^n \to \R$ be a real-valued function. An (unconstrained) optimization problem on this space has the form
 
 $$
     \min_{x \in \R^n} f(x) \, .
@@ -152,7 +152,7 @@ $$
     \gamma_v(t) = \cos \left( \frac{t\norm{v}}{r} \right) p + \sin \left( \frac{t\norm{v}}{r} \right) r \frac{v}{\norm{v}} \, ,
 $$
 
-is a geodesic, as its image is the great circle formed by the intersection of $\mathbb{S}^n(r)$ with the linear subspace of $\R^{n+1}$ spanned by $\left\\{ p, r \frac{v}{\norm{v}} \right\\}$. Therefore the exponential map on $\mathbb{S}^n(r)$ is given by
+is a geodesic, as its image is the great circle formed by the intersection of $\mathbb{S}^n(r)$ with the linear subspace of $\R^{n+1}$ spanned by $\left\{ p, r \frac{v}{\norm{v}} \right\}$. Therefore the exponential map on $\mathbb{S}^n(r)$ is given by
 
 $$
     \exp_p(v) = \cos \left( \frac{\norm{v}}{r} \right) p + \sin \left( \frac{\norm{v}}{r} \right) r \frac{v}{\norm{v}} \, .
