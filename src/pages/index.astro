@@ -1,5 +1,6 @@
 ---
 import PageLayout from "../layouts/BaseLayout.astro";
+import Button from "../components/Button.astro";
 import Section from "../components/Section.astro";
 import Card from "../components/Card.astro";
 import ProjectCard from "../components/ProjectCard.astro";
@@ -8,12 +9,20 @@ import SkillLayout from "../components/SkillLayout.astro";
 import PostPreview from "@/components/blog/PostPreview.astro";
 
 import { Image } from "astro:assets";
-import astro from "../assets/about-astro.png";
+import portrait from "../assets/portrait.jpeg";
 
 import { getAllPosts, sortMDByDate } from "@/utils";
 
+const interests = [
+  "Probabilistic Inference",
+  "Foundation Models",
+  "Decision Making",
+  "Planning",
+  "AI4Science",
+  "Riemannian Geometry",
+];
 const languages = ["Rust", "Gleam", "Python"];
-const editors = ["Neovim", "Kitty"];
+const editors = ["Neovim"];
 
 const MAX_POSTS = 10;
 const allPosts = await getAllPosts();
@@ -24,9 +33,9 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
   <div class="flex w-full flex-col gap-y-10">
     <section class="flex flex-col items-center gap-y-7">
       <Image
-        src={astro}
+        src={portrait}
         alt="profile photo"
-        class="h-28 w-auto rounded-full bg-[#FFBE98] p-2"
+        class="h-28 w-auto rounded-full p-2"
         loading="eager"
       />
 
@@ -34,7 +43,7 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
         <h1 class="text-3xl font-bold">Agustinus Kristiadi</h1>
 
         <div class="flex flex-wrap justify-center gap-x-7 gap-y-3">
-          <Label title="Postdoc @ Vector Institute">
+          <Label title="Vector Institute" as="a">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -46,22 +55,62 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
               ></path></svg
             >
           </Label>
-          <Label title="Twitter">
+          <Label title="agustinus[at]kristia.de">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 18 18"
+              class="h-5 w-5"
+              slot="icon"
+            >
+              <path
+                d="M2 2a2 2 0 0 0-2 2v8.01A2 2 0 0 0 2 14h5.5a.5.5 0 0 0 0-1H2a1 1 0 0 1-.966-.741l5.64-3.471L8 9.583l7-4.2V8.5a.5.5 0 0 0 1 0V4a2 2 0 0 0-2-2zm3.708 6.208L1 11.105V5.383zM1 4.217V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v.217l-7 4.2z"
+              ></path>
+              <path
+                d="M14.247 14.269c1.01 0 1.587-.857 1.587-2.025v-.21C15.834 10.43 14.64 9 12.52 9h-.035C10.42 9 9 10.36 9 12.432v.214C9 14.82 10.438 16 12.358 16h.044c.594 0 1.018-.074 1.237-.175v-.73c-.245.11-.673.18-1.18.18h-.044c-1.334 0-2.571-.788-2.571-2.655v-.157c0-1.657 1.058-2.724 2.64-2.724h.04c1.535 0 2.484 1.05 2.484 2.326v.118c0 .975-.324 1.39-.639 1.39-.232 0-.41-.148-.41-.42v-2.19h-.906v.569h-.03c-.084-.298-.368-.63-.954-.63-.778 0-1.259.555-1.259 1.4v.528c0 .892.49 1.434 1.26 1.434.471 0 .896-.227 1.014-.643h.043c.118.42.617.648 1.12.648m-2.453-1.588v-.227c0-.546.227-.791.573-.791.297 0 .572.192.572.708v.367c0 .573-.253.744-.564.744-.354 0-.581-.215-.581-.8Z"
+              ></path>
+            </svg>
+          </Label>
+
+          <Label
+            title="Scholar"
+            as="a"
+            href="https://scholar.google.com/citations?user=_1qe2mYAAAAJ"
+            target="_blank"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               class="h-5 w-5"
               slot="icon"
-              ><path
-                fill="currentColor"
-                d="M12.003 11.73q.668 0 1.14-.475q.472-.475.472-1.143t-.475-1.14q-.476-.472-1.143-.472t-1.14.476q-.472.475-.472 1.143t.475 1.14q.476.472 1.143.472M12 19.677q2.82-2.454 4.458-4.991q1.638-2.538 1.638-4.39q0-2.744-1.737-4.53T12 3.981q-2.621 0-4.359 1.785t-1.737 4.53q0 1.852 1.638 4.39q1.639 2.537 4.458 4.99m0 1.343q-3.525-3.117-5.31-5.814q-1.786-2.697-1.786-4.909q0-3.173 2.066-5.234Q9.037 3 12 3t5.03 2.062q2.066 2.061 2.066 5.234q0 2.212-1.785 4.909q-1.786 2.697-5.311 5.814m0-10.904"
-              ></path></svg
             >
+              <path
+                fill="currentColor"
+                d="M10.93 2.045c-.547.366-3.22 2.14-5.938 3.945C2.272 7.794.05 9.286.05 9.304c0 .019.136.11.305.2.167.096 2.85 1.583 5.965 3.31l5.656 3.143.144-.074c.082-.04 2.169-1.232 4.642-2.642l4.493-2.568.027 7.947h2.668V9.319l-3.46-2.32c-4.664-3.124-8.392-5.586-8.484-5.606-.045-.008-.527.287-1.076.652M5.355 16.633l.014 2.005 3.31 1.987 3.31 1.982 3.337-2 3.332-2.005V16.62c0-1.092-.013-1.983-.027-1.983s-1.318.782-2.9 1.741l-3.306 1.996-.431.256-1.32-.791a604.12 604.12 0 0 1-3.286-1.979l-2.005-1.21c-.024-.008-.032.883-.027 1.983"
+              ></path>
+            </svg>
           </Label>
           <Label
-            title="Github"
+            title="@akristiadi7"
             as="a"
-            href="https://www.linkedin.com/in/example/"
+            href="https://x.com/akristiadi7"
+            target="_blank"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              class="h-5 w-5"
+              slot="icon"
+            >
+              <path
+                fill="currentColor"
+                d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"
+              ></path>
+            </svg>
+          </Label>
+          <Label
+            title="wiseodd"
+            as="a"
+            href="https://github.com/wiseodd"
             target="_blank"
           >
             <svg
@@ -69,31 +118,106 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
               viewBox="0 0 16 16"
               slot="icon"
               class="h-5 w-5 text-foreground/75"
-              ><path
-                fill="currentColor"
-                d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248c-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586c.173-.431.568-.878 1.232-.878c.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252c-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"
-              ></path></svg
             >
+              <path
+                fill="currentColor"
+                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"
+              ></path>
+            </svg>
           </Label>
         </div>
       </div>
     </section>
 
     <Section title="About">
-      <p class="text-muted-foreground">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
-        atque quia omnis consectetur, voluptas praesentium veniam blanditiis
-        ratione asperiores accusantium laborum odit commodi quis deserunt
-        incidunt et dolor iure ut! Lorem ipsum dolor sit, amet consectetur
-        adipisicing elit. Alias quia, doloribus ut beatae perspiciatis
-        voluptatibus.
+      <p>
+        Agustinus Kristiadi is a postdoctoral fellow at the Vector Institute,
+        working primarily with Alán Aspuru-Guzik and Pascal Poupart. He obtained
+        his PhD from the University of Tuebingen in Germany, advised by Philipp
+        Hennig and Matthias Hein. His research interests are in probabilistic
+        inference with large-scale neural networks, decision-making under
+        uncertainty, and their applications in broader sciences such as
+        chemistry. His work has been recognized in the form of best PhD thesis
+        award and multiple spotlight papers from top machine learning
+        conferences. His contributions to the scientific society include
+        mentoring underrepresented students in Canada under the IBET PhD Project
+        and actively contributing to open-source software.
       </p>
     </Section>
+
+    <Section title="Interests">
+      <div class="flex flex-col gap-y-2 md:flex-row md:gap-x-5 md:gap-y-0">
+        <div class="flex w-4/5 flex-row flex-wrap gap-x-4 gap-y-2">
+          {
+            interests.map((interest) => (
+              <Button as="button" title={interest} style="pill" />
+            ))
+          }
+        </div>
+      </div>
+    </Section>
+
+    <Section title="Experience">
+      <Card
+        heading="Vector Institute"
+        subheading="Postdoctoral Fellow"
+        date="Feb 2023 - "
+      >
+        With Alán Aspuru-Guzik and Pascal Poupart.
+      </Card>
+
+      <Card
+        heading="University of Tuebingen"
+        subheading="PhD, Computer Science"
+        date="Jun 2019 - Jan 2023"
+      >
+        With Philipp Hennig and Matthias Hein.
+      </Card>
+
+      <Card
+        heading="University of Bonn"
+        subheading="MSc, Computer Science"
+        date="Apr 2017 - Apr 2019"
+      >
+        With Asja Fischer and Jens Lehmann.
+      </Card>
+
+      <Card
+        heading="GDP Venture"
+        subheading="Software Engineer"
+        date="Apr 2013 - Dec 2015"
+      />
+
+      <Card
+        heading="Universitas Atma Jaya Yogyakarta"
+        subheading="BEng, Software Engineering"
+        date="Aug 2009 - Jan 2013"
+      />
+    </Section>
+
+    <Section title="Awards">
+      <ul class="list-disc list-inside">
+        <li>
+          Best PhD thesis from the German Research Foundation's Theoretical
+          Foundations of Deep Learning (FoDL) program.
+        </li>
+        <li>Spotlight paper at NeurIPS 2023 (top 4%).</li>
+        <li>Spotlight paper at NeurIPS 2021 (top 3%).</li>
+        <li>Long-talk paper at UAI 2021 (top 6%).</li>
+        <li>Best reviewer at ICML 2021 (top 10%).</li>
+      </ul>
+    </Section>
+
+    <Section title="Skills">
+      <SkillLayout title="Languages" skills={languages} />
+      <SkillLayout title="Editor" skills={editors} />
+    </Section>
+
     {
       allPostsByDate.length > 0 && (
-        <Section title="Posts">
+        <Section title="Selected Publications">
           <ul class="flex flex-col gap-y-2">
-            {allPostsByDate.map((p) => (
+            {allPostsByDate.slice(0, 5).map((p) => (
               <li class="flex flex-col gap-x-2 sm:flex-row">
                 <PostPreview post={p} />
               </li>
@@ -103,115 +227,18 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
       )
     }
 
-    <Section title="Experience">
-      <Card
-        heading="Lorem Ipsum"
-        subheading="Sit amet consectetur"
-        date="Dec 2022 - Nov 2023"
-        imagePath="/src/assets/about-astro.png"
-        altText="Lorem, ipsum dolor sit"
-        imageClass="h-12 w-auto md:-left-16"
-      >
-        <ul class="ml-4 list-disc text-muted-foreground">
-          <li>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore
-            debitis recusandae, ut molestiae laboriosam pariatur!
-
-            <li>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Molestiae, pariatur!
-            </li>
-          </li>
-        </ul>
-      </Card>
-      <Card
-        heading="Lorem Ipsum"
-        subheading="Sit amet consectetur"
-        date="Dec 2022 - Nov 2023"
-        imagePath="/src/assets/about-astro.png"
-        altText="Lorem, ipsum dolor sit"
-        imageClass="h-12 w-auto md:-left-16"
-      />
-    </Section>
-
-    <Section title="Education">
-      <Card
-        heading="Lorem Ipsum"
-        subheading="Sit amet consectetur"
-        date="Dec 2022 - Nov 2023"
-        imagePath="/src/assets/about-astro.png"
-        altText="Lorem, ipsum dolor sit"
-        imageClass="h-12 w-auto md:-left-16"
-      >
-        <ul class="ml-4 list-disc text-muted-foreground">
-          <li>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore
-            debitis recusandae, ut molestiae laboriosam pariatur!
-
-            <li>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Molestiae, pariatur!
-            </li>
-          </li>
-        </ul>
-      </Card>
-      <Card
-        heading="Lorem Ipsum"
-        subheading="Sit amet consectetur"
-        date="Dec 2022 - Nov 2023"
-        imagePath="/src/assets/about-astro.png"
-        altText="Lorem, ipsum dolor sit"
-        imageClass="h-12 w-auto md:-left-16"
-      />
-    </Section>
-
-    <Section title="Projects">
-      <div class="flex flex-col gap-y-3 sm:flex-row sm:gap-x-3 sm:gap-y-0">
-        <ProjectCard
-          href="https://www.google.com"
-          heading="Consectetur"
-          subheading="Lorem ipsum dolor sit amet consectetur adipisicing elit."
-          imagePath="/src/assets/coming-soon.png"
-          altText="Example"
-          class="w-full sm:w-1/2"
-        />
-        <ProjectCard
-          as="div"
-          heading="Coming soon..."
-          subheading=""
-          imagePath="/src/assets/coming-soon.png"
-          altText="Lorem, ipsum dolor sit"
-          class="w-full sm:w-1/2"
-        />
-      </div>
-    </Section>
-
-    <Section title="Certifications">
-      <Card
-        as="a"
-        heading="Lorem ipsum, dolor sit amet consectetur adipisicing."
-        subheading="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam dicta magni consequuntur corrupti."
-        date="Mar 2024 - Mar 2024"
-        imagePath="/src/assets/about-astro.png"
-        altText="Lorem, ipsum dolor sit"
-        imageClass="h-11 w-auto md:-left-16"
-        href="https://www.google.com"
-      />
-      <Card
-        as="a"
-        heading="Lorem ipsum, dolor sit amet"
-        subheading="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam dicta."
-        date="Mar 2029 - Mar 2032"
-        imagePath="/src/assets/about-astro.png"
-        altText="Lorem, ipsum dolor sit"
-        imageClass="h-11 w-auto md:-left-16"
-        href="https://www.google.com"
-      />
-    </Section>
-
-    <Section title="Skills">
-      <SkillLayout title="Languages" skills={languages} />
-      <SkillLayout title="Editor Stack" skills={editors} />
-    </Section>
+    {
+      allPostsByDate.length > 0 && (
+        <Section title="Latest Blog Posts">
+          <ul class="flex flex-col gap-y-2">
+            {allPostsByDate.slice(0, 5).map((p) => (
+              <li class="flex flex-col gap-x-2 sm:flex-row">
+                <PostPreview post={p} />
+              </li>
+            ))}
+          </ul>
+        </Section>
+      )
+    }
   </div>
 </PageLayout>
