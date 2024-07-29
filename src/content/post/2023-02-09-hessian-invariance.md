@@ -1,0 +1,278 @@
+---
+title: "The Invariance of the Hessian and Its Eigenvalues, Determinant, and Trace"
+description: "In deep learning, the Hessian and its downstream quantities are observed to be not invariant under reparametrization. This makes the Hessian to be a poor proxy for flatness and makes Newton's method non-invariant. In this post, we shall see that the Hessian and the quantities derived from it are actually invariant under reparametrization."
+publishDate: 2023-02-09 00:00
+---
+
+Let $f: \mathcal{X} \times \Theta \to \R^k$ be a neural network, defined by $(x, \theta) \mapsto f(x; \theta) = f_\theta(x)$.
+Suppose $\L: \Theta \to \R$ is a loss function defined on the $d$-dimensional parameter space $\Theta$ of $f$ and let $\theta^*$ be a minimum of $\L$.
+Suppose further $\varphi: \Theta \to \Psi$ is a **_reparametrization_**, i.e., a differentiable map with a differentiable inverse, mapping $\theta \mapsto \psi$.
+
+Suppose we transform $\theta^*$ into $\psi^* = \varphi(\theta^*)$.
+The consensus in the deep learning field regarding the Hessian matrix $H(\theta^*)$ of $\L$ at $\theta^*$ is that:
+
+1. The _eigenvalues_ of $H(\theta^*)$ are not invariant.
+2. The _determinant_ of $H(\theta^*)$ is not invariant.
+3. The _trace_ of $H(\theta^*)$ is not invariant.
+4. Seen as a _bilinear map_, the Hessian is not invariant outside the critical points of $\L$.
+
+In this post, we shall see that these quantities are actually invariant under reparametrization!
+Although the argument comes from Riemannian geometry, it will also hold even if we use the default assumption found in calculus---the standard setting assumed by deep learning algorithms and practitioners.
+
+**Note.**
+Throughout this post, we use the Einstein summation convention.
+That is, we sum two variables together if one has an upper index and the other has a lower index, while omitting the summation symbol.
+For example: $v^i w_i$ corresponds to $\sum_i v^i w_i$ and $v^i w^j H_{ij} = \sum_i \sum_j v^i w^j H_{ij}$, meanwhile the index $i$ in the following partial derivative $\partial f/\partial \theta^i$ counts as a lower index.
+
+## The Hessian as a Bilinear Map
+
+In calculus, the Hessian matrix $H(\theta^*)$ at $\theta^*$ is defined by
+
+$$
+  H_{ij}(\theta^*) = \frac{\partial^2 \L}{\partial \theta^i \theta^j}(\theta^*) \qquad\qquad \text{for all} \qquad i,j = 1, \dots, d .
+$$
+
+The Hessian matrix defines a bilinear function, i.e., given arbitrary vectors $v, w$ in $\R^d$, we can write a function $B(v, w) = v^i w^j H_{ij}(\theta^*)$.
+For example, this term comes up in the 2nd-order Taylor expansion of $\L$ at $\theta^*$:
+
+$$
+\begin{align}
+  \L(\theta) &\approx \L(\theta^*) + (\nabla \L \vert_{\theta^*})^\top d + \frac{1}{2} \underbrace{d^\top H(\theta^*) d}_{=B(d, d)} ,
+\end{align}
+$$
+
+where we have defined $d = (\theta - \theta^*)$.
+
+Under the reparametrization $\varphi: \theta \mapsto \psi$ with $\psi^* = \varphi(\theta^*)$, we have $\L \mapsto \varphi^{-1}$.
+Thus, by the chain and product rules, the Hessian $H_{ij}$ becomes
+
+$$
+\begin{align}
+  \tilde{H}_{ij} &= \frac{\partial^2 (\L \circ \varphi^{-1})}{\partial \psi^i \partial \psi^j} = \frac{\partial}{\partial \psi^j}\left( \frac{\partial \L}{\partial \theta^m} \frac{\partial \theta^m}{\partial \psi^i} \right) \\
+    &= \frac{\partial^2 \L}{\partial \theta^m \partial \theta^n} \frac{\partial \theta^m}{\partial \psi^i} \frac{\partial \theta^n}{\partial \psi^j} + \frac{\partial \L}{\partial \theta^o} \frac{\partial^2 \theta^o}{\partial \psi^i \partial \psi^j} .
+\end{align}
+$$
+
+However, notice that if we evaluate $\tilde{H}_{ij}$ at a minimum $\psi^* = \varphi(\theta^*)$, the second term vanishes.
+And so, we have
+
+$$
+  \tilde{H}_{ij}(\psi^*) = \frac{\partial^2 \L}{\partial \theta^m \partial \theta^n}(\varphi^{-1}(\psi^*)) \frac{\partial \theta^m}{\partial \psi^i}(\psi^*) \frac{\partial \theta^n}{\partial \psi^j}(\psi^*) .
+$$
+
+Meanwhile, if $v = (v^1, \dots, v^d)$ and $w = (w^1, \dots, w^d)$ are vectors at $\theta^* \in \Theta$, their components become
+
+$$
+  \tilde{v}^i = v^m \frac{\partial \psi^i}{\partial \theta^m}(\theta^*) \qquad \text{and} \qquad \tilde{w}^j = w^n \frac{\partial \psi^j}{\partial \theta^n}(\theta^*) ,
+$$
+
+because the Jacobian of the reparametrization (i.e. change of coordinates) $\varphi: \theta \mapsto \psi$ defines a change of basis.
+
+Notice that $\frac{\partial \theta^m}{\partial \psi^i}(\psi^*)$ is the inverse of $\frac{\partial \psi^i}{\partial \theta^m}(\theta^*) = \frac{\partial \psi^i}{\partial \theta^m}(\varphi^{-1}(\psi^*))$.
+Considering the transformed $H$, $v$, and $w$, the bilinear map $B$ then becomes
+
+$$
+\require{cancel}
+\begin{align}
+  \tilde{B}(\tilde{v}, \tilde{w}) &= \tilde{v}^i \tilde{w}^j \tilde{H}_{ij}(\psi^*) \\
+    %
+    &= v^m \cancel{\frac{\partial \psi^i}{\partial \theta^m}(\varphi^{-1}(\theta^*))} w^n \cancel{\frac{\partial \psi^j}{\partial \theta^n}(\varphi^{-1}(\theta^*))} \frac{\partial^2 \L}{\partial \theta^m \partial \theta^n}(\varphi^{-1}(\psi^*)) \cancel{\frac{\partial \theta^m}{\partial \psi^i}(\psi^*)} \cancel{\frac{\partial \theta^n}{\partial \psi^j}(\psi^*)} \\
+    %
+    &= v^m w^n H_{mn}(\varphi^{-1}(\psi^*)) .
+\end{align}
+$$
+
+under the reparametization $\varphi$.
+Since all those indices $m$, $n$ are simply dummy indices, the last expression is equivalent to $v^i w^i H_{ij}(\theta^*)$.
+Since $v$ and $w$ and $\varphi$ are arbitrary, this implies that, seen as a bilinear map, the Hessian at a minimum $\theta^*$ is _invariant_ under reparametrization.
+
+## The Non-Invariance of the Hessian
+
+While the Hessian, as a bilinear map at a minimum, is (functionally) invariant, some of its downstream quantities are not.
+Let us illustrate this using the determinant---one can also easily show similar results for trace and eigenvalues.
+
+First, recall that the components $H_{ij}(\theta^*)$ of the Hessian transforms into the following under a reparametrization $\varphi$:
+
+$$
+  \tilde{H}_{ij}(\psi^*) = \frac{\partial^2 \L}{\partial \theta^m \partial \theta^n}(\varphi^{-1}(\psi^*)) \frac{\partial \theta^m}{\partial \psi^i}(\psi^*) \frac{\partial \theta^n}{\partial \psi^j}(\psi^*) .
+$$
+
+In matrix notation, this is $\tilde{\mathbf{H}} = (\mathbf{J}^{-1})^\top \mathbf{H} \mathbf{J}^{-1}$.
+(The dependency on $\psi^*$ is omitted for simplicity.)
+Then, the determinant of $\tilde{\mathbf{H}}$ is
+
+$$
+  \det \tilde{\mathbf{H}} = (\det \mathbf{J}^{-1})^2 \det \mathbf{H} .
+$$
+
+Thus, in general, $\det \tilde{\mathbf{H}} \neq \det \mathbf{H}$.
+Hence the determinant of the Hessian is not invariant.
+This causes problems in deep learning:
+For instance, [Dinh et al. 2017](https://arxiv.org/abs/1703.04933) argue that one cannot study the connection between flatness and generalization performance at the minimum of $\L$.
+
+## The Riemannian Hessian
+
+From the Riemannian-geometric perspective, the component $H_{ij}$ of the Hessian of $\L$ is defined under $\theta$ coordinates/parametrization as:
+
+$$
+  H_{ij} = \frac{\partial^2 \L}{\partial \theta^i \partial \theta^j} - \Gamma^k_{ij} \frac{\partial \L}{\partial \theta^k} ,
+$$
+
+where $\Gamma^k_{ij}$ is a three-dimensional array that represent the [Levi-Civita connection (or any connection)](https://en.wikipedia.org/wiki/Affine_connection) on the tangent spaces of $\Theta$, seen as a Riemannian manifold.
+In the calculus case, where the Euclidean metric and the Cartesian coordinates are assumed by default, $\Gamma^k_{ij}$ vanishes identically; hence the previous definition of the Hessian.
+This also shows that the Riemannian Hessian is a generalization to the standard Hessian.
+
+Under a reparametrization $\varphi: \theta \to \psi$, the _connection coefficient_ $\Gamma$ [transforms as follows](https://en.wikipedia.org/wiki/Christoffel_symbols#Transformation_law_under_change_of_variable):
+
+$$
+  \tilde\Gamma_{ij}^k = \Gamma_{mn}^o \frac{\partial \psi^k}{\partial \theta^o} \frac{\partial \theta^m}{\partial \psi^i} \frac{\partial \theta^n}{\partial \psi^j} + \frac{\partial^2 \theta^o}{\partial \psi^i \partial \psi^j} \frac{\partial \psi^k}{\partial \theta^o} .
+$$
+
+And thus, combined with the transformation of the "calculus Hessian" (i.e. second partial derivatives) from the previous section, the Riemannian Hessian transform as:
+
+$$
+\begin{align*}
+  \tilde{H}_{ij} &= \frac{\partial^2 (\L \circ \varphi^{-1})}{\partial \psi^i \partial \psi^j} - \tilde\Gamma^k_{ij} \frac{\partial (\L \circ \varphi^{-1})}{\partial \psi^k} \\
+      %
+      &= \frac{\partial^2 \L}{\partial \theta^m \partial \theta^n} \frac{\partial \theta^m}{\partial \psi^i} \frac{\partial \theta^n}{\partial \psi^j} + \frac{\partial \L}{\partial \theta^o} \frac{\partial^2 \theta^o}{\partial \psi^i \partial \psi^j} - \left( \Gamma_{mn}^o \frac{\partial \psi^k}{\partial \theta^o} \frac{\partial \theta^m}{\partial \psi^i} \frac{\partial \theta^n}{\partial \psi^j} + \frac{\partial^2 \theta^o}{\partial \psi^i \partial \psi^j} \frac{\partial \psi^k}{\partial \theta^o} \right) \frac{\partial \L}{\partial \theta^o} \frac{\partial \theta^o}{\partial \psi^k} \\
+      %
+      &= \frac{\partial^2 \L}{\partial \theta^m \partial \theta^n} \frac{\partial \theta^m}{\partial \psi^i} \frac{\partial \theta^n}{\partial \psi^j} + \frac{\partial \L}{\partial \theta^o} \frac{\partial^2 \theta^o}{\partial \psi^i \partial \psi^j} - \Gamma_{mn}^o \cancel{\frac{\partial \psi^k}{\partial \theta^o}} \frac{\partial \theta^m}{\partial \psi^i} \frac{\partial \theta^n}{\partial \psi^j} \frac{\partial \L}{\partial \theta^o} \cancel{\frac{\partial \theta^o}{\partial \psi^k}} - \frac{\partial^2 \theta^o}{\partial \psi^i \partial \psi^j} \cancel{\frac{\partial \psi^k}{\partial \theta^o}} \frac{\partial \L}{\partial \theta^o} \cancel{\frac{\partial \theta^o}{\partial \psi^k}} \\
+      %
+      &= \frac{\partial^2 \L}{\partial \theta^m \partial \theta^n} \frac{\partial \theta^m}{\partial \psi^i} \frac{\partial \theta^n}{\partial \psi^j} \cancel{+ \frac{\partial \L}{\partial \theta^o} \frac{\partial^2 \theta^o}{\partial \psi^i \partial \psi^j}} - \Gamma_{mn}^o \frac{\partial \theta^m}{\partial \psi^i} \frac{\partial \theta^n}{\partial \psi^j} \frac{\partial \L}{\partial \theta^o} \cancel{- \frac{\partial^2 \theta^o}{\partial \psi^i \partial \psi^j} \frac{\partial \L}{\partial \theta^o}} \\
+      %
+      &= \frac{\partial \theta^m}{\partial \psi^i} \frac{\partial \theta^n}{\partial \psi^j} \left( \frac{\partial^2 \L}{\partial \theta^m \partial \theta^n} - \Gamma_{mn}^o \frac{\partial \L}{\partial \theta^o} \right) \\
+      %
+      &= \frac{\partial \theta^m}{\partial \psi^i} \frac{\partial \theta^n}{\partial \psi^j} H_{mn} .
+\end{align*}
+$$
+
+Note that while this transformation rule is very similar to the transformation of the "calculus Hessian" _at a critical point_, the transformation rule of the Riemannian Hessian applies everywhere on $\Theta$.
+
+**This means, seen as a bilinear map, the Hessian is invariant _everywhere_ on $\Theta$**. (Not just at the critical points as before.)
+How does this discrepancy happen?
+This is because we ignore $\Gamma^k_{ij}$ in calculus!
+This is, of course, justified since $\Gamma^k_{ij} \equiv 0$.
+But as can be seen in its transformation rule, under a reparametrization $\varphi$, this quantity is non-zero in general in $\psi$ parametrization---this is already true for a simple, common transformation between the Cartesian and polar coordinates.
+
+## The Invariance of the Hessian Eigenvalues, Determinant, and Trace
+
+Let us focus on the determinant of the Hessian.
+As discussed above, it is not invariant.
+This is true even if the Riemannian Hessian above is used.
+How do we make sense of this?
+
+To make sense of this, we need to fully understand the object we care about when we talk about the determinant of the Hessian as a measure of the flatness of the loss landscape of $\L$.
+
+The loss landscape of $\L$ is the _graph_ $\\{ (\theta, \L(\theta)) \in \R^{d+1}: \theta \in \Theta \\}$ of $\L$.
+This is actually a $d$-dimensional [hypersurface](https://en.wikipedia.org/wiki/Hypersurface) embedded in $\R^{d+1}$.
+In particular, a hypersurface is a manifold.
+Meanwhile, the concept of "sharpness" or "flatness" of the loss landscape of $\L$ is nothing but the curvatures of the above manifold, particularly the principal curvatures, Gaussian curvature, and mean curvature.
+See [this previous]({% post_url 2020-11-02-hessian-curvatures %}) post for intuition.
+
+These curvatures can actually be derived from the Hessian of $\L$ since this Hessian is the second fundamental form of that manifold. (See that previous post!)
+However, to obtain those curvatures, we _must_ first derive the **_shape operator_** with the help of the metric. (The shape operator is a linear operator, mapping a vector to a vector.)
+Suppose the matrix representation of the metric on $\Theta$ is $\mathbf{G}$.
+Then, the shape operator $E$ is given by
+
+$$
+  \mathbf{E} := \mathbf{G}^{-1} \mathbf{H} .
+$$
+
+The principal, Gaussian, and mean curvatures of the loss landscape are then the eigenvalues, determinant, and trace of $\mathbf{E}$, respectively.
+The reason why we can simply take eigenvalues or determinant or trace of the Hessian $\mathbf{H}$ in calculus is because, by default, $\mathbf{G}$ is assumed to be the $d \times d$ identity matrix $\mathbf{I}$, i.e. the Euclidean metric.
+That is $\mathbf{E} = \mathbf{H}$ and we can ignore the $\mathbf{G}^{-1}$ term above.
+
+But notice that under a reparametrization $\varphi: \theta \to \psi$, we have
+
+$$
+  \mathbf{G} \mapsto (\mathbf{J}^{-1})^\top \mathbf{G} \mathbf{J}^{-1} .
+$$
+
+So, even when $\mathbf{G} \equiv \mathbf{I}$ in the $\theta$ parametrization, the matrix representation of the metric is different than $\mathbf{I}$ in the $\psi$ parametrization!
+That is, we _must not_ ignore the metric in the shape operator, however trivial it might be, if we care about reparametrization.
+_This is the cause of the non-invariance of the Hessian's eigenvalues, determinant, and trace observed in deep learning!_
+
+First, let us see the transformation of the shape operator by combining the transformation rules of $\mathbf{G}$ and $\mathbf{H}$:
+
+$$
+\begin{align}
+  \tilde{\mathbf{E}} &= \tilde{\mathbf{G}}^{-1} \tilde{\mathbf{H}} \\
+    %
+    &= ((\mathbf{J}^{-1})^\top \mathbf{G} \mathbf{J}^{-1})^{-1} (\mathbf{J}^{-1})^\top \mathbf{H} \mathbf{J}^{-1} \\
+    %
+    &= \mathbf{J} \mathbf{G}^{-1} \cancel{\mathbf{J}^\top} \cancel{\mathbf{J}^{-\top}} \mathbf{H} \mathbf{J}^{-1} \\
+    %
+    &= \mathbf{J} \mathbf{G}^{-1} \mathbf{H} \mathbf{J}^{-1} \\
+    %
+    &= \mathbf{J} \mathbf{E} \mathbf{J}^{-1} .
+\end{align}
+$$
+
+If we take the determinant of both sides, we have:
+
+$$
+  \det \tilde{\mathbf{E}} = \cancel{(\det \mathbf{J})} \cancel{(\det \mathbf{J})^{-1}} (\det \mathbf{E}) = \det \mathbf{E} .
+$$
+
+That is, **the determinant of the Hessian, seen as a shape operator, is invariant!**
+
+What about the trace of $\mathbf{E}$?
+Recall that $\tr{\mathbf{A}\mathbf{B}} = \tr{\mathbf{B}\mathbf{A}}$.
+Using this property and the transformation of $\tilde{\mathbf{E}}$ above, we have:
+
+$$
+\begin{align}
+  \mathrm{tr}\, \tilde{\mathbf{E}} &= \tr{\mathbf{J} \mathbf{E} \mathbf{J}^{-1}} = \tr{\mathbf{J} \mathbf{J}^{-1} \mathbf{E}} = \mathrm{tr}\, \mathbf{E} ,
+\end{align}
+$$
+
+and so **the trace is also invariant**.
+
+Finally, we can also show a general invariance result for eigenvalues.
+Recall that $\lambda$ is an eigenvalue of the linear operator $\mathbf{E}$ if $\mathbf{E} \mathbf{v} = \lambda \mathbf{v}$ for an eigenvector $\mathbf{v}$.
+
+Let $(\lambda, \mathbf{v})$ be an eigenpair on the $\theta$ parametrization and $(\tilde{\lambda}, \tilde{\mathbf{v}})$ be an eigenpair on the $\psi$ parametrization.
+We want to show that $\lambda = \tilde{\lambda}$.
+Recall vectors are transformed by multiplying it with the Jacobian of $\varphi$.
+So, $\tilde{\mathbf{v}} = \mathbf{J} \mathbf{v}$.
+Therefore:
+
+$$
+\begin{align}
+  \tilde{\mathbf{E}} \tilde{\mathbf{v}} &= \tilde{\lambda} \tilde{\mathbf{v}} \\
+  %
+  \mathbf{J} \mathbf{E} \cancel{\mathbf{J}^{-1}} \cancel{\mathbf{J}} \mathbf{v} &= \tilde{\lambda} \mathbf{J} \mathbf{v} \\
+  %
+  \mathbf{J} \mathbf{E} &= \tilde{\lambda} \mathbf{J} \mathbf{v} \\
+  %
+  \mathbf{E} &= \tilde{\lambda} \mathbf{v} ,
+\end{align}
+$$
+
+where the last step is done by multiplying both sides by the inverse of the Jacobian---recall that $\varphi$ is invertible.
+
+Therefore, we identify that $\lambda = \tilde\lambda$.
+Since $\lambda$ is an arbitrary eigenvalue, we conclude that **all eigenvalues of $\mathbf{E}$ are invariant**.
+
+## Non-Invariance from the Tensor Analysis Viewpoint
+
+In tensor analysis, this issue is very easy to identify.
+First, the Hessian represents a bilinear map, so it is a _covariant 2-tensor_.
+Meanwhile, when we talk about eigenvalues, we refer to the [spectral theorem](https://en.wikipedia.org/wiki/Spectral_theorem) and this theorem applies to _linear maps_.
+So, there is a _type mismatch_ here.
+
+To apply the spectral theorem on the Hessian, we need to express it as a linear map.
+This can be done by viewing the Hessian as a linear map on the tangent space onto itself, which is a _1-contravariant 1-covariant tensor_.
+That is, we need to "raise" one of the indices of $H$.
+How do we do this?
+You guessed it: Multiply $H$ with the inverse of the metric.
+
+## Conclusion
+
+The reason why "flatness measures" derived from the calculus version of Hessian is not invariant is simply because we measure those "flatness measures" from an incorrect object.
+The correct object we should use is the shape operator, which is obtained with the help of the metric (even when the latter is Euclidean).
+
+Moreover, the reason why Newton's method is not invariant (see Sec. 12 of [Martens, 2020](https://arxiv.org/abs/1412.1193)) is that we ignore the second term involving the connection coefficient $\Gamma$.
+
+Ignoring those geometric quantities are totally justified in calculus and deep learning since we always assume a Euclidean metric along with the Cartesian coordinates.
+But this simplification makes us "forget" about the correct transformation of the Hessian, giving rise to the pathological non-invariance issues observed in deep learning.
