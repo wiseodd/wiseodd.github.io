@@ -8,8 +8,8 @@ Let $f: \mathcal{X} \times \Theta \to \R^k$ be a neural network, defined by $(x,
 Suppose $\L: \Theta \to \R$ is a loss function defined on the $d$-dimensional parameter space $\Theta$ of $f$ and let $\theta^*$ be a minimum of $\L$.
 Suppose further $\varphi: \Theta \to \Psi$ is a **_reparametrization_**, i.e., a differentiable map with a differentiable inverse, mapping $\theta \mapsto \psi$.
 
-Suppose we transform $\theta^\*$ into $\psi^\* = \varphi(\theta^\*)$.
-The consensus in the deep learning field regarding the Hessian matrix $H(\theta^\*)$ of $\L$ at $\theta^*$ is that:
+Suppose we transform $\theta^*$ into $\psi^* = \varphi(\theta^*)$.
+The consensus in the deep learning field regarding the Hessian matrix $H(\theta^*)$ of $\L$ at $\theta^*$ is that:
 
 1. The _eigenvalues_ of $H(\theta^*)$ are not invariant.
 2. The _determinant_ of $H(\theta^*)$ is not invariant.
@@ -26,14 +26,14 @@ For example: $v^i w_i$ corresponds to $\sum_i v^i w_i$ and $v^i w^j H_{ij} = \su
 
 ## The Hessian as a Bilinear Map
 
-In calculus, the Hessian matrix $H(\theta^*)$ at $\theta^\*$ is defined by
+In calculus, the Hessian matrix $H(\theta^*)$ at $\theta^*$ is defined by
 
 $$
   H_{ij}(\theta^*) = \frac{\partial^2 \L}{\partial \theta^i \theta^j}(\theta^*) \qquad\qquad \text{for all} \qquad i,j = 1, \dots, d .
 $$
 
 The Hessian matrix defines a bilinear function, i.e., given arbitrary vectors $v, w$ in $\R^d$, we can write a function $B(v, w) = v^i w^j H_{ij}(\theta^*)$.
-For example, this term comes up in the 2nd-order Taylor expansion of $\L$ at $\theta^\*$:
+For example, this term comes up in the 2nd-order Taylor expansion of $\L$ at $\theta^*$:
 
 $$
 \begin{align}
@@ -43,7 +43,7 @@ $$
 
 where we have defined $d = (\theta - \theta^*)$.
 
-Under the reparametrization $\varphi: \theta \mapsto \psi$ with $\psi^* = \varphi(\theta^\*)$, we have $\L \mapsto \varphi^{-1}$.
+Under the reparametrization $\varphi: \theta \mapsto \psi$ with $\psi^* = \varphi(\theta^*)$, we have $\L \mapsto \varphi^{-1}$.
 Thus, by the chain and product rules, the Hessian $H_{ij}$ becomes
 
 $$
@@ -68,7 +68,7 @@ $$
 
 because the Jacobian of the reparametrization (i.e. change of coordinates) $\varphi: \theta \mapsto \psi$ defines a change of basis.
 
-Notice that $\frac{\partial \theta^m}{\partial \psi^i}(\psi^*)$ is the inverse of $\frac{\partial \psi^i}{\partial \theta^m}(\theta^\*) = \frac{\partial \psi^i}{\partial \theta^m}(\varphi^{-1}(\psi^\*))$.
+Notice that $\frac{\partial \theta^m}{\partial \psi^i}(\psi^*)$ is the inverse of $\frac{\partial \psi^i}{\partial \theta^m}(\theta^*) = \frac{\partial \psi^i}{\partial \theta^m}(\varphi^{-1}(\psi^*))$.
 Considering the transformed $H$, $v$, and $w$, the bilinear map $B$ then becomes
 
 $$
@@ -84,7 +84,7 @@ $$
 
 under the reparametization $\varphi$.
 Since all those indices $m$, $n$ are simply dummy indices, the last expression is equivalent to $v^i w^i H_{ij}(\theta^*)$.
-Since $v$ and $w$ and $\varphi$ are arbitrary, this implies that, seen as a bilinear map, the Hessian at a minimum $\theta^\*$ is _invariant_ under reparametrization.
+Since $v$ and $w$ and $\varphi$ are arbitrary, this implies that, seen as a bilinear map, the Hessian at a minimum $\theta^*$ is _invariant_ under reparametrization.
 
 ## The Non-Invariance of the Hessian
 

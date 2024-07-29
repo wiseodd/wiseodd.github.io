@@ -215,19 +215,19 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
       <SkillLayout title="Editor" skills={editors} />
     </Section>
 
-    {
-      allPostsByDate.length > 0 && (
-        <Section title="Selected Publications">
-          <ul class="flex flex-col gap-y-2">
-            {allPostsByDate.slice(0, 5).map((p) => (
-              <li class="flex flex-col gap-x-2 sm:flex-row">
-                <PostPreview post={p} />
-              </li>
-            ))}
-          </ul>
-        </Section>
-      )
-    }
+    <!-- { -->
+    <!--   allPostsByDate.length > 0 && ( -->
+    <!--     <Section title="Selected Publications"> -->
+    <!--       <ul class="flex flex-col gap-y-2"> -->
+    <!--         {allPostsByDate.slice(0, 5).map((p) => ( -->
+    <!--           <li class="flex flex-col gap-x-2 sm:flex-row"> -->
+    <!--             <PostPreview post={p} /> -->
+    <!--           </li> -->
+    <!--         ))} -->
+    <!--       </ul> -->
+    <!--     </Section> -->
+    <!--   ) -->
+    <!-- } -->
 
     {
       allPostsByDate.length > 0 && (
