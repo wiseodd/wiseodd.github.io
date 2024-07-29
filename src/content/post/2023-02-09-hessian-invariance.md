@@ -24,7 +24,7 @@ Throughout this post, we use the Einstein summation convention.
 That is, we sum two variables together if one has an upper index and the other has a lower index, while omitting the summation symbol.
 For example: $v^i w_i$ corresponds to $\sum_i v^i w_i$ and $v^i w^j H_{ij} = \sum_i \sum_j v^i w^j H_{ij}$, meanwhile the index $i$ in the following partial derivative $\partial f/\partial \theta^i$ counts as a lower index.
 
-<h2 class="section-heading">The Hessian as a Bilinear Map</h2>
+## The Hessian as a Bilinear Map
 
 In calculus, the Hessian matrix $H(\theta^*)$ at $\theta^\*$ is defined by
 
@@ -86,7 +86,7 @@ under the reparametization $\varphi$.
 Since all those indices $m$, $n$ are simply dummy indices, the last expression is equivalent to $v^i w^i H_{ij}(\theta^*)$.
 Since $v$ and $w$ and $\varphi$ are arbitrary, this implies that, seen as a bilinear map, the Hessian at a minimum $\theta^\*$ is _invariant_ under reparametrization.
 
-<h2 class="section-heading">The Non-Invariance of the Hessian</h2>
+## The Non-Invariance of the Hessian
 
 While the Hessian, as a bilinear map at a minimum, is (functionally) invariant, some of its downstream quantities are not.
 Let us illustrate this using the determinant---one can also easily show similar results for trace and eigenvalues.
@@ -110,7 +110,7 @@ Hence the determinant of the Hessian is not invariant.
 This causes problems in deep learning:
 For instance, [Dinh et al. 2017](https://arxiv.org/abs/1703.04933) argue that one cannot study the connection between flatness and generalization performance at the minimum of $\L$.
 
-<h2 class="section-heading">The Riemannian Hessian</h2>
+## The Riemannian Hessian
 
 From the Riemannian-geometric perspective, the component $H_{ij}$ of the Hessian of $\L$ is defined under $\theta$ coordinates/parametrization as:
 
@@ -154,7 +154,7 @@ This is because we ignore $\Gamma^k_{ij}$ in calculus!
 This is, of course, justified since $\Gamma^k_{ij} \equiv 0$.
 But as can be seen in its transformation rule, under a reparametrization $\varphi$, this quantity is non-zero in general in $\psi$ parametrization---this is already true for a simple, common transformation between the Cartesian and polar coordinates.
 
-<h2 class="section-heading">The Invariance of the Hessian Eigenvalues, Determinant, and Trace</h2>
+## The Invariance of the Hessian Eigenvalues, Determinant, and Trace
 
 Let us focus on the determinant of the Hessian.
 As discussed above, it is not invariant.
@@ -254,7 +254,7 @@ where the last step is done by multiplying both sides by the inverse of the Jaco
 Therefore, we identify that $\lambda = \tilde\lambda$.
 Since $\lambda$ is an arbitrary eigenvalue, we conclude that **all eigenvalues of $\mathbf{E}$ are invariant**.
 
-<h2 class="section-heading">Non-Invariance from the Tensor Analysis Viewpoint</h2>
+## Non-Invariance from the Tensor Analysis Viewpoint
 
 In tensor analysis, this issue is very easy to identify.
 First, the Hessian represents a bilinear map, so it is a _covariant 2-tensor_.
@@ -267,7 +267,7 @@ That is, we need to "raise" one of the indices of $H$.
 How do we do this?
 You guessed it: Multiply $H$ with the inverse of the metric.
 
-<h2 class="section-heading">Conclusion</h2>
+## Conclusion
 
 The reason why "flatness measures" derived from the calculus version of Hessian is not invariant is simply because we measure those "flatness measures" from an incorrect object.
 The correct object we should use is the shape operator, which is obtained with the help of the metric (even when the latter is Euclidean).

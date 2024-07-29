@@ -13,7 +13,7 @@ Another problem in GAN is that there is no metric that tells us about the conver
 
 Note, code could be found here: <https://github.com/wiseodd/generative-models>
 
-<h2 class="section-heading">Wasserstein GAN</h2>
+## Wasserstein GAN
 
 Wasserstein GAN (WGAN) is a newly proposed GAN algorithm that promises to remedy those two problems above.
 
@@ -31,11 +31,11 @@ We could see that the algorithm is quite similar to the original GAN. However, t
 4. Use RMSProp instead of ADAM
 5. Lower learning rate, the paper uses \\( \alpha = 0.00005 \\)
 
-<h2 class="section-heading">WGAN TensorFlow implementation</h2>
+## WGAN TensorFlow implementation
 
 The base implementation of GAN could be found in [the past post]({% post_url 2016-09-17-gan-tensorflow %}). We need only to modify traditional GAN with respect to those items above. So first, let's update our \\( D \\):
 
-{% highlight python %}
+```python
 """ Vanilla GAN """
 def discriminator(x):
 D_h1 = tf.nn.relu(tf.matmul(x, D_W1) + D_b1)
@@ -47,11 +47,11 @@ def discriminator(x):
 D_h1 = tf.nn.relu(tf.matmul(x, D_W1) + D_b1)
 out = tf.matmul(D_h1, D_W2) + D_b2
 return out
-{% endhighlight %}
+```
 
 Next, we modify our loss by simply removing the \\( \log \\):
 
-{% highlight python %}
+```python
 """ Vanilla GAN """
 D_loss = -tf.reduce_mean(tf.log(D_real) + tf.log(1. - D_fake))
 G_loss = -tf.reduce_mean(tf.log(D_fake))
@@ -59,20 +59,20 @@ G_loss = -tf.reduce_mean(tf.log(D_fake))
 """ WGAN """
 D_loss = tf.reduce_mean(D_real) - tf.reduce_mean(D_fake)
 G_loss = -tf.reduce_mean(D_fake)
-{% endhighlight %}
+```
 
 We then clip the weight of \\( D \\) after each gradient descent update:
 
-{% highlight python %}
+```python
 
 # theta_D is list of D's params
 
 clip_D = [p.assign(tf.clip_by_value(p, -0.01, 0.01)) for p in theta_D]
-{% endhighlight %}
+```
 
 Lastly, we train \\( D \\) more:
 
-{% highlight python %}
+```python
 D_solver = (tf.train.RMSPropOptimizer(learning_rate=5e-5)
 .minimize(-D_loss, var_list=theta_D))
 G_solver = (tf.train.RMSPropOptimizer(learning_rate=5e-5)
@@ -92,17 +92,17 @@ X_mb, _ = mnist.train.next_batch(mb_size)
         feed_dict={z: sample_z(mb_size, z_dim)}
     )
 
-{% endhighlight %}
+```
 
 And that is it.
 
-<h2 class="section-heading">WGAN Pytorch implementation</h2>
+## WGAN Pytorch implementation
 
 The base implementation of original GAN could be found in [the past post]({% post_url 2017-01-20-gan-pytorch %}). Similar to the TensorFlow version, the modifications are quite straight forward. Note the codes below are inside each training iteration.
 
 First, update \\( D \\):
 
-{% highlight python %}
+```python
 """ Vanilla GAN """
 D = torch.nn.Sequential(
 torch.nn.Linear(X_dim, h_dim),
@@ -117,11 +117,11 @@ torch.nn.Linear(X_dim, h_dim),
 torch.nn.ReLU(),
 torch.nn.Linear(h_dim, 1),
 )
-{% endhighlight %}
+```
 
 Modifying loss:
 
-{% highlight python %}
+```python
 """ Vanilla GAN """
 
 # During discriminator forward-backward-update
@@ -141,21 +141,21 @@ D_loss = -(torch.mean(D_real) - torch.mean(D_fake))
 # During generator forward-backward-update
 
 G_loss = -torch.mean(D_fake)
-{% endhighlight %}
+```
 
 Weight clipping:
 
-{% highlight python %}
+```python
 D_loss.backward()
 D_solver.step()
 
 for p in D.parameters():
 p.data.clamp\_(-0.01, 0.01)
-{% endhighlight %}
+```
 
 Train \\( D \\) more:
 
-{% highlight python %}
+```python
 G_solver = optim.RMSprop(G.parameters(), lr=5e-5)
 D_solver = optim.RMSprop(D.parameters(), lr=5e-5)
 
@@ -165,9 +165,9 @@ for \_ in range(5):
 
     """ Generator forward-loss-backward-update """
 
-{% endhighlight %}
+```
 
-<h2 class="section-heading">References</h2>
+## References
 
 1. <https://arxiv.org/abs/1701.07875>
 2. <https://paper.dropbox.com/doc/Wasserstein-GAN-GvU0p2V9ThzdwY3BbhoP7>

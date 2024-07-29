@@ -11,7 +11,7 @@ Aside from winning the ILSVRC 2015 classification, ResNet also won the detection
 
 So, what makes ResNet so good? What's the difference compared to the previous convnet models?
 
-<h2 class="section-heading">ResNet: the intuition behind it</h2>
+## ResNet: the intuition behind it
 
 The authors of ResNet observed, no matter how deep a network is, it should not be any worse than the shallower network. That's because if we argue that neural net could approximate any complicated function, then it could also learn identity function, i.e. input = output, effectively skipping the learning progress on some layers. But, in real world, this is not the case because of the vanishing gradient and curse of dimensionality problems.
 
@@ -23,7 +23,7 @@ So that's the difference between ResNet and traditional neural nets. Where tradi
 
 During backpropagation, learning residual gives us nice property. Because of the formulation, the network could choose to ignore the gradient of some subnetworks, and just forward the gradient from higher layers to lower layers without any modification. As an extreme example, this means that ResNet could just forward gradient from the last layer, e.g. layer 151, directly to the first layer. This gives ResNet additional nice to have option which might be useful, rather than just strictly doing computation in all layers.
 
-<h2 class="section-heading">ResNet: implementation detail</h2>
+## ResNet: implementation detail
 
 He et al. experimented with 152 layers deep ResNet in their paper. But due to our (my) monitor budget, we will look at the 34 layers version instead. Furthermore, it's easier to understand with not so many layers, isn't it?
 
@@ -37,7 +37,7 @@ In the paper, He et al. use bottleneck architecture for each the residual block.
 
 Notice, in 50 layers and more ResNet, at each block, there are now two 1x1 convolution layers.
 
-<h2 class="section-heading">References</h2>
+## References
 
 1. [He, Kaiming, et al. "Deep residual learning for image recognition." arXiv preprint arXiv:1512.03385 (2015).](http://arxiv.org/pdf/1512.03385)
 2. [Szegedy, Christian, Sergey Ioffe, and Vincent Vanhoucke. "Inception-v4, inception-resnet and the impact of residual connections on learning." arXiv preprint arXiv:1602.07261 (2016).](http://arxiv.org/pdf/1602.07261)

@@ -9,7 +9,7 @@ BatchNorm a.k.a Batch Normalization is a relatively new technique proposed by Io
 
 One difficult thing about training a neural net is to choose the initial weights. BatchNorm promises the remedy: it makes the network less dependant to the initialization strategy. Another key points are that it enables us to use higher learning rate. They even go further to state that BatchNorm could reduce the dependency on Dropout.
 
-<h2 class="section-heading">BatchNorm: the algorithm</h2>
+## BatchNorm: the algorithm
 
 The main idea of BatchNorm is this: for the current minibatch while training, in each hidden layer, we normalize the activations so that its distribution is Standard Normal (zero mean and one standard deviation). Then, we apply a linear transform to it with learned parameters so that the network could learn what kind of distribution is the best for the layer's activations.
 
@@ -31,11 +31,11 @@ If the above derivation doesn't make any sense, you could try reading [this](htt
 
 Now that we know how to do forward and backward propagation for BatchNorm, let's try to implement that.
 
-<h2 class="section-heading">Training with BatchNorm</h2>
+## Training with BatchNorm
 
 As always, I will reuse the code from previous posts. It's in my repo here: <https://github.com/wiseodd/hipsternet>.
 
-{% highlight python %}
+```python
 def batchnorm_forward(X, gamma, beta):
 mu = np.mean(X, axis=0)
 var = np.var(X, axis=0)
@@ -47,7 +47,7 @@ var = np.var(X, axis=0)
 
     return out, cache, mu, var
 
-{% endhighlight %}
+```
 
 This is the forward propagation algorithm. It's simple. However, remember that we're normalizing each dimension of activations. So, if our activations over a minibatch is MxN matrix, then we want the mean and variance to be 1xN: one value of mean and variance for each dimension. So, if we normalize our activations matrix with that, each dimension will have zero mean and one variance.
 
@@ -55,7 +55,7 @@ At the end, we're also spitting out the intermediate variable used for normaliza
 
 This is how we use that above method:
 
-{% highlight python %}
+```python
 
 # Input to hidden
 
@@ -68,13 +68,13 @@ h1, bn1_cache, mu, var = batchnorm_forward(h1, gamma1, beta1)
 # ReLU
 
 h1[h1 < 0] = 0
-{% endhighlight %}
+```
 
 In the BatchNorm paper, they insert the BatchNorm layer before nonlinearity. But it's not set in a stone.
 
 For the backprop, here's the implementation:
 
-{% highlight python %}
+```python
 def batchnorm_backward(dout, cache):
 X, X_norm, mu, var, gamma, beta = cache
 
@@ -93,11 +93,11 @@ X, X_norm, mu, var, gamma, beta = cache
 
     return dX, dgamma, dbeta
 
-{% endhighlight %}
+```
 
 For the explanation of the code, refer to the derivation of the BatchNorm gradient in the last section. As we can see, we're also returning derivative of gamma and beta: the linear transform for BatchNorm. It will be used to update the model, so that the net could also learn them.
 
-{% highlight python %}
+```python
 
 # h1
 
@@ -114,38 +114,38 @@ dh1 \*= u1
 # BatchNorm
 
 dh1, dgamma1, dbeta1 = batchnorm_backward(dh2, bn2_cache)
-{% endhighlight %}
+```
 
 Remember, the order of backprop is important! We will get wrong result if we swap the BatchNorm gradient with ReLU gradient for example.
 
-<h2 class="section-heading">Inference with BatchNorm</h2>
+## Inference with BatchNorm
 
 One more thing we need to take care of is that we want to fix the normalization at test time. That means we don't want to normalize our activations with the test set. Hence, as we're essentially using SGD, which is stochastic, we're going to estimate the mean and variance of our activations using running average.
 
-{% highlight python %}
+```python
 
 # BatchNorm training forward propagation
 
 h2, bn2*cache, mu, var = batchnorm_forward(h2, gamma2, beta2)
 bn_params['bn2_mean'] = .9 * bn*params['bn2_mean'] + .1 * mu
 bn*params['bn2_var'] = .9 * bn*params['bn2_var'] + .1 * var
-{% endhighlight %}
+```
 
 There, we store each BatchNorm layer's running mean and variance while training. It's a decaying running average.
 
 Then, at the test time, we just use that running average for the normalization:
 
-{% highlight python %}
+```python
 
 # BatchNorm inference forward propagation
 
 h2 = (h2 - bn_params['bn2_mean']) / np.sqrt(bn_params['bn2_var'] + 1e-8)
 h2 = gamma2 \* h2 + beta2
-{% endhighlight %}
+```
 
 And that's it. Our implementation of BatchNorm is now complete. Now the test!
 
-<h2 class="section-heading">Test and Comparison</h2>
+## Test and Comparison
 
 We're going to use a three layer network with 256 neurons in each hidden layer and minibatch size of 256. We use 1000 iterations of Adam for the optimization. We're also using Dropout with probability of 0.5.
 
@@ -212,7 +212,7 @@ python run.py  63.94s user 4.42s system 186% cpu 36.616 total
 
 With BatchNorm, we're expecting 30% slow down.
 
-<h2 class="section-heading">Conclusion</h2>
+## Conclusion
 
 In this post, we're looking at the relatively new technique for training neural nets, called BatchNorm. It does just that: normalizing the activations of the network at each minibatch, so that the activations will be approximately Standard Normal distributed.
 
@@ -220,7 +220,7 @@ We also implemented BatchNorm in three layers network, then tested it using vari
 
 In the test, we found that by using BatchNorm, our network become more tolerant to bad initialization. BatchNorm network also outperform Dropout in our test setting. However, those are with the expense of 30% increase of training time.
 
-<h2 class="section-heading">References</h2>
+## References
 
 - <http://arxiv.org/pdf/1502.03167v3.pdf>
 - <https://kratzert.github.io/2016/02/12/understanding-the-gradient-flow-through-the-batch-normalization-layer.html>

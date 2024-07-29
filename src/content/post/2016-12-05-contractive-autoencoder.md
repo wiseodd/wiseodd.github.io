@@ -69,7 +69,7 @@ $$
 
 Translated to code:
 
-{% highlight python %}
+```python
 import numpy as np
 
 # Let's say we have minibatch of 32, and 64 hidden units
@@ -85,11 +85,11 @@ h = sigmoid(Z) # 32x64
 Wj_sqr = np.sum(W.T**2, axis=1) # Marginalize i (note the transpose), 64x1
 dhj_sqr = (h \* (1 - h))**2 # Derivative of h, 32x64
 J_norm = np.sum(dhj_sqr \* Wj_sqr, axis=1) # 32x1, i.e. 1 jacobian norm for each data point
-{% endhighlight %}
+```
 
 Putting all of those together, we have our full Contractive Autoencoder implemented in Keras:
 
-{% highlight python %}
+```python
 from keras.layers import Input, Dense
 from keras.models import Model
 import keras.backend as K
@@ -117,10 +117,10 @@ mse = K.mean(K.square(y_true - y_pred), axis=1)
 
 model.compile(optimizer='adam', loss=contractive_loss)
 model.fit(X, X, batch_size=N_batch, nb_epoch=5)
-{% endhighlight %}
+```
 
 And that is it! The full code could be found in my Github repository: <https://github.com/wiseodd/hipsternet>.
 
-<h2 class="section-heading">References</h2>
+## References
 
 1. Rifai, Salah, et al. "Contractive auto-encoders: Explicit invariance during feature extraction." Proceedings of the 28th international conference on machine learning (ICML-11). 2011.

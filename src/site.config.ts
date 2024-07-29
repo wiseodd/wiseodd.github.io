@@ -62,7 +62,7 @@ export const expressiveCodeOptions: AstroExpressiveCodeOptions = {
     },
     uiLineHeight: "inherit",
     codeFontSize: "0.875rem",
-    codeLineHeight: "1.7142857rem",
+    codeLineHeight: "1.2rem",
     borderRadius: "4px",
     codePaddingInline: "1rem",
     codeFontFamily: '"Iosevka", monospace;',

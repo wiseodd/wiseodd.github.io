@@ -14,14 +14,16 @@ $$
 \tilde{H}_p(\mathbb{S}^d) = \begin{cases} \mathbb{Q}, & \text{if } p = d \\ 0, & \text{otherwise} \enspace . \end{cases}
 $$
 
-\\( \square \\)
-{:.right}
+$$
+\qed
+$$
 
 **Lemma 2 (Reduced Homology of balls)**
 Given a \\( d \\)-ball \\( \mathbb{B}^d \\), then its reduced \\( p \\)-th Homology space is trivial, i.e. \\(\tilde{H}\_p(\mathbb{B}^d) = 0 \\), for any \\( d \\) and \\( p \\).
 
-\\( \square \\)
-{:.right}
+$$
+\qed
+$$
 
 Equipped with these lemmas, we are ready to prove the special case of Brouwer's Fixed Point Theorem, where we consider map from a ball to itself.
 
@@ -43,9 +45,10 @@ Above, \\( i \\) is inclusion map, and \\( id \\) is identity map. We then look 
 
 As the diagram commute, then \\( \tilde{H}\_d(\mathbb{S}^d) \xrightarrow{i^\*} \tilde{H}\_d(\mathbb{B}^{d+1}) \xrightarrow{r^\*} \tilde{H}\_d(\mathbb{S}^d) \\) should be identity map on \\( \tilde{H}\_d(\mathbb{S}^d) \\). By Lemma 2, \\( \tilde{H}\_d(\mathbb{B}^{d+1}) = 0 \\). This implies \\( \tilde{H}\_d(\mathbb{S}^d) = 0 \\). But this is a contradiction, as By Lemma 1, \\( \tilde{H}\_d(\mathbb{S}^d) = \mathbb{Q} \\). Therefore there must be a fixed point.
 
-\\( \square \\)
-{:.right}
+$$
+\qed
+$$
 
-<h2 class="section-heading">References</h2>
+## References
 
 1. Hatcher, Allen. "Algebraic topology." (2001).

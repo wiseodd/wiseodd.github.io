@@ -11,7 +11,7 @@ The full code is available here: <https://github.com/wiseodd/generative-models>.
 
 Coupled GAN (CoGAN) is a method that extends GAN so that it could learn joint distribution, by only needing samples from the marginals. What it means is that we do not need to sample from joint distribution \\( P(X_1, X_2) \\), i.e. a tuple of \\( \(x_1, x_2\) \\), during training. We only need \\( x_1 \sim P(X_1) \\) and \\( x_2 \sim P(X_2) \\), samples from the marginal distributions. This property makes CoGAN very useful as collecting representing samples of joint distribution is costly due to curse of dimensionality.
 
-<h2 class="section-heading">Learning joint distribution by sharing weights</h2>
+## Learning joint distribution by sharing weights
 
 So, how exactly does CoGAN learn joint distribution by only using the marginals?
 
@@ -25,7 +25,7 @@ Intuitively, the lower level layers capture image specific features, e.g. the th
 
 Using that reasoning, we then could choose which layers should be constrained. For discriminator, it should be the last layers. For generator, it should be the first layers, as generator in GAN solves inverse problem: from latent representation \\( z \\) to image \\( X \\).
 
-<h2 class="section-heading">CoGAN algorithm</h2>
+## CoGAN algorithm
 
 If we want to learn joint distribution of \\( K \\) domains, then we need to use \\( 2K \\) neural nets, as for each domain we need a discriminator and a generator. Fortunately, as CoGAN is centered on weight sharing, this could prove helpful to reduce the computation cost.
 
@@ -35,11 +35,11 @@ The algorithm for CoGAN for 2 domains is as follows:
 
 Notice that CoGAN draws samples from each marginal distribution. That means, we only need 2 sets of training data. We do not need to construct specialized training data that captures joint distribution of those two domains. However, as we learn joint distribution by weight sharing on high level features, to make CoGAN training successful, we have to make sure that those two domains of data share some high level representations.
 
-<h2 class="section-heading">Pytorch implementation of CoGAN</h2>
+## Pytorch implementation of CoGAN
 
 In this implementation, we are going to learn joint distribution of two domains of MNIST data: normal MNIST data and rotated MNIST data (90 degree). Notice that those domains of data share the same high level representation (digit), and only differ on the presentation (low level features). Here's the code to generate those training sets:
 
-{% highlight python %}
+```python
 X_train = mnist.train.images
 half = int(X_train.shape[0] / 2)
 
@@ -52,11 +52,11 @@ X_train1 = X_train[:half]
 X_train2 = X_train[half:].reshape(-1, 28, 28)
 X_train2 = scipy.ndimage.interpolation.rotate(X_train2, 90, axes=(1, 2))
 X_train2 = X_train2.reshape(-1, 28\*28)
-{% endhighlight %}
+```
 
 Let's declare the generators first, which are two layers fully connected nets, with first weight (input to hidden) shared:
 
-{% highlight python %}
+```python
 """ Shared Generator weights """
 G_shared = torch.nn.Sequential(
 torch.nn.Linear(z_dim, h_dim),
@@ -74,11 +74,11 @@ G2\_ = torch.nn.Sequential(
 torch.nn.Linear(h_dim, X_dim),
 torch.nn.Sigmoid()
 )
-{% endhighlight %}
+```
 
 Then we make a wrapper for those nets:
 
-{% highlight python %}
+```python
 def G1(z):
 h = G*shared(z)
 X = G1*(h)
@@ -88,13 +88,13 @@ def G2(z):
 h = G*shared(z)
 X = G2*(h)
 return X
-{% endhighlight %}
+```
 
 Notice that `G_shared` are being used in those two nets.
 
 The discriminators are also two layers nets, similar to the generators, but share weights on the last section: hidden to output.
 
-{% highlight python %}
+```python
 """ Shared Discriminator weights """
 D_shared = torch.nn.Sequential(
 torch.nn.Linear(h_dim, 1),
@@ -122,11 +122,11 @@ def D2(X):
 h = D2\_(X)
 y = D_shared(h)
 return y
-{% endhighlight %}
+```
 
 Next, we construct the optimizer:
 
-{% highlight python %}
+```python
 D*params = (list(D1*.parameters()) + list(D2*.parameters()) +
 list(D_shared.parameters()))
 G_params = (list(G1*.parameters()) + list(G2\_.parameters()) +
@@ -134,19 +134,19 @@ list(G_shared.parameters()))
 
 G_solver = optim.Adam(G_params, lr=lr)
 D_solver = optim.Adam(D_params, lr=lr)
-{% endhighlight %}
+```
 
 Now we are ready to train CoGAN. At each training iteration, we do these steps below. First, we sample images from both marginal training sets, and \\( z \\) from our prior:
 
-{% highlight python %}
+```python
 X1 = sample_x(X_train1, mb_size)
 X2 = sample_x(X_train2, mb_size)
 z = Variable(torch.randn(mb_size, z_dim))
-{% endhighlight %}
+```
 
 Then, train the discriminators by using using `X1` for `D1` and `X2` for `D2`. On both discriminators, we use the same `z`. The loss function is just vanilla GAN loss.
 
-{% highlight python %}
+```python
 G1_sample = G1(z)
 D1_real = D1(X1)
 D1_fake = D1(G1_sample)
@@ -156,11 +156,11 @@ torch.log(1. - D1_fake + 1e-8))
 
 D2_loss = torch.mean(-torch.log(D2_real + 1e-8) -
 torch.log(1. - D2_fake + 1e-8))
-{% endhighlight %}
+```
 
 Then we just add up those loss. During backpropagation, `D_shared` will naturally get gradients from both `D1` and `D2`, i.e. sum of both branches. All we need to do to get the average is to scale them:
 
-{% highlight python %}
+```python
 D_loss = D1_loss + D2_loss
 D_loss.backward()
 
@@ -168,18 +168,18 @@ D_loss.backward()
 
 for p in D_shared.parameters():
 p.grad.data = 0.5 \* p.grad.data
-{% endhighlight %}
+```
 
 As we have all the gradients, we could update the weights:
 
-{% highlight python %}
+```python
 D_solver.step()
 reset_grad()
-{% endhighlight %}
+```
 
 For generators training, the procedure is similar to discriminators training, where we need to average the loss of `G1` and `G2` w.r.t. `G_shared`.
 
-{% highlight python %}
+```python
 
 # Generator
 
@@ -202,9 +202,9 @@ p.grad.data = 0.5 \* p.grad.data
 
 G_solver.step()
 reset_grad()
-{% endhighlight %}
+```
 
-<h2 class="section-heading">Results</h2>
+## Results
 
 After many thousands of iterations, `G1` and `G2` will produce these kind of samples. Note, first two rows are the normal MNIST images, the next two rows are the rotated images. Also, the \\( z \\) that were fed into `G1` and `G2` are the same so that we could see given the same latent code \\( z \\), we could sample \\( \( x_1, x_2 \) \\) that are corresponding to each other from the joint distribution.
 
@@ -218,7 +218,7 @@ If we squint, we could see that _roughly_, images at the third row are the 90 de
 
 This is a marvelous results considering we did not explicitly show CoGAN the samples from joint distribution (i.e. a tuple of \\( \(x_1, x_2\) \\)). We only show samples from disjoint marginals. In summary, CoGAN is able to infer the joint distribution by itself.
 
-<h2 class="section-heading">Conclusion</h2>
+## Conclusion
 
 In this post, we looked at CoGAN: Coupled GAN, a GAN model that is used to learn joint distribution of data from different domains.
 
@@ -226,6 +226,6 @@ We learned that CoGAN learned joint distribution by enforcing weight sharing con
 
 Finally, by inspecting the samples acquired from generators, we saw that CoGAN correctly learns joint distribution, as those samples are correspond to each other.
 
-<h2 class="section-heading">References</h2>
+## References
 
 1. Liu, Ming-Yu, and Oncel Tuzel. "Coupled generative adversarial networks." Advances in Neural Information Processing Systems. 2016.

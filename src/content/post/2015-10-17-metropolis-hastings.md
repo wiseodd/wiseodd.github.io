@@ -29,7 +29,7 @@ In this case, the Metropolis-Hastings would become just Metropolis. So, Metropol
 
 Let's devour the code.
 
-{% highlight python %}
+```python
 import numpy as np
 import scipy.stats as st
 import seaborn as sns
@@ -62,7 +62,7 @@ sns.jointplot(samples[:, 0], samples[:, 1])
     samples = metropolis_hastings(pgauss, iter=10000)
     sns.jointplot(samples[:, 0], samples[:, 1])
 
-{% endhighlight %}
+```
 
 In the code, I ignore the min(1, x) term for the alpha calculation, and just calculate `P(x') / P(x),` because we only care about whether or not the ratio is bigger than some uniform random number `[0, 1]`, so when `P(x') / P(x) > 1`, it will then always satisfy the test just as `P(x') / P(x) = 1`, calculated from the `min(1, x)` term.
 
@@ -80,7 +80,7 @@ The tail of the distribution looks off because the starting point of the Markov 
 
 I'm curious about the performance of Metropolis-Hastings compared to Gibbs Sampling. So I profiled the two algorithms.
 
-{% highlight shell %}
+``` bash
 
 > python -m cProfile gibbs_sampling.py | grep gibbs_sampling
 > ncalls tottime percall cumtime percall
@@ -95,8 +95,9 @@ I'm curious about the performance of Metropolis-Hastings compared to Gibbs Sampl
 
     1    0.121    0.121    3.658    3.658 metropolis_hastings.py:16(metropolis_hasting)
 
-{% endhighlight %}
+```
 
 As we can see, Gibbs Sampling is really fast as it only need around 0.14 seconds, compared to Metropolis-Hastings 3.6 seconds. Sampling from conditional distribution is really fast, whereas sampling from full joint distribution is slow, as we can observe there when comparing call time of `p_x_given_y`, `p_y_given_x` and `pgauss`.
 
 However, the main advantage of Metropolis-Hastings over Gibbs Sampling is that we don't have to derive the conditional distributions analytically. We just need to know the joint distribution, and no need to derive anything analytically.
+```

@@ -7,7 +7,7 @@ tags: [machine learning, gan]
 
 Boundary Seeking GAN (BGAN) is a recently introduced modification of GAN training. Here, in this post, we will look at the intuition behind BGAN, and also the implementation, which consists of one line change from vanilla GAN.
 
-<h2 class="section-heading">Intuition of Boundary Seeking GAN</h2>
+## Intuition of Boundary Seeking GAN
 
 Recall, in GAN the following objective is optimized:
 
@@ -43,31 +43,31 @@ $$
 
 which is just an \\( L_2 \\) loss. We added \\( \log \\) as \\( D(x) \\) is a probability measure, and we want to undo that, as we are talking about distance, not divergence.
 
-<h2 class="section-heading">Implementation</h2>
+## Implementation
 
 This should be the shortest ever implementation note in my blog.
 
 We just need to change the original GAN's \\( G \\) objective from:
 
-{% highlight python %}
+```python
 G_loss = -torch.mean(log(D_fake))
-{% endhighlight %}
+```
 
 to:
 
-{% highlight python %}
+```python
 G_loss = 0.5 \* torch.mean((log(D_fake) - log(1 - D_fake))\*\*2)
-{% endhighlight %}
+```
 
 And we're done. For full code, check out <https://github.com/wiseodd/generative-models>.
 
-<h2 class="section-heading">Conclusion</h2>
+## Conclusion
 
 In this post we looked at a new GAN variation called Boundary Seeking GAN (BGAN). We looked at the intuition of BGAN, and tried to understand why it's called "boundary seeking".
 
 We also implemented BGAN in Pytorch with just one line of code change.
 
-<h2 class="section-heading">References</h2>
+## References
 
 1. Hjelm, R. Devon, et al. "Boundary-Seeking Generative Adversarial Networks." arXiv preprint arXiv:1702.08431 (2017). [arxiv](https://arxiv.org/abs/1702.08431)
 2. Goodfellow, Ian, et al. "Generative adversarial nets." Advances in Neural Information Processing Systems. 2014. [arxiv](http://papers.nips.cc/paper/5423-generative-adversarial-nets.pdf)

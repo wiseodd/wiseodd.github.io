@@ -1,5 +1,5 @@
 ---
-title: "Volume Forms and Probability Density Functions Under Change of Variables"
+title: 'Volume Forms and Probability Density Functions Under Change of Variables'
 description: "From elementary probability theory, it is well known that a probability density function (pdf) is not invariant under an arbitrary change of variables (reparametrization). In this article we'll see that pdf are actually invariant when we see a pdf in its entirety, as a volume form and a Radon-Nikodym derivative in differential geometry."
 publishDate: 2023-12-13 00:00
 ---
@@ -11,7 +11,7 @@ Suppose we have $\R^n$ equipped with the Cartesian **_coordinates_**; the latter
 
 Here are some interesting objects to study in this setting.
 
-<h2 class="section-heading">Riemannian Metrics</h2>
+## Riemannian Metrics
 
 In $\R^d$, we usually have the standard Euclidean inner product $\inner{v, w} = \sum_{i=1}^n v^i w^i$ where $v = (v^1, \dots, v^n)$ and $w = (w^1, \dots, w^n)$ are two vectors.
 We can write an inner product in terms of an inner product matrix $\inner{v, w} = v^\top G w$.
@@ -21,7 +21,7 @@ We can write an inner product in terms of an inner product matrix $\inner{v, w} 
 The matrix $G$, which is symmetric positive definite, is called (the matrix representation of) a **_Riemannian metric_**.
 In the case of the Euclidean inner product, we have $G = I$, the identity $n \times n$ matrix.
 
-<h2 class="section-heading">Volume Forms</h2>
+## Volume Forms
 
 Another interesting object is the **_volume form_** $dx$.
 This is a differential form of degree $n$, meaning that it takes $n$ vectors as arguments and returns a number.
@@ -43,7 +43,7 @@ The idea here is that non-identity $G$'s "distort" the Cartesian grids and thus 
 For this reason, $dV_G$ is _the_ natural volume form for any choice of metric and any manifold in general.
 Indeed, technically speaking, it is the unique volume form that evaluates to one on parallelepipeds spanned by orthonormal basis vectors.
 
-<h2 class="section-heading">Volume Forms and Measures</h2>
+## Volume Forms and Measures
 
 A non-negative volume form $f \, dx$ induces a measure via $\mu(A) = \int_A f \, dx$ for $A$ Borel measurable subset of $\R^n$.
 One can then see that $dx$ is the volume form corresponding to the Lebesgue measure $\mu(A) = \int_A dx$.
@@ -73,7 +73,7 @@ $$
 
 i.e., it integrates to one under $dV_G$.
 
-<h2 class="section-heading">Change of Variables</h2>
+## Change of Variables
 
 Now, assume that we have another coordinates for $\R^n$, say, representing each element of $\R^n$ with $y = (y^1, \dots, y^n)$ instead.
 The change of coordinates function, mapping $x \mapsto y$ is a diffeomorphism---a differentiable function with a differentiable inverse.
@@ -117,7 +117,7 @@ where $A \subseteq \R^n$.
 Notice that this is just the standard change-of-variable rule in calculus.
 But one thing to keep in mind is that the Jacobian-determinant term is part of the transformation of $dx$, not the function $f$ itself.
 
-<h2 class="section-heading">Pdfs Under Change of Variables</h2>
+## Pdfs Under Change of Variables
 
 From elementary probability theory, we have the transformation of a pdf $p_x$ (defined w.r.t. $dx$):
 
@@ -157,7 +157,7 @@ Simply transform $p_x$ into $p_y = (p_x \circ \varphi^{-1})$.
 This is just the transformation rule of standard function, so its extrema will always be coordinate-independent.
 It is still a pdf w.r.t. $dy$, just don't forget to add a Jacobian-determinant term as part of the transformation from $dx$ to $dy$.
 
-<h2 class="section-heading">Riemannian Pdfs Under Change of Variables</h2>
+## Riemannian Pdfs Under Change of Variables
 
 What about a Riemannian pdf $p_G = p_x \, \abs{\det{G}}^{-\frac{1}{2}}$ under the Riemannian volume form $dV_G$?
 First, recall that $\abs{\det{\widehat{G}}} = \abs{\det{G}} \, \abs{\det J^{-1}}^2$.
@@ -216,7 +216,7 @@ $$
 And therefore, we have shown that $(p_x \circ \varphi^{-1}) \, \abs{\det{G}}^{-\frac{1}{2}}$ is the correct transformation of $p_G$.
 Notice that this is again just a transformation of standard function and so the modes are coordinate-independent.
 
-<h2 class="section-heading">Conclusion</h2>
+## Conclusion
 
 Two take-aways from this post.
 First, be aware of the correct transformation of objects.
@@ -227,7 +227,7 @@ Second, it's best to see things as a whole to avoid confusion.
 For pdfs, write them holistically as Radon-Nikodym derivatives.
 Then, the correct transformations can easily be applied without confusion.
 
-<h2 class="section-heading">References</h2>
+## References
 
 1. Murphy, Kevin P. Machine learning: a probabilistic perspective. MIT Press, 2012.
 2. Lee, John M. Introduction to Smooth Manifolds. 2003.

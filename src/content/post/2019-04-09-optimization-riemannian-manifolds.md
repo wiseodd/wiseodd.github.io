@@ -7,9 +7,9 @@ tags: [math]
 
 Differential geometry can be seen as a generalization of calculus on Riemannian manifolds. Objects in calculus such as gradient, Jacobian, and Hessian on $\R^n$ are adapted on arbitrary Riemannian manifolds. This fact let us also generalize one of the most ubiquitous problem in calculus: the optimization problem. The implication of this generalization is far-reaching: We can make a more general and thus flexible assumption regarding the domain of our optimization, which might fit real-world problems better or has some desirable properties.
 
-In this article, we will focus on the most popular optimization there is, esp. in machine learning: the gradient descent method. We will begin with a review on the optimization problem of a real-valued function on $\R^n$, which we should have been familiar with. Next, we will adapt the gradient descent method to make it work in optimization problem of a real-valued function on an arbitrary Riemannian manifold $(\M, g)$. Lastly, we will discuss how [natural gradient descent]({% post_url 2018-03-14-natural-gradient %}) method can be seen from this perspective, instead of purely from the second-order optimization point-of-view.
+In this article, we will focus on the most popular optimization there is, esp. in machine learning: the gradient descent method. We will begin with a review on the optimization problem of a real-valued function on $\R^n$, which we should have been familiar with. Next, we will adapt the gradient descent method to make it work in optimization problem of a real-valued function on an arbitrary Riemannian manifold $(\M, g)$. Lastly, we will discuss how the natural gradient descent method can be seen from this perspective, instead of purely from the second-order optimization point-of-view.
 
-<h2 class="section-heading">Optimization problem and the gradient descent</h2>
+## Optimization problem and the gradient descent
 
 Let $\R^n$ be the usual Euclidean space (i.e. a Riemannian manifold $(\R^n, \bar{g})$ where $\bar{g}\_{ij} = \delta_{ij}$) and let $f: \R^n \to \R$ be a real-valued function. An (unconstrained) optimization problem on this space has the form
 
@@ -29,9 +29,6 @@ One of the most popular numerical method for solving this problem is the gradien
    2. Move in the direction of $-h_{(t)}$, i.e. $x_{(t+1)} = x_{(t)} - \alpha h_{(t)}$
    3. $t = t+1$
 3. Return $x_{(t)}$
-
-//
-{:.right}
 
 The justification of the gradient descent method is because of the fact that the gradient is the direction in which $f$ is increasing fastest. Its negative therefore points to the direction of steepest descent.
 
@@ -56,11 +53,10 @@ $$
 Thus, the length of $\gradat{f}{x}$ is equal to the value of $D_{\hat{v}} \, f \, \vert_x$.
 
 $\square$
-{:.right}
 
-<h2 class="section-heading">Gradient descent on Riemannian manifolds</h2>
+## Gradient descent on Riemannian manifolds
 
-**Remark.** _These [notes about Riemannian geometry]({% post_url 2019-02-17-riemannian-geometry %}) are useful as references. We shall use the Einstein summation convention: Repeated indices above and below are implied to be summed, e.g. $v^i w\_i \implies \sum\_i v^i w_i$ and $g\_{ij} v^i v^j \implies \sum\_{ij} g\_{ij} v^i v^j$. By convention the index in $\partder{}{x^i}$ is thought to be a lower index._
+**Remark.** _We shall use the Einstein summation convention: Repeated indices above and below are implied to be summed, e.g. $v^i w\_i \implies \sum\_i v^i w_i$ and $g\_{ij} v^i v^j \implies \sum\_{ij} g\_{ij} v^i v^j$. By convention the index in $\partder{}{x^i}$ is thought to be a lower index._
 
 We now want to break the confine of the Euclidean space. We would like to generalize the gradient descent algorithm on a function defined on a Riemannian manifold. Based on Algorithm 1, at least there are two parts of the algorithm that we need to adapt, namely, (i) the gradient of $f$ and (ii) the way we move between points on $\M$.
 
@@ -109,7 +105,6 @@ $$
 where $\theta$ is again the angle between $u$ and $w$. Using the characteristic of $\gradat{f}{p}$ we have discussed above and by substituting $vf$ for $D_v \, f \, \vert_p$ in the proof of Proposition 1, we immediately get the desired result.
 
 $\square$
-{:.right}
 
 Proposition 2 therefore provides us with a justification of just simply substituting the Euclidean gradient with the Riemannian gradient in Algorithm 1.
 
@@ -130,9 +125,6 @@ $$
 $$
     h = I^{-1} d^\T = d^\T \, .
 $$
-
-//
-{:.right}
 
 The second modification to Algorithm 1 that we need to find the analogue of is the way we move between points on $\M$. Notice that, at each $x \in \R^n$, the way we move between points in the Euclidean gradient descent is by following a straight line in the direction $\gradat{f}{x}$. We know by triangle inequality that straight line is the path with shortest distance between points in $\R^n$.
 
@@ -166,9 +158,6 @@ $$
     \exp_p(v) = \cos \left( \frac{\norm{v}}{r} \right) p + \sin \left( \frac{\norm{v}}{r} \right) r \frac{v}{\norm{v}} \, .
 $$
 
-//
-{:.right}
-
 Given the exponential map, our modification to Algorithm 1 is complete, which we show in Algorithm 2. The new modifications from Algorithm 1 are in <span style="color:blue">blue</span>.
 
 **Algorithm 2 (Riemannian gradient descent).**
@@ -180,7 +169,7 @@ Given the exponential map, our modification to Algorithm 1 is complete, which we
    3. $t = t+1$
 3. Return $p_{(t)}$
 
-<h2 class="section-heading">Approximating the exponential map</h2>
+## Approximating the exponential map
 
 In general, the exponential map is difficult to compute, as to compute a geodesic, we have to solve a system of second-order ODE. Therefore, for a computational reason, we would like to approximate the exponential map with cheaper alternative.
 
@@ -203,9 +192,6 @@ $$
     R_p(v) = r \frac{p + v}{\norm{p + v}}
 $$
 
-//
-{:.right}
-
 Therefore, the Riemannian gradient descent in Algorithm 2 can be modified to be
 
 **Algorithm 3 (Riemannian gradient descent with retraction).**
@@ -217,7 +203,7 @@ Therefore, the Riemannian gradient descent in Algorithm 2 can be modified to be
    3. $t = t+1$
 3. Return $p_{(t)}$
 
-<h2 class="section-heading">Natural gradient descent</h2>
+## Natural gradient descent
 
 One of the most important applications of the Riemannian gradient descent in machine learning is for doing optimization of statistical manifolds. We define a statistical manifold $(\R^n, g)$ to be the set $\R^n$ corresponding to the set of parameter of a statistical model $p_\theta(z)$, equipped with metric tensor $g$ which is the Fisher information metric, given by
 
@@ -227,7 +213,7 @@ $$
 
 The most common objective function $f$ in the optimization problem on a statistical manifold is the expected log-likelihood function of our statistical model. That is, given a dataset $\D = \\{ z_i \\}$, the objective is given by $f(\theta) = \sum_{z \in \D} \log p_\theta(z)$.
 
-The metric tensor $g$ is represented by $n \times n$ matrix $F$, called the [_Fisher information matrix_]({% post_url 2018-03-09-fisher-information %}). The Riemannian gradient in this manifold is therefore can be represented by a column vector $h = F^{-1} d^\T$. Furthermore, as the manifold is $\R^n$, the construction of the retraction map we have discussed previously tells us that we can simply do addition $p + v$ for any $p \in \R^n$ and $v \in T_p \R^n$. This is well defined as there is a natural isomorphism between $\R^n$ and $T_p \R^n$. All in all, the gradient descent in this manifold is called the [_natural gradient descent_]({% post_url 2018-03-14-natural-gradient %}) and is presented in Algorithm 4 below.
+The metric tensor $g$ is represented by $n \times n$ matrix $F$, called the _Fisher information matrix_. The Riemannian gradient in this manifold is therefore can be represented by a column vector $h = F^{-1} d^\T$. Furthermore, as the manifold is $\R^n$, the construction of the retraction map we have discussed previously tells us that we can simply do addition $p + v$ for any $p \in \R^n$ and $v \in T_p \R^n$. This is well defined as there is a natural isomorphism between $\R^n$ and $T_p \R^n$. All in all, the gradient descent in this manifold is called _natural gradient descent_ and is presented in Algorithm 4 below.
 
 **Algorithm 4 (Natural gradient descent).**
 
@@ -238,13 +224,13 @@ The metric tensor $g$ is represented by $n \times n$ matrix $F$, called the [_Fi
    3. $t = t+1$
 3. Return $\theta_{(t)}$
 
-<h2 class="section-heading">Conclusion</h2>
+## Conclusion
 
 Optimization in Riemannian manifold is an interesting and important application in the field of geometry. It generalizes the optimization methods from Euclidean spaces onto Riemannian manifolds. Specifically, in the gradient descent method, adapting it to a Riemannian manifold requires us to use the Riemannian gradient as the search direction and the exponential map or retraction to move between points on the manifold.
 
 One major difficulty exists: Computing and storing the matrix representation $G$ of the metric tensor are very expensive. Suppose the manifold is $n$-dimensional. Then, the size of $G$ is in $O(n^2)$ and the complexity of inverting it is in $O(n^3)$. In machine learning, $n$ could be in the order of million, so a naive implementation is infeasible. Thankfully, many approximations of the metric tensor, especially for the Fisher information metric exist (e.g. [7]). Thus, even with these difficulties, the Riemannian gradient descent or its variants have been successfully applied on many areas, such as in inference problems [8], word or knowledge graph embeddings [9], etc.
 
-<h2 class="section-heading">References</h2>
+## References
 
 1. Lee, John M. "Smooth manifolds." Introduction to Smooth Manifolds. Springer, New York, NY, 2013. 1-31.
 2. Lee, John M. Riemannian manifolds: an introduction to curvature. Vol. 176. Springer Science & Business Media, 2006.

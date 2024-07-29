@@ -11,7 +11,7 @@ However, we have no control on the data generation process on VAE. This could be
 
 Hence, CVAE [1] was developed. Whereas VAE essentially models latent variables and data directly, CVAE models lantent variables and data, both conditioned to some random variables.
 
-<h2 class="section-heading">Conditional Variational Autoencoder</h2>
+## Conditional Variational Autoencoder
 
 Recall, on VAE, the objective is:
 
@@ -33,13 +33,13 @@ i.e. we just conditioned all of the distributions with a variable \\( c \\).
 
 Now, the real latent variable is distributed under \\( P(z \vert c ) \\). That is, it's now a conditional probability distribution (CPD). Think about it like this: for each possible value of \\( c \\), we would have a \\( P(z) \\). We could also use this form of thinking for the decoder.
 
-<h2 class="section-heading">CVAE: Implementation</h2>
+## CVAE: Implementation
 
 The conditional variable \\( c \\) could be anything. We could assume it comes from a categorical distribution expressing the label of our data, gaussian expressing some regression target, or even the same distribution as the data (e.g. for image inpainting: conditioning the model to incomplete image).
 
 Let's use MNIST for example. We could use the label as our conditional variable \\( c \\). In this case, \\( c \\) is categorically distributed, or in other words, it takes form as an one-hot vector of label:
 
-{% highlight python %}
+```python
 mnist = input_data.read_data_sets('MNIST_data', one_hot=True)
 X_train, y_train = mnist.train.images, mnist.train.labels
 X_test, y_test = mnist.test.images, mnist.test.labels
@@ -54,21 +54,21 @@ n_epoch = 20
 
 X = Input(batch_shape=(m, n_x))
 cond = Input(batch_shape=(m, n_y))
-{% endhighlight %}
+```
 
 The natural question to arise is how do we incorporate the new conditional variable into our existing neural net? Well, let's do the simplest thing: concatenation.
 
-{% highlight python %}
+```python
 inputs = merge([X, cond], mode='concat', concat_axis=1)
 
 h_q = Dense(512, activation='relu')(inputs)
 mu = Dense(n_z, activation='linear')(h_q)
 log_sigma = Dense(n_z, activation='linear')(h_q)
-{% endhighlight %}
+```
 
 Similarly, the decoder is also concatenated with the conditional vector:
 
-{% highlight python %}
+```python
 def sample_z(args):
 mu, log_sigma = args
 eps = K.random_normal(shape=(m, n_z), mean=0., std=1.)
@@ -86,11 +86,11 @@ decoder_out = Dense(784, activation='sigmoid')
 
 h_p = decoder_hidden(z_cond)
 outputs = decoder_out(h_p)
-{% endhighlight %}
+```
 
 The rest is similar to VAE. Heck, even we don't need to modify the objective. Everything is already expressed in our neural net models.
 
-{% highlight python %}
+```python
 def vae_loss(y_true, y_pred):
 """ Calculate loss = reconstruction loss + KL loss for each data in minibatch """ # E[log P(X|z,y)]
 recon = K.sum(K.binary_crossentropy(y_pred, y_true), axis=1) # D_KL(Q(z|X,y) || P(z|X)); calculate in closed form as both dist. are Gaussian
@@ -98,11 +98,11 @@ kl = 0.5 \* K.sum(K.exp(log_sigma) + K.square(mu) - 1. - log_sigma, axis=1)
 
     return recon + kl
 
-{% endhighlight %}
+```
 
 For the full explanation of the code, please refer to my [original VAE post]({% post_url 2016-12-10-variational-autoencoder %}). The full code could be found in my Github repo: <https://github.com/wiseodd/generative-models>.
 
-<h2 class="section-heading">Conditional MNIST</h2>
+## Conditional MNIST
 
 We will test our CVAE model to generate MNIST data, conditioned to its label. With the above model, we could specify which digit we want to generate, as it is conditioned to the label!
 
@@ -122,7 +122,7 @@ Subjectively, we could say the reconstruction results are way better than the or
 
 Now the interesting part. We could generate a new data under our specific condition. Above, for example, we generate new data which has the label of '5', i.e. \\( c = [0, 0, 0, 0, 0, 1, 0, 0, 0, 0] \\). CVAE make it possible for us to do that.
 
-<h2 class="section-heading">Conclusion</h2>
+## Conclusion
 
 In this post, we looked at the extension of VAE, the Conditional VAE (CVAE).
 
@@ -132,6 +132,6 @@ We also noticed that by conditioning our MNIST data to their labels, the reconst
 
 Finally, CVAE could be conditioned to anything we want, which could result on many interesting applications, e.g. image inpainting.
 
-<h2 class="section-heading">References</h2>
+## References
 
 1. Sohn, Kihyuk, Honglak Lee, and Xinchen Yan. “Learning Structured Output Representation using Deep Conditional Generative Models.” Advances in Neural Information Processing Systems. 2015.

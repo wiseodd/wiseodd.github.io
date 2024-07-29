@@ -16,8 +16,9 @@ _Proof._ &nbsp;&nbsp; Let \\( C' := \frac{1}{2} C = \\{ \frac{1}{2} c \, \vert \
 
 Pick arbitrary \\( x \in C' \cap (C' + v) \\). Then \\( x - v \in C' \\) by construction. By symmetry, \\( v - x \in C' \\). As \\( C' \\) is convex, then line segment between \\( x \\) and \\( v - x \\) is in \\( C' \\). We particularly consider the midpoint of the line segment: \\( \frac{1}{2}x + \frac{1}{2} (v - x) = \frac{1}{2} v \in C' \\). This immediately implies that \\( v \in C \\) by the definition of \\( C' \\), which proves the theorem.
 
-\\( \square \\)
-{:.right}
+$$
+\qed
+$$
 
 The claim that there exists non-zero integer \\( v \in \mathbb{Z}^d \setminus \\{ 0 \\} \\), such that \\( C' \cap (C' + v) \neq \emptyset \\) is not proven in this post. One can refer to Matoušek's book for the proof.
 
@@ -40,16 +41,18 @@ _Proof._ &nbsp;&nbsp; Consider \\( C := \\{ (x, y) \in \mathbb{R}^2 \, \vert \, 
 
 Observe also that the area of \\( C \\) is \\( \text{vol}(C) = \frac{2}{N} (2N + 1) = 4 + \frac{2}{N} \gt 4 = 2^d \\). Thus this construction satisfied the Minkowski's Theorem's preconditions. Therefore there exists lattice point \\( (n, m) \neq (0, 0) \\). As \\( C \\) is symmetric, we can always assume \\( n \gt 0 \\) thus \\( n \in \mathbb{N} \\). By definition of \\( C \\), \\( n \leq N+\frac{1}{2} \implies n \leq N \\) as \\( N \in \mathbb{N} \\). Futhermore, we have \\( \vert \alpha n - m \vert \lt \frac{1}{N} \\). This implies \\( \left\vert \alpha - \frac{m}{n} \right\vert \lt \frac{1}{nN} \\) which conclude the proof.
 
-\\( \square \\)
-{:.right}
+$$
+\qed
+$$
 
 Our second application is the theorem saying that prime number \\( p \equiv 1 \, (\text{mod } 4) \\) can be written as a sum of two squares. For this we need the General Minkowski's Theorem, which allows us to use arbitrary basis for our lattice.
 
 **Theorem 3 (General Minkowski's Theorem)**
 Let \\( C \subseteq \mathbb{R}^d \\) be symmetric around the origin, convex, and bounded set. Let \\( \Gamma \\) be the lattice in \\( \mathbb{R}^d \\). If \\( \text{vol}(C) > 2^d \,\text{vol}(\Gamma) = 2^d \det \Gamma \\), then \\( C \\) contains at least one lattice point in \\( \Gamma \\) different from the origin.
 
-\\( \square \\)
-{:.right}
+$$
+\qed
+$$
 
 **Theorem 4 (Two Squares Theorem)**  
 Every prime number \\( p \equiv 1 \, (\text{mod } 4) \\) can be written by the sum of two squares \\( p = a^2 + b^2 \\) where \\( a, b \in \mathbb{Z} \\).
@@ -80,9 +83,10 @@ $$
 
 To go from 3rd to 4th line, we use our very first assumption, i.e. \\( q^2 \equiv -1 \, (\text{mod } p) \\). Therefore \\( a^2 + b^2 \\) has to be divisible by \\( p \\). Also, as \\( (a, b) \\) is in \\( C \\) this implies \\( a^2 + b^2 \lt 2p \\) by definition. Thus the only choice is \\( a^2 + b^2 = p \\). This proves the theorem.
 
-\\( \square \\)
-{:.right}
+$$
+\qed
+$$
 
-<h2 class="section-heading">References</h2>
+## References
 
 1. Matoušek, Jiří. Lectures on discrete geometry. Vol. 212. New York: Springer, 2002.

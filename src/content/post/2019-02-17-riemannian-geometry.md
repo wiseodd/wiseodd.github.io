@@ -7,26 +7,23 @@ tags: [math]
 
 Recently I have been studying differential geometry, including Riemannian geometry. When studying this subject, a lot of _aha_ moments came up due to my previous (albeit informal) exposure to the geometric point-of-view of natural gradient method. I found that the argument from this point-of-view to be very elegant, which motivates me further to study geometry in depth. This writing is a collection of small notes (largely from Lee's Introduction to Smooth Manifolds and Introduction to Riemannian Manifolds) that I find useful as a reference on this subject. Note that, this is by no means a completed article. I will update it as I study further.
 
-<h2 class="section-heading">Manifolds</h2>
+## Manifolds
 
 We are interested in generalizing the notion of Euclidean space into arbitrary smooth curved space, called smooth manifold. Intuitively speaking, a **_topological $n$-manifold_** $\M$ is a topological space that locally resembles $\R^n$. A **_smooth $n$-manifold_** is a topological $n$-manifold equipped with locally smooth map $\phi_p: \M \to \R^n$ around each point $p \in \M$, called the **_local coordinate chart_**.
 
 **Example 1 (Euclidean spaces).** For each $n \in \mathbb{N}$, the Euclidean space $\R^n$ is a smooth $n$-manifold with a single chart $\phi := \text{Id}\_{\R^n}$, the identity map, for all $p \in \M$. Thus, $\phi$ is a _global coordinate chart_.
 
 //
-{:.right}
 
 **Example 2 (Spaces of matrices).** Let $\text{M}(m \times n, \R)$ denote the set of $m \times n$ matrices with real entries. We can identify it with $\R^{mn}$ and as before, this is a smooth $mn$-dimensional manifold. Some of its subsets, e.g. the general linear group $\text{GL}(n, \R)$ and the space of full rank matrices, are smooth manifolds.
 
 //
-{:.right}
 
 **Remark 1.** We will drop $n$ when referring a smooth $n$-manifold from now on, for brevity sake. Furthermore, we will start to use the **_Einstein summation convention_**: repeated indexes above and below are implied to be summed, e.g. $v_i w^i := \sum_i v_i w^i$.
 
 //
-{:.right}
 
-<h2 class="section-heading">Tangent vectors and covectors</h2>
+## Tangent vectors and covectors
 
 At each point $p \in \M$, there exists a vector space $T_p \M$, called the **_tangent space_** of $p$. An element $v \in T_p \M$ is called the **_tangent vector_**. Let $f: \M \to \R$ be a smooth function. In local coordinate $\\{x^1, \dots, x^n\\}$ defined around $p$, the coordinate vectors $\\{ \partial/\partial x^1, \dots, \partial/\partial x^n \\}$ form a **_coordinate basis_** for $T_p \M$.
 
@@ -86,7 +83,7 @@ $$
 
 Moreover, for any $v \in T_p \M$, we call $dF_p (v)$ the **_pushforward_** of $v$ by $F$ at $p$. It differs from the previous definition of differential in the sense that this map is a linear map between tangent spaces of two manifolds. Furthermore the differential of $F$ can be seen as the generalization of the total derivative in Euclidean spaces, in which $dF_p$ is represented by the Jacobian matrix.
 
-<h2 class="section-heading">Vector fields</h2>
+## Vector fields
 
 If $\M$ is a smooth $n$-manifold, a **_vector field_** on $\M$ is a continuous map $X: \M \to T\M$, written as $p \mapsto X_p$, such that $X_p \in T_p \M$ for each $p \in \M$. If $(U, (x^i))$ is any smooth chart for $\M$, we write the value of $X$ at any $p \in U \subset \M$ as
 
@@ -99,12 +96,10 @@ This defines $n$ functions $X^i: U \to \R$, called the **_component functions_**
 **Example 3 (Coordinate vector fields).** If $(U, (x^i))$ is any smooth chart on $\M$, then $p \mapsto \partial/\partial x^i \vert_p$ is a vector field on $U$, called the **_i-th coordinate vector field_**. It is smooth as its component functions are constant. This vector fields defines a basis of the tangent space at each point.
 
 //
-{:.right}
 
 **Example 4 (Gradient).** If $f \in C^\infty(\M)$ is a real-valued function on $\M$, then the gradient of $f$ is a vector field on $\M$. See the corresponding section below for more detail.
 
 //
-{:.right}
 
 We denote $\mathfrak{X}(\M)$ to be the set of all smooth vector fields on $\M$. It is a vector space under pointwise addition and scalar multiplication, i.e. $(aX + bY)_p = aX_p + bY_p$. The zero element is the zero vector field, whose value is $0 \in T_p \M$ for all $p \in \M$. If $f \in C^\infty(\M)$ and $X \in \mathfrak{X}(\M)$, then we define $fX: \M \to T\M$ by $(fX)_p = f(p)X_p$. Note that this defines a multiplication of a vector field with a smooth real-valued function. Furthermore, if in addition, $g \in C^\infty(\M)$ and $Y \in \mathfrak{X}(\M)$, then $fX + gY$ is also a smooth vector field.
 
@@ -112,7 +107,7 @@ A **_local frame_** for $\M$ is an ordered $n$-tuple of vector fields $(E_1, \do
 
 If $X \in \mathfrak{X}(\M)$ and $f \in C^\infty(U)$, we define $Xf: U \to \R$ by $(Xf)(p) = X_p f$. $X$ also defines a map $C^\infty(\M) \to C^\infty(\M)$ by $f \mapsto Xf$ which is linear and Leibniz, thus it is a derivation. Moreover, derivations of $C^\infty(\M)$ can be identified with smooth vector fields, i.e. $D: C^\infty(\M) \to C^\infty(\M)$ is a derivation if and only if it is of the form $Df = Xf$ for some $X \in \mathfrak{X}(\M)$.
 
-<h2 class="section-heading">Tensors</h2>
+## Tensors
 
 Let $\\{ V_k \\}$ and $U$ be real vector spaces. A map $F: V_1 \times \dots \times V_k \to U$ is said to be **_multilinear_** if it is linear as a function of each variable separately when the others are held fixed. That is, it is a generalization of the familiar linear and bilinear maps. Furthermore, we write the vector space of all multilinear maps $ V_1 \times \dots \times V_k \to U $ as $ \text{L}(V_1, \dots, V_k; U) $.
 
@@ -122,7 +117,6 @@ Let $\\{ V_k \\}$ and $U$ be real vector spaces. A map $F: V_1 \times \dots \tim
 2. The _determinant_ is a real-valued multilinear function of $ n $ vectors in $ \R^n $.
 
 //
-{:.right}
 
 Let $\\{ W_l \\\}$ also be real vector spaces and suppose
 
@@ -154,7 +148,6 @@ $$
 $$
 
 //
-{:.right}
 
 **Example 7 (Tensor products of dual basis).** Let $ \epsilon^1, \epsilon^2 $ be the standard dual basis for $ (\R^2)^\* $. Then, the tensor product $ \epsilon^1 \otimes \epsilon^2: \R^2 \times \R^2 \to \R $ is the bilinear function defined by
 
@@ -163,13 +156,12 @@ $$
 $$
 
 //
-{:.right}
 
-We use the notation $ V*1^* \otimes \dots \otimes V*k^* $ to denote the space $ \text{L}(V_1, \dots, V_k; \R) $. Let $ V $ be a finite-dimensional vector space. If $ k \in \mathbb{N} $, a \*\*\_covariant* $ k $-tensor on $ V $\*\* is an element of the $ k $-fold tensor product $ V^* \otimes \dots \otimes V^_ $, which is a real-valued multilinear function of $ k $ elements of $ V $ to $ \R $. The number $ k $ is called the \*\*\_rank_\*\* of the tensor.
+We use the notation $ V*1^* \otimes \dots \otimes V*k^* $ to denote the space $ \text{L}(V*1, \dots, V_k; \R) $. Let $ V $ be a finite-dimensional vector space. If $ k \in \mathbb{N} $, a \*\*\_covariant* $ k $-tensor on $ V $\*\* is an element of the $ k $-fold tensor product $ V^* \otimes \dots \otimes V^* $, which is a real-valued multilinear function of $ k $ elements of $ V $ to $ \R $. The number $ k $ is called the \*\*\_rank\_\*\* of the tensor.
 
 Analogously, we define a **_contravariant $ k $-tensor on $ V $_** to be an element of the element of the $ k $-fold tensor product $ V \otimes \dots \otimes V $. We can mixed the two types of tensors together: For any $ k, l \in \mathbb{N} $, we define a **_mixed tensor on $ V $ of type $ (k, l) $_** to be the tensor product of $ k $ such $ V $ and $ l $ such $ V^\* $.
 
-<h2 class="section-heading">Riemannian metrics</h2>
+## Riemannian metrics
 
 So far we have no mechanism to measure the length of (tangent) vectors like we do in standard Euclidean geometry, where the length of a vector $v$ is measured in term of the dot product $ \sqrt{v \cdot v} $. Thus, we would like to add a structure that enables us to do just that to our smooth manifold $\M$.
 
@@ -204,9 +196,8 @@ $$
 Note that above, $\delta_{ij}$ is the Kronecker delta. Thus, the Euclidean metric can be represented by the $n \times n$ identity matrix.
 
 //
-{:.right}
 
-<h2 class="section-heading">The tangent-cotangent isomorphism</h2>
+## The tangent-cotangent isomorphism
 
 Riemannian metrics also provide an isomorphism between the tangent and cotangent space: They allow us to convert vectors to covectors and vice versa. Let $(\M, g)$ be a Riemannian manifold. We define an isomorphism $\hat{g}: T_p \M \to T_p^* \M$ as follows. For each $p \in \M$ and each $v \in T_p \M$
 
@@ -230,7 +221,7 @@ $$
 
 for all $\omega \in T_p^* \M$. In correspondence with the previous operation, we are now looking at the components $\omega^i := g^{ij} \, \omega_j$, hence this operation is called **_raising an index_**, which we can also denote by "sharp" musical symbol: $\hat{g}^{-1}(\omega) =: \omega^\sharp$. Putting these two map together, we call the isomorphism between the tangent and cotangent space as the **_musical isomorphism_**.
 
-<h2 class="section-heading">The Riemannian gradient</h2>
+## The Riemannian gradient
 
 Let $(\M, g)$ be a Riemannian manifold, and let $f: \M \to \R$ be a real-valued function over $\M$ (i.e. a scalar field on $\M)$. Recall that $df$ is a covector field, which in coordinates has partial derivatives of $f$ as its components. We define a vector field called the **_gradient_** of $f$ by
 
@@ -263,13 +254,12 @@ $$
 Thus, again it is coincide with the definition we are familiar with form calculus.
 
 //
-{:.right}
 
 All in all then, given a basis, in matrix notation, let $G$ be the matrix representation of $g$ and let $d$ be the matrix representation of $df$ (i.e. as a row vector containing all partial derivatives of $f$), then: $\grad{f} = G^{-1} d^\T$.
 
 The interpretation of the gradient in Riemannian manifold is analogous to the one in Euclidean space: its direction is the direction of steepest ascent of $f$ and it is orthogonal to the level sets of $f$; and its length is the maximum directional derivative of $f$ in any direction.
 
-<h2 class="section-heading">Connections</h2>
+## Connections
 
 Let $(\M, g)$ be a Riemannian manifold and let $X, Y: \M \to T \M$ be a vector field. Applying the usual definition for directional derivative, the way we differentiate $X$ is by
 
@@ -313,7 +303,6 @@ $$
 the usual directional derivative, is a covariant derivative.
 
 //
-{:.right}
 
 There exists a unique affine connection for every Riemannian manifold $(\M, g)$ that satisfies
 
@@ -322,7 +311,7 @@ There exists a unique affine connection for every Riemannian manifold $(\M, g)$ 
 
 for all $X, Y, Z \in \mathfrak{X}(\M)$. It is called the **_Levi-Civita connection_**. Note that, $[\cdot, \cdot]$ is the **Lie bracket**, defined by $[X, Y]f = X(Yf) - Y(Xf)$ for all $f \in C^\infty(\M)$. Note also that, the connection shown in Example 10 is the Levi-Civita connection for Euclidean spaces with the Euclidean metric.
 
-<h2 class="section-heading">Riemannian Hessians</h2>
+## Riemannian Hessians
 
 Let $(\M, g)$ be a Riemannian manifold equipped by the Levi-Civita connection $\nabla$. Given a scalar field $f: \M \to \R$ and any $X, Y \in \mathfrak{X}(\M)$, the **_Riemannian Hessian_** of $f$ is the covariant 2-tensor field $\text{Hess} \, f := \nabla^2 f := \nabla \nabla f$, defined by
 
@@ -353,9 +342,8 @@ $$
 It is the same Hessian as we have seen in calculus.
 
 //
-{:.right}
 
-<h2 class="section-heading">Geodesics</h2>
+## Geodesics
 
 Let $(\M, g)$ be a Riemannian manifold and let $\nabla$ be a connection on $T\M$. Given a smooth curve $\gamma: I \to \M$, a **_vector field along $\gamma$_** is a smooth map $V: I \to T\M$ such that $V(t) \in T_{\gamma(t)}\M$ for every $t \in I$. We denote the space of all such vector fields $\mathfrak{X}(\gamma)$. A vector field $V$ along $\gamma$ is said to be **_extendible_** if there exists another vector field $\tilde{V}$ on a neighborhood of $\gamma(I)$ such that $V = \tilde{V} \circ \gamma$.
 
@@ -389,7 +377,7 @@ $$
 
 over all curve segments $\gamma$ which have endpoints at $p$ and $q$. We call the particular $\gamma$ such that $L_g(\gamma) = d_g(p, q)$ as the **_length-minimizing curve_**. We can show that all geodesics are locally length-minimizing, and all length-minimizing curves are geodesics.
 
-<h2 class="section-heading">Parallel transport</h2>
+## Parallel transport
 
 Let $(\M, g)$ be a Riemannian manifold with affine connection $\nabla$. A smooth vector field $V$ along a smooth curve $\gamma: I \to \M$ is said to be **_parallel_** along $\gamma$ if $D_t V = 0$ for all $t \in I$. Notice that a geodesic can then be said to be a curve whose velocity vector field is parallel along the curve.
 
@@ -420,7 +408,7 @@ for every $p \in \M$.
 
 Finally, if $A$ is a smooth vector field on $\M$, then $A$ is parallel on $\M$ if and only if $\nabla A = 0$.
 
-<h2 class="section-heading">The exponential map</h2>
+## The exponential map
 
 Geodesics with proportional initial velocities are related in a simple way. Let $(\M, g)$ be a Riemannian manifold equipped with the Levi-Civita connection. For every $p \in \M$, $v \in T_p \M$, and $c, t \in \R$,
 
@@ -449,7 +437,7 @@ For each $p \in \M$, the **_restricted exponential map_** at $p$, denoted $\text
 
 The interpretation of the (restricted) exponential maps is that, given a point $p$ and tangent vector $v$, we follow a geodesic which has the property $\gamma(0) = p$ and $\gamma'(0) = v$. This is then can be seen as the generalization of moving around the Euclidean space by following straight line in the direction of velocity vector.
 
-<h2 class="section-heading">Curvature</h2>
+## Curvature
 
 Let $(\M, g)$ be a Riemannian manifold. Recall that an **_isometry_** is a map that preserves distance. Now, $\M$ is said to be **_flat_** if it is locally isometric to a Euclidean space, that is, every point in $\M$ has a neighborhood that is isometric to an open set in $\R^n$. We say that a connection $\nabla$ on $\M$ satisfies the **_flatness criterion_** if whenever $X, Y, Z$ are smooth vector fields defined on an open subset of $\M$, the following identity holds:
 
@@ -483,7 +471,6 @@ $$
 Therefore, the Euclidean space with the Euclidean connection (which is the Levi-Civita connection on Euclidean space) is flat.
 
 //
-{:.right}
 
 Based on the above definition of the flatness criterion, then we can define a measure on how far away a manifold to be flat:
 
@@ -553,7 +540,7 @@ $$
 
 Thus the scalar curvature is a scalar field on $\M$.
 
-<h2 class="section-heading">Submanifolds</h2>
+## Submanifolds
 
 Let $\M$ be a smooth manifold. An **_embedded or regular submanifold_** of $\M$ is a subset $\mathcal{S} \subset \M$ that is a manifold in the subspace topology, endowed with a smooth structure w.r.t. which the inclusion map $\mathcal{S} \hookrightarrow \M$ is a smooth embedding. We call the difference $\text{dim} \, \M - \text{dim} \, \mathcal{S}$ to be the **_codimension_** of $\mathcal{S}$ in $\M$, and $\M$ to be the **_ambient manifold_**. An **_embedded hypersurface_** is an embedded submanifold of codimension 1.
 
@@ -568,7 +555,6 @@ Then $\Gamma(f)$ is an embedded $m$-submanifold of $\M \times \mathcal{N}$.
 Furthermore, if $f: \M \to \mathcal{N}$ is a smooth map (notice that we have defined $f$ globally here), then $\Gamma(f)$ is **_properly embedded_** in $\M \times \mathcal{N}$, i.e. the inclusion map is a [proper map](https://en.wikipedia.org/wiki/Proper_map).
 
 //
-{:.right}
 
 Suppose $\M$ and $\N$ are smooth manifolds. Let $F: \M \to \N$ be a smooth map and $p \in \M$. We define the rank of $F$ at $p$ to be the **_rank_** of the linear map $dF_p: T_p\M \to T_{F(p)\N}$, i.e. the rank of the Jacobian matrix of $F$ in coordinates. If $F$ has the same rank $r$ at any point, we say that it has **_constant rank_**, written $\rank{F} = r$. Note that it is bounded by $\min \\{ \dim{\M}, \dim{\N} \\}$ and if it is equal to this bound, we say $F$ has **_full rank_** at $p$.
 
@@ -580,7 +566,6 @@ A smooth map $F: \M \to \N$ is called a **_smooth submersion_** if $dF$ is surje
 2. If $\gamma: I \to \M$ is a smooth curve in a smooth manifold $\M$, then $\gamma$ is a smooth immersion if and only if $\gamma'(t) \neq 0$ for all $t \in I$.
 
 //
-{:.right}
 
 If $\M$ and $\N$ are smooth manifolds. A **_diffeomorphism_** from $\M$ to $\N$ is a smooth bijective map $F: \M \to \N$ that has a smooth inverse, and $\M$ and $\N$ are said to be **_diffeomorphic_**. $F$ is called a **_local diffeomorphism_** if every point $p \in \M$ has a neighborhood $U$ such that $F(U)$ is open in $\N$ and $F\vert_U: U \to F(U)$ is a diffeomorphism. We can show that $F$ is a local diffeomorphism if and only if it is both a smooth immersion and submersion. Furthermore, if $\dim{\M} = \dim{\N}$ and $F$ is either a smooth immersion or submersion, then it is a local diffeomorphism.
 
@@ -591,11 +576,10 @@ If $\M$ and $\N$ are smooth manifolds, a **_smooth embedding_** of $\M$ into $\N
 **Example 15 (Smooth embeddings).** If $\M$ is a smooth manifold and $U \subseteq \M$ is an open submanifold, the inclusion $U \hookrightarrow \M$ is a smooth embedding.
 
 //
-{:.right}
 
 Let $F: \M \to \N$ be an injective smooth immersion. If any of these condition holds, then $F$ is a smooth embedding: (a) $F$ is an open or closed map, (b) $F$ is a proper map, (c) $\M$ is compact, and (d) $\M$ has empty boundary and $\dim{\M} = \dim{\N}$.
 
-<h2 class="section-heading">The second fundamental form</h2>
+## The second fundamental form
 
 Let $(\M, g)$ be a Riemannian submanifold of a Riemannian manifold $(\tilde{\M}, \tilde{g})$. Then, $g$ is the induced metric $g = \iota_\M^* \tilde{g}$, where $\iota_\M: \M \hookrightarrow \tilde{\M}$ is the inclusion map. Note that, the expression $\iota^*\_\M \tilde{g}$ is called the **_pullback metric_** or the **_induced metric_** of $\tilde{g}$ by $\iota_\M$ and is defined by
 
@@ -662,7 +646,7 @@ Now, suppose that $\M$ is a submanifold in the ambient manifold $\tilde{\M}$. Ev
 
 The intrinsic and extrinsic accelerations of a curve are usually different. A Riemannian submanifold $(\M, g)$ of $(\tilde{\M}, \tilde{g})$ is said to be **_totally geodesic_** if every $\tilde{g}$-geodesic that is tangent to $\M$ at some time $t_0$ stays in $\M$ for all $t \in (t_0 - \epsilon, t_0 + \epsilon)$.
 
-<h2 class="section-heading">Riemannian hypersurfaces</h2>
+## Riemannian hypersurfaces
 
 We focus on the case when $(\M, g)$ is an embedded $n$-dimensional Riemannian submanifold of an $(n+1)$-dimensional Riemannian manifold $(\tilde{\M}, \tilde{g})$. That is, $\M$ is a hypersurface of $\tilde{\M}$.
 
@@ -692,7 +676,7 @@ $$
 
 where $dA$ is its Riemannian density.
 
-<h2 class="section-heading">Hypersurfaces of Euclidean space</h2>
+## Hypersurfaces of Euclidean space
 
 Assume that $\M \subseteq \R^{n+1}$ is an embedded Riemannian $n$-submanifold (with the induced metric from the Euclidean metric). We denote geometric objects on $\R^{n+1}$ with bar, e.g. $\bar{g}$, $\overline{Rm}$, etc. Observe that $\overline{Rm} \equiv 0$, which implies that the Riemann curvature tensor of a hypersurface in $\R^{n+1}$ is completely determined by the second fundamental form.
 
@@ -741,7 +725,6 @@ $$
 where recall that, $\partial_j x^i = \partial x^i / \partial x^j = \delta_{ij}$. We can therefore write $s$ as a matrix $s = (-1/R) \mathbf{I}$ where $\mathbf{I}$ is the identity matrix. The principal curvatures are then all equal to $-1/R$, the mean curvature is $H = -1/R$, and the Gaussian curvature is $K = (-1/R)^n$. Note that, these curvatures are constant. These reflects the fact that the sphere bends the exact same way at every point.
 
 //
-{:.right}
 
 Lastly, for surfaces in $\R^3$, given a parametrization of $X$, the normal vector field can be computed via the cross product:
 
@@ -767,7 +750,7 @@ $$
 
 We can show the connection between the sectional curvature and Ricci and scalar curvatures. $Rc_p(v, v)$ is the sum of the sectional curvatures of the $2$-planes spanned by $(v, b_2), \dots, (v, b_n)$, where $(b_1, \dots, b_n)$ is any orthonormal basis for $T_p \M$ with $b_1 = v$. Furthermore, the scalar curvature at $p$ is the sum of all sectional curvatures of the $2$-planes spanned by ordered pairs of distinct basis vectors in any orthonormal basis.
 
-<h2 class="section-heading">Lie groups</h2>
+## Lie groups
 
 A **_Lie group_** is a smooth manifold $\G$ that is also a group in the algebraic sense, with the property that the multiplication map $m: \G \times \G \to \G$ and inversion map $i: \G \to \G$, given by
 
@@ -784,7 +767,6 @@ are both smooth for arbitrary $g, h \in \G$. We denote the identity element of $
 2. The real number field $\R$ and the Euclidean space $\R^n$ are Lie groups under addition.
 
 //
-{:.right}
 
 If $\G$ and $\mathcal{H}$ are Lie groups, a **_Lie group homomorphism_** from $\G$ to $\mathcal{H}$ is a smooth map $F: \G \to \mathcal{H}$ that is also a group homomorphism. If $F$ is also a diffeomorphism, then it is a **_Lie group isomorphism_**. We say that $\G$ and $\mathcal{H}$ are **_isomorphic Lie groups_**.
 
@@ -840,7 +822,6 @@ A group action is said to be **_transitive_** if for every pair of points $p, q 
 2. The **_natural action_** of $\GL(n, \R)$ on $\R^n$ is the left action given by matrix multiplication $(\b{A}, \vx) \mapsto \b{A} \vx$.
 
 //
-{:.right}
 
 Let $\G$ be a Lie group, $\M$ and $\N$ be smooth manifolds endowed with smooth left or right $\G$-actions. A map $F: \M \to \N$ is **_equivariant_** w.r.t. the given actions if for each $g \in G$,
 
@@ -862,7 +843,6 @@ $$
 The set of all orthogonal $n \times n$ matrices $\text{O}(n)$ is a subgroup of $\GL(n, \R)$, called the **_orthogonal group_** of degree $n$.
 
 //
-{:.right}
 
 We would like to also study the theory of **_group representations_**, i.e. asking the question whether all Lie groups can be realized as Lie subgroups of $\GL(n, \R)$ or $\GL(n, \C)$. If $\G$ is a Lie group, a **_representation_** of $\G$ is a Lie group homomorphism from $\G$ to $\GL(V)$ for some finite-dimensional vector space $V$. Note that, $\GL(V)$ denotes the group of invertible linear transformations of $V$ which is a Lie group isomorphic to $\GL(n, \R)$. If a representation is injective, it is said to be **_faithful_**.
 
@@ -871,9 +851,8 @@ There is a close connection between representations and group actions. An action
 **Example 20 (Linear action).** If $\rho: \G \to \GL(V)$ is a representation of $\G$, there is an associated smooth linear action of $\G$ on $V$ given by $g \cdot x = \rho(g) x$. In fact, this holds for every linear action.
 
 //
-{:.right}
 
-<h2 class="section-heading">References</h2>
+## References
 
 1. Lee, John M. "Smooth manifolds." Introduction to Smooth Manifolds. Springer, New York, NY, 2013. 1-31.
 2. Lee, John M. Riemannian manifolds: an introduction to curvature. Vol. 176. Springer Science & Business Media, 2006.

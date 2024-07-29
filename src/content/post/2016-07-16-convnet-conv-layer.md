@@ -15,7 +15,7 @@ Nowadays, to build a convnet model, it's easy: install one of those popular Deep
 
 However, to understand the convnet better, it's essential to get our hands dirty. So, let's try implementing the conv layer from scratch using Numpy!
 
-<h2 class="section-heading">Conv layer</h2>
+## Conv layer
 
 As we've already know, every layer in a neural net consists of forward and backward computation, because of the backpropagation. Conv layer is no different, as essentially, it's just another neural net layer.
 
@@ -23,7 +23,7 @@ Before we get started, of course we need some theoritical knowledge of convnet. 
 
 Having already understand the theories, it's time for us to implement it. First, the forward computation!
 
-<h2 class="section-heading">Conv layer forward</h2>
+## Conv layer forward
 
 As stated in the [CS231n class](http://cs231n.github.io/convolutional-networks/), we can think of convolutional operation as a matrix multiplication, as essentially at every patch of images, we apply a filter on it by taking their dot product. What nice about this is that we could think about conv layer as feed forward layer (your usual neural net hidden layer) to some extent.
 
@@ -31,10 +31,10 @@ The implication is very nice: we can reuse our knowledge and thought process whe
 
 Alright, let's define our function:
 
-{% highlight python %}
+```python
 def conv_forward(X, W, b, stride=1, padding=1):
 pass
-{% endhighlight %}
+```
 
 Our conv layer will accept an input in `X: DxCxHxW` dimension, input filter `W: NFxCxHFxHW`, and bias `b: Fx1`, where:
 
@@ -64,7 +64,7 @@ To make the operation compatible, we will arrange our filter to `1x9`. Now, if w
 
 Let's see the code for that.
 
-{% highlight python %}
+```python
 
 # Let this be 3x3 convolution with stride = 1 and padding = 1
 
@@ -86,13 +86,13 @@ out = W_col @ X_col + b
 
 out = out.reshape(n_filters, h_out, w_out, n_x)
 out = out.transpose(3, 0, 1, 2)
-{% endhighlight %}
+```
 
 That basically it for the forward computation of the convolution layer. It's similar to the feed forward layer with two additions: `im2col` operation and thinkering about the dimension of our matrices.
 
 It's definitely harder to implement, mainly because thinking in multidimension isn't that nice. We have to be careful with the dimension manipulation operations like the reshape and transpose as it's tricky to work with.
 
-<h2 class="section-heading">Conv layer backward</h2>
+## Conv layer backward
 
 One of the trickiest part of implementing neural net model from scratch is to derive the partial derivative of a layer. Conv layer is no different, it's even more trickier as we have to deal with different operation (convolution instead of just affine transformation) and higher dimensional matrices.
 
@@ -100,16 +100,16 @@ Thankfully because we're using the `im2col` trick, we at least could reuse our k
 
 First let's compute our bias gradient.
 
-{% highlight python %}
+```python
 db = np.sum(dout, axis=(0, 2, 3))
 db = db.reshape(n_filter, -1)
-{% endhighlight %}
+```
 
 Remember that the matrix we're dealing with, i.e. `dout` is a `5x20x10x10` matrix, similar to the output of the forward computation step. As the bias is added to each of our filter, we're accumulating the gradient to the dimension that represent of the number of filter, which is the second dimension. Hence the sum is operated on all axis except the second.
 
 Next, we will compute the gradient of the the filters `dW`.
 
-{% highlight python %}
+```python
 
 # Transpose from 5x20x10x10 into 20x10x10x5, then reshape into 20x500
 
@@ -122,13 +122,13 @@ dW = dout_reshaped @ X_col.T
 # Reshape back to 20x1x3x3
 
 dW = dW.reshape(W.shape)
-{% endhighlight %}
+```
 
 It's similar with the normal feed forward layer, except with more convoluted (ha!) dimension manipulation.
 
 Lastly, the input gradient `dX`. We're almost there!
 
-{% highlight python %}
+```python
 
 # Reshape from 20x1x3x3 into 20x9
 
@@ -141,15 +141,15 @@ dX_col = W_reshape.T @ dout_reshaped
 # Stretched out image to the real image: 9x500 => 5x1x10x10
 
 dX = col2im_indices(dX_col, X.shape, h_filter, w_filter, padding=padding, stride=stride)
-{% endhighlight %}
+```
 
 Again, it's the same as feed forward layer with some careful reshaping! At the end though, we're getting the gradient of the stretched image (recall the use of `im2col`). To undo this, and getting the real image gradient, we're going to de-im2col that. We're going to apply the operation called `col2im` to the stretched image. And now we have our image input gradient!
 
-<h2 class="section-heading">Full source code</h2>
+## Full source code
 
 Here's the full source code for the forward and backward computation of the conv layer.
 
-{% highlight python %}
+```python
 def conv*forward(X, W, b, stride=1, padding=1):
 cache = W, b, stride, padding
 n_filters, d_filter, h_filter, w_filter = W.shape
@@ -190,17 +190,17 @@ n_filter, d_filter, h_filter, w_filter = W.shape
 
     return dX, dW, db
 
-{% endhighlight %}
+```
 
 Also check out the complete code in my repository: <https://github.com/wiseodd/hipsternet>!
 
-<h2 class="section-heading">Conclusion</h2>
+## Conclusion
 
 As we can see, conv layer is just an extension of the normal feed forward layer, with some additions. Those are the `im2col` operation and dimension manipulation, as convnet, particularly for computer vision task assumes our input and weight to be arranged as 2d or 3d images, because we're trying to capture the spatial information in our data.
 
 Dealing with multidimensional matrices as we will always encounter in convnet is tricky. A lot of careful dimension manipulation need to be done. But it's definitely a great exercise to visualize them in our mind!
 
-<h2 class="section-heading">References</h2>
+## References
 
 - <http://cs231n.github.io/convolutional-networks/>
 - <http://vision.stanford.edu/teaching/cs231n/winter1516_assignment2.zip>

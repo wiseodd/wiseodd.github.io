@@ -13,7 +13,7 @@ $$
 
 where $\partial_i := \partial/\partial \theta^i$ for each $i = 1, \dots, d$. Note that $\I(\theta)$ is positive semi-definite because one can see it as the (expected) outer-product of the gradient of the log-density.
 
-<h2 class="section-heading">The Fisher Information under Sufficient Statistics</h2>
+## The Fisher Information under Sufficient Statistics
 
 Let $T : \R^n \to \R^n$ with $x \mapsto y$ be a bijective transformation of the r.v. $x \sim p_\theta(x)$. By the [Fisher-Neyman factorization](https://en.wikipedia.org/wiki/Sufficient_statistic#Fisher%E2%80%93Neyman_factorization_theorem), $T$ is a **_sufficient statistic_** for the parameter $\theta$ if there exist non-negative functions $g_\theta$ and $h$, where $g_\theta$ depends on $\theta$ while $h$ does not, such that we can write the density $p_\theta(x)$ as follows:
 
@@ -47,10 +47,11 @@ $$
 
 We conclude that $\I$ is invariant under sufficient statistics.
 
-\\( \square \\)
-{:.right}
+$$
+\qed
+$$
 
-<h2 class="section-heading">The Fisher Information as a Riemannian Metric</h2>
+## The Fisher Information as a Riemannian Metric
 
 Let
 
@@ -80,10 +81,11 @@ $$
 
 where the second equality follows from the standard chain rule. We conclude that $\I$ is covariant since the Jacobian $\partial \varphi/\partial \theta$ of the transformation multiplies the "new" component functions $\I_{ij}(\varphi)$ of $\I$ to obtain the "old" ones.
 
-\\( \square \\)
-{:.right}
+$$
+\qed
+$$
 
-<h2 class="section-heading">Chentsov's Theorem</h2>
+## Chentsov's Theorem
 
 The previous two results are useful since the Fisher information metric is invariant under sufficient statistics. In this sense, $\I$ has a statistical invariance property. But this is not a strong enough reason for arguing that $\I$ is a "natural" or "the best" metric for $M$.
 
@@ -121,8 +123,9 @@ _where $\abs{x} = \sum\_{i=1}^n x^i$, $\delta\_{ij}$ is the Kronecker delta, and
 
 _Proof._ See Campbell (1986) and Amari (2016, Sec. 3.5).
 
-\\( \square \\)
-{:.right}
+$$
+\qed
+$$
 
 Lemma 3 is a general statement about the invariant metric in $\R^n_{>0}$ and it does not say anything about sufficient statistics and probability distributions. To get the main result, we restrict ourselves to the $(n-1)$-**_probability simplex_** $\Delta^{n-1} \subset \R^n_{>0}$, which is the space of (Categorical) probability distribution.
 
@@ -166,8 +169,9 @@ $$
 
 Using similar step, we can show that $\I_{ij}(\theta) = 0$ for $i \neq j$ because $z^i z^j$ is always zero.
 
-\\( \square \\)
-{:.right}
+$$
+\qed
+$$
 
 Now we are ready to state the main result.
 
@@ -201,12 +205,13 @@ $$
 
 Recalling that $B(1)$ is a constant, by Lemma 4, we have $g_{ij}(\theta) \propto \I_{ij}(\theta)$.
 
-\\( \square \\)
-{:.right}
+$$
+\qed
+$$
 
 Generalizations to this (original) version Chentsov's theorem exists. For instance, Ay et al. (2015) showed Chentsov's theorem for arbitrary, parametric probability distributions. Dowty (2018) stated Chentsov's theorem for exponential family distributions.
 
-<h2 class="section-heading">References</h2>
+## References
 
 1. Chentsov, N. N. "Statistical Decision Rules and Optimal Deductions." (1972).
 2. Campbell, L. Lorne. "An extended Čencov characterization of the information metric." Proceedings of the American Mathematical Society 98, no. 1 (1986): 135-141.

@@ -14,14 +14,16 @@ _Proof._ &nbsp;&nbsp; Observe that \\( \mathbb{B}^d \\) is contractible, i.e. ho
 
 In the reduced homology, therefore \\( \tilde{H}\_0(\, \cdot \,, \mathbb{Q}) = 0 \\). Thus the reduced homology of balls is trivial for all \\( d, p \\).
 
-\\( \square \\)
-{:.right}
+$$
+\qed
+$$
 
 **Corollary 1 (Reduced Betti numbers of balls)**  
 The \\( p \\)-th reduced Betti numbers of \\( \mathbb{B}^d \\) is zero for all \\(d, p\\).
 
-\\( \square \\)
-{:.right}
+$$
+\qed
+$$
 
 Now, we are ready to prove the main theme of this post.
 
@@ -44,9 +46,10 @@ $$
 
 By Corollary 1, \\( \tilde{H}\_p(\mathbb{B}^d) \oplus \tilde{H}\_p(\mathbb{B}^d) = \tilde{H}\_{p-1}(\mathbb{B}^d) \oplus \tilde{H}\_{p-1}(\mathbb{B}^d) = 0 \\). As the sequence is exact, therefore \\( \tilde{H}\_p(\mathbb{S}^d) \longrightarrow \tilde{H}\_{p-1}(\mathbb{S}^{d-1}) \\) is a bijection, and thus an isomorphism. Then by induction with base case of \\( \mathbb{S}^0 \\), we conclude that the claim holds.
 
-\\( \square \\)
-{:.right}
+$$
+\qed
+$$
 
-<h2 class="section-heading">References</h2>
+## References
 
 1. Hatcher, Allen. "Algebraic topology." (2001).

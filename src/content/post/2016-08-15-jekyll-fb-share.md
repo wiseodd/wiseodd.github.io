@@ -34,7 +34,7 @@ Now, open your `_include/head.html` template, and this piece of code inside the 
 
 <meta property="og:description" content="{{ page.subtitle }}" />
 {% endraw %}
-{% endhighlight %}
+```
 
 And voila! The next time you share your blog post to Facebook, the post's `header-img` and `subtitle` will be used!
 

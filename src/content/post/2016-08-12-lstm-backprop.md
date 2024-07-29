@@ -13,7 +13,7 @@ Using modern Deep Learning libraries like TensorFlow, Torch, or Theano nowadays,
 
 So, here, we will try to first implement the forward computation step according to the LSTM net formula, then we will try to derive the network gradient analytically. Finally, we will implement it using numpy.
 
-<h2 class="section-heading">LSTM Forward</h2>
+## LSTM Forward
 
 We will follow this model for a single LSTM cell:
 
@@ -21,7 +21,7 @@ We will follow this model for a single LSTM cell:
 
 Let's implement it!
 
-{% highlight python %}
+```python
 import numpy as np
 
 H = 128 # Number of LSTM layer's neurons
@@ -40,13 +40,13 @@ bc=np.zeros((1, H)),
 bo=np.zeros((1, H)),
 by=np.zeros((1, D))
 )
-{% endhighlight %}
+```
 
 Above, we're declaring our LSTM net model. Notice that from the formula above, we're concatenating the old hidden state `h` with current input `x`, hence the input for our LSTM net would be `Z = H + D`. And because our LSTM layer wants to output `H` neurons, each weight matrices' size would be `ZxH` and each bias vectors' size would be `1xH`.
 
 One difference is for `Wy` and `by`. This weight and bias would be used for fully connected layer, which would be fed to a softmax layer. The resulting output should be a probability distribution over all possible items in vocabulary, which would be the size of `1xD`. Hence, `Wy`'s size must be `HxD` and `by`'s size must be `1xD`.
 
-{% highlight python %}
+```python
 def lstm_forward(X, state):
 m = model
 Wf, Wi, Wc, Wo, Wy = m['Wf'], m['Wi'], m['Wc'], m['Wo'], m['Wy']
@@ -78,15 +78,15 @@ bf, bi, bc, bo, by = m['bf'], m['bi'], m['bc'], m['bo'], m['by']
 
     return prob, state, cache
 
-{% endhighlight %}
+```
 
 The above code is for the forward step for a single LSTM cell, which identically follows the formula above. The only additions are the one-hot encoding and the hidden-input concatenation process.
 
-<h2 class="section-heading">LSTM Backward</h2>
+## LSTM Backward
 
 Now, we will dive into the main point of this post: LSTM backward computation. We will assume that derivative function for `sigmoid` and `tanh` are already known.
 
-{% highlight python %}
+```python
 def lstm_backward(prob, y_train, d_next, cache): # Unpack the cache variable to get the intermediate variables used in forward step
 ... = cache
 dh_next, dc_next = d_next
@@ -150,7 +150,7 @@ dh_next, dc_next = d_next
 
     return grad, state
 
-{% endhighlight %}
+```
 
 A bit long isn't it? However, actually it's easy enough to derive the LSTM gradients if you understand how to take a partial derivative of a function and how to do chain rule, albeit some tricky stuffs are going on here. For this, I would recommend [CS231n](http://cs231n.github.io/optimization-2/).
 
@@ -163,11 +163,11 @@ Things that are tricky and not-so-obvious when deriving the LSTM gradients are:
 
 With the forward and backward computation implementations in hands, we could stitch them together to get a full training step that would be useful for optimization algorithms.
 
-<h2 class="section-heading">LSTM Training Step</h2>
+## LSTM Training Step
 
 This training step consists of three steps: forward computation, loss calculation, and backward computation.
 
-{% highlight python %}
+```python
 def train_step(X_train, y_train, state):
 probs = []
 caches = []
@@ -203,7 +203,7 @@ h, c = state
 
     return grads, loss, state
 
-{% endhighlight %}
+```
 
 In the full training step, first we're do full forward propagation on all items in training set, then store the results which are the softmax probabilities and cache of each timestep into a list, because we are going to use it in backward step.
 
@@ -217,7 +217,7 @@ With this function in hands, we could plug this to any optimization algorithm li
 
 And, that's it. We can train our LSTM net now!
 
-<h2 class="section-heading">Test Result</h2>
+## Test Result
 
 Using Adam to optimize the network, here's the result when I feed a copy-pasted text about Japan from Wikipedia. Each data is a character in the text. The target is the next character.
 
@@ -250,7 +250,7 @@ tary shoguns who ruled in the name of the Uprea wal motrko, the copulation of Ja
 
 Our network definitely learned something here!
 
-<h2 class="section-heading">Conclusion</h2>
+## Conclusion
 
 Here, we looked at the general formula for LSTM and implement the forward propagation step based on it, which is very straightforward to do.
 
@@ -260,7 +260,7 @@ We then stitched the forward and backward step together to build the full traini
 
 Lastly, we tried to run the network using some test data and showed that the network was learning by looking at the loss value and the sample of text that are produced by the network.
 
-<h2 class="section-heading">References</h2>
+## References
 
 - <http://colah.github.io/posts/2015-08-Understanding-LSTMs/>
 - <http://karpathy.github.io/2015/05/21/rnn-effectiveness/>

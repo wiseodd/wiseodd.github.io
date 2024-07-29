@@ -30,8 +30,9 @@ $$
 \end{align}
 $$
 
-\\( \square \\)
-{:.right}
+$$
+\qed
+$$
 
 But how certain are we to our estimate? We can define an uncertainty measure around the expected estimate. That is, we look at the covariance of score of our model. Taking the result from above:
 
@@ -53,7 +54,7 @@ $$
 \end{align}
 $$
 
-<h2 class="section-heading">Fisher and Hessian</h2>
+## Fisher and Hessian
 
 One property of \\( \text{F} \\) that is not obvious is that it has the interpretation of being the negative expected Hessian of our model's log likelihood.
 
@@ -86,18 +87,19 @@ $$
 
 Thus we have \\( \text{F} = -\mathop{\mathbb{E}}\_{p(x \vert \theta)} \left[ \text{H}\_{\log p(x \vert \theta)} \right] \\).
 
-\\( \square \\)
-{:.right}
+$$
+\qed
+$$
 
 Indeed knowing this result, we can see the role of \\( \text{F} \\) as a measure of curvature of the log likelihood function.
 
-<h2 class="section-heading">Conclusion</h2>
+## Conclusion
 
 Fisher Information Matrix is defined as the covariance of score function. It is a curvature matrix and has interpretation as the negative expected Hessian of log likelihood function. Thus the immediate application of \\( \text{F} \\) is as drop-in replacement of \\( \text{H} \\) in second order optimization methods.
 
 One of the most exciting results of \\( \text{F} \\) is that it has connection to KL-divergence. This gives rise to natural gradient method, which we shall discuss further in the next article.
 
-<h2 class="section-heading">References</h2>
+## References
 
 1. Martens, James. "New insights and perspectives on the natural gradient method." arXiv preprint arXiv:1412.1193 (2014).
 2. Ly, Alexander, et al. "A tutorial on Fisher information." Journal of Mathematical Psychology 80 (2017): 40-55.

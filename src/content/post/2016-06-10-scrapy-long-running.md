@@ -15,7 +15,7 @@ There's a workaround for this, and in my experience, this solution is quite robu
 
 Let's define our crawler module. I'll assume that we've already had our spiders defined.
 
-{% highlight python %}
+```python
 from scrapy import signals
 from scrapy.crawler import CrawlerProcess, Crawler
 from scrapy.settings import Settings
@@ -38,13 +38,13 @@ class CustomCrawler(object):
 
         return crawled_items
 
-{% endhighlight %}
+```
 
 Here, we're creating the `CustomCrawler` just as advised by the official Scrapy documentation. We use Scrapy's `signals` to get the crawled item, and add it to a list that stores our crawled items. So, each time an item is crawled, it will send a signal. If we caught such signal, then we add the said crawled item to the list. In the end of this method, we'll have a list that contains all of the items we've crawled.
 
 This solution alone will suffice if our goal is to create a script for one-time-and-terminate crawler job. To make it works as long-running crawler job, we have to wrap the `CustomCrawler` class with Python's `multiprocessing` library.
 
-{% highlight python %}
+```python
 import multiprocessing as mp
 
 def crawl():
@@ -61,18 +61,18 @@ queue.put(res)
 
     return res
 
-{% endhighlight %}
+```
 
 One thing to note though, we have to execute this line: `res = q.get()` **before** `p.join()`. This is a known issue for this implementation. If you know what's up with this, drop a comment or reply in this Stackoverflow thread: <http://stackoverflow.com/questions/35810024/python-multiprocessing-queue-behavior>
 
 Having wrapped our `CustomCrawler` class, we then could use it inside our long-running worker.
 
-{% highlight python %}
+```python
 import time
 
 while True:
 items = crawl() # do something with crawled items ...
 time.sleep(3600)
-{% endhighlight %}
+```
 
 And, that's it! Now our worker will do the crawling job periodically without ever terminating!

@@ -17,7 +17,7 @@ $$ D*{KL}[P(X) \, \Vert \, Q(X)] = \sum*{x \in X} P(x) \, \log \left( \frac{P(x)
 
 that is, for all random variable \\( x \in X \\), KL Divergence calculates the weighted average on the difference between those distributions at \\( x \\).
 
-<h2 class="section-heading">KL Divergence in optimization</h2>
+## KL Divergence in optimization
 
 In optimization setting, we assume that \\( P(X) \\) as the true distribution we want to approximate and \\( Q(X) \\) as the approximate distribution.
 
@@ -27,7 +27,7 @@ However, we have to note this important property about KL Divergence: it is not 
 
 \\( D*{KL}[P(X) \, \Vert \, Q(X)] \\) is called forward KL, whereas \\( D*{KL}[Q(X) \, \Vert \, P(X)] \\) is called reverse KL.
 
-<h2 class="section-heading">Forward KL</h2>
+## Forward KL
 
 In forward KL, the difference between \\( P(x) \\) and \\( Q(x) \\) is weighted by \\( P(x) \\). Now let's ponder on that statement for a while.
 
@@ -49,7 +49,7 @@ Although there are still some area that are wrongly covered by \\( Q(x) \\), thi
 
 Those are the reason why, Forward KL is known as _zero avoiding_, as it is avoiding \\( Q(x) = 0 \\) whenever \\( P(x) > 0 \\).
 
-<h2 class="section-heading">Reverse KL</h2>
+## Reverse KL
 
 In Reverse KL, as we switch the two distributions' position in the equation, now \\( Q(x) \\) is the weight. Still keeping that \\( Q(x) \\) is the approximate and \\( P(x) \\) is the true distribution, let's ponder some scenarios.
 
@@ -63,7 +63,7 @@ Consequently, Reverse KL will try avoid spreading the approximate. Now, there wo
 
 As those properties suggest, this form of KL Divergence is know as _zero forcing_, as it forces \\( Q(X) \\) to be \\( 0 \\) on some areas, even if \\( P(X) > 0 \\).
 
-<h2 class="section-heading">Conclusion</h2>
+## Conclusion
 
 So, what's the best KL?
 
@@ -71,7 +71,7 @@ As always, the answer is "it depends". As we have seen above, both has its own c
 
 In Bayesian Inference, esp. in Variational Bayes, Reverse KL is widely used. As we could see at the derivation of [Variational Autoencoder]({% post_url 2016-12-10-variational-autoencoder %}), VAE also uses Reverse KL (as the idea is rooted in Variational Bayes!).
 
-<h2 class="section-heading">References</h2>
+## References
 
 1. Blei, David M. "Variational Inference." Lecture from Princeton, https://www. cs. princeton. edu/courses/archive/fall11/cos597C/lectures/variational-inference-i. pdf (2011).
 2. Fox, Charles W., and Stephen J. Roberts. "A tutorial on variational Bayesian inference." Artificial intelligence review 38.2 (2012): 85-95.

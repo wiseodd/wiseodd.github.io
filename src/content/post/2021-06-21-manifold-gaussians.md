@@ -49,7 +49,7 @@ One more structure is needed for computing the curvature(s) of $M$. We need to e
 
 **Note.** _We will use the Einstein summation convention from now on. For example, $\Gamma^k\_{ij} \Gamma^l\_{km} = \sum_k \Gamma^k\_{ij} \Gamma^l\_{km}$._
 
-<h2 class="section-heading">Christoffel Symbols</h2>
+## Christoffel Symbols
 
 The first order of business is to determine the connection coefficients of $\nabla$---the Christoffel symbols of the second kind. In coordinates, it is represented by the $3$-dimensional array $(\Gamma^k_{ij}) \in \R^{2 \times 2 \times 2}$, and is given by the following formula
 
@@ -117,7 +117,7 @@ $$
     \end{cases}
 $$
 
-<h2 class="section-heading">Sectional Curvature</h2>
+## Sectional Curvature
 
 Now we are ready to compute the curvature of $M$. There are different notions of curvatures, e.g. the Riemann, Ricci curvature tensor, or the scalar curvature. In this post, we focus on the sectional curvature, which is a generalization of the Gaussian curvature in classical surface geometry (i.e. the study of embedded $2$-dimensional surfaces in $\R^3$).
 
@@ -189,7 +189,7 @@ $$
 
 Note in particular that this sectional curvature does not depend on both $\mu$ and $\sigma$, i.e. it is constant. Hence, $M$ is a manifold of constant negative curvature. I.e., we can think of $M$ as a saddle surface.
 
-<h2 class="section-heading">Visualization</h2>
+## Visualization
 
 Thanks to the amazing [`geomstats`](https://github.com/geomstats/geomstats) package, we can visualize $M$ in coordinates easily. The idea is by visualizing the contours of the distances from points in $\R \times \R_{>0}$ to $(0, 1)$, i.e. corresponding to $\N(x \mid 0, 1)$---the standard normal.
 

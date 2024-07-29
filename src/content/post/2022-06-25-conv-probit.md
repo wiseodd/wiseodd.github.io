@@ -7,7 +7,7 @@ publishDate: 2022-06-25 00:00
 Gaussian distributions are very useful in Bayesian inference due to their (many!) convenient properties.
 In this post we take a look at two of them: the convolution of two Gaussian pdfs and the integral of the probit function w.r.t. a Gaussian measure.
 
-<h2 class="section-heading">Convolution and the Predictive Distribution of Gaussian Regression</h2>
+## Convolution and the Predictive Distribution of Gaussian Regression
 
 Let's start with the **_convolution_** $\N(z_1 \mid \mu_1, \sigma^2_1) * \N(z_2 \mid \mu_2, \sigma^2_2)$ of two Gaussians $\N(z_1 \mid \mu_1, \sigma^2_1)$ and $\N(z_2 \mid \mu_2, \sigma^2_2)$ on $\R$:
 
@@ -37,8 +37,9 @@ $$
 
 which we can immediately identify as the characteristic function of a Gaussian with mean $\mu_1 + \mu_2$ and variance $\sigma_1^2 + \sigma_2^2$.
 
-\\( \square \\)
-{:.right}
+$$
+\qed
+$$
 
 This result is very useful in Bayesian machine learning, especially to obtain the predictive distribution of a Bayesian regression model.
 For instance, when one knows that the distribution over the regressor's output is a Gaussian $\N(f \mid \mu, \sigma^2)$ and we assume that the output is noisy $\N(y \mid f, s^2)$.
@@ -75,10 +76,11 @@ $$
 
 Thus, by Proposition 1, we have $p(y) = \N(y \mid f, s^2 + \sigma^2)$.
 
-\\( \square \\)
-{:.right}
+$$
+\qed
+$$
 
-<h2 class="section-heading">The Probit Integral and the Probit Approximation</h2>
+## The Probit Integral and the Probit Approximation
 
 **_The probit function_** $\Phi$ is the cumulative distribution function of the standard Normal distribution $\N(x \mid 0, 1)$ on $\R$, i.e., $\Phi(z) := \int_{-\infty}^z \N(x \mid 0, 1) \,dx$.
 It can conveniently be written in terms of the **_error function_**
@@ -109,7 +111,6 @@ $$
 So,
 
 $$
-\require{cancel}
 \begin{align}
   \int_{\R} &\left(\frac{1}{2} + \frac{1}{2} \mathrm{erf}\left(\frac{ax+b}{\sqrt{2}}\right)\right) \, \N(x \mid \mu, \sigma^2) \,dx \\[5pt]
     %
@@ -123,8 +124,9 @@ $$
 \end{align}
 $$
 
-\\( \square \\)
-{:.right}
+$$
+\qed
+$$
 
 This integral is very useful for Bayesian inference since it enables us to approximate the following integral that is ubiquitous in Bayesian binary classifications
 
@@ -162,8 +164,9 @@ $$
 \end{align}
 $$
 
-\\( \square \\)
-{:.right}
+$$
+\qed
+$$
 
 Now we are ready to obtain the final approximation, often called the **_probit approximation_**.
 
@@ -189,8 +192,9 @@ $$
 
 Substituting $\lambda^2 = \pi/8$ into the last equation yields the desired result.
 
-\\( \square \\)
-{:.right}
+$$
+\qed
+$$
 
 The probit approximation can also be used to obtain an approximation to the following integral, ubiquitous in multi-class classifications:
 
@@ -250,11 +254,11 @@ $$
 $$
 
 We identify the last equation above as the $i$-th component of $\mathrm{softmax}\left( \frac{\mu}{\sqrt{1 + \pi/8 \, \diag \varSigma}} \right)$.
+$$
+\qed
+$$
 
-\\( \square \\)
-{:.right}
-
-<h2 class="section-heading">References</h2>
+## References
 
 1. Ng, Edward W., and Murray Geller. "A table of integrals of the error functions." _Journal of Research of the National Bureau of Standards B 73_, no. 1 (1969): 1-20.
 2. Gibbs, Mark N. _Bayesian Gaussian processes for regression and classification_. Dissertation, University of Cambridge, 1998.

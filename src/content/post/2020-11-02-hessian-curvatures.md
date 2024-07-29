@@ -9,7 +9,7 @@ In machine learning, especially in neural networks, the Hessian matrix is often 
 
 Often, one calls the Hessian matrix the "curvature matrix" of $L$ at $\theta$ [1, 2, etc.]. Indeed, it is well-justified since as we have learned in calculus, the eigenspectrum of this Hessian matrix represents the curvatures of the _loss landscape_ of $\ell$ at $\theta$. It is, however, not clear from calculus alone what is the precise geometric meaning of these curvatures. In this post, we will use tools from differential geometry---especially the hypersurface theory---to study the geometric interpretation of the Hessian matrix.
 
-<h2 class="section-heading">Loss Landscapes as Hypersurfaces</h2>
+## Loss Landscapes as Hypersurfaces
 
 We begin by formalizing what exactly is a _loss landscape_ via the Euclidean hypersurface theory. We call an $n$-dimensional manifold $M$ a **_(Euclidean) hypersurface_** of $\R^{n+1}$ if $M$ is a subset of $\R^{n+1}$ (equipped with the standard basis) and the inclusion $\iota: M \hookrightarrow \R^{n+1}$ is a smooth topological embedding. Since $\R^{n+1}$ is equipped with a metric in the form of the standard dot product, we can equip $M$ with an induced metric characterized at each point $p \in M$ by
 
@@ -33,7 +33,7 @@ Coming back to our neural network setting, assuming that the loss $\ell$ is smoo
 
 ![Loss landscape]({{ site.baseurl }}/img/2020-11-01-hessian-curvatures/graph_hypersurface.png){:width="80%"}
 
-<h2 class="section-heading">The Second Fundamental Form and Shape Operator</h2>
+## The Second Fundamental Form and Shape Operator
 
 Consider vector fields $X$ and $Y$ on the hypersurface $L \subseteq \R^{d+1}$. We can view them as vector fields on $\R^{d+1}$ and thus the directional derivative $\nabla_X Y$ on $\R^{d+1}$ is well-defined at all points in $L$. That is, at every $p \in L$, $\nabla_X Y$ is a $(d+1)$-dimensional vector "rooted" at $p$. This vector can be decomposed as follows:
 
@@ -79,7 +79,7 @@ $$
 
 Altogether, this means that at each $p \in L$, the shape operator at $p$ can be represented by a symmetric $d \times d$ matrix.
 
-<h2 class="section-heading">Principal Curvatures</h2>
+## Principal Curvatures
 
 The previous fact about the matrix of $s$ says that we can apply eigendecomposition on $s$ and obtain $n$ real eigenvalues $\kappa_1, \dots, \kappa_n$ and an orthonormal basis for $T_p L$ formed by the eigenvectors $(b_1, \dots, b_n)$ corresponding to these eigenvalues. We call these eigenvalues the **_principal curvatures_** of $L$ at $p$ and the corresponding eigenvectors the **_principal directions_**. Moreover, we also define the **_Gaussian curvature_** as $\det s = \prod_{i=1}^d \kappa_i$ and the **_mean curvature_** as $\frac{1}{d} \mathrm{tr}\,s = \frac{1}{d} \sum_{i=1}^d \kappa_i$.
 
@@ -95,7 +95,7 @@ The first (left) surface is the plane described by the parametrization $(x,y) \m
 
 Remarkably, the Gaussian curvature is intrinsic: All isometric hypersurfaces of dimension $\geq 2$ have the same Gaussian curvature (up to sign). Using the previous example: the plane and half-cylinder have the same Gaussian curvature of $0$. In 2D surfaces, this is a classic result which Gauss named _Theorema Egregium_. For hypersurfaces with dimension $> 2$, it can be shown that the Gaussian curvature is intrinsic up to sign [5, Ch. 7, Cor. 23].
 
-<h2 class="section-heading">The Loss Landscape's Hessian</h2>
+## The Loss Landscape's Hessian
 
 Now we are ready to draw a geometric connection between principal curvatures and the Hessian of $\ell$. Let $Z: \R^d \to \R^{d+1}$ be graph parametrization of the loss landscape $L$. The coordinates $(\theta^1, \dots, \theta^d) \in \R^d$ thus give local coordinates for $L$. The coordinate vector field $\partial/\partial \theta^1, \dots, \partial/\partial \theta^d$, push forward to vector fields $dZ(\partial/\partial \theta^1), \dots, dZ(\partial/\partial \theta^d)$ on $\R^{d+1}$, via the Jacobian of $Z$. At each $p \in L$, these vector fields form a basis for $T_p L$, viewed as a collection of $d$ vectors in $\R^{d+1}$.
 
@@ -137,8 +137,9 @@ $$
 
 where $N^{d+1}$ is the $(d+1)$-st component function (it is a function $\R^{d+1} \to \R$) of the normal field $N$. At each $p \in L$, the matrix of $h$ is therefore $N^{d+1}(p)$ times the Hessian matrix of $\ell$ at $p$.
 
-\\( \square \\)
-{:.right}
+$$
+\qed
+$$
 
 Finally, we show the connection between the principal curvatures with the scalar second fundamental form, and hence the principal curvatures with the Hessian. The following proposition says that at a critical point, the unit normal vector can be chosen as $(0, \dots, 0, 1)$ and thus the scalar second fundamental form coincides with the Hessian of $\ell$. Furthermore, by orthonormalizing the basis for the tangent space at that point, we can show that the matrix of the scalar second fundamental form in this case is exactly the matrix of the shape operator at $p$ and thus the Hessian encodes the principal curvatures at that point.
 
@@ -148,12 +149,13 @@ _Proof._ We can assume w.l.o.g. that the basis $(E_1, \dots, E_d)$ for $T_{p_\*}
 
 It follows by Proposition 1 that the matrix of the scalar second fundamental form $h$ of $L$ at $p_\*$ is equal to the Hessian matrix of $\ell$ at $\theta_\*$. Moreover, since we have an orthonormal basis for $T_{p_\*} L$, the metric of $L$ at $p_\*$ is represented by the $d \times d$ diagonal matrix. This implies that the matrix of the shape operator at $p_\*$ is equal to the matrix of the second fundamental form and the claim follows directly.
 
-\\( \square \\)
-{:.right}
+$$
+\qed
+$$
 
 As a side note, we can actually have a more general statement: At any point in a hypersurface with any parametrization, the principal curvatures give a concise description of the local shape of the hypersurface by approximating it with the graph of a quadratic function. See Prop. 8.24 in [3] for a detailed discussion.
 
-<h2 class="section-heading">Flatness and Generalization</h2>
+## Flatness and Generalization
 
 In deep learning, there have been interesting works connecting the "flatness" of the loss landscape's local minima with the generalization performance of an NN. The conjecture is that the flatter a minimum is, the better the network generalizes. "Flatness" here often refers to the eigenvalues or trace of the Hessian matrix at the minima. However, this has been disputed by e.g. [4] and rightly so.
 
@@ -163,7 +165,7 @@ As we have seen previously, at a minimum, the principal and mean curvature (the 
 
 It is clear that the principal curvature changes even though functionally, the NN still represents the same function. Thus, we cannot actually connect the notion of "flatness" that are common in literature to the generalization ability of the NN. A definitive connection between them must start with some intrinsic notion of flatness---for starter, the Gaussian curvature, which can be easily computed since it is just the determinant of the Hessian at the minima.
 
-<h2 class="section-heading">References</h2>
+## References
 
 1. Martens, James. "New Insights and Perspectives on the Natural Gradient Method." arXiv preprint arXiv:1412.1193 (2014).
 2. Dangel, Felix, Stefan Harmeling, and Philipp Hennig. "Modular Block-diagonal Curvature Approximations for Feedforward Architectures." AISTATS. 2020.

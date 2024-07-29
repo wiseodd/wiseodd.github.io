@@ -7,7 +7,7 @@ tags: [programming, python, computer vision]
 
 Last post, we looked at the intuition and the formulation of Level Set Method. It's useful to create a physical simulation like front propagation, e.g. wave simulation, wildfire simulation, or gas simulation. In this post, we are going to see into Level Set Method application in Computer Vision, to solve image segmentation problem.
 
-<h2 class="section-heading">Image Segmentation with Level Set Method</h2>
+## Image Segmentation with Level Set Method
 
 Recall that the Level Set PDE that we have derived in the last post is as follows:
 
@@ -27,7 +27,7 @@ $$ g(I) = \frac{1}{1 + {\lVert \nabla I \rVert}^2} $$
 
 So, we could implement it with the code below:
 
-{% highlight python %}
+```python
 import numpy as np
 import scipy.ndimage
 import scipy.signal
@@ -52,13 +52,13 @@ img = img - np.mean(img)
 img_smooth = scipy.ndimage.filters.gaussian_filter(img, sigma)
 
 F = stopping_fun(img_smooth)
-{% endhighlight %}
+```
 
 ![LSM]({{ site.baseurl }}/img/2016-11-20-levelset-segmentation/lsm_g.png)
 
 So that's it, we have our \\( F \\). We could plug it into the PDE directly then:
 
-{% highlight python %}
+```python
 def default_phi(x): # Initialize surface phi at the border (5px from the border) of the image # i.e. 1 outside the curve, and -1 inside the curve
 phi = np.ones(x.shape[:2])
 phi[5:-5, 5:-5] = -1.
@@ -74,7 +74,7 @@ dphi_norm = norm(dphi)
 
     phi = phi + dt * dphi_t
 
-{% endhighlight %}
+```
 
 And here's the segmentation result after several iteration:
 
@@ -82,7 +82,7 @@ And here's the segmentation result after several iteration:
 
 This is the naive method for Level Set image segmentation. We could do better by using more complicated formulation for \\( F \\).
 
-<h2 class="section-heading">Geodesic Active Contour</h2>
+## Geodesic Active Contour
 
 In Geodesic Active Contour (GAC) formulation of Level Set Method, we define the force as:
 
@@ -90,7 +90,7 @@ $$ \frac{\partial \phi}{\partial t} = g(I) {\lVert \nabla \phi \rVert} div \left
 
 The first term is the smoothing term, it moves the curve into the direction of its curvature. The second term is the balloon term, controlling the speed of the curve propagation with parameter \\( v \\). Lastly, the third term is the image attachment term that helps the curve to converge.
 
-{% highlight python %}
+```python
 def curvature(f):
 fy, fx = grad(f)
 norm = np.sqrt(fx**2 + fy**2)
@@ -125,7 +125,7 @@ kappa = curvature(phi)
 
     phi = phi + dt * dphi_t
 
-{% endhighlight %}
+```
 
 Finally, here's the result of using GAC formulation of Level Set Method for segmenting the same image above:
 
@@ -133,10 +133,10 @@ Finally, here's the result of using GAC formulation of Level Set Method for segm
 
 Notice that qualitatively the segmentation result is better than before, i.e. smoother and better fit.
 
-<h2 class="section-heading">Conclusion</h2>
+## Conclusion
 
 In this post we looked into the application of Level Set Method on Computer Vision problem, that is image segmentation. We saw the intuition on applying it for image segmentation. We also saw the example of implementation of it. Finally we saw the more complicated formulation, i.e. GAC, for better segmentation.
 
-<h2 class="section-heading">References</h2>
+## References
 
 1. Richard Szeliski. 2010. Computer Vision: Algorithms and Applications (1st ed.). Springer-Verlag New York, Inc., New York, NY, USA.

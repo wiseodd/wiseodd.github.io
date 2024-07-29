@@ -9,7 +9,7 @@ Last time, we [implemented]({% post_url 2016-06-21-nn-sgd %}) Minibatch Gradient
 
 I've since made an update to the last post's SGD codes. Mainly, making the algorithms to use random batch in each iteration, not the whole dataset. However, the problem set and the neural nets model are still the same. Let's refresh the code:
 
-{% highlight python %}
+```python
 def get_minibatch(X, y, minibatch_size):
 minibatches = []
 
@@ -37,9 +37,9 @@ minibatches = get_minibatch(X_train, y_train, minibatch_size)
 
     return model
 
-{% endhighlight %}
+```
 
-<h2 class="section-heading">SGD + Momentum</h2>
+## SGD + Momentum
 
 Imagine a car. The car is going through a mountain range. Being a mountain range, naturally the terrain is hilly. Up and down, up and down. But we, the driver of that car, only want to see the deepest valley of the mountain. So, we want to stop at the part of the road that has the lowest elevation.
 
@@ -53,7 +53,7 @@ That's exactly how momentum plays part in SGD. It uses physical law of motion to
 
 Now the code!
 
-{% highlight python %}
+```python
 def momentum(model, X_train, y_train, minibatch_size):
 velocity = {k: np.zeros_like(v) for k, v in model.items()}
 gamma = .9
@@ -72,11 +72,11 @@ gamma = .9
 
     return model
 
-{% endhighlight %}
+```
 
 What we do is to create a new velocity variable to store our momentum for every parameter. The update of the velocity is given the old velocity value and new Gradient Descent step `alpha * grad`. We also decay our past velocity so that we only consider the most recent velocities with `gamma = .9`.
 
-<h2 class="section-heading">Nesterov Momentum</h2>
+## Nesterov Momentum
 
 Very similar with momentum method above, Nesterov Momentum add one little different bit to the momentum calculation. Instead of calculating gradient of the current position, it calculates the gradient at the approximated new position.
 
@@ -84,7 +84,7 @@ Intuitively, because we have some momentum applied to our "car", then at the cur
 
 So, Nesterov Momentum exploits that knowledge, and instead of using the current position's gradient, it uses the next approximated position's gradient with the hope that it will give us better information when we're taking the next step.
 
-{% highlight python %}
+```python
 def nesterov(model, X_train, y_train, minibatch_size):
 velocity = {k: np.zeros_like(v) for k, v in model.items()}
 gamma = .9
@@ -104,11 +104,11 @@ gamma = .9
 
     return model
 
-{% endhighlight %}
+```
 
 Looking at the code, the only difference is that now we're computing the gradient using `model_ahead`: approximated next state of our model parameters that we calculated by adding the momentum to the current parameters.
 
-<h2 class="section-heading">Adagrad</h2>
+## Adagrad
 
 Now, we're entering a different realm. Let's forget about our disfunctional "car"! We're going to approach the Gradient Descent from different angle that we've been ignoring so far: the learning rate `alpha`.
 
@@ -116,7 +116,7 @@ The problem with learning rate in Gradient Descent is that it's constant and aff
 
 That's why Adagrad was invented. It's trying to solve that very problem.
 
-{% highlight python %}
+```python
 def adagrad(model, X_train, y_train, minibatch_size):
 cache = {k: np.zeros_like(v) for k, v in model.items()}
 
@@ -134,7 +134,7 @@ cache = {k: np.zeros_like(v) for k, v in model.items()}
 
     return model
 
-{% endhighlight %}
+```
 
 Note that the parameters update is pointwise operation, hence the learning rate is adaptive **per-parameter**.
 
@@ -142,13 +142,13 @@ What we do is to accumulate the sum of squared of all of our parameters' gradien
 
 One note to the implementation, the `eps` there is useful to combat the division by zero, so that our optimization becomes numerically stable. Usually it's set with considerably small value, like `1e-8`.
 
-<h2 class="section-heading">RMSprop</h2>
+## RMSprop
 
 If you notice, at the gradient accumulation part in Adagrad `cache[k] += grad[k]**2`, it's monotonically increasing (hint: sum and squared). This could be problematic as the learning rate will be monotonically decreasing to the point that the learning stops altogether because of the very tiny learning rate.
 
 To combat that problem, RMSprop decay the past accumulated gradient, so only a portion of past gradients are considered. Now, instead of considering all of the past gradients, RMSprop behaves like moving average.
 
-{% highlight python %}
+```python
 def rmsprop(model, X_train, y_train, minibatch_size):
 cache = {k: np.zeros_like(v) for k, v in model.items()}
 gamma = .9
@@ -167,15 +167,15 @@ gamma = .9
 
     return model
 
-{% endhighlight %}
+```
 
 The only difference compared to Adagrad is how we calculate the cache. Here, we're take `gamma` portion of past accumulated sum of squared gradient, and take `1 - gamma` portion of the current squared gradient. By doing this, the accumulated gradient won't be aggresively monotonically increasing, depending on the gradients in the moving average window.
 
-<h2 class="section-heading">Adam</h2>
+## Adam
 
 Adam is the latest state of the art of first order optimization method that's widely used in the real world. It's a modification of RMSprop. Loosely speaking, Adam is RMSprop with momentum. So, Adam tries to combine the best of both world of momentum and adaptive learning rate.
 
-{% highlight python %}
+```python
 def adam(model, X_train, y_train, minibatch_size):
 M = {k: np.zeros_like(v) for k, v in model.items()}
 R = {k: np.zeros_like(v) for k, v in model.items()}
@@ -202,7 +202,7 @@ beta2 = .999
 
     return model
 
-{% endhighlight %}
+```
 
 Notice in the code, we still retain some RMSprop's codes, namely when we calculate `R`. We also add some codes that are similar to how we compute momentum in the form of `M`. Then, for the parameters update, it's the combination of momentum method and adaptive learning rate method: add the momentum, and normalize the learning rate using the moving average squared gradient.
 
@@ -210,16 +210,16 @@ Adam also has a bias correction mechanism, it's calculated in `m_k_hat` and `r_k
 
 As for the recommended value for the hyperparameter: `beta1 = 0.9`, `beta2 = 0.999`, `alpha = 1e-3`, and `eps = 1e-8`.
 
-<h2 class="section-heading">Test and Comparison</h2>
+## Test and Comparison
 
 With our bag full of those algorithms, let's compare them using our previous problem in the last post. Here's the setup:
 
-{% highlight python %}
+```python
 n_iter = 100
 eps = 1e-8 # Smoothing to avoid division by zero
 minibatch_size = 50
 n_experiment = 10
-{% endhighlight %}
+```
 
 We will run the algorithms to optimize our neural nets for 100 epochs each, and we repeat them 3 times and average the accuracy score.
 
@@ -261,7 +261,7 @@ Using large value for the learning rate, the adaptive learning rate methods are 
 
 However, the opposite happens when we're using small learning rate value e.g. `1e-5`. It's small enough for vanilla SGD and momentum based methods to perform well. On the other hand, as the learning rate is already very small, and we normalizes it in the adaptive learning rate methods, it becomes even smaller, which impacting the convergence rate. It makes the learning becomes really slow and they perform worse than the vanilla SGD with the same number of iteration.
 
-<h2 class="section-heading">Conclusion</h2>
+## Conclusion
 
 In this post we looked at the optimization algorithms for neural nets beyond SGD. We looked at two classes of algorithms: momentum based and adaptive learning rate methods.
 
@@ -271,7 +271,7 @@ Most of those methods above are currently implemented in the popular Deep Learni
 
 You could find the full code used in this post here: <https://gist.github.com/wiseodd/85ad008aef5585cec017f4f1e6d67a02>
 
-<h2 class="section-heading">References</h2>
+## References
 
 - <http://cs231n.github.io/neural-networks-3/>
 - <http://sebastianruder.com/optimizing-gradient-descent/>

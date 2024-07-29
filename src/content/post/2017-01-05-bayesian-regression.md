@@ -9,7 +9,7 @@ We all know the first model we learned when learning Machine Learning: Linear Re
 
 Linear Regression could be intuitively interpreted in several point of views, e.g. geometry and statistics (frequentist one!). Having frequentist statistics point of view, usually there should be the Bayesian counterpart. Hence, in this post, we would address the Bayesian point of view of Linear Regression.
 
-<h2 class="section-heading">Linear Regression: Refreshments</h2>
+## Linear Regression: Refreshments
 
 Recall, in Linear Regression, we want to map our inputs into real numbers, i.e. \\( f: \mathbb{R}^N \to \mathbb{R} \\). For example, given some features, e.g. how many hour of studying, number of subject taken, and the IQ of a student, we want to predict his or her GPA.
 
@@ -33,7 +33,7 @@ $$ L = \frac{1}{2} \Vert \hat{y} - y \Vert^2_2 $$
 
 Minimization this objective is the definition of Linear Least Square problem.
 
-<h2 class="section-heading">Frequentist view of Linear Regression</h2>
+## Frequentist view of Linear Regression
 
 We could write the regression target of the above model as the predicted value plus some error:
 
@@ -91,7 +91,7 @@ $$
 
 So we see, doing MLE on Gaussian likelihood is equal to Linear Regression!
 
-<h2 class="section-heading">Bayesian view of Linear Regression</h2>
+## Bayesian view of Linear Regression
 
 But what if we want to go Bayesian, i.e. introduce a prior, and working with the posterior instead? Well, then we are doing MAP estimation! The posterior is likelihood times prior:
 
@@ -140,7 +140,7 @@ $$ \log P(W \vert \hat{y}, x) \propto -\frac{1}{2} \Vert \hat{y} - W^Tx\Vert^2_2
 
 That is, the log posterior of Gaussian likelihood and Gaussian prior is the same as the objective function for Ridge Regression! Hence, Gaussian prior is equal to \\( \ell_2 \\) regularization!
 
-<h2 class="section-heading">Full Bayesian Approach</h2>
+## Full Bayesian Approach
 
 Of course, above is not a full Bayesian, as we are doing a point estimation in the form of MAP. This is just a "shortcut", as we do not need to compute the full posterior distribution. For full Bayesian approach, we report the full posterior distribution. And in test time, we use the posterior to weight the new data, i.e. we marginalize the posterior predictive distribution:
 
@@ -161,7 +161,7 @@ And of course, that is the reason why we use a shortcut in the form of MAP. For 
 
 Of course we could use approximate method like Variational Bayes or MCMC, but they are still more costly than MAP. As MAP and MLE is guaranteed to find one of the modes (local maxima), it is good enough.
 
-<h2 class="section-heading">Conclusion</h2>
+## Conclusion
 
 In this post we saw Linear Regression with several different point of view.
 
@@ -171,6 +171,6 @@ We noted that the Bayesian version of the Linear Regression using MAP estimation
 
 We then noted why full Bayesian approach is difficult and often intractable, even on this simple regression model.
 
-<h2 class="section-heading">References</h2>
+## References
 
 1. Murphy, Kevin P. Machine learning: a probabilistic perspective. MIT press, 2012.

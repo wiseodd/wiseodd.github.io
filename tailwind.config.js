@@ -1,6 +1,9 @@
 import { fontFamily } from "tailwindcss/defaultTheme";
 
 /** @type {import('tailwindcss').Config} */
+const plugin = require("tailwindcss/plugin");
+
+/** @type {import('tailwindcss').Config} */
 const config = {
   darkMode: ["class"],
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
@@ -11,6 +14,12 @@ const config = {
   plugins: [
     require("@tailwindcss/typography"),
     require("@tailwindcss/aspect-ratio"),
+    plugin(function ({ addVariant }) {
+      addVariant(
+        "prose-inline-code",
+        '&.prose :where(:not(pre)>code):not(:where([class~="not-prose"] *))',
+      );
+    }),
   ],
   theme: {
     container: {
@@ -64,6 +73,7 @@ const config = {
       fontFamily: {
         sans: [...fontFamily.sans],
         serif: ["Times", fontFamily.serif],
+        iosevka: ["Iosevka", fontFamily.mono],
       },
     },
   },

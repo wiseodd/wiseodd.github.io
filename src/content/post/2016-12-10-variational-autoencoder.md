@@ -9,7 +9,7 @@ There are two generative models facing neck to neck in the data generation busin
 
 In this post, we will look at the intuition of VAE model and its implementation in Keras.
 
-<h2 class="section-heading">VAE: Formulation and Intuition</h2>
+## VAE: Formulation and Intuition
 
 Suppose we want to generate a data. Good way to do it is first to decide what kind of data we want to generate, then actually generate the data. For example, say, we want to generate an animal. First, we imagine the animal: it must have four legs, and it must be able to swim. Having those criteria, we could then actually generate the animal by sampling from the animal kingdom. Lo and behold, we get Platypus!
 
@@ -97,7 +97,7 @@ At this point, what do we have? Let's enumerate:
 
 We might feel familiar with this kind of structure. And guess what, it's the same structure as seen in [Autoencoder]({% post_url 2016-12-03-autoencoders %})! That is, \\( Q(z \vert X) \\) is the encoder net, \\( z \\) is the encoded representation, and \\( P(X \vert z) \\) is the decoder net! Well, well, no wonder the name of this model is Variational Autoencoder!
 
-<h2 class="section-heading">VAE: Dissecting the Objective</h2>
+## VAE: Dissecting the Objective
 
 It turns out, VAE objective function has a very nice interpretation. That is, we want to model our data, which described by \\( \log P(X) \\), under some error \\( D\_{KL}[Q(z \vert X) \Vert P(z \vert X)] \\). In other words, VAE tries to find the lower bound of \\( \log P(X) \\), which in practice is good enough as trying to find the exact distribution is often untractable.
 
@@ -136,11 +136,11 @@ D_{KL}[N(\mu(X), \Sigma(X)) \Vert N(0, 1)] = \frac{1}{2} \sum_k \left( \exp(\Sig
 
 $$
 
-<h2 class="section-heading">Implementation in Keras</h2>
+## Implementation in Keras
 
 First, let's implement the encoder net \\( Q(z \vert X) \\), which takes input \\( X \\) and outputting two things: \\( \mu(X) \\) and \\( \Sigma(X) \\), the parameters of the Gaussian.
 
-{% highlight python %}
+```python
 from tensorflow.examples.tutorials.mnist import input_data
 from keras.layers import Input, Dense, Lambda
 from keras.models import Model
@@ -162,7 +162,7 @@ inputs = Input(shape=(784,))
 h_q = Dense(512, activation='relu')(inputs)
 mu = Dense(n_z, activation='linear')(h_q)
 log_sigma = Dense(n_z, activation='linear')(h_q)
-{% endhighlight %}
+```
 
 That is, our \\( Q(z \vert X) \\) is a neural net with one hidden layer. In this implementation, our latent variable is two dimensional, so that we could easily visualize it. In practice though, more dimension in latent variable should be better.
 
@@ -187,7 +187,7 @@ where \\( \epsilon \sim N(0, 1) \\).
 
 Now, during backpropagation, we don't care anymore with the sampling process, as it is now outside of the network, i.e. doesn't depend on anything in the net, hence the gradient won't flow through it.
 
-{% highlight python %}
+```python
 def sample_z(args):
 mu, log_sigma = args
 eps = K.random_normal(shape=(m, n_z), mean=0., std=1.)
@@ -196,11 +196,11 @@ return mu + K.exp(log_sigma / 2) \* eps
 # Sample z ~ Q(z|X)
 
 z = Lambda(sample_z)([mu, log_sigma])
-{% endhighlight %}
+```
 
 Now we create the decoder net \\( P(X \vert z) \\):
 
-{% highlight python %}
+```python
 
 # P(X|z) -- decoder
 
@@ -209,11 +209,11 @@ decoder_out = Dense(784, activation='sigmoid')
 
 h_p = decoder_hidden(z)
 outputs = decoder_out(h_p)
-{% endhighlight %}
+```
 
 Lastly, from this model, we can do three things: reconstruct inputs, encode inputs into latent variables, and generate data from latent variable. So, we have three Keras models:
 
-{% highlight python %}
+```python
 
 # Overall VAE model, for reconstruction and training
 
@@ -231,11 +231,11 @@ d_in = Input(shape=(n_z,))
 d_h = decoder_hidden(d_in)
 d_out = decoder_out(d_h)
 decoder = Model(d_in, d_out)
-{% endhighlight %}
+```
 
 Then, we need to translate our loss into Keras code:
 
-{% highlight python %}
+```python
 def vae_loss(y_true, y_pred):
 """ Calculate loss = reconstruction loss + KL loss for each data in minibatch """ # E[log P(X|z)]
 recon = K.sum(K.binary_crossentropy(y_pred, y_true), axis=1) # D_KL(Q(z|X) || P(z|X)); calculate in closed form as both dist. are Gaussian
@@ -243,18 +243,18 @@ kl = 0.5 \* K.sum(K.exp(log_sigma) + K.square(mu) - 1. - log_sigma, axis=1)
 
     return recon + kl
 
-{% endhighlight %}
+```
 
 and then train it:
 
-{% highlight python %}
+```python
 vae.compile(optimizer='adam', loss=vae_loss)
 vae.fit(X_train, X_train, batch_size=m, nb_epoch=n_epoch)
-{% endhighlight %}
+```
 
 And that's it, the implementation of VAE in Keras!
 
-<h2 class="section-heading">Implementation on MNIST Data</h2>
+## Implementation on MNIST Data
 
 We could use any dataset really, but like always, we will use MNIST as an example.
 
@@ -274,7 +274,7 @@ Lastly, we could generate new sample by first sample \\( z \sim N(0, 1) \\) and 
 
 If we look closely on the reconstructed and generated data, we would notice that some of the data are ambiguous. For example the digit 5 looks like 3 or 8. That's because our latent variable space is a continous distribution (i.e. \\( N(0, 1) \\)), hence there bound to be some smooth transition on the edge of the clusters. And also, the cluster of digits are close to each other if they are somewhat similar. That's why in the latent space, 5 is close to 3.
 
-<h2 class="section-heading">Conclusion</h2>
+## Conclusion
 
 In this post we looked at the intuition behind Variational Autoencoder (VAE), its formulation, and its implementation in Keras.
 
@@ -284,7 +284,7 @@ For more math on VAE, be sure to hit the original paper by Kingma et al., 2014. 
 
 The full code is available in my repo: <https://github.com/wiseodd/generative-models>
 
-<h2 class="section-heading">References</h2>
+## References
 
 1. Doersch, Carl. "Tutorial on variational autoencoders." arXiv preprint arXiv:1606.05908 (2016).
 2. Kingma, Diederik P., and Max Welling. "Auto-encoding variational bayes." arXiv preprint arXiv:1312.6114 (2013).
