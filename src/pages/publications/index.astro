@@ -1,6 +1,5 @@
 ---
 import PageLayout from '@/layouts/BaseLayout.astro'
-import TOC from '@/components/blog/TOC.astro'
 import PublicationList from '@/components/PublicationList.astro'
 
 // For sorting "Everything Else" < "ICLR" < "AISTATS" < "ICML" < "UAI" < "NeurIPS"
@@ -19,7 +18,7 @@ const sortedPublications = publications.sort(
 )
 ---
 
-<PageLayout meta={{ title: 'Home' }}>
+<PageLayout meta={{ title: 'Publications' }}>
 	<div class='w-full'>
 		<!-- <TOC headings={} /> -->
 
