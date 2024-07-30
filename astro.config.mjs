@@ -13,6 +13,9 @@ import icon from 'astro-icon'
 
 export default defineConfig({
 	site: 'https://agustinus.kristia.de',
+	redirects: {
+		'/about': '/',
+	},
 	integrations: [
 		expressiveCode(expressiveCodeOptions),
 		tailwind({
