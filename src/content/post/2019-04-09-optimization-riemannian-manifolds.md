@@ -1,6 +1,6 @@
 ---
-title: "Optimization and Gradient Descent on Riemannian Manifolds"
-description: "One of the most ubiquitous applications in the field of differential geometry is the optimization problem. In this article we will discuss the familiar optimization problem on Euclidean spaces by focusing on the gradient descent method, and generalize them on Riemannian manifolds."
+title: 'Optimization and Gradient Descent on Riemannian Manifolds'
+description: 'One of the most ubiquitous applications in the field of differential geometry is the optimization problem. In this article we will discuss the familiar optimization problem on Euclidean spaces by focusing on the gradient descent method, and generalize them on Riemannian manifolds.'
 publishDate: 2019-02-22 12:00
 tags: [math]
 ---

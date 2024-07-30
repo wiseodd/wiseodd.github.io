@@ -1,5 +1,5 @@
 ---
-title: "Convnet: Implementing Maxpool Layer with Numpy"
+title: 'Convnet: Implementing Maxpool Layer with Numpy'
 description: "Another important building block in convnet is the pooling layer. Nowadays, the most widely used is the max pool layer. Let's dissect its Numpy implementation!"
 publishDate: 2016-07-18 02:00
 tags: [machine learning, programming, python, neural networks]

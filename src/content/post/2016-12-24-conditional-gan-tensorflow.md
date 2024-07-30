@@ -1,6 +1,6 @@
 ---
-title: "Conditional Generative Adversarial Nets in TensorFlow"
-description: "Having seen GAN, VAE, and CVAE model, it is only proper to study the Conditional GAN model next!"
+title: 'Conditional Generative Adversarial Nets in TensorFlow'
+description: 'Having seen GAN, VAE, and CVAE model, it is only proper to study the Conditional GAN model next!'
 publishDate: 2016-12-24 05:30
 tags: [machine learning, programming, python, neural networks, gan]
 ---

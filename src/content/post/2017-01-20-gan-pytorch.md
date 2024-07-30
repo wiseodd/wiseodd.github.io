@@ -1,5 +1,5 @@
 ---
-title: "Generative Adversarial Networks (GAN) in Pytorch"
+title: 'Generative Adversarial Networks (GAN) in Pytorch'
 description: 'Pytorch is a new Python Deep Learning library, derived from Torch. Contrary to Theano''s and TensorFlow''s symbolic operations, Pytorch uses imperative programming style, which makes its implementation more "Numpy-like".'
 publishDate: 2017-01-20 04:00
 tags: [machine learning, pytorch]

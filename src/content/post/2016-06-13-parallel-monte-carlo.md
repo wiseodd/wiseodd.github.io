@@ -1,5 +1,5 @@
 ---
-title: "Paralellizing Monte Carlo Simulation in Python"
+title: 'Paralellizing Monte Carlo Simulation in Python'
 description: "Monte Carlo simulation is all about quantity. It can take a long time to complete. Here's how to speed it up with the amazing Python multiprocessing module!"
 publishDate: 2016-06-13 02:42
 tags: [machine learning, programming, python]
@@ -60,7 +60,7 @@ samples = []
 
 Let's try running our simulation!
 
-``` bash
+```bash
 In [0]: %time monte_carlo(iter=1000)
 
 CPU times: user 91 ms, sys: 28.5 ms, total: 120 ms
@@ -68,7 +68,7 @@ Wall time: 1min 42s
 
 Out[0]: {0: 0.29, 1: 0.198, 2: 0.103, 3: 0.101, 4: 0.308}
 
-````
+```
 
 Try to compare the result of our Monte Carlo simulation with the true distribution of `p`! It's very close to our true `p`!
 
@@ -78,7 +78,7 @@ We finished our simulation in 100s. Now imagine if our unknown target distributi
 
 Let's try to speed that up by parallelizing it. But first we need to modify our `sample()` method so that it won't use the same random seed across all of the processes, as we will get the same "random" results, which would be pointless. Calling `np.random.seed()` would do the trick.
 
-``` python
+```python
 import multiprocessing as mp
 
 def sample(): # Just to make it slow! # Pretend that this is a complicated distribution!
@@ -98,7 +98,7 @@ pool = mp.Pool(4)
 
     return res
 
-````
+```
 
 Here, we're using Python's `multiprocessing.Pool` module, which we define that we use 4 workers for our Monte Carlo simulation. `Pool` class has some very useful methods like `map` and `apply_async`. Because our simulation doesn't take any argument, we will use `apply_asnyc`.
 
@@ -123,7 +123,7 @@ We just swapped our `for` loop in `monte_carlo()` method with the new `_parallel
 
 Here's the result:
 
-``` bash
+```bash
 In [1]: %time parallel_monte_carlo(iter=1000)
 
 CPU times: user 289 ms, sys: 258 ms, total: 547 ms
@@ -142,4 +142,7 @@ Lastly, this parallelization scheme works best if each individual simulation tak
 ## Conclusion
 
 In this post, we look at Monte Carlo method and how to speed it up using Python's `multiprocessing` module. We show that parallelizing Monte Carlo in Python is very easy, and it should be the default way to do Monte Carlo simulation.
+
+```
+
 ```

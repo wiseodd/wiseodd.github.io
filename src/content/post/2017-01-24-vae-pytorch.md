@@ -1,5 +1,5 @@
 ---
-title: "Variational Autoencoder (VAE) in Pytorch"
+title: 'Variational Autoencoder (VAE) in Pytorch'
 description: "With all of those bells and whistles surrounding Pytorch, let's implement Variational Autoencoder (VAE) using it."
 publishDate: 2017-01-24 12:26
 tags: [machine learning, vae, pytorch]

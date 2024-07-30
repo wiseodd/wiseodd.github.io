@@ -13,7 +13,7 @@ where $ Z = \sum_x f(x) $. In high dimension, this summation is intractable as t
 
 Now, how do we compute an expectation w.r.t. to $p(x)$, i.e.:
 
-$$ \mathbb{E}_{p(x)}[x] = \sum_x x p(x) $$
+$$ \mathbb{E}\_{p(x)}[x] = \sum_x x p(x) $$
 
 It is impossible for us to do this as we don't know $ p(x) $. Our best hope is to approximate that. One of the popular way is to use importance sampling. However, importance sampling has a hyperparameter that is hard to adjust, i.e. the proposal distribution $ q(x) $. Importance sampling works well if we can provide $ q(x) $ that is a good approximation of $ p(x) $. It is problematic to find a good $ q(x) $, and this is one of the motivations behind Annealed Importance Sampling (AIS) [1].
 
@@ -23,28 +23,28 @@ The construction of AIS is as follows:
 
 1. Let $ p_0(x) = p(x) \propto f_0(x) $ be our target distribution.
 2. Let $ p_n(x) = q(x) \propto f_n(x) $ be our proposal distribution which only requirement is that we can sample independent point from it. It doesn't have to be close to $ p_0(x) $ thus the requirement is more relaxed than importance sampling.
-3. Define a sequence of intermediate distributions starting from $ p_n(x) $ to $ p_0(x) $ call it $ p_j(x) \propto f_j(x) $. The requirement is that $ p_j(x) \neq 0 $ whenever $p_{j-1}(x) \neq 0$. That is, $ p_j(x) $ has to cover the support of $ p_{j-1}(x) $ so that we can take the ratio.
+3. Define a sequence of intermediate distributions starting from $ p*n(x) $ to $ p_0(x) $ call it $ p_j(x) \propto f_j(x) $. The requirement is that $ p_j(x) \neq 0 $ whenever $p*{j-1}(x) \neq 0$. That is, $ p*j(x) $ has to cover the support of $ p*{j-1}(x) $ so that we can take the ratio.
 4. Define local transition probabilities $ T_j(x, x') $.
 
 Then to sample from $ p_0(x) $, we need to:
 
-- Sample an independent point from $ x_{n-1} \sim p_n(x) $.
-- Sample $ x_{n-2} $ from $ x_{n-1} $ by doing MCMC w.r.t. $ T_{n-1} $.
+- Sample an independent point from $ x\_{n-1} \sim p_n(x) $.
+- Sample $ x*{n-2} $ from $ x*{n-1} $ by doing MCMC w.r.t. $ T\_{n-1} $.
 - $ \dots $
 - Sample $ x_1 $ from $ x_2 $ by doing MCMC w.r.t. $ T_2 $.
 - Sample $ x_0 $ from $ x_1 $ by doing MCMC w.r.t. $ T_1 $.
 
 Intuitively given two distributions, which might be disjoint in their support, we create intermediate distributions that are "bridging" from one to another. Then we do MCMC to move around these distributions and hope that we end up in our target distribution.
 
-At this point, we have sequence of points $ x_{n-1}, x_{n-2}, \dots, x_1, x_0 $. We can use them to compute the importance weight as follows:
+At this point, we have sequence of points $ x*{n-1}, x*{n-2}, \dots, x_1, x_0 $. We can use them to compute the importance weight as follows:
 
-$$ w = \frac{f_{n-1}(x_{n-1})}{f_n(x_{n-1})} \frac{f_{n-2}(x_{n-2})}{f_{n-1}(x_{n-2})} \dots \frac{f_1(x_1)}{f_2(x_1)} \frac{f_0(x_0)}{f_1(x_0)} $$
+$$ w = \frac{f*{n-1}(x*{n-1})}{f*n(x*{n-1})} \frac{f*{n-2}(x*{n-2})}{f*{n-1}(x*{n-2})} \dots \frac{f_1(x_1)}{f_2(x_1)} \frac{f_0(x_0)}{f_1(x_0)} $$
 
 Notice that $ w $ is telescoping, and without the intermediate distributions, it reduces to the usual weight used in importance sampling.
 
 With this importance weight, then we can compute the expectation as in importance sampling:
 
-$$ \mathbb{E}_{p(x)}[x] = \frac{1}{\sum_i^N w_i} \sum_i^N x_i w_i $$
+$$ \mathbb{E}\_{p(x)}[x] = \frac{1}{\sum_i^N w_i} \sum_i^N x_i w_i $$
 
 where $ N $ is the number of samples.
 

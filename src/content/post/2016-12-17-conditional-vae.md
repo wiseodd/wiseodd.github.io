@@ -1,6 +1,6 @@
 ---
-title: "Conditional Variational Autoencoder: Intuition and Implementation"
-description: "An extension to Variational Autoencoder (VAE), Conditional Variational Autoencoder (CVAE) enables us to learn a conditional distribution of our data, which makes VAE more expressive and applicable to many interesting things."
+title: 'Conditional Variational Autoencoder: Intuition and Implementation'
+description: 'An extension to Variational Autoencoder (VAE), Conditional Variational Autoencoder (CVAE) enables us to learn a conditional distribution of our data, which makes VAE more expressive and applicable to many interesting things.'
 publishDate: 2016-12-17 11:04
 tags: [programming, python, neuralnet]
 ---

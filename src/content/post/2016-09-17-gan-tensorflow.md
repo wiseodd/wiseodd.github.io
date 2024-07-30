@@ -1,5 +1,5 @@
 ---
-title: "Generative Adversarial Nets in TensorFlow"
+title: 'Generative Adversarial Nets in TensorFlow'
 description: "Let's try to implement Generative Adversarial Nets (GAN), first introduced by Goodfellow et al, 2014, with TensorFlow. We'll use MNIST data to train the GAN!"
 publishDate: 2016-09-17 11:22
 tags: [machine learning, programming, python, neural networks, gan]

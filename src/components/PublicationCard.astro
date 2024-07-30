@@ -19,7 +19,14 @@ const { pub } = Astro.props
 			<div>
 				<span>{pub.venue} {pub.year}</span>
 				<span>
-					{pub.note && <PublicationLabel title={pub.note} class='bg-red-400 text-slate-50 hover:bg-red-400 hover:text-slate-50' />}
+					{
+						pub.note && (
+							<PublicationLabel
+								title={pub.note}
+								class='bg-red-400 text-slate-50 hover:bg-red-400 hover:text-slate-50'
+							/>
+						)
+					}
 				</span>
 				<span class='float-right inline-block'>
 					{

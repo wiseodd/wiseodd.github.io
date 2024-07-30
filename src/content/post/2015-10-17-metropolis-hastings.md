@@ -1,6 +1,6 @@
 ---
-title: "Metropolis-Hastings"
-description: "An implementation example of Metropolis-Hastings algorithm in Python."
+title: 'Metropolis-Hastings'
+description: 'An implementation example of Metropolis-Hastings algorithm in Python.'
 publishDate: 2015-10-17 01:14:00
 tags: [machine learning, programming, python]
 ---
@@ -80,7 +80,7 @@ The tail of the distribution looks off because the starting point of the Markov 
 
 I'm curious about the performance of Metropolis-Hastings compared to Gibbs Sampling. So I profiled the two algorithms.
 
-``` bash
+```bash
 
 > python -m cProfile gibbs_sampling.py | grep gibbs_sampling
 > ncalls tottime percall cumtime percall
@@ -100,4 +100,7 @@ I'm curious about the performance of Metropolis-Hastings compared to Gibbs Sampl
 As we can see, Gibbs Sampling is really fast as it only need around 0.14 seconds, compared to Metropolis-Hastings 3.6 seconds. Sampling from conditional distribution is really fast, whereas sampling from full joint distribution is slow, as we can observe there when comparing call time of `p_x_given_y`, `p_y_given_x` and `pgauss`.
 
 However, the main advantage of Metropolis-Hastings over Gibbs Sampling is that we don't have to derive the conditional distributions analytically. We just need to know the joint distribution, and no need to derive anything analytically.
+
+```
+
 ```

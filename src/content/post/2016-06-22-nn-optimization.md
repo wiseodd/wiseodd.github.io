@@ -1,5 +1,5 @@
 ---
-title: "Beyond SGD: Gradient Descent with Momentum and Adaptive Learning Rate"
+title: 'Beyond SGD: Gradient Descent with Momentum and Adaptive Learning Rate'
 description: "There are many attempts to improve Gradient Descent: some add momentum, some add adaptive learning rate. Let's see what's out there in the realm of neural nets optimization."
 publishDate: 2016-06-22 04:55
 tags: [machine learning, programming, python, neural networks, optimization]

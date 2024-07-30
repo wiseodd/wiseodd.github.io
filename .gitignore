@@ -5,3 +5,4 @@ node_modules
 .jekyll-metadata
 archives/
 .jekyll-cache
+dist/

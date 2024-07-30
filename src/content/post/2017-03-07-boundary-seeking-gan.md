@@ -1,6 +1,6 @@
 ---
-title: "Boundary Seeking GAN"
-description: "Training GAN by moving the generated samples to the decision boundary."
+title: 'Boundary Seeking GAN'
+description: 'Training GAN by moving the generated samples to the decision boundary.'
 publishDate: 2017-03-07 00:10
 tags: [machine learning, gan]
 ---

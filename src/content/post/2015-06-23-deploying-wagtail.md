@@ -1,5 +1,5 @@
 ---
-title: "Deploying Wagtail App"
+title: 'Deploying Wagtail App'
 description: "In this post, I'll show you how to deploy our blog and how to solve some common problems when deploying Wagtail app."
 publishDate: 2015-06-23 01:39:00
 tags: [python, programming, wagtail, web]
@@ -46,7 +46,7 @@ from .production import *
 
 First, we find an environment variable named 'MYBLOG_ENV' in our operating system, with 'dev' as the default value. If that environment variable value is 'dev', we use dev.py, otherwise we use production.py. As simple as that. To create the environment variable, there are two ways, first by add it directly to the system, or put it in uwsgi. I will go with the second option because, just like the use of virtualenv, it aligns with our spirit of software environment isolation. This this line to your uwsgi config file, and restart uwsgi to apply the change:
 
-``` bash
+```bash
 env=MYBLOG_ENV=prod
 ```
 
@@ -60,7 +60,7 @@ _Error 400:_ Check your setting, make sure you've added your domain/IP in "allow
 \_Error 500:* Don't forget to do all of the above steps! I encountered this problem because I didn't compress my static files
 Cannot upload image: The root cause is you don't have libjpeg and libpng in your machine
 
-``` bash
+```bash
 sudo apt-get install libjpeg-dev libpng12-dev
 pip uninstall pillow
 pip install PIL --allow-external PIL --allow-unverified PIL
@@ -69,7 +69,7 @@ pip install pillow
 
 Images, CSS, JS won't load: In production setting, we have to serve our static files ourselves. Probably you forgot to serve the "static" directory in the nginx. Check out your nginx sites-availables:
 
-``` nginx
+```nginx
 location /static/ {
     root /your/project/path;
 }
@@ -80,7 +80,7 @@ location /media/ {
 
 Probably also because the nginx doesn't have the permission to access the directories.
 
-``` bash
+```bash
 chmod 664 -R static
 chmod 664 -R media
 chown -R yourusername:www-data static

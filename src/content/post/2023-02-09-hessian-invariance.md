@@ -1,5 +1,5 @@
 ---
-title: "The Invariance of the Hessian and Its Eigenvalues, Determinant, and Trace"
+title: 'The Invariance of the Hessian and Its Eigenvalues, Determinant, and Trace'
 description: "In deep learning, the Hessian and its downstream quantities are observed to be not invariant under reparametrization. This makes the Hessian to be a poor proxy for flatness and makes Newton's method non-invariant. In this post, we shall see that the Hessian and the quantities derived from it are actually invariant under reparametrization."
 publishDate: 2023-02-09 00:00
 ---

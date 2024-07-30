@@ -1,6 +1,6 @@
 ---
-title: "Deriving LSTM Gradient for Backpropagation"
-description: "Deriving neuralnet gradient is an absolutely great exercise to understand backpropagation and computational graph better. In this post we will walk through the process of deriving LSTM net gradient so that we can use it in backpropagation."
+title: 'Deriving LSTM Gradient for Backpropagation'
+description: 'Deriving neuralnet gradient is an absolutely great exercise to understand backpropagation and computational graph better. In this post we will walk through the process of deriving LSTM net gradient so that we can use it in backpropagation.'
 publishDate: 2016-08-12 12:34
 tags: [machine learning, programming, python, neural networks, rnn, lstm]
 ---

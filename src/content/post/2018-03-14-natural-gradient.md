@@ -1,6 +1,6 @@
 ---
-title: "Natural Gradient Descent"
-description: "Intuition and derivation of natural gradient descent."
+title: 'Natural Gradient Descent'
+description: 'Intuition and derivation of natural gradient descent.'
 publishDate: 2018-03-14 07:00
 tags: [machine learning]
 ---

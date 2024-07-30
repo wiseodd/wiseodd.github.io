@@ -1,6 +1,6 @@
 ---
-title: "Reduced Betti number of sphere: Mayer-Vietoris Theorem"
-description: "A proof of reduced homology of sphere with Mayer-Vietoris sequence."
+title: 'Reduced Betti number of sphere: Mayer-Vietoris Theorem'
+description: 'A proof of reduced homology of sphere with Mayer-Vietoris sequence.'
 publishDate: 2018-07-23 10:00
 tags: [math]
 ---

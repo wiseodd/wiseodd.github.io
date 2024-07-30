@@ -1,6 +1,6 @@
 ---
-title: "Gibbs Sampling"
-description: "Example of Gibbs Sampling implementation in Python to sample from a Bivariate Gaussian."
+title: 'Gibbs Sampling'
+description: 'Example of Gibbs Sampling implementation in Python to sample from a Bivariate Gaussian.'
 publishDate: 2015-10-09 17:01:00
 tags: [machine learning, programming, python]
 ---

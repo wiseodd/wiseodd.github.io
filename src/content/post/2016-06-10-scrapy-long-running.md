@@ -1,5 +1,5 @@
 ---
-title: "Scrapy as a Library in Long Running Process"
+title: 'Scrapy as a Library in Long Running Process'
 description: "Scrapy is a great web crawler framework, but it's tricky to make it runs as a library in a long-running process. Here's how!"
 publishDate: 2016-06-10 03:37
 tags: [scrapy, python, programming]

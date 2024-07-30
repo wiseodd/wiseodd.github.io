@@ -1,6 +1,6 @@
 ---
-title: "Developing Blog with Wagtail"
-description: "My experience on building this blog using Wagtail CMS, with zero Django knowledge. Let’s code our blog!"
+title: 'Developing Blog with Wagtail'
+description: 'My experience on building this blog using Wagtail CMS, with zero Django knowledge. Let’s code our blog!'
 publishDate: 2015-06-22 12:51:00
 tags: [python, programming, web]
 ---
@@ -9,17 +9,17 @@ Now that we’ve set our Wagtail development environment up, we’re ready to ac
 
 Oh, before you started run the development server first!
 
-``` bash
+```bash
 ./manage.py runserver
 
-````
+```
 
 Wagtail Page
 One of Wagtail’s building block is the Page class. You’ll need to extend it to create your desired page. In this tutorial, we’ll create our home page, blog page, and a generic page for everything else.
 
 First, we’ll create our generic page class as home page class is already created by default when we started Wagtail project.
 
-``` python
+```python
 
 # core/models.py
 
@@ -39,7 +39,7 @@ body = RichTextField()
     # To show our body field in admin panel, we have to wrap it with FieldPanel and add it to Page’s field panel
     content_panels = Page.content_panels + [FieldPanel('body', classname=‘full’)]
 
-````
+```
 
 For explanation about every fields and panels in Wagtail, I suggest you to read the Wagtail documentation.
 
@@ -51,7 +51,7 @@ Let’s see the result in the admin panel. Fire up your browser, and go to <http
 
 Success! We’ve created our first page! Try to put some content there, and then publish it. But wait… Why can’t we publish it? Turns out, our database don’t have the table to save the page content yet. So now our task is to create the table, which in Django, is really easy. You don’t have to get your hand dirty with SQL code, or migration code, Django does it for you. Django kinda reverse engineer your models, then creates the appropriate migration scripts. So let’s do that.
 
-``` bash
+```bash
 ./manage.py makemigrations
 ./manage.py migrate
 
@@ -107,14 +107,14 @@ Now that we understand the know-how of creating a page in Wagtail, we will creat
 
 We want to create a separate app for our blog. The rationale, our project is a website, and a website could consist of some app, for example landing page, blog, etc. So to start thing off, we’ll create our blog app.
 
-``` bash
+```bash
 ./manage.py startapp blog
 
-````
+```
 
 This will create a blog folder in our project, with its respective models and migrations. We will create our BlogPage class inside it.
 
-``` python
+```python
 
 # blog/models.py
 
@@ -152,7 +152,7 @@ body = StreamField([
         StreamFieldPanel('body')
     ]
 
-````
+```
 
 I will introduce you to Wagtail unique feature: StreamField. StreamField is a page component that enables you to build your own page structure, just like LEGO! When we’re creating a StreamField, we will need to specify, which blocks (think about LEGO block) are available for the editor to use. In the example above, we specify that our StreamField could be built with RichText or RawHTML. The we could use arbitrary number of blocks in building our StreamField. Also the structure is free, as long as we only use the blocks that we’ve specified in our model. For more about StreamField, be sure to check Wagtail’s documentation.
 

@@ -1,7 +1,7 @@
 ---
-title: "Gaussian Anomaly Detection"
-description: "In Frequentist and Bayesian Way"
-publishDate: "2016-01-16 11:06:00"
+title: 'Gaussian Anomaly Detection'
+description: 'In Frequentist and Bayesian Way'
+publishDate: '2016-01-16 11:06:00'
 ---
 
 Suppose you are a teacher in kindergarten. Looking at your class, it seems there are a few children that are out of the ordinary, in term of their height compared to the rest of the class. It seems that they are different, by just looking at them, you're sure of it. You've talked about this to your principle: "Hey, A and B in my class are way taller than the rest of the class". The principle replied: "You sure it's not just an optical illusion? Could you present me with a proof?". You are then wondering, is there any method that can help you identifying those children?

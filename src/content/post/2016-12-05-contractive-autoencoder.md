@@ -1,6 +1,6 @@
 ---
-title: "Deriving Contractive Autoencoder and Implementing it in Keras"
-description: "Contractive Autoencoder is more sophisticated kind of Autoencoder compared to the last post. Here, we will dissect the loss function of Contractive Autoencoder and derive it so that we could implement it in Keras."
+title: 'Deriving Contractive Autoencoder and Implementing it in Keras'
+description: 'Contractive Autoencoder is more sophisticated kind of Autoencoder compared to the last post. Here, we will dissect the loss function of Contractive Autoencoder and derive it so that we could implement it in Keras.'
 publishDate: 2016-12-05 12:55
 tags: [programming, python, neuralnet]
 ---

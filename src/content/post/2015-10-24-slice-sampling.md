@@ -1,6 +1,6 @@
 ---
-title: "Slice Sampling"
-description: "An implementation example of Slice Sampling for a special case: unimodal distribution with known inverse PDF"
+title: 'Slice Sampling'
+description: 'An implementation example of Slice Sampling for a special case: unimodal distribution with known inverse PDF'
 publishDate: 2015-10-24 12:04:00
 tags: [machine learning, programming, python]
 ---

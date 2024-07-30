@@ -1,6 +1,6 @@
 ---
-title: "Convolution of Gaussians and the Probit Integral"
-description: "Gaussian distributions are very useful in Bayesian inference due to their (many!) convenient properties. In this post we take a look at two of them: the convolution of two Gaussian pdfs and the integral of the probit function w.r.t. a Gaussian measure."
+title: 'Convolution of Gaussians and the Probit Integral'
+description: 'Gaussian distributions are very useful in Bayesian inference due to their (many!) convenient properties. In this post we take a look at two of them: the convolution of two Gaussian pdfs and the integral of the probit function w.r.t. a Gaussian measure.'
 publishDate: 2022-06-25 00:00
 ---
 
@@ -254,6 +254,7 @@ $$
 $$
 
 We identify the last equation above as the $i$-th component of $\mathrm{softmax}\left( \frac{\mu}{\sqrt{1 + \pi/8 \, \diag \varSigma}} \right)$.
+
 $$
 \qed
 $$

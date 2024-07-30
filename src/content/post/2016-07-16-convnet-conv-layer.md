@@ -1,5 +1,5 @@
 ---
-title: "Convnet: Implementing Convolution Layer with Numpy"
+title: 'Convnet: Implementing Convolution Layer with Numpy'
 description: "Convnet is dominating the world of computer vision right now. What make it special of course the convolution layer, hence the name. Let's study it further by implementing it from scratch using Numpy!"
 publishDate: 2016-07-16 10:55
 tags: [machine learning, programming, python, neural networks]

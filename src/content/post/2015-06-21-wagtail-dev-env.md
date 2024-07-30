@@ -1,6 +1,6 @@
 ---
-title: "Setting Up Wagtail Development Environment"
-description: "My experience on building a blog using Wagtail CMS, with zero Django knowledge. I’ll walk you through from scratch up until the blog is live"
+title: 'Setting Up Wagtail Development Environment'
+description: 'My experience on building a blog using Wagtail CMS, with zero Django knowledge. I’ll walk you through from scratch up until the blog is live'
 publishDate: 2015-06-21 06:52:00
 tags: [python, programming, web]
 ---
@@ -11,7 +11,7 @@ First thing first, this post is from a web developer who had essentially ZERO kn
 
 First let’s install the dependencies: Python, pip, and PostgreSQL
 
-``` bash
+```bash
 Ubuntu:
 sudo apt-get install python python-dev postgresql-9.3 postgresql-server-dev-9.3
 sudo easy_install pip
@@ -23,13 +23,13 @@ brew install python pip postgres
 
 Now we’ll install virtualenv. This is not necessary, but will improve our development greatly as virtualenv will let us have clean and reproducible Python development environment.
 
-``` bash
+```bash
 sudo pip install virtualenv virtualenvwrapper
 ```
 
 And then, register virtualenvwrapper to our shell. Add these lines to your `.bashrc` (Ubuntu) or `.zshrc` (OSX).
 
-``` bash
+```bash
 export WORKON_HOME=~/.virtualenv
 source /usr/local/bin/virtualenvwrapper.sh
 
@@ -39,7 +39,7 @@ Then, you’ll need to log out to apply the change.
 
 Now, we’ll create new virtualenv for our blog, then install Wagtail.
 
-``` bash
+```bash
 mkvirtualenv yourblogname
 pip install wagtail==1.0b2
 wagtail start yourblogname
@@ -49,7 +49,7 @@ Now we’ve scaffolded our blog project structure! We can start our development 
 
 Open up the requirements.txt on your project directory, then uncomment this line that says `psycopg2==2.5.2`. This will tell pip to install psycopg2 dependency which is needed for Python to interface with PostgreSQL. After that run:
 
-``` bash
+```bash
 pip install -r requirements.txt
 
 ```
@@ -64,7 +64,7 @@ What we want to do is to:
 
 Of course, you can use whatever name you want, but same name will simplify our live, so hey why not. So, run this:
 
-``` bash
+```bash
 sudo su - postgres
 createdb yourblogname
 psql yourblogname
@@ -72,17 +72,17 @@ psql yourblogname
 
 Now we’re inside PostgreSQL shell. We’ll create the user, then grant the permission to yourblogname database.
 
-``` sql
+```sql
 CREATE ROLE yourblogname WITH PASSWORD ‘yourpassword’
 GRANT ALL PRIVILEGES ON DATABASE yourblogname TO yourblogname
 
-````
+```
 
 Then use `CTRL+D` to exit psql and type `exit` to exit user postgres’ shell.
 
 Now we have to tell our blog to use PostgreSQL instead of SQLite. In your `yourblogname/settings/base.py`, comment out SQLite database entry:
 
-``` python
+```python
 # # SQLite (simplest install)
 # DATABASES = {
 # 'default': {
@@ -90,7 +90,7 @@ Now we have to tell our blog to use PostgreSQL instead of SQLite. In your `yourb
 # 'NAME': join(PROJECT_ROOT, 'db.sqlite3'),
 # }
 # }
-````
+```
 
 Then, uncomment PostgreSQL entry, and fill it with our database information:
 
@@ -118,7 +118,7 @@ So, make sure to fill `HOST` with `localhost` or `127.0.0.1`
 
 After that, we’ll write our initial database to PostgreSQL:
 
-``` bash
+```bash
 ./manage.py makemigrations
 ./manage.py migrate
 
@@ -126,7 +126,7 @@ After that, we’ll write our initial database to PostgreSQL:
 
 Also, don't forget to create an admin account so that we could get inside the admin panel.
 
-``` bash
+```bash
 ./manage.py createsuperuser
 ```
 

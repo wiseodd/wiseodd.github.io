@@ -1,5 +1,5 @@
 ---
-title: "Least Squares GAN"
+title: 'Least Squares GAN'
 description: "2017 is the year GAN loss its logarithm. First, it was Wasserstein GAN, and now, it's LSGAN's turn."
 publishDate: 2017-03-02 05:50
 tags: [machine learning, gan]

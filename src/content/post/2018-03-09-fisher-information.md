@@ -1,6 +1,6 @@
 ---
-title: "Fisher Information Matrix"
-description: "An introduction and intuition of Fisher Information Matrix."
+title: 'Fisher Information Matrix'
+description: 'An introduction and intuition of Fisher Information Matrix.'
 publishDate: 2018-03-11 07:00
 tags: [machine learning]
 ---

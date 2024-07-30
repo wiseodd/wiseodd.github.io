@@ -1,6 +1,6 @@
 ---
-title: "Hessian and Curvatures in Machine Learning: A Differential-Geometric View"
-description: "In machine learning, especially in neural networks, the Hessian matrix is often treated synonymously with curvatures. But, from calculus alone, it is not clear why can one say so. Here, we will view the loss landscape of a neural network as a hypersurface and apply a differential-geometric analysis on it."
+title: 'Hessian and Curvatures in Machine Learning: A Differential-Geometric View'
+description: 'In machine learning, especially in neural networks, the Hessian matrix is often treated synonymously with curvatures. But, from calculus alone, it is not clear why can one say so. Here, we will view the loss landscape of a neural network as a hypersurface and apply a differential-geometric analysis on it.'
 publishDate: 2020-11-02 12:00
 tags: [math]
 ---

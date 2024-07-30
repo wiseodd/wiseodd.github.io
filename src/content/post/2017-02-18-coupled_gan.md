@@ -1,6 +1,6 @@
 ---
-title: "CoGAN: Learning joint distribution with GAN"
-description: "Original GAN and Conditional GAN are for learning marginal and conditional distribution of data respectively. But how can we extend them to learn joint distribution instead?"
+title: 'CoGAN: Learning joint distribution with GAN'
+description: 'Original GAN and Conditional GAN are for learning marginal and conditional distribution of data respectively. But how can we extend them to learn joint distribution instead?'
 publishDate: 2017-02-18 04:27
 tags: [machine learning, gan]
 ---

@@ -1,5 +1,5 @@
 ---
-title: "Notes on Riemannian Geometry"
+title: 'Notes on Riemannian Geometry'
 description: "This article is a collection of small notes on Riemannian geometry that I find useful as references. It is largely based on Lee's books on smooth and Riemannian manifolds."
 publishDate: 2019-02-22 12:00
 tags: [math]
@@ -157,7 +157,7 @@ $$
 
 //
 
-We use the notation $ V*1^* \otimes \dots \otimes V*k^* $ to denote the space $ \text{L}(V*1, \dots, V_k; \R) $. Let $ V $ be a finite-dimensional vector space. If $ k \in \mathbb{N} $, a \*\*\_covariant* $ k $-tensor on $ V $\*\* is an element of the $ k $-fold tensor product $ V^* \otimes \dots \otimes V^* $, which is a real-valued multilinear function of $ k $ elements of $ V $ to $ \R $. The number $ k $ is called the \*\*\_rank\_\*\* of the tensor.
+We use the notation $ V*1^* \otimes \dots \otimes V*k^* $ to denote the space $ \text{L}(V*1, \dots, V_k; \R) $. Let $ V $ be a finite-dimensional vector space. If $ k \in \mathbb{N} $, a \*\*\_covariant* $ k $-tensor on $ V $\*\* is an element of the $ k $-fold tensor product $ V^_ \otimes \dots \otimes V^_ $, which is a real-valued multilinear function of $ k $ elements of $ V $ to $ \R $. The number $ k $ is called the \*\*\_rank\_\*\* of the tensor.
 
 Analogously, we define a **_contravariant $ k $-tensor on $ V $_** to be an element of the element of the $ k $-fold tensor product $ V \otimes \dots \otimes V $. We can mixed the two types of tensors together: For any $ k, l \in \mathbb{N} $, we define a **_mixed tensor on $ V $ of type $ (k, l) $_** to be the tensor product of $ k $ such $ V $ and $ l $ such $ V^\* $.
 
