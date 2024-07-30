@@ -29,6 +29,9 @@ importers:
       '@fontsource/iosevka':
         specifier: ^5.0.11
         version: 5.0.11
+      '@fontsource/source-sans-pro':
+        specifier: ^5.0.8
+        version: 5.0.8
       '@vercel/analytics':
         specifier: ^1.2.2
         version: 1.2.2
@@ -625,6 +628,9 @@ packages:
 
   '@fontsource/iosevka@5.0.11':
     resolution: {integrity: sha512-o+4WZJxzCPe+WIOiXiA2KAU3xrBhLRZCHj0ZMRztZ5dpacxPXpSublSCUIrfw2nh41XSg1QNxMU/Q/66RTtVRQ==}
+
+  '@fontsource/source-sans-pro@5.0.8':
+    resolution: {integrity: sha512-5U2UvIYRkCMozZ388gCE73PEpa2MFgN/0t9O4a1FF7bGT/MIneQWSL1XpWZ8iMVYdh6ntxRf3iFA6slCIuFgkg==}
 
   '@humanwhocodes/config-array@0.11.14':
     resolution: {integrity: sha512-3T8LkOmg45BV5FICb15QQMsyUSWrQ8AygVfC7ZG32zOalnqrilm018ZVCw0eapXux8FtA33q8PSRSstjee3jSg==}
@@ -4661,6 +4667,8 @@ snapshots:
       unist-util-visit-parents: 5.1.3
 
   '@fontsource/iosevka@5.0.11': {}
+
+  '@fontsource/source-sans-pro@5.0.8': {}
 
   '@humanwhocodes/config-array@0.11.14':
     dependencies:

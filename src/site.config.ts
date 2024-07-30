@@ -1,6 +1,7 @@
 import type { SiteConfig } from '@/types'
 import type { AstroExpressiveCodeOptions } from 'astro-expressive-code'
 import '@fontsource/iosevka'
+import '@fontsource/source-sans-pro'
 
 export const siteConfig: SiteConfig = {
 	// Used as both a meta property (src/components/BaseHead.astro L:31 + L:49) & the generated satori png (src/pages/og-image/[slug].png.ts)
@@ -58,7 +59,7 @@ export const expressiveCodeOptions: AstroExpressiveCodeOptions = {
 			frameBoxShadowCssValue: 'none'
 		},
 		uiLineHeight: 'inherit',
-		codeFontSize: '0.875rem',
+		codeFontSize: '0.8rem',
 		codeLineHeight: '1.2rem',
 		borderRadius: '4px',
 		codePaddingInline: '1rem',
