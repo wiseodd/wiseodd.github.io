@@ -56,7 +56,7 @@ const paginationProps = {
 					<section aria-label='Blog posts list'>
 						<ul class='flex flex-col gap-y-4 text-start'>
 							{page.data.map((p) => (
-								<PostPreview post={p} />
+								<PostPreview post={p} withDesc />
 							))}
 						</ul>
 						<Pagination {...paginationProps} />

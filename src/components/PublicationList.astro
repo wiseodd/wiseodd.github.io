@@ -1,17 +1,6 @@
 ---
 import PublicationCard from './PublicationCard.astro'
 
-interface Props {
-	publications: {
-		type: string
-		title: string
-		author: string[]
-		venue: string
-		year: number
-		href?: string
-		note?: string
-	}[]
-}
 const { publications } = Astro.props
 ---
 

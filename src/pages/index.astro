@@ -6,11 +6,14 @@ import Card from '../components/Card.astro'
 import Label from '../components/Label.astro'
 import SkillLayout from '../components/SkillLayout.astro'
 import PostPreview from '@/components/blog/PostPreview.astro'
-
+import PublicationList from '@/components/PublicationList.astro'
 import { Image } from 'astro:assets'
-import portrait from '../assets/portrait.jpeg'
 
 import { getAllPosts, sortMDByDate } from '@/utils'
+import type { Publication } from '@/utils'
+import { sortPublicationFn } from '@/utils'
+
+import portrait from '../assets/portrait.jpeg'
 
 const interests = [
 	'Probabilistic Inference',
@@ -18,6 +21,7 @@ const interests = [
 	'Decision Making',
 	'Planning',
 	'AI4Science',
+	'AI Safety',
 	'Riemannian Geometry'
 ]
 const languages = ['Rust', 'Gleam', 'Python']
@@ -26,6 +30,9 @@ const editors = ['Neovim']
 const MAX_POSTS = 10
 const allPosts = await getAllPosts()
 const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
+
+import selectedPubs from '../assets/publications.json'
+const sortedSelectedPubs = selectedPubs.filter((pub: Publication) => pub.marked).sort(sortPublicationFn)
 ---
 
 <PageLayout meta={{ title: 'Home' }}>
@@ -171,30 +178,24 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
 			<SkillLayout title='Editor' skills={editors} />
 		</Section>
 
-		<!-- { -->
-		<!--   allPostsByDate.length > 0 && ( -->
-		<!--     <Section title="Selected Publications"> -->
-		<!--       <ul class="flex flex-col gap-y-2"> -->
-		<!--         {allPostsByDate.slice(0, 5).map((p) => ( -->
-		<!--           <li class="flex flex-col gap-x-2 sm:flex-row"> -->
-		<!--             <PostPreview post={p} /> -->
-		<!--           </li> -->
-		<!--         ))} -->
-		<!--       </ul> -->
-		<!--     </Section> -->
-		<!--   ) -->
-		<!-- } -->
-
 		{
 			allPostsByDate.length > 0 && (
-				<Section title='Latest Blog Posts'>
+				<Section title='Latest Posts'>
 					<ul class='flex flex-col gap-y-2'>
 						{allPostsByDate.slice(0, 5).map((p) => (
 							<li class='flex flex-col gap-x-2 sm:flex-row'>
-								<PostPreview post={p} />
+								<PostPreview post={p} withDesc maxDescWords={18} />
 							</li>
 						))}
 					</ul>
+				</Section>
+			)
+		}
+
+		{
+			allPostsByDate.length > 0 && (
+				<Section title='Selected Works'>
+					<PublicationList publications={sortedSelectedPubs} />
 				</Section>
 			)
 		}

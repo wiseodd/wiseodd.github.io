@@ -37,3 +37,11 @@ export function getUniqueTagsWithCount(
 		)
 	].sort((a, b) => b[1] - a[1])
 }
+
+export function truncateDescription(desc: string, nWords: number): string {
+	const words = desc.split(' ')
+	if (words.length > nWords) {
+		return words.slice(0, nWords).join(' ') + ' ...'
+	}
+	return desc
+}

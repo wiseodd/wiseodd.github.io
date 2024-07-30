@@ -39,7 +39,8 @@
 		"venue": "ICML",
 		"year": 2020,
 		"paper": "https://arxiv.org/abs/2002.10118",
-		"github": "https://github.com/wiseodd/last_layer_laplace"
+		"github": "https://github.com/wiseodd/last_layer_laplace",
+		"marked": true
 	},
 	{
 		"type": "conference",
@@ -76,7 +77,8 @@
 		"venue": "NeurIPS",
 		"year": 2021,
 		"paper": "https://arxiv.org/abs/2106.14806",
-		"code": "https://github.com/aleximmer/Laplace"
+		"code": "https://github.com/aleximmer/Laplace",
+		"marked": true
 	},
 	{
 		"type": "conference",
@@ -121,7 +123,8 @@
 		"venue": "NeurIPS",
 		"year": 2023,
 		"note": "Spotlight",
-		"paper": "https://arxiv.org/abs/2302.07384"
+		"paper": "https://arxiv.org/abs/2302.07384",
+		"marked": true
 	},
 	{
 		"type": "conference",
@@ -202,7 +205,8 @@
 		"venue": "ICML",
 		"year": 2024,
 		"paper": "https://arxiv.org/abs/2402.05015",
-		"code": "https://github.com/wiseodd/lapeft-bayesopt"
+		"code": "https://github.com/wiseodd/lapeft-bayesopt",
+		"marked": true
 	},
 	{
 		"type": "journal",
@@ -291,6 +295,7 @@
 		"venue": "AABI",
 		"year": 2024,
 		"paper": "https://arxiv.org/abs/2407.03951",
-		"code": "https://github.com/JuliaGrosse/ults"
+		"code": "https://github.com/JuliaGrosse/ults",
+		"marked": true
 	}
 ]

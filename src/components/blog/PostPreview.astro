@@ -4,12 +4,15 @@ import type { CollectionEntry } from 'astro:content'
 
 import FormattedDate from '../FormattedDate.astro'
 
+import { truncateDescription } from '@/utils'
+
 type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & {
 	post: CollectionEntry<'post'>
 	withDesc?: boolean
+	maxDescWords?: number
 }
 
-const { as: Tag = 'div', post, withDesc = false } = Astro.props
+const { as: Tag = 'div', post, withDesc = false, maxDescWords = 20 } = Astro.props
 const postDate = post.data.updatedDate ?? post.data.publishDate
 ---
 
@@ -27,8 +30,8 @@ const postDate = post.data.updatedDate ?? post.data.publishDate
 		</a>
 		{
 			withDesc && (
-				<p class='line-clamp-3 block text-sm italic text-muted-foreground'>
-					{post.data.description}
+				<p class='line-clamp-3 block text-sm text-muted-foreground'>
+					{truncateDescription(post.data.description, maxDescWords)}
 				</p>
 			)
 		}

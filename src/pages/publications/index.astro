@@ -1,22 +1,16 @@
 ---
 import PageLayout from '@/layouts/BaseLayout.astro'
 import PublicationList from '@/components/PublicationList.astro'
+import Section from '@/components/Section.astro'
+import { sortPublicationFn } from '@/utils'
+import type { Publication } from '@/utils'
 
-// For sorting "Everything Else" < "ICLR" < "AISTATS" < "ICML" < "UAI" < "NeurIPS"
-const CONF_VALS: Record<string, number> = { ICLR: 1, AISTATS: 2, ICML: 3, UAI: 4, NeurIPS: 5 }
-function getConfVal(conf: string): number {
-	if (conf in CONF_VALS) {
-		return CONF_VALS[conf]
-	} else {
-		return 0
-	}
+interface Props {
+	publications: Publication[]
 }
 
 import publications from '../../assets/publications.json'
-import Section from '@/components/Section.astro'
-const sortedPublications = publications.sort(
-	(pub1, pub2) => pub2.year - pub1.year || getConfVal(pub2.venue) - getConfVal(pub1.venue)
-)
+const sortedPublications = publications.sort(sortPublicationFn)
 ---
 
 <PageLayout meta={{ title: 'Publications' }}>
