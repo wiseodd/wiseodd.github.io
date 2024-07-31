@@ -486,6 +486,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
+"test.mdx": {
+	id: "test.mdx";
+  slug: "test";
+  body: string;
+  collection: "post";
+  data: InferEntrySchema<"post">
+} & { render(): Render[".mdx"] };
 "theano-pde.md": {
 	id: "theano-pde.md";
   slug: "theano-pde";
@@ -514,13 +521,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"volume-form.mdx": {
-	id: "volume-form.mdx";
+"volume-form.md": {
+	id: "volume-form.md";
   slug: "volume-form";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".mdx"] };
+} & { render(): Render[".md"] };
 "wagtail-dev-env.md": {
 	id: "wagtail-dev-env.md";
   slug: "wagtail-dev-env";
