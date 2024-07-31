@@ -136,401 +136,401 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"post": {
-"2015-06-21-wagtail-dev-env.md": {
-	id: "2015-06-21-wagtail-dev-env.md";
-  slug: "2015-06-21-wagtail-dev-env";
+"annealed-importance-sampling.md": {
+	id: "annealed-importance-sampling.md";
+  slug: "annealed-importance-sampling";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2015-06-22-developing-wagtail.md": {
-	id: "2015-06-22-developing-wagtail.md";
-  slug: "2015-06-22-developing-wagtail";
+"autoencoders.md": {
+	id: "autoencoders.md";
+  slug: "autoencoders";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2015-06-23-deploying-wagtail.md": {
-	id: "2015-06-23-deploying-wagtail.md";
-  slug: "2015-06-23-deploying-wagtail";
+"batchnorm.md": {
+	id: "batchnorm.md";
+  slug: "batchnorm";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2015-08-29-twitter-auth-flask.md": {
-	id: "2015-08-29-twitter-auth-flask.md";
-  slug: "2015-08-29-twitter-auth-flask";
+"bayesian-regression.md": {
+	id: "bayesian-regression.md";
+  slug: "bayesian-regression";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2015-10-09-gibbs-sampling.md": {
-	id: "2015-10-09-gibbs-sampling.md";
-  slug: "2015-10-09-gibbs-sampling";
+"boundary-seeking-gan.md": {
+	id: "boundary-seeking-gan.md";
+  slug: "boundary-seeking-gan";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2015-10-17-metropolis-hastings.md": {
-	id: "2015-10-17-metropolis-hastings.md";
-  slug: "2015-10-17-metropolis-hastings";
+"brouwers-fixed-point.md": {
+	id: "brouwers-fixed-point.md";
+  slug: "brouwers-fixed-point";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2015-10-21-rejection-sampling.md": {
-	id: "2015-10-21-rejection-sampling.md";
-  slug: "2015-10-21-rejection-sampling";
+"chentsov-theorem.md": {
+	id: "chentsov-theorem.md";
+  slug: "chentsov-theorem";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2015-10-24-slice-sampling.md": {
-	id: "2015-10-24-slice-sampling.md";
-  slug: "2015-10-24-slice-sampling";
+"conditional-gan-tensorflow.md": {
+	id: "conditional-gan-tensorflow.md";
+  slug: "conditional-gan-tensorflow";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2016-01-16-gaussian-anomaly-detection.md": {
-	id: "2016-01-16-gaussian-anomaly-detection.md";
-  slug: "2016-01-16-gaussian-anomaly-detection";
+"conditional-vae.md": {
+	id: "conditional-vae.md";
+  slug: "conditional-vae";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2016-06-10-scrapy-long-running.md": {
-	id: "2016-06-10-scrapy-long-running.md";
-  slug: "2016-06-10-scrapy-long-running";
+"contractive-autoencoder.md": {
+	id: "contractive-autoencoder.md";
+  slug: "contractive-autoencoder";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2016-06-13-parallel-monte-carlo.md": {
-	id: "2016-06-13-parallel-monte-carlo.md";
-  slug: "2016-06-13-parallel-monte-carlo";
+"conv-probit.md": {
+	id: "conv-probit.md";
+  slug: "conv-probit";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2016-06-21-nn-sgd.md": {
-	id: "2016-06-21-nn-sgd.md";
-  slug: "2016-06-21-nn-sgd";
+"convnet-conv-layer.md": {
+	id: "convnet-conv-layer.md";
+  slug: "convnet-conv-layer";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2016-06-22-nn-optimization.md": {
-	id: "2016-06-22-nn-optimization.md";
-  slug: "2016-06-22-nn-optimization";
+"convnet-maxpool-layer.md": {
+	id: "convnet-maxpool-layer.md";
+  slug: "convnet-maxpool-layer";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2016-06-25-dropout.md": {
-	id: "2016-06-25-dropout.md";
-  slug: "2016-06-25-dropout";
+"coupled_gan.md": {
+	id: "coupled_gan.md";
+  slug: "coupled_gan";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2016-07-04-batchnorm.md": {
-	id: "2016-07-04-batchnorm.md";
-  slug: "2016-07-04-batchnorm";
+"deploying-wagtail.md": {
+	id: "deploying-wagtail.md";
+  slug: "deploying-wagtail";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2016-07-16-convnet-conv-layer.md": {
-	id: "2016-07-16-convnet-conv-layer.md";
-  slug: "2016-07-16-convnet-conv-layer";
+"developing-wagtail.md": {
+	id: "developing-wagtail.md";
+  slug: "developing-wagtail";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2016-07-18-convnet-maxpool-layer.md": {
-	id: "2016-07-18-convnet-maxpool-layer.md";
-  slug: "2016-07-18-convnet-maxpool-layer";
+"dropout.md": {
+	id: "dropout.md";
+  slug: "dropout";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2016-08-12-lstm-backprop.md": {
-	id: "2016-08-12-lstm-backprop.md";
-  slug: "2016-08-12-lstm-backprop";
+"fisher-information.md": {
+	id: "fisher-information.md";
+  slug: "fisher-information";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2016-08-15-jekyll-fb-share.md": {
-	id: "2016-08-15-jekyll-fb-share.md";
-  slug: "2016-08-15-jekyll-fb-share";
+"forward-reverse-kl.md": {
+	id: "forward-reverse-kl.md";
+  slug: "forward-reverse-kl";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2016-09-17-gan-tensorflow.md": {
-	id: "2016-09-17-gan-tensorflow.md";
-  slug: "2016-09-17-gan-tensorflow";
+"gan-pytorch.md": {
+	id: "gan-pytorch.md";
+  slug: "gan-pytorch";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2016-10-13-residual-net.md": {
-	id: "2016-10-13-residual-net.md";
-  slug: "2016-10-13-residual-net";
+"gan-tensorflow.md": {
+	id: "gan-tensorflow.md";
+  slug: "gan-tensorflow";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2016-11-05-levelset-method.md": {
-	id: "2016-11-05-levelset-method.md";
-  slug: "2016-11-05-levelset-method";
+"gaussian-anomaly-detection.md": {
+	id: "gaussian-anomaly-detection.md";
+  slug: "gaussian-anomaly-detection";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2016-11-20-levelset-segmentation.md": {
-	id: "2016-11-20-levelset-segmentation.md";
-  slug: "2016-11-20-levelset-segmentation";
+"gibbs-sampling.md": {
+	id: "gibbs-sampling.md";
+  slug: "gibbs-sampling";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2016-12-03-autoencoders.md": {
-	id: "2016-12-03-autoencoders.md";
-  slug: "2016-12-03-autoencoders";
+"hessian-curvatures.md": {
+	id: "hessian-curvatures.md";
+  slug: "hessian-curvatures";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2016-12-05-contractive-autoencoder.md": {
-	id: "2016-12-05-contractive-autoencoder.md";
-  slug: "2016-12-05-contractive-autoencoder";
+"hessian-invariance.md": {
+	id: "hessian-invariance.md";
+  slug: "hessian-invariance";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2016-12-10-variational-autoencoder.md": {
-	id: "2016-12-10-variational-autoencoder.md";
-  slug: "2016-12-10-variational-autoencoder";
+"infogan.md": {
+	id: "infogan.md";
+  slug: "infogan";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2016-12-17-conditional-vae.md": {
-	id: "2016-12-17-conditional-vae.md";
-  slug: "2016-12-17-conditional-vae";
+"jekyll-fb-share.md": {
+	id: "jekyll-fb-share.md";
+  slug: "jekyll-fb-share";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2016-12-21-forward-reverse-kl.md": {
-	id: "2016-12-21-forward-reverse-kl.md";
-  slug: "2016-12-21-forward-reverse-kl";
+"kl-mle.md": {
+	id: "kl-mle.md";
+  slug: "kl-mle";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2016-12-24-conditional-gan-tensorflow.md": {
-	id: "2016-12-24-conditional-gan-tensorflow.md";
-  slug: "2016-12-24-conditional-gan-tensorflow";
+"laplace.md": {
+	id: "laplace.md";
+  slug: "laplace";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2017-01-01-mle-vs-map.md": {
-	id: "2017-01-01-mle-vs-map.md";
-  slug: "2017-01-01-mle-vs-map";
+"lda-gibbs.md": {
+	id: "lda-gibbs.md";
+  slug: "lda-gibbs";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2017-01-05-bayesian-regression.md": {
-	id: "2017-01-05-bayesian-regression.md";
-  slug: "2017-01-05-bayesian-regression";
+"least-squares-gan.md": {
+	id: "least-squares-gan.md";
+  slug: "least-squares-gan";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2017-01-08-theano-pde.md": {
-	id: "2017-01-08-theano-pde.md";
-  slug: "2017-01-08-theano-pde";
+"levelset-method.md": {
+	id: "levelset-method.md";
+  slug: "levelset-method";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2017-01-20-gan-pytorch.md": {
-	id: "2017-01-20-gan-pytorch.md";
-  slug: "2017-01-20-gan-pytorch";
+"levelset-segmentation.md": {
+	id: "levelset-segmentation.md";
+  slug: "levelset-segmentation";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2017-01-24-vae-pytorch.md": {
-	id: "2017-01-24-vae-pytorch.md";
-  slug: "2017-01-24-vae-pytorch";
+"lstm-backprop.md": {
+	id: "lstm-backprop.md";
+  slug: "lstm-backprop";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2017-01-26-kl-mle.md": {
-	id: "2017-01-26-kl-mle.md";
-  slug: "2017-01-26-kl-mle";
+"manifold-gaussians.md": {
+	id: "manifold-gaussians.md";
+  slug: "manifold-gaussians";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2017-01-29-infogan.md": {
-	id: "2017-01-29-infogan.md";
-  slug: "2017-01-29-infogan";
+"mayer-vietoris-sphere.md": {
+	id: "mayer-vietoris-sphere.md";
+  slug: "mayer-vietoris-sphere";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2017-02-04-wasserstein-gan.md": {
-	id: "2017-02-04-wasserstein-gan.md";
-  slug: "2017-02-04-wasserstein-gan";
+"metropolis-hastings.md": {
+	id: "metropolis-hastings.md";
+  slug: "metropolis-hastings";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2017-02-18-coupled_gan.md": {
-	id: "2017-02-18-coupled_gan.md";
-  slug: "2017-02-18-coupled_gan";
+"minkowski-dirichlet.md": {
+	id: "minkowski-dirichlet.md";
+  slug: "minkowski-dirichlet";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2017-03-02-least-squares-gan.md": {
-	id: "2017-03-02-least-squares-gan.md";
-  slug: "2017-03-02-least-squares-gan";
+"mle-vs-map.md": {
+	id: "mle-vs-map.md";
+  slug: "mle-vs-map";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2017-03-07-boundary-seeking-gan.md": {
-	id: "2017-03-07-boundary-seeking-gan.md";
-  slug: "2017-03-07-boundary-seeking-gan";
+"natural-gradient.md": {
+	id: "natural-gradient.md";
+  slug: "natural-gradient";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2017-09-07-lda-gibbs.md": {
-	id: "2017-09-07-lda-gibbs.md";
-  slug: "2017-09-07-lda-gibbs";
+"nn-optimization.md": {
+	id: "nn-optimization.md";
+  slug: "nn-optimization";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2017-12-23-annealed-importance-sampling.md": {
-	id: "2017-12-23-annealed-importance-sampling.md";
-  slug: "2017-12-23-annealed-importance-sampling";
+"nn-sgd.md": {
+	id: "nn-sgd.md";
+  slug: "nn-sgd";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2018-03-09-fisher-information.md": {
-	id: "2018-03-09-fisher-information.md";
-  slug: "2018-03-09-fisher-information";
+"optimization-riemannian-manifolds.md": {
+	id: "optimization-riemannian-manifolds.md";
+  slug: "optimization-riemannian-manifolds";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2018-03-14-natural-gradient.md": {
-	id: "2018-03-14-natural-gradient.md";
-  slug: "2018-03-14-natural-gradient";
+"parallel-monte-carlo.md": {
+	id: "parallel-monte-carlo.md";
+  slug: "parallel-monte-carlo";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2018-07-18-brouwers-fixed-point.md": {
-	id: "2018-07-18-brouwers-fixed-point.md";
-  slug: "2018-07-18-brouwers-fixed-point";
+"plotting.md": {
+	id: "plotting.md";
+  slug: "plotting";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2018-07-23-mayer-vietoris-sphere.md": {
-	id: "2018-07-23-mayer-vietoris-sphere.md";
-  slug: "2018-07-23-mayer-vietoris-sphere";
+"rejection-sampling.md": {
+	id: "rejection-sampling.md";
+  slug: "rejection-sampling";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2018-07-24-minkowski-dirichlet.md": {
-	id: "2018-07-24-minkowski-dirichlet.md";
-  slug: "2018-07-24-minkowski-dirichlet";
+"residual-net.md": {
+	id: "residual-net.md";
+  slug: "residual-net";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2019-02-17-riemannian-geometry.md": {
-	id: "2019-02-17-riemannian-geometry.md";
-  slug: "2019-02-17-riemannian-geometry";
+"riemannian-geometry.md": {
+	id: "riemannian-geometry.md";
+  slug: "riemannian-geometry";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2019-04-09-optimization-riemannian-manifolds.md": {
-	id: "2019-04-09-optimization-riemannian-manifolds.md";
-  slug: "2019-04-09-optimization-riemannian-manifolds";
+"scrapy-long-running.md": {
+	id: "scrapy-long-running.md";
+  slug: "scrapy-long-running";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2020-11-02-hessian-curvatures.md": {
-	id: "2020-11-02-hessian-curvatures.md";
-  slug: "2020-11-02-hessian-curvatures";
+"slice-sampling.md": {
+	id: "slice-sampling.md";
+  slug: "slice-sampling";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2021-06-21-manifold-gaussians.md": {
-	id: "2021-06-21-manifold-gaussians.md";
-  slug: "2021-06-21-manifold-gaussians";
+"theano-pde.md": {
+	id: "theano-pde.md";
+  slug: "theano-pde";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2021-07-20-chentsov-theorem.md": {
-	id: "2021-07-20-chentsov-theorem.md";
-  slug: "2021-07-20-chentsov-theorem";
+"twitter-auth-flask.md": {
+	id: "twitter-auth-flask.md";
+  slug: "twitter-auth-flask";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2021-10-27-laplace.md": {
-	id: "2021-10-27-laplace.md";
-  slug: "2021-10-27-laplace";
+"vae-pytorch.md": {
+	id: "vae-pytorch.md";
+  slug: "vae-pytorch";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2022-05-01-plotting.md": {
-	id: "2022-05-01-plotting.md";
-  slug: "2022-05-01-plotting";
+"variational-autoencoder.md": {
+	id: "variational-autoencoder.md";
+  slug: "variational-autoencoder";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2022-06-25-conv-probit.md": {
-	id: "2022-06-25-conv-probit.md";
-  slug: "2022-06-25-conv-probit";
+"volume-form.mdx": {
+	id: "volume-form.mdx";
+  slug: "volume-form";
+  body: string;
+  collection: "post";
+  data: InferEntrySchema<"post">
+} & { render(): Render[".mdx"] };
+"wagtail-dev-env.md": {
+	id: "wagtail-dev-env.md";
+  slug: "wagtail-dev-env";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"2023-02-09-hessian-invariance.md": {
-	id: "2023-02-09-hessian-invariance.md";
-  slug: "2023-02-09-hessian-invariance";
-  body: string;
-  collection: "post";
-  data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
-"2023-12-13-volume-form.md": {
-	id: "2023-12-13-volume-form.md";
-  slug: "2023-12-13-volume-form";
+"wasserstein-gan.md": {
+	id: "wasserstein-gan.md";
+  slug: "wasserstein-gan";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">

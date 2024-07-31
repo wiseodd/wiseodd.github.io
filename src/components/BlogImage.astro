@@ -1,0 +1,6 @@
+---
+import { Picture } from 'astro:assets'
+const { image, alt } = Astro.props
+---
+
+<Picture src={image} alt={alt} class='mx-auto size-1/2 drop-shadow-lg' />
