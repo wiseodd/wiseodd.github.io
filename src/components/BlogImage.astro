@@ -1,6 +1,19 @@
 ---
-import { Picture } from 'astro:assets'
-const { image, alt } = Astro.props
+interface Props {
+	imagePath: string
+	altText: string
+}
+
+const { imagePath, altText } = Astro.props
 ---
 
-<Picture src={image} alt={alt} class='mx-auto size-1/2 drop-shadow-lg' />
+<figure class='sm:text-center'>
+	<img src={imagePath} alt={altText} class='mx-auto drop-shadow sm:size-1/2' />
+	{
+		altText && (
+			<figcaption>
+				<span class='font-extrabold'>Fig.</span> &nbsp; {altText}
+			</figcaption>
+		)
+	}
+</figure>
