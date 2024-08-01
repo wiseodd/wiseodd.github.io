@@ -3,6 +3,7 @@ title: 'The Invariance of the Hessian and Its Eigenvalues, Determinant, and Trac
 description: "In deep learning, the Hessian and its downstream quantities are observed to be not invariant under reparametrization. This makes the Hessian to be a poor proxy for flatness and makes Newton's method non-invariant. In this post, we shall see that the Hessian and the quantities derived from it are actually invariant under reparametrization."
 publishDate: 2023-02-09 00:00
 ---
+import BlogImage from '@/components/BlogImage.astro';
 
 Let $f: \mathcal{X} \times \Theta \to \R^k$ be a neural network, defined by $(x, \theta) \mapsto f(x; \theta) = f_\theta(x)$.
 Suppose $\L: \Theta \to \R$ is a loss function defined on the $d$-dimensional parameter space $\Theta$ of $f$ and let $\theta^*$ be a minimum of $\L$.
@@ -72,7 +73,6 @@ Notice that $\frac{\partial \theta^m}{\partial \psi^i}(\psi^*)$ is the inverse o
 Considering the transformed $H$, $v$, and $w$, the bilinear map $B$ then becomes
 
 $$
-\require{cancel}
 \begin{align}
   \tilde{B}(\tilde{v}, \tilde{w}) &= \tilde{v}^i \tilde{w}^j \tilde{H}_{ij}(\psi^*) \\
     %
@@ -167,7 +167,6 @@ The loss landscape of $\L$ is the _graph_ $\\{ (\theta, \L(\theta)) \in \R^{d+1}
 This is actually a $d$-dimensional [hypersurface](https://en.wikipedia.org/wiki/Hypersurface) embedded in $\R^{d+1}$.
 In particular, a hypersurface is a manifold.
 Meanwhile, the concept of "sharpness" or "flatness" of the loss landscape of $\L$ is nothing but the curvatures of the above manifold, particularly the principal curvatures, Gaussian curvature, and mean curvature.
-See [this previous]({% post_url 2020-11-02-hessian-curvatures %}) post for intuition.
 
 These curvatures can actually be derived from the Hessian of $\L$ since this Hessian is the second fundamental form of that manifold. (See that previous post!)
 However, to obtain those curvatures, we _must_ first derive the **_shape operator_** with the help of the metric. (The shape operator is a linear operator, mapping a vector to a vector.)

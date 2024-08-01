@@ -59,7 +59,7 @@ export const expressiveCodeOptions: AstroExpressiveCodeOptions = {
 			frameBoxShadowCssValue: 'none'
 		},
 		uiLineHeight: 'inherit',
-		codeFontSize: '0.8rem',
+		codeFontSize: '0.845rem',
 		codeLineHeight: '1.2rem',
 		borderRadius: '4px',
 		codePaddingInline: '1rem',

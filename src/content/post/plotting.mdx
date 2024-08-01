@@ -4,12 +4,13 @@ description: "In machine learning papers, plots are often treated as afterthough
 publishDate: 2022-05-01 00:00
 tags: [TikZ]
 ---
+import BlogImage from '@/components/BlogImage.astro';
 
 Let's start with a side-by-side comparison. Which one of the following two plots is more aesthetically pleasing?
 Left or right?
 (Taken from one of my papers [1]. The code for generating it is in [2])
 
-![Matplotlib vs Tikz]({{ site.baseurl }}/img/2022-05-01-plotting/mpl_vs_tikz.png){:width="100%"}
+<BlogImage imagePath='/src/assets/img/plotting/mpl_vs_tikz.png' />
 
 Hopefully, you agree with me that the answer is the one on the right.
 In that case, we can start our journey in transforming the l.h.s. figure to the r.h.s. one.
@@ -90,7 +91,7 @@ So, here's my workflow for creating a publication-ready plot, from start to fini
    Note that `\figwidth` and `\figheight` are local variables, so their values will only be used for `figname`.
 
 6. At this point, you will already have a quite aesthetically pleasing figure, cf. below. Notice that the font face and size are consistent with the paper's text. However, notice that we need to improve the plot further, e.g. by unhiding the x- and y-tick labels.
-   ![Matplotlib vs Tikz]({{ site.baseurl }}/img/2022-05-01-plotting/tikzplotlib_raw.png){:width="50%"}
+    <BlogImage imagePath='/src/assets/img/plotting/tikzplotlib_raw.png' />
 7. Open `figname.tex`. You will see the following code:
 
    ```tex
@@ -134,7 +135,7 @@ So, here's my workflow for creating a publication-ready plot, from start to fini
 
 Here's the final result:
 
-![Tikzplotlib Almost Final]({{ site.baseurl }}/img/2022-05-01-plotting/tikzplotlib_almostfinal.png){:width="50%"}
+<BlogImage imagePath='/src/assets/img/plotting/tikzplotlib_almostfinal.png' />
 
 Looks much more pleasing than the standard Matplotlib output, isn't it?
 Note that we didn't change many things other than refining the styling options of the TikZ axis---we didn't even touch the plot content itself!
@@ -164,7 +165,7 @@ But, to me, the plot can still be refined further.
 
 Putting everything together, here's the final result:
 
-![Tikzplotlib Almost Final]({{ site.baseurl }}/img/2022-05-01-plotting/tikzplotlib_final.png){:width="50%"}
+<BlogImage imagePath='/src/assets/img/plotting/tikzplotlib_final.png' />
 
 Looks great to me!
 As a bonus, this plot (i.e. the `figname.tex`) is highly portable.
@@ -243,4 +244,4 @@ You will more often than not find your questions already answered there.
 ## References
 
 1. Kristiadi, Agustinus, Matthias Hein, and Philipp Hennig. "Being a Bit Frequentist Improves Bayesian Neural Networks" AISTATS 2022.
-2. <https://github.com/wiseodd/bayesian_ood_training/blob/master/notebooks/plot_uniform.ipynb>.
+2. [https://github.com/wiseodd/bayesian_ood_training/blob/master/notebooks/plot_uniform.ipynb](https://github.com/wiseodd/bayesian_ood_training/blob/master/notebooks/plot_uniform.ipynb).

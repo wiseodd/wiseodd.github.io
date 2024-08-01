@@ -4,7 +4,7 @@ interface Props {
 	altText: string
 }
 
-const { imagePath, altText } = Astro.props
+const { imagePath, altText = '' } = Astro.props
 ---
 
 <figure class='sm:text-center'>
