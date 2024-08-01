@@ -1,14 +1,19 @@
 ---
 interface Props {
 	imagePath: string
-	altText: string
+	altText?: string
+	fullWidth?: boolean
 }
 
-const { imagePath, altText = '' } = Astro.props
+const { imagePath, altText = '', fullWidth = false } = Astro.props
 ---
 
 <figure class='sm:text-center'>
-	<img src={imagePath} alt={altText} class='mx-auto drop-shadow sm:size-1/2' />
+	<img 
+		src={imagePath}
+		alt={altText}
+		class:list={[fullWidth ? '' : 'sm:size-1/2', 'mx-auto', 'drop-shadow']} 
+	/>
 	{
 		altText && (
 			<figcaption>

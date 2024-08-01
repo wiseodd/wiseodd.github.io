@@ -10,7 +10,7 @@ Let's start with a side-by-side comparison. Which one of the following two plots
 Left or right?
 (Taken from one of my papers [1]. The code for generating it is in [2])
 
-<BlogImage imagePath='/src/assets/img/plotting/mpl_vs_tikz.png' />
+<BlogImage imagePath='/img/plotting/mpl_vs_tikz.png' fullWidth />
 
 Hopefully, you agree with me that the answer is the one on the right.
 In that case, we can start our journey in transforming the l.h.s. figure to the r.h.s. one.
@@ -91,7 +91,7 @@ So, here's my workflow for creating a publication-ready plot, from start to fini
    Note that `\figwidth` and `\figheight` are local variables, so their values will only be used for `figname`.
 
 6. At this point, you will already have a quite aesthetically pleasing figure, cf. below. Notice that the font face and size are consistent with the paper's text. However, notice that we need to improve the plot further, e.g. by unhiding the x- and y-tick labels.
-    <BlogImage imagePath='/src/assets/img/plotting/tikzplotlib_raw.png' />
+    <BlogImage imagePath='/img/plotting/tikzplotlib_raw.png' />
 7. Open `figname.tex`. You will see the following code:
 
    ```tex
@@ -135,7 +135,7 @@ So, here's my workflow for creating a publication-ready plot, from start to fini
 
 Here's the final result:
 
-<BlogImage imagePath='/src/assets/img/plotting/tikzplotlib_almostfinal.png' />
+<BlogImage imagePath='/img/plotting/tikzplotlib_almostfinal.png' />
 
 Looks much more pleasing than the standard Matplotlib output, isn't it?
 Note that we didn't change many things other than refining the styling options of the TikZ axis---we didn't even touch the plot content itself!
@@ -165,7 +165,7 @@ But, to me, the plot can still be refined further.
 
 Putting everything together, here's the final result:
 
-<BlogImage imagePath='/src/assets/img/plotting/tikzplotlib_final.png' />
+<BlogImage imagePath='/img/plotting/tikzplotlib_final.png' />
 
 Looks great to me!
 As a bonus, this plot (i.e. the `figname.tex`) is highly portable.
