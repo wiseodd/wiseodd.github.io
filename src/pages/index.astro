@@ -25,7 +25,7 @@ const interests = [
 	'Riemannian Geometry'
 ]
 const languages = ['Rust', 'Gleam', 'Python']
-const editors = ['Neovim']
+const editors = ['Neovim', 'Kitty', 'Iosevka']
 
 const MAX_POSTS = 10
 const allPosts = await getAllPosts()
@@ -175,7 +175,7 @@ const sortedSelectedPubs = selectedPubs.filter((pub: Publication) => pub.marked)
 
 		<Section title='Skills'>
 			<SkillLayout title='Languages' skills={languages} />
-			<SkillLayout title='Editor' skills={editors} />
+			<SkillLayout title='Editor Stack' skills={editors} />
 		</Section>
 
 		{

@@ -206,13 +206,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"conv-probit.md": {
-	id: "conv-probit.md";
+"conv-probit.mdx": {
+	id: "conv-probit.mdx";
   slug: "conv-probit";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 "convnet-conv-layer.md": {
 	id: "convnet-conv-layer.md";
   slug: "convnet-conv-layer";
@@ -304,13 +304,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"hessian-invariance.md": {
-	id: "hessian-invariance.md";
+"hessian-invariance.mdx": {
+	id: "hessian-invariance.mdx";
   slug: "hessian-invariance";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 "infogan.md": {
 	id: "infogan.md";
   slug: "infogan";
@@ -444,13 +444,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"plotting.md": {
-	id: "plotting.md";
+"plotting.mdx": {
+	id: "plotting.mdx";
   slug: "plotting";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 "rejection-sampling.md": {
 	id: "rejection-sampling.md";
   slug: "rejection-sampling";
@@ -486,13 +486,6 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"test.mdx": {
-	id: "test.mdx";
-  slug: "test";
-  body: string;
-  collection: "post";
-  data: InferEntrySchema<"post">
-} & { render(): Render[".mdx"] };
 "theano-pde.md": {
 	id: "theano-pde.md";
   slug: "theano-pde";
@@ -521,13 +514,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"volume-form.md": {
-	id: "volume-form.md";
+"volume-form.mdx": {
+	id: "volume-form.mdx";
   slug: "volume-form";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 "wagtail-dev-env.md": {
 	id: "wagtail-dev-env.md";
   slug: "wagtail-dev-env";
