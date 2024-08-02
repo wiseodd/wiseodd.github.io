@@ -4,9 +4,10 @@ description: 'The Laplace approximation (LA) is a simple yet powerful class of m
 publishDate: 2021-10-27 00:00
 tags: [bayes]
 ---
+import BlogImage from '@/components/BlogImage.astro';
 
 Let $f: X \times \Theta \to Y$ defined by $(x, \theta) \mapsto f_\theta(x)$ be a neural network, where $X \subseteq \R^n$, $\Theta \subseteq \R^d$, and $Y \subseteq \R^c$ be the input, parameter, and output spaces, respectively.
-Given a dataset $\D := \\{ (x_i, y_i) : x_i \in X, y_i \in Y \\}_{i=1}^m$, we define the likelihood $p(\D \mid \theta) := \prod\_{i=1}^m p(y_i \mid f\_\theta(x_i))$.
+Given a dataset $\D := \\{ (x_i, y_i) : x_i \in X, y_i \in Y \\}_{i=1}^m$, we define the likelihood $p(\D \mid \theta) := \prod_{i=1}^m p(y_i \mid f_\theta(x_i))$.
 Then, given a prior $p(\theta)$, we can obtain the posterior via an application of Bayes' rule: $p(\theta \mid \D) = 1/Z \,\, p(\D \mid \theta) p(\theta)$.
 But, the exact computation of $p(\theta \mid \D)$ is intractable in general due to the need of computing the normalization constant
 
@@ -49,7 +50,7 @@ $$
 \end{align*}
 $$
 
-For simplicity, let $\varSigma := -\left(\nabla^2_\theta \L\vert\_{\theta\_\map}\right)^{-1}$. Then, using this approximation, we can also obtain an approximation of $Z$:
+For simplicity, let $\varSigma := -\left(\nabla^2_\theta \L\vert_{\theta_\map}\right)^{-1}$. Then, using this approximation, we can also obtain an approximation of $Z$:
 
 $$
 \begin{align*}
@@ -91,7 +92,7 @@ which in general is less overconfident compared to the MAP-estimate-induced pred
 What we have seen is the most general framework of the LA.
 One can make a specific design decision, such as by imposing a special structure to the Hessian $\nabla^2_\theta \L$, and thus the covariance $\varSigma$.
 
-## The <span style="font-family: monospace; font-size: 15pt">laplace-torch</span> library
+## The laplace-torch library
 
 The simplicity of the LA is not without a drawback.
 Recall that the parameter $\theta$ is in $\Theta \subseteq \R^d$.
@@ -101,44 +102,40 @@ Together with the fact that the LA is an old method (and thus not "trendy" in th
 
 Motivated by this observation, in our NeurIPS 2021 paper titled ["Laplace Redux -- Effortless Bayesian Deep Learning"](https://arxiv.org/abs/2106.14806), we showcase that (i) the Hessian can be obtained cheaply, thanks to recent advances in second-order optimization, and (ii) even the simplest LA can be competitive to more sophisticated VB and MCMC methods, while only being much cheaper than them.
 Of course, numbers alone are not sufficient to promote the goodness of the LA.
-So, in that paper, we also propose an extendible, easy-to-use software library for PyTorch called <span style="font-family: monospace; font-size: 12pt">laplace-torch</span>, which is available at <https://github.com/AlexImmer/Laplace>.
+So, in that paper, we also propose an extendible, easy-to-use software library for PyTorch called `laplace-torch`, which is available at [this Github repo](https://github.com/AlexImmer/Laplace).
 
-The <span style="font-family: monospace; font-size: 12pt">laplace-torch</span> is a simple library for, essentially, "turning standard NNs into BNNs".
+The `laplace-torch` is a simple library for, essentially, "turning standard NNs into BNNs".
 The main class of this library is the class `Laplace`, which can be used to transform a standard PyTorch model into a Laplace-approximated BNN.
 Here is an example.
 
-```python
+```python title="try_laplace.py"
 from laplace import Laplace
 
 model = load_pretrained_model()
-
 la = Laplace(model, 'regression')
 
 # Compute the Hessian
-
 la.fit(train_loader)
 
 # Hyperparameter tuning
-
 la.optimize_prior_precision()
 
 # Make prediction
-
 pred_mean, pred_var = la(x_test)
 ```
 
 The resulting object, `la` is a fully-functioning BNN, yielding the following prediction.
 (Notice the identical regression curves---the LA essentially imbues MAP predictions with uncertainty estimates.)
 
-![Regression]({{ site.baseurl }}/img/2021-10-27-laplace/regression_example.png){:width="50%"}
+<BlogImage imagePath="/img/laplace/regression_example.png" altText="Laplace for regression." />
 
-Of course, <span style="font-family: monospace; font-size: 12pt">laplace-torch</span> is flexible: the `Laplace` class has almost all state-of-the-art features in Laplace approximations.
-Those features, along with the corresponding options in <span style="font-family: monospace; font-size: 12pt">laplace-torch</span>, are summarized in the following flowchart.
+Of course, `laplace-torch` is flexible: the `Laplace` class has almost all state-of-the-art features in Laplace approximations.
+Those features, along with the corresponding options in `laplace-torch`, are summarized in the following flowchart.
 (The options `'subnetwork'` for `subset_of_weights` and `'lowrank'` for `hessian_structure` are in the work, by the time this post is first published.)
 
-![Laplace Flowchart]({{ site.baseurl }}/img/2021-10-27-laplace/flowchart.png){:width="100%"}
+<BlogImage imagePath="/img/laplace/flowchart.png" altText="Modern arts of Laplace approximations." fullWidth />
 
-The <span style="font-family: monospace; font-size: 12pt">laplace-torch</span> library uses a very cheap yet highly-performant flavor of LA by default, based on [4]:
+The `laplace-torch` library uses a very cheap yet highly-performant flavor of LA by default, based on [4]:
 
 ```python
 def Laplace(model, likelihood, subset_of_weights='last_layer', hessian_structure='kron', ...)
@@ -147,19 +144,19 @@ def Laplace(model, likelihood, subset_of_weights='last_layer', hessian_structure
 That is, by default the `Laplace` class will fit a last-layer Laplace with a Kronecker-factored Hessian for approximating the covariance.
 Let us see how this default flavor of LA performs compared to the more sophisticated, recent (all-layer) Bayesian baselines in classification.
 
-![Classification]({{ site.baseurl }}/img/2021-10-27-laplace/classification.png){:width="100%"}
+<BlogImage imagePath="/img/laplace/classification.png" altText="Laplace for classification." fullWidth />
 
 Here we can see that `Laplace`, with default options, improves the calibration (in terms of expected calibration error (ECE)) of the MAP model.
 Moreover, it is guaranteed to preserve the accuracy of the MAP model---something that cannot be said for other baselines.
-Ultimately, this improvement is cheap: <span style="font-family: monospace; font-size: 12pt">laplace-torch</span> only incurs little overhead relative to the MAP model---far cheaper than other Bayesian baselines.
+Ultimately, this improvement is cheap: `laplace-torch` only incurs little overhead relative to the MAP model---far cheaper than other Bayesian baselines.
 
 ## Hyperparameter Tuning
 
 Hyperparameter tuning, especially for the prior variance/precision, is crucial in modern Laplace approximations for BNNs.
-<span style="font-family: monospace; font-size: 12pt">laplace-torch</span> provides several options: (i) cross-validation and (ii) marginal-likelihood maximization (MLM, also known as empirical Bayes and type-II maximum likelihood).
+`laplace-torch` provides several options: (i) cross-validation and (ii) marginal-likelihood maximization (MLM, also known as empirical Bayes and type-II maximum likelihood).
 
 Cross-validation is simple but needs a validation dataset.
-In <span style="font-family: monospace; font-size: 12pt">laplace-torch</span>, this can be done via the following.
+In `laplace-torch`, this can be done via the following.
 
 ```python
 la.optimize_prior_precision(method='CV', val_loader=val_loader)
@@ -170,7 +167,7 @@ Recall that by taking the second-order Taylor expansion over the log-posterior, 
 This object is called the marginal likelihood: it is a probability over the dataset $\D$ and crucially, it is a function of the hyperparameter since the parameter $\theta$ is marginalized out.
 Thus, we can find the best values for our hyperparameters by maximizing this function.
 
-In <span style="font-family: monospace; font-size: 12pt">laplace-torch</span>, the marginal likelihood can be accessed via
+In `laplace-torch`, the marginal likelihood can be accessed via
 
 ```python
 ml = la.log_marginal_likelihood(prior_precision)
@@ -182,16 +179,16 @@ This function is compatible with PyTorch's autograd, so we can backpropagate thr
 ml.backward()  # Works!
 ```
 
-Thus, MLM can easily be done in <span style="font-family: monospace; font-size: 12pt">laplace-torch</span>.
-By extension, recent methods such as online MLM [5], can also easily be applied using <span style="font-family: monospace; font-size: 12pt">laplace-torch</span>.
+Thus, MLM can easily be done in `laplace-torch`.
+By extension, recent methods such as online MLM [5], can also easily be applied using `laplace-torch`.
 
 ## Outlooks
 
-The <span style="font-family: monospace; font-size: 12pt">laplace-torch</span> library is continuously developed.
+The `laplace-torch` library is continuously developed.
 Support for more likelihood functions and priors, subnetwork Laplace, etc. are on the way.
 
 In any case, we hope to see the revival of the LA in the Bayesian deep learning community.
-So, please try out our library at <https://github.com/AlexImmer/Laplace>!
+So, please try out our library at [https://github.com/AlexImmer/Laplace](https://github.com/AlexImmer/Laplace)!
 
 ## References
 

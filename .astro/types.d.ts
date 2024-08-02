@@ -332,13 +332,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"laplace.md": {
-	id: "laplace.md";
+"laplace.mdx": {
+	id: "laplace.mdx";
   slug: "laplace";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 "lda-gibbs.md": {
 	id: "lda-gibbs.md";
   slug: "lda-gibbs";

@@ -43,7 +43,7 @@ export const menuLinks: Array<{ title: string; path: string }> = [
 // https://expressive-code.com/reference/configuration/
 export const expressiveCodeOptions: AstroExpressiveCodeOptions = {
 	// One dark, one light theme => https://expressive-code.com/guides/themes/#available-themes
-	themes: ['catppuccin-frappe', 'catppuccin-mocha'],
+	themes: ['catppuccin-latte', 'catppuccin-macchiato'],
 	themeCssSelector(theme, { styleVariants }) {
 		if (styleVariants.length >= 2) {
 			const baseTheme = styleVariants[0]?.theme
@@ -54,10 +54,8 @@ export const expressiveCodeOptions: AstroExpressiveCodeOptions = {
 		return `[data-theme="${theme.name}"]`
 	},
 	useThemedScrollbars: false,
+	useDarkModeMediaQuery: true,
 	styleOverrides: {
-		frames: {
-			frameBoxShadowCssValue: 'none'
-		},
 		uiLineHeight: 'inherit',
 		codeFontSize: '0.845rem',
 		codeLineHeight: '1.2rem',
