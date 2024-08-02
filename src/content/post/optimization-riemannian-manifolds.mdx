@@ -4,6 +4,7 @@ description: 'One of the most ubiquitous applications in the field of differenti
 publishDate: 2019-02-22 12:00
 tags: [math]
 ---
+import BlogImage from '@/components/BlogImage.astro';
 
 Differential geometry can be seen as a generalization of calculus on Riemannian manifolds. Objects in calculus such as gradient, Jacobian, and Hessian on $\R^n$ are adapted on arbitrary Riemannian manifolds. This fact let us also generalize one of the most ubiquitous problem in calculus: the optimization problem. The implication of this generalization is far-reaching: We can make a more general and thus flexible assumption regarding the domain of our optimization, which might fit real-world problems better or has some desirable properties.
 
@@ -52,11 +53,13 @@ $$
 
 Thus, the length of $\gradat{f}{x}$ is equal to the value of $D_{\hat{v}} \, f \, \vert_x$.
 
-$\square$
+$$
+\qed
+$$
 
 ## Gradient descent on Riemannian manifolds
 
-**Remark.** _We shall use the Einstein summation convention: Repeated indices above and below are implied to be summed, e.g. $v^i w\_i \implies \sum\_i v^i w_i$ and $g\_{ij} v^i v^j \implies \sum\_{ij} g\_{ij} v^i v^j$. By convention the index in $\partder{}{x^i}$ is thought to be a lower index._
+**Remark.** _We shall use the Einstein summation convention: Repeated indices above and below are implied to be summed, e.g. $v^i w_i \implies \sum_i v^i w_i$ and $g_{ij} v^i v^j \implies \sum_{ij} g_{ij} v^i v^j$. By convention the index in $\partder{}{x^i}$ is thought to be a lower index._
 
 We now want to break the confine of the Euclidean space. We would like to generalize the gradient descent algorithm on a function defined on a Riemannian manifold. Based on Algorithm 1, at least there are two parts of the algorithm that we need to adapt, namely, (i) the gradient of $f$ and (ii) the way we move between points on $\M$.
 
@@ -104,7 +107,9 @@ $$
 
 where $\theta$ is again the angle between $u$ and $w$. Using the characteristic of $\gradat{f}{p}$ we have discussed above and by substituting $vf$ for $D_v \, f \, \vert_p$ in the proof of Proposition 1, we immediately get the desired result.
 
-$\square$
+$$
+\qed
+$$
 
 Proposition 2 therefore provides us with a justification of just simply substituting the Euclidean gradient with the Riemannian gradient in Algorithm 1.
 
@@ -120,7 +125,7 @@ $$
     h = G^{-1} d^\T \, .
 $$
 
-**Example 1. (Euclidean gradient in coordinates).** Notice that in the Euclidean case, $\bar{g}\_{ij} = \delta_{ij}$, thus it is represented by an identity matrix $I$, in coordinates. Therefore the Euclidean gradient is simply
+**Example 1. (Euclidean gradient in coordinates).** Notice that in the Euclidean case, $\bar{g}_{ij} = \delta_{ij}$, thus it is represented by an identity matrix $I$, in coordinates. Therefore the Euclidean gradient is simply
 
 $$
     h = I^{-1} d^\T = d^\T \, .
@@ -176,7 +181,7 @@ In general, the exponential map is difficult to compute, as to compute a geodesi
 Let $p \in \M$ be arbitrary. We define a map $R_p: T\M \to \M$ called the **_retraction_** map, by the following properties:
 
 1. $R_p(0) = p$
-2. $dR_p(0) = \text{Id}\_{T_p \M}$.
+2. $dR_p(0) = \text{Id}_{T_p \M}$.
 
 The second property is called the **_local rigidity_** condition and it preserves gradients at $p$. In particular, the exponential map is a retraction. Furthermore, if $d_g$ denotes the Riemannian distance and $t \in \R$, retraction can be seen as a first-order approximation of the exponential map, in the sense that
 
@@ -237,7 +242,7 @@ One major difficulty exists: Computing and storing the matrix representation $G$
 3. Fels, Mark Eric. "An Introduction to Differential Geometry through Computation." (2016).
 4. Absil, P-A., Robert Mahony, and Rodolphe Sepulchre. Optimization algorithms on matrix manifolds. Princeton University Press, 2009.
 5. Boumal, Nicolas. Optimization and estimation on manifolds. Diss. Catholic University of Louvain, Louvain-la-Neuve, Belgium, 2014.
-6. Graphics: <https://tex.stackexchange.com/questions/261408/sphere-tangent-to-plane>.
+6. Graphics: [https://tex.stackexchange.com/questions/261408/sphere-tangent-to-plane](https://tex.stackexchange.com/questions/261408/sphere-tangent-to-plane).
 7. Martens, James, and Roger Grosse. "Optimizing neural networks with kronecker-factored approximate curvature." International conference on machine learning. 2015.
 8. Patterson, Sam, and Yee Whye Teh. "Stochastic gradient Riemannian Langevin dynamics on the probability simplex." Advances in neural information processing systems. 2013.
 9. Suzuki, Atsushi, Yosuke Enokida, and Kenji Yamanishi. "Riemannian TransE: Multi-relational Graph Embedding in Non-Euclidean Space." (2018).

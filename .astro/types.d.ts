@@ -141,399 +141,392 @@ declare module 'astro:content' {
   slug: "annealed-importance-sampling";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".md"] };
 "autoencoders.md": {
 	id: "autoencoders.md";
   slug: "autoencoders";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".md"] };
 "batchnorm.md": {
 	id: "batchnorm.md";
   slug: "batchnorm";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".md"] };
 "bayesian-regression.md": {
 	id: "bayesian-regression.md";
   slug: "bayesian-regression";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".md"] };
 "boundary-seeking-gan.md": {
 	id: "boundary-seeking-gan.md";
   slug: "boundary-seeking-gan";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".md"] };
 "brouwers-fixed-point.md": {
 	id: "brouwers-fixed-point.md";
   slug: "brouwers-fixed-point";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".md"] };
-"chentsov-theorem.md": {
-	id: "chentsov-theorem.md";
+"chentsov-theorem.mdx": {
+	id: "chentsov-theorem.mdx";
   slug: "chentsov-theorem";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+  data: any
+} & { render(): Render[".mdx"] };
 "conditional-gan-tensorflow.md": {
 	id: "conditional-gan-tensorflow.md";
   slug: "conditional-gan-tensorflow";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".md"] };
 "conditional-vae.md": {
 	id: "conditional-vae.md";
   slug: "conditional-vae";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".md"] };
 "contractive-autoencoder.md": {
 	id: "contractive-autoencoder.md";
   slug: "contractive-autoencoder";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".md"] };
 "conv-probit.mdx": {
 	id: "conv-probit.mdx";
   slug: "conv-probit";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".mdx"] };
 "convnet-conv-layer.md": {
 	id: "convnet-conv-layer.md";
   slug: "convnet-conv-layer";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".md"] };
 "convnet-maxpool-layer.md": {
 	id: "convnet-maxpool-layer.md";
   slug: "convnet-maxpool-layer";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".md"] };
 "coupled_gan.md": {
 	id: "coupled_gan.md";
   slug: "coupled_gan";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".md"] };
 "deploying-wagtail.md": {
 	id: "deploying-wagtail.md";
   slug: "deploying-wagtail";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".md"] };
 "developing-wagtail.md": {
 	id: "developing-wagtail.md";
   slug: "developing-wagtail";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".md"] };
 "dropout.md": {
 	id: "dropout.md";
   slug: "dropout";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".md"] };
 "fisher-information.md": {
 	id: "fisher-information.md";
   slug: "fisher-information";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".md"] };
 "forward-reverse-kl.md": {
 	id: "forward-reverse-kl.md";
   slug: "forward-reverse-kl";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".md"] };
 "gan-pytorch.md": {
 	id: "gan-pytorch.md";
   slug: "gan-pytorch";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".md"] };
 "gan-tensorflow.md": {
 	id: "gan-tensorflow.md";
   slug: "gan-tensorflow";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".md"] };
 "gaussian-anomaly-detection.md": {
 	id: "gaussian-anomaly-detection.md";
   slug: "gaussian-anomaly-detection";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".md"] };
 "gibbs-sampling.md": {
 	id: "gibbs-sampling.md";
   slug: "gibbs-sampling";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".md"] };
-"hessian-curvatures.md": {
-	id: "hessian-curvatures.md";
+"hessian-curvatures.mdx": {
+	id: "hessian-curvatures.mdx";
   slug: "hessian-curvatures";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+  data: any
+} & { render(): Render[".mdx"] };
 "hessian-invariance.mdx": {
 	id: "hessian-invariance.mdx";
   slug: "hessian-invariance";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".mdx"] };
 "infogan.md": {
 	id: "infogan.md";
   slug: "infogan";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".md"] };
 "jekyll-fb-share.md": {
 	id: "jekyll-fb-share.md";
   slug: "jekyll-fb-share";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".md"] };
 "kl-mle.md": {
 	id: "kl-mle.md";
   slug: "kl-mle";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".md"] };
 "laplace.mdx": {
 	id: "laplace.mdx";
   slug: "laplace";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".mdx"] };
 "lda-gibbs.md": {
 	id: "lda-gibbs.md";
   slug: "lda-gibbs";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".md"] };
 "least-squares-gan.md": {
 	id: "least-squares-gan.md";
   slug: "least-squares-gan";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".md"] };
 "levelset-method.md": {
 	id: "levelset-method.md";
   slug: "levelset-method";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".md"] };
 "levelset-segmentation.md": {
 	id: "levelset-segmentation.md";
   slug: "levelset-segmentation";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".md"] };
 "lstm-backprop.md": {
 	id: "lstm-backprop.md";
   slug: "lstm-backprop";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".md"] };
-"manifold-gaussians.md": {
-	id: "manifold-gaussians.md";
+"manifold-gaussians.mdx": {
+	id: "manifold-gaussians.mdx";
   slug: "manifold-gaussians";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+  data: any
+} & { render(): Render[".mdx"] };
 "mayer-vietoris-sphere.md": {
 	id: "mayer-vietoris-sphere.md";
   slug: "mayer-vietoris-sphere";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".md"] };
 "metropolis-hastings.md": {
 	id: "metropolis-hastings.md";
   slug: "metropolis-hastings";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".md"] };
 "minkowski-dirichlet.md": {
 	id: "minkowski-dirichlet.md";
   slug: "minkowski-dirichlet";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".md"] };
 "mle-vs-map.md": {
 	id: "mle-vs-map.md";
   slug: "mle-vs-map";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".md"] };
 "natural-gradient.md": {
 	id: "natural-gradient.md";
   slug: "natural-gradient";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".md"] };
 "nn-optimization.md": {
 	id: "nn-optimization.md";
   slug: "nn-optimization";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".md"] };
 "nn-sgd.md": {
 	id: "nn-sgd.md";
   slug: "nn-sgd";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".md"] };
-"optimization-riemannian-manifolds.md": {
-	id: "optimization-riemannian-manifolds.md";
+"optimization-riemannian-manifolds.mdx": {
+	id: "optimization-riemannian-manifolds.mdx";
   slug: "optimization-riemannian-manifolds";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+  data: any
+} & { render(): Render[".mdx"] };
 "parallel-monte-carlo.md": {
 	id: "parallel-monte-carlo.md";
   slug: "parallel-monte-carlo";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".md"] };
 "plotting.mdx": {
 	id: "plotting.mdx";
   slug: "plotting";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".mdx"] };
 "rejection-sampling.md": {
 	id: "rejection-sampling.md";
   slug: "rejection-sampling";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".md"] };
 "residual-net.md": {
 	id: "residual-net.md";
   slug: "residual-net";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
-"riemannian-geometry.md": {
-	id: "riemannian-geometry.md";
-  slug: "riemannian-geometry";
-  body: string;
-  collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".md"] };
 "scrapy-long-running.md": {
 	id: "scrapy-long-running.md";
   slug: "scrapy-long-running";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".md"] };
 "slice-sampling.md": {
 	id: "slice-sampling.md";
   slug: "slice-sampling";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".md"] };
 "theano-pde.md": {
 	id: "theano-pde.md";
   slug: "theano-pde";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".md"] };
 "twitter-auth-flask.md": {
 	id: "twitter-auth-flask.md";
   slug: "twitter-auth-flask";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".md"] };
 "vae-pytorch.md": {
 	id: "vae-pytorch.md";
   slug: "vae-pytorch";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".md"] };
 "variational-autoencoder.md": {
 	id: "variational-autoencoder.md";
   slug: "variational-autoencoder";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".md"] };
 "volume-form.mdx": {
 	id: "volume-form.mdx";
   slug: "volume-form";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".mdx"] };
 "wagtail-dev-env.md": {
 	id: "wagtail-dev-env.md";
   slug: "wagtail-dev-env";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".md"] };
 "wasserstein-gan.md": {
 	id: "wasserstein-gan.md";
   slug: "wasserstein-gan";
   body: string;
   collection: "post";
-  data: InferEntrySchema<"post">
+  data: any
 } & { render(): Render[".md"] };
 };
 
@@ -545,5 +538,5 @@ declare module 'astro:content' {
 
 	type AnyEntryMap = ContentEntryMap & DataEntryMap;
 
-	export type ContentConfig = typeof import("../src/content/config.js");
+	export type ContentConfig = never;
 }
