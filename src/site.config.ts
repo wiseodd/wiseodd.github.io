@@ -1,5 +1,5 @@
 import type { SiteConfig } from '@/types'
-import type { AstroExpressiveCodeOptions } from 'astro-expressive-code'
+import { setProperty, type AstroExpressiveCodeOptions } from 'astro-expressive-code'
 import '@fontsource/iosevka'
 import '@fontsource/jetbrains-mono'
 import '@fontsource/source-sans-pro'
@@ -58,6 +58,7 @@ export const expressiveCodeOptions: AstroExpressiveCodeOptions = {
 	useDarkModeMediaQuery: true,
 	styleOverrides: {
 		uiLineHeight: 'inherit',
+		uiFontWeight: '700',
 		codeFontSize: '0.8rem',
 		codeLineHeight: '1.2rem',
 		borderRadius: '4px',
