@@ -1,6 +1,7 @@
 import type { SiteConfig } from '@/types'
 import type { AstroExpressiveCodeOptions } from 'astro-expressive-code'
 import '@fontsource/iosevka'
+import '@fontsource/jetbrains-mono'
 import '@fontsource/source-sans-pro'
 
 export const siteConfig: SiteConfig = {
@@ -43,7 +44,7 @@ export const menuLinks: Array<{ title: string; path: string }> = [
 // https://expressive-code.com/reference/configuration/
 export const expressiveCodeOptions: AstroExpressiveCodeOptions = {
 	// One dark, one light theme => https://expressive-code.com/guides/themes/#available-themes
-	themes: ['catppuccin-latte', 'catppuccin-macchiato'],
+	themes: ['light-plus', 'catppuccin-macchiato'],
 	themeCssSelector(theme, { styleVariants }) {
 		if (styleVariants.length >= 2) {
 			const baseTheme = styleVariants[0]?.theme
@@ -57,10 +58,10 @@ export const expressiveCodeOptions: AstroExpressiveCodeOptions = {
 	useDarkModeMediaQuery: true,
 	styleOverrides: {
 		uiLineHeight: 'inherit',
-		codeFontSize: '0.845rem',
+		codeFontSize: '0.8rem',
 		codeLineHeight: '1.2rem',
 		borderRadius: '4px',
 		codePaddingInline: '1rem',
-		codeFontFamily: '"Iosevka", monospace;'
+		codeFontFamily: '"Jetbrains Mono", monospace;'
 	}
 }

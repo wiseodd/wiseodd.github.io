@@ -1,0 +1,174 @@
+---
+title: "The 'use' Expression in Gleam"
+description: "How can we emulate the behavior of Python's `with` and Rust `?` in Gleam?"
+publishDate: 2024-08-03 00:00
+---
+
+Everybody who knows Python has used the `with` statement, most commonly when opening
+a file.[^1]
+It's quite powerful!
+
+Gleam is a radically different type of language from Python.
+It can be seen as a purely functional version of Rust.
+We know that things are rather less obvious in purely functional languages.
+So the question here is, how can we emulate the behavior of Python's `with` statement?
+Another question is (due to the similarity of Rust and Gleam), how to emulate
+Rust's `?` syntax in Gleam?
+
+## 'use' For Emulating the 'with' Statement in Python
+
+In Python, this code
+
+```python title="Python"
+f = open("filename.txt")
+ret = do_something_with_file(f)
+f.close()
+```
+
+can be rewritten with the `with` statement, resulting in a nice, less verbose
+piece of code:
+
+```python title="Python"
+with open("filename.txt") as f:
+    ret = do_something_with_file(f)
+```
+
+Conceptually, the `with` statement can be thought of as a higher-order function
+(a function that takes other functions) with a callback function as its last parameter.
+The block inside the statement (`ret = ...` above) is the body of the callback function.
+In code, this is:
+
+```python title="Python"
+def file_action(filename: str, callback: Callable[[File], Any]):
+    f = open(filename)
+    ret = callback(f)
+    f.close()
+    return ret
+
+ret = file_action("filename.txt", do_something_with_file)
+```
+
+Assuming the functions `open`, `close` are available and behaving similarly to the
+above, we can rewrite it one-to-one in Gleam.
+(The type `rtype` below is a generic type.)
+
+```gleam title="Gleam"
+fn file_action(filename: String, callback: fn(File) -> rtype) -> rtype {
+  let f: File = open(filename)
+  let ret: rtype = callback(f)
+  close(filename)
+  ret
+}
+```
+
+What is the Gleam equivalent to the same code, written with the `with`
+statement then?
+It is this:
+
+```gleam title="Gleam"
+use f <- file_action("filename.txt")
+let ret: rtype = do_something_with_file(f)
+```
+
+We can think of the first line `use retval <- func(args)` as the direct counterpart
+of `with func(args) as retval`.
+Note that _all_ code under `use .. <- ..` will be included in the body of `callback`.[^2]
+If this is an undesirable behavior, we can make the scope similar
+to Python's by simply doing:
+(Note that in Gleam, everything is an expression!)
+
+```gleam title="Gleam"
+let ret: rtype = {
+  use f <- file_action("filename.txt")
+  do_something_with_file(f)
+}
+
+// Outside of the scope
+do_something_else(ret)
+```
+
+## 'use' For Emulating '?' in Rust
+
+Gleam is like a functional (garbage-collected) variant of Rust---they have many
+similarities.
+One of them is this: errors in Gleam and Rust are _return values_.
+So, there is no `throw-try-catch` as in Python or C-inspired languages.
+
+The usual way we handle errors in Rust is by returning the type
+`Result<return_type, error_type>`.
+Then, if we don't want to do error handling in a function that calls a function
+with the `Result` type as the return value, we can simply return that error
+when it occurs.
+In code, this is:
+
+```rust title="Rust"
+fn do_something_and_return_string() -> Result<String, Err> {
+  // ...
+}
+
+fn process_the_retval() -> Result<(), Err> {
+  match do_something_and_return_string() {
+    Ok(ret_val) -> // do something with the string ret_val
+    Err(err_val) -> Err(err_val) // just propagate the err
+  }
+}
+```
+
+Notice that we must do the pattern matching `match` to handle the `Result` type.
+Notice also that if we don't want to handle the error here, we have that line
+`Err(err_val) -> Err(err_val)` which is quite verbose.
+
+In Rust, this can be concisely rewritten with `?`:[^3]
+
+```rust title="Rust"
+fn process_the_retval() -> Result<(), Err> {
+  let ret_val: String = do_something_and_return_string()?;
+  // do something with the string ret_val
+}
+```
+
+Gleam also has the `Result` type and `use` can be used to do the same
+thing as in Rust.
+
+```gleam title="Gleam"
+fn process_the_retval() -> Result(Nil, Err) {
+  case do_something_and_return_string() {
+    Ok(ret_val) -> // do something with the string ret_val
+    Error(err_val) -> Error(err_val)
+  }
+}
+```
+
+In Gleam, we can use `result.map`
+to circumvent the need for pattern matching.[^4]
+
+```gleam title="Gleam"
+fn callback(s: String) {
+  // do something with the string ret_val
+}
+
+fn process_the_retval() -> Result(Nil, Err) {
+  result.map(do_something_and_return_string(), callback)
+}
+```
+
+But this is just the higher-order function pattern that we have seen before
+in the previous section.
+So, we can rewrite it more concisely with `use`:
+
+```gleam title="Gleam"
+fn process_the_retval() -> Result(Nil, Err) {
+  use ret_val <- result.map(do_something_and_return_string())
+  // do something with the string ret_val
+}
+```
+
+Notice the similarity as the Rust code with `?`!
+
+[^1]: https://realpython.com/python-with-statement/
+
+[^2]: https://gleam.run/news/v0.25-introducing-use-expressions/
+
+[^3]: https://doc.rust-lang.org/book/ch09-02-recoverable-errors-with-result.html#propagating-errors
+
+[^4]: https://hexdocs.pm/gleam_stdlib/gleam/result.html#map

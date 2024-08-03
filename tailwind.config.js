@@ -30,18 +30,6 @@ const config = {
 			}
 		},
 		extend: {
-			typography: {
-				DEFAULT: {
-					css: {
-						'code::before': {
-							content: '""'
-						},
-						'code::after': {
-							content: '""'
-						}
-					}
-				}
-			},
 			colors: {
 				border: 'hsl(var(--border) / <alpha-value>)',
 				input: 'hsl(var(--input) / <alpha-value>)',
@@ -85,7 +73,7 @@ const config = {
 			fontFamily: {
 				sans: ['Source Sans Pro', fontFamily.sans],
 				serif: ['Times', fontFamily.serif],
-				iosevka: ['Iosevka', fontFamily.mono]
+				mono: ['Jetbrains Mono', fontFamily.mono]
 			}
 		}
 	}

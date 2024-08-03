@@ -5,6 +5,7 @@ import sitemap from '@astrojs/sitemap'
 import { remarkReadingTime } from './src/utils/remarkReadingTime.ts'
 import remarkUnwrapImages from 'remark-unwrap-images'
 import rehypeExternalLinks from 'rehype-external-links'
+import remarkSmartypants from 'remark-smartypants'
 import remarkMath from 'remark-math'
 import rehypeMathjax from 'rehype-mathjax/chtml'
 import expressiveCode from 'astro-expressive-code'
@@ -29,7 +30,12 @@ export default defineConfig({
 		icon()
 	],
 	markdown: {
-		remarkPlugins: [remarkUnwrapImages, remarkReadingTime, remarkMath],
+		remarkPlugins: [
+			[remarkSmartypants, { dashes: 'oldschool' }],
+			remarkUnwrapImages,
+			remarkReadingTime,
+			remarkMath
+		],
 		rehypePlugins: [
 			[
 				rehypeExternalLinks,
