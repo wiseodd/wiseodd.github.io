@@ -353,13 +353,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".mdx"] };
-"least-squares-gan.md": {
-	id: "least-squares-gan.md";
+"least-squares-gan.mdx": {
+	id: "least-squares-gan.mdx";
   slug: "least-squares-gan";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 "levelset-method.md": {
 	id: "levelset-method.md";
   slug: "levelset-method";
