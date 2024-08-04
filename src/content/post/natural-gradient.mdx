@@ -4,31 +4,40 @@ description: 'Intuition and derivation of natural gradient descent.'
 publishDate: 2018-03-14 07:00
 tags: [machine learning]
 ---
-import BlogImage from "@/components/BlogImage.astro";
+
+import BlogImage from '@/components/BlogImage.astro'
 
 Previously, we looked at the Fisher Information Matrix. We saw that it is equal to the negative expected Hessian of log likelihood. Thus, the immediate application of Fisher Information Matrix is as drop-in replacement of Hessian in second order optimization algorithm. In this article, we will look deeper at the intuition on what excatly is the Fisher Information Matrix represents and what is the interpretation of it.
 
 ## Distribution Space
 
-As per previous article, we have a probabilistic model represented by its likelihood $ p(x \vert \theta) $. We want to maximize this likelihood function to find the most likely parameter $ \theta $. Equivalent formulation would be to minimize the loss function $ \mathcal{L}(\theta) $, which is the negative log likelihood.
+As per previous article, we have a probabilistic model represented by its likelihood $p(x \vert \theta)$. We want to maximize this likelihood function to find the most likely parameter $\theta$. Equivalent formulation would be to minimize the loss function $\mathcal{L}(\theta)$, which is the negative log likelihood.
 
-Usual way to solve this optimization is to use gradient descent. In this case, we are taking step which direction is given by $ -\nabla_\theta \mathcal{L}(\theta) $. This is the steepest descent direction around the local neighbourhood of the current value of $ \theta $ in the parameter space. Formally, we have
+Usual way to solve this optimization is to use gradient descent. In this case, we are taking step which direction is given by $-\nabla_\theta \mathcal{L}(\theta)$. This is the steepest descent direction around the local neighbourhood of the current value of $\theta$ in the parameter space. Formally, we have
 
 $$
 \frac{-\nabla_\theta \mathcal{L}(\theta)}{\lVert \nabla_\theta \mathcal{L}(\theta) \rVert} = \lim_{\epsilon \to 0} \frac{1}{\epsilon} \mathop{\text{arg min}}_{d \text{ s.t. } \lVert d \rVert \leq \epsilon} \mathcal{L}(\theta + d) \, .
 $$
 
-The above expression is saying that the steepest descent direction in parameter space is to pick a vector $ d $, such that the new parameter $ \theta + d $ is within the $ \epsilon $-neighbourhood of the current parameter $ \theta $, and we pick $ d $ that minimize the loss. Notice the way we express this neighbourhood is by the means of Euclidean norm. Thus, the optimization in gradient descent is dependent to the Euclidean geometry of the parameter space.
+The above expression is saying that the steepest descent direction in parameter space is to pick a vector $d$, such that the new parameter $\theta + d$ is within the $\epsilon$-neighbourhood of the current parameter $\theta$, and we pick $d$ that minimize the loss. Notice the way we express this neighbourhood is by the means of Euclidean norm. Thus, the optimization in gradient descent is dependent to the Euclidean geometry of the parameter space.
 
-Meanwhile, if our objective is to minimize the loss function (maximizing the likelihood), then it is natural that we taking step in the space of all possible likelihood, realizable by parameter $ \theta $. As the likelihood function itself is a probability distribution, we call this space distribution space. Thus it makes sense to take the steepest descent direction in this distribution space instead of parameter space.
+Meanwhile, if our objective is to minimize the loss function (maximizing the likelihood), then it is natural that we taking step in the space of all possible likelihood, realizable by parameter $\theta$. As the likelihood function itself is a probability distribution, we call this space distribution space. Thus it makes sense to take the steepest descent direction in this distribution space instead of parameter space.
 
-Which metric/distance then do we need to use in this space? A popular choice would be KL-divergence. KL-divergence measure the "closeness" of two distributions. Although as KL-divergence is non-symmetric and thus not a true metric, we can use it anyway. This is because as $ d $ goes to zero, KL-divergence is asymptotically symmetric. So, within a local neighbourhood, KL-divergence is approximately symmetric [1].
+Which metric/distance then do we need to use in this space? A popular choice would be KL-divergence. KL-divergence measure the "closeness" of two distributions. Although as KL-divergence is non-symmetric and thus not a true metric, we can use it anyway. This is because as $d$ goes to zero, KL-divergence is asymptotically symmetric. So, within a local neighbourhood, KL-divergence is approximately symmetric [1].
 
 We can see the problem when using only Euclidean metric in parameter space from the illustrations below. Consider a Gaussian parameterized by only its mean and keep the variance fixed to 2 and 0.5 for the first and second image respectively:
 
-<BlogImage imagePath="/img/natural-gradient/param_space_dist.png" altText="A parametrization of Gaussians." fullWidth />
+<BlogImage
+	imagePath='/img/natural-gradient/param_space_dist.png'
+	altText='A parametrization of Gaussians.'
+	fullWidth
+/>
 
-<BlogImage imagePath="/img/natural-gradient/param_space_dist2.png" altText="Another parametrization of Gaussians." fullWidth />
+<BlogImage
+	imagePath='/img/natural-gradient/param_space_dist2.png'
+	altText='Another parametrization of Gaussians.'
+	fullWidth
+/>
 
 In both images, the distance of those Gaussians are the same, i.e. 4, according to Euclidean metric (red line). However, clearly in distribution space, i.e. when we are taking into account the shape of the Gaussians, the distance is different in the first and second image. In the first image, the KL-divergence should be lower as there is more overlap between those Gaussians. Therefore, if we only work in parameter space, we cannot take into account this information about the distribution realized by the parameter.
 
@@ -37,7 +46,7 @@ In both images, the distance of those Gaussians are the same, i.e. 4, according 
 One question still needs to be answered is what exactly is the connection between Fisher Information Matrix and KL-divergence? It turns out, Fisher Information Matrix defines the local curvature in distribution space for which KL-divergence is the metric.
 
 **Claim:**
-Fisher Information Matrix $ \text{F} $ is the Hessian of KL-divergence between two distributions $ p(x \vert \theta) $ and $ p(x \vert \theta') $, with respect to $ \theta' $, evaluated at $ \theta' = \theta $.
+Fisher Information Matrix $\text{F}$ is the Hessian of KL-divergence between two distributions $p(x \vert \theta)$ and $p(x \vert \theta')$, with respect to $\theta'$, evaluated at $\theta' = \theta$.
 
 _Proof._ &nbsp;&nbsp; KL-divergence can be decomposed into entropy and cross-entropy term, i.e.:
 
@@ -45,7 +54,7 @@ $$
 \text{KL} [p(x \vert \theta) \, \Vert \, p(x \vert \theta')] = \mathop{\mathbb{E}}_{p(x \vert \theta)} [ \log p(x \vert \theta) ] - \mathop{\mathbb{E}}_{p(x \vert \theta)} [ \log p(x \vert \theta') ] \, .
 $$
 
-The first derivative wrt. $ \theta' $ is:
+The first derivative wrt. $\theta'$ is:
 
 $$
 \begin{align}
@@ -63,7 +72,7 @@ $$
 \end{align}
 $$
 
-Thus, the Hessian wrt. $ \theta' $ evaluated at $ \theta' = \theta $ is:
+Thus, the Hessian wrt. $\theta'$ evaluated at $\theta' = \theta$ is:
 
 $$
 \begin{align}
@@ -82,12 +91,12 @@ $$
 
 ## Steepest Descent in Distribution Space
 
-Now we are ready to use the Fisher Information Matrix to enhance the gradient descent. But first, we need to derive the Taylor series expansion for KL-divergence around $ \theta $.
+Now we are ready to use the Fisher Information Matrix to enhance the gradient descent. But first, we need to derive the Taylor series expansion for KL-divergence around $\theta$.
 
 **Claim:**
-Let $ d \to 0 $. The second order Taylor series expansion of KL-divergence is $ \text{KL}[p(x \vert \theta) \, \Vert \, p(x \vert \theta + d)] \approx \frac{1}{2} d^\text{T} \text{F} d $.
+Let $d \to 0$. The second order Taylor series expansion of KL-divergence is $\text{KL}[p(x \vert \theta) \, \Vert \, p(x \vert \theta + d)] \approx \frac{1}{2} d^\text{T} \text{F} d$.
 
-_Proof._ &nbsp;&nbsp; We will use $ p_{\theta} $ as a notational shortcut for $ p(x \vert \theta) $. By definition, the second order Taylor series expansion of KL-divergence is:
+_Proof._ &nbsp;&nbsp; We will use $p_{\theta}$ as a notational shortcut for $p(x \vert \theta)$. By definition, the second order Taylor series expansion of KL-divergence is:
 
 $$
 \begin{align}
@@ -108,15 +117,15 @@ $$
 \qed
 $$
 
-Now, we would like to know what is update vector $ d $ that minimizes the loss function $ \mathcal{L} (\theta) $ in distribution space, so that we know in which direction decreases the KL-divergence the most. This is analogous to the method of steepest descent, but in distribution space with KL-divergence as metric, instead of the usual parameter space with Euclidean metric. For that, we do this minimization:
+Now, we would like to know what is update vector $d$ that minimizes the loss function $\mathcal{L} (\theta)$ in distribution space, so that we know in which direction decreases the KL-divergence the most. This is analogous to the method of steepest descent, but in distribution space with KL-divergence as metric, instead of the usual parameter space with Euclidean metric. For that, we do this minimization:
 
 $$
 d^* = \mathop{\text{arg min}}_{d \text{ s.t. } \text{KL}[p_\theta \Vert p_{\theta + d}] = c} \mathcal{L} (\theta + d) \, ,
 $$
 
-where $ c $ is some constant. The purpose of fixing the KL-divergence to some constant is to make sure that we move along the space with constant speed, regardless the curvature. Further benefit is that this makes the algorithm more robust to the reparametrization of the model, i.e. the algorithm does not care how the model is parametrized, it only cares about the distribution induced by the parameter [3].
+where $c$ is some constant. The purpose of fixing the KL-divergence to some constant is to make sure that we move along the space with constant speed, regardless the curvature. Further benefit is that this makes the algorithm more robust to the reparametrization of the model, i.e. the algorithm does not care how the model is parametrized, it only cares about the distribution induced by the parameter [3].
 
-If we write the above minimization in Lagrangian form, with constraint KL-divergence approximated by its second order Taylor series expansion and approximate $ \mathcal{L}(\theta + d) $ with its first order Taylor series expansion, we get:
+If we write the above minimization in Lagrangian form, with constraint KL-divergence approximated by its second order Taylor series expansion and approximate $\mathcal{L}(\theta + d)$ with its first order Taylor series expansion, we get:
 
 $$
 \begin{align}
@@ -125,7 +134,7 @@ d^* &= \mathop{\text{arg min}}_d \, \mathcal{L} (\theta + d) + \lambda \, (\text
 \end{align}
 $$
 
-To solve this minimization, we set its derivative wrt. $ d $ to zero:
+To solve this minimization, we set its derivative wrt. $d$ to zero:
 
 $$
 \begin{align}
@@ -136,7 +145,7 @@ $$
 \end{align}
 $$
 
-Up to constant factor of $ \frac{1}{\lambda} $, we get the optimal descent direction, i.e. the opposite direction of gradient while taking into account the local curvature in distribution space defined by $ \text{F}^{-1} $. We can absorb this constant factor into the learning rate.
+Up to constant factor of $\frac{1}{\lambda}$, we get the optimal descent direction, i.e. the opposite direction of gradient while taking into account the local curvature in distribution space defined by $\text{F}^{-1}$. We can absorb this constant factor into the learning rate.
 
 **Definition:**
 Natural gradient is defined as
@@ -154,18 +163,18 @@ As corollary, we have the following algorithm:
 **Algorithm: Natural Gradient Descent**
 
 1. Repeat:
-   1. Do forward pass on our model and compute loss $ \mathcal{L}(\theta) $.
-   2. Compute the gradient $ \nabla_\theta \mathcal{L}(\theta) $.
-   3. Compute the Fisher Information Matrix $ \text{F} $, or its empirical version (wrt. our training data).
-   4. Compute the natural gradient $ \tilde{\nabla}_\theta \mathcal{L}(\theta) = \text{F}^{-1} \nabla_\theta \mathcal{L}(\theta) $.
-   5. Update the parameter: $ \theta = \theta - \alpha \, \tilde{\nabla}_\theta \mathcal{L}(\theta) $, where $ \alpha $ is the learning rate.
+   1. Do forward pass on our model and compute loss $\mathcal{L}(\theta)$.
+   2. Compute the gradient $\nabla_\theta \mathcal{L}(\theta)$.
+   3. Compute the Fisher Information Matrix $\text{F}$, or its empirical version (wrt. our training data).
+   4. Compute the natural gradient $\tilde{\nabla}_\theta \mathcal{L}(\theta) = \text{F}^{-1} \nabla_\theta \mathcal{L}(\theta)$.
+   5. Update the parameter: $\theta = \theta - \alpha \, \tilde{\nabla}_\theta \mathcal{L}(\theta)$, where $\alpha$ is the learning rate.
 2. Until convergence.
 
 ## Discussion
 
 In the above very simple model with low amount of data, we saw that we can implement natural gradient descent easily. But how easy is it to do this in the real world? As we know, the number of parameters in deep learning models is very large, within millions of parameters. The Fisher Information Matrix for these kind of models is then infeasible to compute, store, or invert. This is the same problem as why second order optimization methods are not popular in deep learning.
 
-One way to get around this problem is to approximate the Fisher/Hessian instead. Method like ADAM [4] computes the running average of first and second moment of the gradient. First moment can be seen as momentum which is not our interest in this article. The second moment is approximating the Fisher Information Matrix, but constrainting it to be diagonal matrix. Thus in ADAM, we only need $ O(n) $ space to store (the approximation of) $ \text{F} $ instead of $ O(n^2) $ and the inversion can be done in $ O(n) $ instead of $ O(n^3) $. In practice ADAM works really well and is currently the _de facto_ standard for optimizing deep neural networks.
+One way to get around this problem is to approximate the Fisher/Hessian instead. Method like ADAM [4] computes the running average of first and second moment of the gradient. First moment can be seen as momentum which is not our interest in this article. The second moment is approximating the Fisher Information Matrix, but constrainting it to be diagonal matrix. Thus in ADAM, we only need $O(n)$ space to store (the approximation of) $\text{F}$ instead of $O(n^2)$ and the inversion can be done in $O(n)$ instead of $O(n^3)$. In practice ADAM works really well and is currently the _de facto_ standard for optimizing deep neural networks.
 
 ## References
 
