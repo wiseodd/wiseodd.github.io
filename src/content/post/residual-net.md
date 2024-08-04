@@ -1,6 +1,6 @@
 ---
-title: 'Residual Net'
-description: 'In this post, we will look into the record breaking convnet model of 2015: the Residual Net (ResNet).'
+title: "Residual Net"
+description: "In this post, we will look into the record breaking convnet model of 2015: the Residual Net (ResNet)."
 publishDate: 2016-10-13 09:19
 tags: [machine learning, programming, python, neural networks]
 ---

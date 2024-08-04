@@ -1,5 +1,5 @@
 ---
-import type { PaginationLink } from '@/types';
+import type { PaginationLink } from "@/types";
 
 interface Props {
   nextUrl?: PaginationLink;
@@ -15,13 +15,13 @@ const { nextUrl, prevUrl } = Astro.props;
       {prevUrl && (
         <a class='me-auto py-2' data-astro-prefetch href={prevUrl.url}>
           {prevUrl.srLabel && <span class='sr-only'>{prevUrl.srLabel}</span>}
-          {prevUrl.text ? prevUrl.text : 'Previous'}
+          {prevUrl.text ? prevUrl.text : "Previous"}
         </a>
       )}
       {nextUrl && (
         <a class='ms-auto py-2' data-astro-prefetch href={nextUrl.url}>
           {nextUrl.srLabel && <span class='sr-only'>{nextUrl.srLabel}</span>}
-          {nextUrl.text ? nextUrl.text : 'Next'}
+          {nextUrl.text ? nextUrl.text : "Next"}
         </a>
       )}
     </nav>

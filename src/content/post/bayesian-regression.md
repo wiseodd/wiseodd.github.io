@@ -1,6 +1,6 @@
 ---
-title: 'Linear Regression: A Bayesian Point of View'
-description: 'You know the drill, apply mean squared error, then descend those gradients. But, what is the intuition of that process in Bayesian PoV?'
+title: "Linear Regression: A Bayesian Point of View"
+description: "You know the drill, apply mean squared error, then descend those gradients. But, what is the intuition of that process in Bayesian PoV?"
 publishDate: 2017-01-05 02:41
 tags: [machine learning, bayesian]
 ---

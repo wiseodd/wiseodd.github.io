@@ -1,19 +1,19 @@
 ---
-import type { SiteMeta } from '@/types';
+import type { SiteMeta } from "@/types";
 
-import BaseHead from '@/components/BaseHead.astro';
-import Footer from '@/components/layout/Footer.astro';
-import Header from '@/components/layout/Header.astro';
-import ThemeProvider from '@/components/ThemeProvider.astro';
+import BaseHead from "@/components/BaseHead.astro";
+import Footer from "@/components/layout/Footer.astro";
+import Header from "@/components/layout/Header.astro";
+import ThemeProvider from "@/components/ThemeProvider.astro";
 
-import { siteConfig } from '@/site-config';
+import { siteConfig } from "@/site-config";
 
 interface Props {
   meta: SiteMeta;
 }
 
 const {
-  meta: { articleDate, description = siteConfig.description, ogImage, title }
+  meta: { articleDate, description = siteConfig.description, ogImage, title },
 } = Astro.props;
 ---
 

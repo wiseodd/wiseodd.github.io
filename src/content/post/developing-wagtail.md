@@ -1,6 +1,6 @@
 ---
-title: 'Developing Blog with Wagtail'
-description: 'My experience on building this blog using Wagtail CMS, with zero Django knowledge. Let’s code our blog!'
+title: "Developing Blog with Wagtail"
+description: "My experience on building this blog using Wagtail CMS, with zero Django knowledge. Let’s code our blog!"
 publishDate: 2015-06-22 12:51:00
 tags: [python, programming, web]
 ---

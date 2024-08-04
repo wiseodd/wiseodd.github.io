@@ -1,14 +1,14 @@
 ---
 export const prerender = true;
 
-import type { GetStaticPaths, Page } from 'astro';
-import type { CollectionEntry } from 'astro:content';
+import type { GetStaticPaths, Page } from "astro";
+import type { CollectionEntry } from "astro:content";
 
-import Pagination from '@/components/Paginator.astro';
-import PostPreview from '@/components/blog/PostPreview.astro';
-import PageLayout from '@/layouts/BaseLayout.astro';
-import Button from '@/components/Button.astro';
-import { getAllPosts, getUniqueTags, sortMDByDate } from '@/utils';
+import Pagination from "@/components/Paginator.astro";
+import PostPreview from "@/components/blog/PostPreview.astro";
+import PageLayout from "@/layouts/BaseLayout.astro";
+import Button from "@/components/Button.astro";
+import { getAllPosts, getUniqueTags, sortMDByDate } from "@/utils";
 
 export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
   const allPosts = await getAllPosts();
@@ -16,18 +16,16 @@ export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
   const uniqueTags = getUniqueTags(allPostsByDate);
 
   return uniqueTags.flatMap((tag) => {
-    const filterPosts = allPostsByDate.filter((post) =>
-      post.data.tags.includes(tag)
-    );
+    const filterPosts = allPostsByDate.filter((post) => post.data.tags.includes(tag));
     return paginate(filterPosts, {
       pageSize: 10,
-      params: { tag }
+      params: { tag },
     });
   });
 };
 
 interface Props {
-  page: Page<CollectionEntry<'post'>>;
+  page: Page<CollectionEntry<"post">>;
 }
 
 const { page } = Astro.props;
@@ -35,22 +33,22 @@ const { tag } = Astro.params;
 
 const meta = {
   description: `View all posts with the tag - ${tag}`,
-  title: `Tag: ${tag}`
+  title: `Tag: ${tag}`,
 };
 
 const paginationProps = {
   ...(page.url.prev && {
     prevUrl: {
       text: `← Previous Tags`,
-      url: page.url.prev
-    }
+      url: page.url.prev,
+    },
   }),
   ...(page.url.next && {
     nextUrl: {
       text: `Next Tags →`,
-      url: page.url.next
-    }
-  })
+      url: page.url.next,
+    },
+  }),
 };
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: 'Rejection Sampling'
+title: "Rejection Sampling"
 description: "Rejection is always painful, but it's for the greater good! You can sample from a complicated distribution by rejecting samples!"
 publishDate: 2015-10-21 10:45:00
 tags: [machine learning, programming, python]

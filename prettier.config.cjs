@@ -1,15 +1,19 @@
 /** @type {import("prettier").Config} */
 module.exports = {
-  ...require('prettier-config-standard'),
+  ...require("prettier-config-standard"),
   pluginSearchDirs: [__dirname],
-  plugins: ['prettier-plugin-astro', 'prettier-plugin-tailwindcss'],
+  plugins: ["prettier-plugin-astro", "prettier-plugin-tailwindcss"],
   overrides: [
     {
-      files: '*.astro',
+      files: "*.astro",
       options: {
-        parser: 'astro'
-      }
-    }
+        parser: "astro",
+      },
+    },
   ],
-  semi: true
+  semi: true,
+  trailingComma: "all",
+  singleQuote: false,
+  useTabs: false,
+  printWidth: 88,
 };

@@ -1,6 +1,6 @@
 ---
-title: 'Theano for solving Partial Differential Equation problems'
-description: 'We all know Theano as a forefront library for Deep Learning research. However, it should be noted that Theano is a general purpose numerical computing library, like Numpy. Hence, in this post, we will look at the implementation of PDE simulation in Theano.'
+title: "Theano for solving Partial Differential Equation problems"
+description: "We all know Theano as a forefront library for Deep Learning research. However, it should be noted that Theano is a general purpose numerical computing library, like Numpy. Hence, in this post, we will look at the implementation of PDE simulation in Theano."
 publishDate: 2017-01-08 03:34
 tags: [pde, theano]
 ---

@@ -1,6 +1,6 @@
 ---
-title: 'MLE vs MAP: the connection between Maximum Likelihood and Maximum A Posteriori Estimation'
-description: 'In this post, we will see what is the difference between Maximum Likelihood Estimation (MLE) and Maximum A Posteriori (MAP).'
+title: "MLE vs MAP: the connection between Maximum Likelihood and Maximum A Posteriori Estimation"
+description: "In this post, we will see what is the difference between Maximum Likelihood Estimation (MLE) and Maximum A Posteriori (MAP)."
 publishDate: 2017-01-01 05:40
 tags: [machine learning, bayesian]
 ---

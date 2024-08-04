@@ -1,6 +1,6 @@
 ---
-title: 'Implementing BatchNorm in Neural Net'
-description: 'BatchNorm is a relatively new technique for training neural net. It gaves us a lot of relaxation when initializing the network and accelerates training.'
+title: "Implementing BatchNorm in Neural Net"
+description: "BatchNorm is a relatively new technique for training neural net. It gaves us a lot of relaxation when initializing the network and accelerates training."
 publishDate: 2016-07-04 10:53
 tags: [machine learning, programming, python, neural networks]
 ---

@@ -1,6 +1,6 @@
 ---
-title: 'KL Divergence: Forward vs Reverse?'
-description: 'KL Divergence is a measure of how different two probability distributions are. It is a non-symmetric distance function, and each arrangement has its own interesting property, especially when we use it in optimization settings e.g. Variational Bayes method.'
+title: "KL Divergence: Forward vs Reverse?"
+description: "KL Divergence is a measure of how different two probability distributions are. It is a non-symmetric distance function, and each arrangement has its own interesting property, especially when we use it in optimization settings e.g. Variational Bayes method."
 publishDate: 2016-12-21 00:30
 tags: [programming, python, bayes]
 ---

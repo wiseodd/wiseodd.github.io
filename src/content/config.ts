@@ -1,4 +1,4 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection, z } from "astro:content";
 
 function removeDupsAndLowerCase(array: string[]) {
   if (!array.length) return array;
@@ -8,7 +8,7 @@ function removeDupsAndLowerCase(array: string[]) {
 }
 
 const post = defineCollection({
-  type: 'content',
+  type: "content",
   schema: ({ image }) =>
     z.object({
       title: z.string(),
@@ -24,13 +24,13 @@ const post = defineCollection({
       coverImage: z
         .object({
           src: image(),
-          alt: z.string()
+          alt: z.string(),
         })
         .optional(),
       draft: z.boolean().default(false),
       tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
-      ogImage: z.string().optional()
-    })
+      ogImage: z.string().optional(),
+    }),
 });
 
 export const collections = { post };

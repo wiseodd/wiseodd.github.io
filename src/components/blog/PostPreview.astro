@@ -1,23 +1,18 @@
 ---
-import type { HTMLTag, Polymorphic } from 'astro/types';
-import type { CollectionEntry } from 'astro:content';
+import type { HTMLTag, Polymorphic } from "astro/types";
+import type { CollectionEntry } from "astro:content";
 
-import FormattedDate from '../FormattedDate.astro';
+import FormattedDate from "../FormattedDate.astro";
 
-import { truncateDescription } from '@/utils';
+import { truncateDescription } from "@/utils";
 
 type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & {
-  post: CollectionEntry<'post'>;
+  post: CollectionEntry<"post">;
   withDesc?: boolean;
   maxDescWords?: number;
 };
 
-const {
-  as: Tag = 'div',
-  post,
-  withDesc = false,
-  maxDescWords = 20
-} = Astro.props;
+const { as: Tag = "div", post, withDesc = false, maxDescWords = 20 } = Astro.props;
 const postDate = post.data.updatedDate ?? post.data.publishDate;
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: 'How to Use Specific Image and Description when Sharing Jekyll Post to Facebook'
+title: "How to Use Specific Image and Description when Sharing Jekyll Post to Facebook"
 description: "Normally, random subset of pictures and the site's description will be picked when we shared our Jekyll blog post URL to Facebook. This is how to force Facebook to use the specific image and description for our blog post!"
 publishDate: 2016-08-15 13:52
 tags: [programming, jekyll]

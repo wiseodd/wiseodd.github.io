@@ -16,7 +16,7 @@ const CONF_VALS: Record<string, number> = {
   AISTATS: 2,
   ICML: 3,
   UAI: 4,
-  NeurIPS: 5
+  NeurIPS: 5,
 };
 function getConfVal(conf: string): number {
   if (conf in CONF_VALS) {
@@ -26,11 +26,6 @@ function getConfVal(conf: string): number {
   }
 }
 
-export function sortPublicationFn(
-  pub1: Publication,
-  pub2: Publication
-): number {
-  return (
-    pub2.year - pub1.year || getConfVal(pub2.venue) - getConfVal(pub1.venue)
-  );
+export function sortPublicationFn(pub1: Publication, pub2: Publication): number {
+  return pub2.year - pub1.year || getConfVal(pub2.venue) - getConfVal(pub1.venue);
 }

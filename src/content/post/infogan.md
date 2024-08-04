@@ -1,6 +1,6 @@
 ---
-title: 'InfoGAN: unsupervised conditional GAN in TensorFlow and Pytorch'
-description: 'Adding Mutual Information regularization to a GAN turns out gives us a very nice effect: learning data representation and its properties in unsupervised manner.'
+title: "InfoGAN: unsupervised conditional GAN in TensorFlow and Pytorch"
+description: "Adding Mutual Information regularization to a GAN turns out gives us a very nice effect: learning data representation and its properties in unsupervised manner."
 publishDate: 2017-01-29 07:46
 tags: [machine learning, gan]
 ---

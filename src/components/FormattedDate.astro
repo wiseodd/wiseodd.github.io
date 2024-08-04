@@ -1,9 +1,9 @@
 ---
-import type { HTMLAttributes } from 'astro/types';
+import type { HTMLAttributes } from "astro/types";
 
-import { getFormattedDate } from '@/utils';
+import { getFormattedDate } from "@/utils";
 
-type Props = HTMLAttributes<'time'> & {
+type Props = HTMLAttributes<"time"> & {
   date: Date;
   dateTimeOptions?: Intl.DateTimeFormatOptions;
 };

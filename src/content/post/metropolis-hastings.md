@@ -1,6 +1,6 @@
 ---
-title: 'Metropolis-Hastings'
-description: 'An implementation example of Metropolis-Hastings algorithm in Python.'
+title: "Metropolis-Hastings"
+description: "An implementation example of Metropolis-Hastings algorithm in Python."
 publishDate: 2015-10-17 01:14:00
 tags: [machine learning, programming, python]
 ---

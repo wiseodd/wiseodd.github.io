@@ -1,12 +1,10 @@
 ---
-import PublicationLabel from './PublicationLabel.astro';
+import PublicationLabel from "./PublicationLabel.astro";
 
 const { pub } = Astro.props;
 ---
 
-<div
-  class='relative rounded-2xl border border-border bg-primary-foreground px-5 py-3'
->
+<div class='relative rounded-2xl border border-border bg-primary-foreground px-5 py-3'>
   <div class='flex flex-col gap-y-1.5'>
     <div class='flex flex-col gap-y-0.5'>
       <div class='text-base font-semibold'>{pub.title}</div>
@@ -14,11 +12,11 @@ const { pub } = Astro.props;
         class='text-muted-foreground'
         set:html={pub.author
           .map((name: string) =>
-            name.includes('Kristiadi')
-              ? '<span class="text-green-600">' + name + '</span>'
-              : name
+            name.includes("Kristiadi")
+              ? '<span class="text-green-600">' + name + "</span>"
+              : name,
           )
-          .join(', ')}
+          .join(", ")}
       />
       <div>
         <span>{pub.venue} {pub.year}</span>

@@ -1,43 +1,43 @@
 ---
-import PageLayout from '../layouts/BaseLayout.astro';
-import Button from '../components/Button.astro';
-import Section from '../components/Section.astro';
-import Card from '../components/Card.astro';
-import Label from '../components/Label.astro';
-import SkillLayout from '../components/SkillLayout.astro';
-import PostPreview from '@/components/blog/PostPreview.astro';
-import PublicationList from '@/components/PublicationList.astro';
-import { Image } from 'astro:assets';
+import PageLayout from "../layouts/BaseLayout.astro";
+import Button from "../components/Button.astro";
+import Section from "../components/Section.astro";
+import Card from "../components/Card.astro";
+import Label from "../components/Label.astro";
+import SkillLayout from "../components/SkillLayout.astro";
+import PostPreview from "@/components/blog/PostPreview.astro";
+import PublicationList from "@/components/PublicationList.astro";
+import { Image } from "astro:assets";
 
-import { getAllPosts, sortMDByDate } from '@/utils';
-import type { Publication } from '@/utils';
-import { sortPublicationFn } from '@/utils';
+import { getAllPosts, sortMDByDate } from "@/utils";
+import type { Publication } from "@/utils";
+import { sortPublicationFn } from "@/utils";
 
-import portrait from '../assets/portrait.jpeg';
+import portrait from "../assets/portrait.jpeg";
 
 const interests = [
-  'Probabilistic Inference',
-  'Foundation Models',
-  'Decision Making',
-  'Planning',
-  'AI4Science',
-  'AI Safety',
-  'Riemannian Geometry'
+  "Probabilistic Inference",
+  "Foundation Models",
+  "Decision Making",
+  "Planning",
+  "AI4Science",
+  "AI Safety",
+  "Riemannian Geometry",
 ];
-const languages = ['Rust', 'Gleam', 'Python'];
-const editors = ['Neovim', 'Kitty', 'Iosevka'];
+const languages = ["Rust", "Gleam", "Python"];
+const editors = ["Neovim", "Kitty", "Iosevka"];
 
 const MAX_POSTS = 10;
 const allPosts = await getAllPosts();
 const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 
-import selectedPubs from '../assets/publications.json';
+import selectedPubs from "../assets/publications.json";
 const sortedSelectedPubs = selectedPubs
   .filter((pub: Publication) => pub.marked)
   .sort(sortPublicationFn);
 ---
 
-<PageLayout meta={{ title: 'Home' }}>
+<PageLayout meta={{ title: "Home" }}>
   <div class='flex w-full flex-col gap-y-10'>
     <section class='flex flex-col items-center gap-y-7'>
       <Image
@@ -141,17 +141,16 @@ const sortedSelectedPubs = selectedPubs
 
     <Section title='About'>
       <p>
-        Agustinus Kristiadi is a postdoctoral fellow at the Vector Institute,
-        working primarily with Alán Aspuru-Guzik and Pascal Poupart. He obtained
-        his PhD from the University of Tuebingen in Germany, advised by Philipp
-        Hennig and Matthias Hein. His research interests are in probabilistic
-        inference with large-scale neural networks, decision-making under
-        uncertainty, and their applications in broader sciences such as
-        chemistry. His work has been recognized in the form of best PhD thesis
-        award and multiple spotlight papers from flagship machine learning
-        conferences. His contributions to the scientific society include
-        mentoring underrepresented students in Canada under the IBET PhD Project
-        and actively contributing to the open-source community.
+        Agustinus Kristiadi is a postdoctoral fellow at the Vector Institute, working
+        primarily with Alán Aspuru-Guzik and Pascal Poupart. He obtained his PhD from
+        the University of Tuebingen in Germany, advised by Philipp Hennig and Matthias
+        Hein. His research interests are in probabilistic inference with large-scale
+        neural networks, decision-making under uncertainty, and their applications in
+        broader sciences such as chemistry. His work has been recognized in the form of
+        best PhD thesis award and multiple spotlight papers from flagship machine
+        learning conferences. His contributions to the scientific society include
+        mentoring underrepresented students in Canada under the IBET PhD Project and
+        actively contributing to the open-source community.
       </p>
     </Section>
 
@@ -208,8 +207,8 @@ const sortedSelectedPubs = selectedPubs
     <Section title='Awards'>
       <ul class='list-inside list-disc'>
         <li>
-          Best PhD thesis from the German Research Foundation's Theoretical
-          Foundations of Deep Learning (FoDL) program.
+          Best PhD thesis from the German Research Foundation's Theoretical Foundations
+          of Deep Learning (FoDL) program.
         </li>
         <li>Spotlight paper at NeurIPS 2023 (top 4%).</li>
         <li>Spotlight paper at NeurIPS 2021 (top 3%).</li>

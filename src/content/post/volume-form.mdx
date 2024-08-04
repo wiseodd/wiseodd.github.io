@@ -1,10 +1,10 @@
 ---
-title: 'Volume Forms and Probability Density Functions Under Change of Variables'
+title: "Volume Forms and Probability Density Functions Under Change of Variables"
 description: "From elementary probability theory, it is well known that a probability density function (pdf) is not invariant under an arbitrary change of variables (reparametrization). In this article we'll see that pdf are actually invariant when we see a pdf in its entirety, as a volume form and a Radon-Nikodym derivative in differential geometry."
 publishDate: 2023-12-13 00:00
 ---
 
-import BlogImage from '@/components/BlogImage.astro';
+import BlogImage from "@/components/BlogImage.astro";
 
 Suppose we have $\R^n$ equipped with the Cartesian **_coordinates_**; the latter represents a point in $\R^n$ with $x = (x^1, \dots, x^n)$, an $n$-tuple of numbers via the identity function $\mathrm{Id}_{\R^n}$---this is because $\R^n$ itself is already defined as the space of tuples of $n$ numbers.
 (Note that $v^i$ is not a power, but just indexing; we write e.g. $(v^i)^2$ if we need to take the power.)
@@ -21,10 +21,7 @@ Here are some interesting objects to study in this setting.
 In $\R^d$, we usually have the standard Euclidean inner product $\inner{v, w} = \sum_{i=1}^n v^i w^i$ where $v = (v^1, \dots, v^n)$ and $w = (w^1, \dots, w^n)$ are two vectors.
 We can write an inner product in terms of an inner product matrix $\inner{v, w} = v^\top G w$.
 
-<BlogImage
-  imagePath='/img/volume-form/02_metric.jpeg'
-  altText='Riemannian metric.'
-/>
+<BlogImage imagePath='/img/volume-form/02_metric.jpeg' altText='Riemannian metric.' />
 
 The matrix $G$, which is symmetric positive definite, is called (the matrix representation of) a **_Riemannian metric_**.
 In the case of the Euclidean inner product, we have $G = I$, the identity $n \times n$ matrix.
@@ -87,10 +84,7 @@ Now, assume that we have another coordinates for $\R^n$, say, representing each 
 The change of coordinates function, mapping $x \mapsto y$ is a diffeomorphism---a differentiable function with a differentiable inverse.
 Let's call it $\varphi$; and call its $n \times n$ Jacobian matrix $J = [\partial y^i / \partial x^j]\_{i,j=1}^n$ with inverse $J^{-1} = [\partial x^i / \partial y^j]_{ij=1}^n$.
 
-<BlogImage
-  imagePath='/img/volume-form/04_cov.jpeg'
-  altText='Change of coordinates.'
-/>
+<BlogImage imagePath='/img/volume-form/04_cov.jpeg' altText='Change of coordinates.' />
 
 Here are some rules for transforming a metric and a volume form.
 

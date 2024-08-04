@@ -1,6 +1,6 @@
 ---
-title: 'Implementing Dropout in Neural Net'
-description: 'Dropout is one simple way to regularize a neural net model. This is one of the recent advancements in Deep Learning that makes training deeper and deeper neural net tractable.'
+title: "Implementing Dropout in Neural Net"
+description: "Dropout is one simple way to regularize a neural net model. This is one of the recent advancements in Deep Learning that makes training deeper and deeper neural net tractable."
 publishDate: 2016-06-25 10:00
 tags: [machine learning, programming, python, neural networks]
 ---

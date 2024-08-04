@@ -1,6 +1,6 @@
 ---
-title: 'Twitter Authentication with Tweepy and Flask'
-description: 'A tutorial on how to do Twitter OAuth authentication in Flask web application.'
+title: "Twitter Authentication with Tweepy and Flask"
+description: "A tutorial on how to do Twitter OAuth authentication in Flask web application."
 publishDate: 2015-08-29 09:46:00
 tags: [python, programming, web]
 ---

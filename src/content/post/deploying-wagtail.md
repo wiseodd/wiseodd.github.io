@@ -1,5 +1,5 @@
 ---
-title: 'Deploying Wagtail App'
+title: "Deploying Wagtail App"
 description: "In this post, I'll show you how to deploy our blog and how to solve some common problems when deploying Wagtail app."
 publishDate: 2015-06-23 01:39:00
 tags: [python, programming, wagtail, web]

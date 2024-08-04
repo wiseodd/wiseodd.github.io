@@ -1,6 +1,6 @@
 ---
-title: 'Setting Up Wagtail Development Environment'
-description: 'My experience on building a blog using Wagtail CMS, with zero Django knowledge. I’ll walk you through from scratch up until the blog is live'
+title: "Setting Up Wagtail Development Environment"
+description: "My experience on building a blog using Wagtail CMS, with zero Django knowledge. I’ll walk you through from scratch up until the blog is live"
 publishDate: 2015-06-21 06:52:00
 tags: [python, programming, web]
 ---

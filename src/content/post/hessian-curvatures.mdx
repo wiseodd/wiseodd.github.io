@@ -1,11 +1,11 @@
 ---
-title: 'Hessian and Curvatures in Machine Learning: A Differential-Geometric View'
-description: 'In machine learning, especially in neural networks, the Hessian matrix is often treated synonymously with curvatures. But, from calculus alone, it is not clear why can one say so. Here, we will view the loss landscape of a neural network as a hypersurface and apply a differential-geometric analysis on it.'
+title: "Hessian and Curvatures in Machine Learning: A Differential-Geometric View"
+description: "In machine learning, especially in neural networks, the Hessian matrix is often treated synonymously with curvatures. But, from calculus alone, it is not clear why can one say so. Here, we will view the loss landscape of a neural network as a hypersurface and apply a differential-geometric analysis on it."
 publishDate: 2020-11-02 12:00
 tags: [math]
 ---
 
-import BlogImage from '@/components/BlogImage.astro';
+import BlogImage from "@/components/BlogImage.astro";
 
 In machine learning, especially in neural networks, the Hessian matrix is often treated synonymously with curvatures, in the following sense. Suppose $f: \R^n \times \R^d \to \R$ defined by $(x, \theta) \mapsto f(x; \theta) =: f_\theta(x)$ is a (real-valued) neural network, mapping an input $x$ to the output $f(x; \theta)$ under the parameter $\theta$. Given a dataset $\D$, we can define a loss function $\ell: \R^d \to \R$ by $\theta \mapsto \ell(\theta)$ such as the mean-squared-error or cross-entropy loss. (We do not explicitly show the dependency of $\ell$ to $f$ and $\D$ for brevity.) Assuming the standard basis for $\R^d$, from calculus we know that the second partial derivatives of $\ell$ at a point $\theta \in \R^d$ form a matrix called the Hessian matrix at $\theta$.
 

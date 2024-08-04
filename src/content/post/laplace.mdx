@@ -1,11 +1,11 @@
 ---
-title: 'Modern Arts of Laplace Approximations'
-description: 'The Laplace approximation (LA) is a simple yet powerful class of methods for approximating intractable posteriors. Yet, it is largely forgotten in the Bayesian deep learning community. Here, we review the LA, and highlight a recent software library for applying LA to deep nets.'
+title: "Modern Arts of Laplace Approximations"
+description: "The Laplace approximation (LA) is a simple yet powerful class of methods for approximating intractable posteriors. Yet, it is largely forgotten in the Bayesian deep learning community. Here, we review the LA, and highlight a recent software library for applying LA to deep nets."
 publishDate: 2021-10-27 00:00
 tags: [bayes]
 ---
 
-import BlogImage from '@/components/BlogImage.astro';
+import BlogImage from "@/components/BlogImage.astro";
 
 Let $f: X \times \Theta \to Y$ defined by $(x, \theta) \mapsto f_\theta(x)$ be a neural network, where $X \subseteq \R^n$, $\Theta \subseteq \R^d$, and $Y \subseteq \R^c$ be the input, parameter, and output spaces, respectively.
 Given a dataset $\D := \\{ (x_i, y_i) : x_i \in X, y_i \in Y \\}_{i=1}^m$, we define the likelihood $p(\D \mid \theta) := \prod_{i=1}^m p(y_i \mid f_\theta(x_i))$.

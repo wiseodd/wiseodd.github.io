@@ -1,6 +1,6 @@
 ---
-title: 'Wasserstein GAN implementation in TensorFlow and Pytorch'
-description: 'Wasserstein GAN comes with promise to stabilize GAN training and abolish mode collapse problem in GAN.'
+title: "Wasserstein GAN implementation in TensorFlow and Pytorch"
+description: "Wasserstein GAN comes with promise to stabilize GAN training and abolish mode collapse problem in GAN."
 publishDate: 2017-02-04 03:10
 tags: [machine learning, gan]
 ---

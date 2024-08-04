@@ -1,19 +1,19 @@
 ---
-import PageLayout from '@/layouts/BaseLayout.astro';
-import PublicationList from '@/components/PublicationList.astro';
-import Section from '@/components/Section.astro';
-import { sortPublicationFn } from '@/utils';
-import type { Publication } from '@/utils';
+import PageLayout from "@/layouts/BaseLayout.astro";
+import PublicationList from "@/components/PublicationList.astro";
+import Section from "@/components/Section.astro";
+import { sortPublicationFn } from "@/utils";
+import type { Publication } from "@/utils";
 
 interface Props {
   publications: Publication[];
 }
 
-import publications from '../../assets/publications.json';
+import publications from "../../assets/publications.json";
 const sortedPublications = publications.sort(sortPublicationFn);
 ---
 
-<PageLayout meta={{ title: 'Publications' }}>
+<PageLayout meta={{ title: "Publications" }}>
   <div class='w-full'>
     <!-- <TOC headings={} /> -->
 
@@ -23,9 +23,7 @@ const sortedPublications = publications.sort(sortPublicationFn);
       <div class='flex flex-col gap-y-2 md:flex-row md:gap-x-5 md:gap-y-0'>
         <div class='w-full flex-wrap gap-x-4 gap-y-2'>
           <PublicationList
-            publications={sortedPublications.filter(
-              (pub) => pub.type == 'conference'
-            )}
+            publications={sortedPublications.filter((pub) => pub.type == "conference")}
           />
         </div>
       </div>
@@ -35,9 +33,7 @@ const sortedPublications = publications.sort(sortPublicationFn);
       <div class='flex flex-col gap-y-2 md:flex-row md:gap-x-5 md:gap-y-0'>
         <div class='w-full flex-wrap gap-x-4 gap-y-2'>
           <PublicationList
-            publications={sortedPublications.filter(
-              (pub) => pub.type == 'journal'
-            )}
+            publications={sortedPublications.filter((pub) => pub.type == "journal")}
           />
         </div>
       </div>
@@ -47,9 +43,7 @@ const sortedPublications = publications.sort(sortPublicationFn);
       <div class='flex flex-col gap-y-2 md:flex-row md:gap-x-5 md:gap-y-0'>
         <div class='w-full flex-wrap gap-x-4 gap-y-2'>
           <PublicationList
-            publications={sortedPublications.filter(
-              (pub) => pub.type == 'workshop'
-            )}
+            publications={sortedPublications.filter((pub) => pub.type == "workshop")}
           />
         </div>
       </div>
@@ -59,9 +53,7 @@ const sortedPublications = publications.sort(sortPublicationFn);
       <div class='flex flex-col gap-y-2 md:flex-row md:gap-x-5 md:gap-y-0'>
         <div class='w-full flex-wrap gap-x-4 gap-y-2'>
           <PublicationList
-            publications={sortedPublications.filter(
-              (pub) => pub.type == 'preprint'
-            )}
+            publications={sortedPublications.filter((pub) => pub.type == "preprint")}
           />
         </div>
       </div>

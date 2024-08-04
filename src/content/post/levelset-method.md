@@ -1,6 +1,6 @@
 ---
-title: 'Level Set Method Part I: Introduction'
-description: 'Level Set Method is an interesting classical (pre deep learning) Computer Vision method based on Partial Differential Equation (PDE) for image segmentation. In this post, we will look at the intuition behind it.'
+title: "Level Set Method Part I: Introduction"
+description: "Level Set Method is an interesting classical (pre deep learning) Computer Vision method based on Partial Differential Equation (PDE) for image segmentation. In this post, we will look at the intuition behind it."
 publishDate: 2016-11-05 11:24
 tags: [programming, python, computer vision]
 ---

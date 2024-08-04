@@ -1,5 +1,5 @@
 ---
-title: 'Paralellizing Monte Carlo Simulation in Python'
+title: "Paralellizing Monte Carlo Simulation in Python"
 description: "Monte Carlo simulation is all about quantity. It can take a long time to complete. Here's how to speed it up with the amazing Python multiprocessing module!"
 publishDate: 2016-06-13 02:42
 tags: [machine learning, programming, python]
