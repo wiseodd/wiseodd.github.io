@@ -5,7 +5,7 @@ publishDate: 2015-10-09 17:01:00
 tags: [machine learning, programming, python]
 ---
 
-import BlogImage from '@/components/BlogImage.astro'
+import BlogImage from '@/components/BlogImage.astro';
 
 After so many months struggling with Gibbs Sampling, now I conquered it! Well, kind of.
 
@@ -17,7 +17,10 @@ Gibbs Sampling is a MCMC method to draw samples from a potentially really really
 
 In this example I will use Gibb Sampler to draw sampler from a Bivariate Gaussian with mu of `[5, 5]` and sigma/covariance matrix of `[[1, 0.9], [0.9, 1]]`. The exact distribution should look like this:
 
-<BlogImage imagePath='/img/gibbs-sampling/00.png' altText='Target distribution.' />
+<BlogImage
+  imagePath='/img/gibbs-sampling/00.png'
+  altText='Target distribution.'
+/>
 
 Now, pretend that this distribution is really complicated and very hard to sample (I know, I know, but please bear with me). We don't know how to sample from this directly, and we don't even know the shape of the distribution. However, because of some mathematical convenience, or maybe by just sheer luck, we know the conditional distributions: `P(X|Y)` and `P(Y|X)`. By now, it screams "Gibbs Sampling!".
 

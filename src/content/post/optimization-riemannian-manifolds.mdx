@@ -4,6 +4,7 @@ description: 'One of the most ubiquitous applications in the field of differenti
 publishDate: 2019-02-22 12:00
 tags: [math]
 ---
+
 import BlogImage from '@/components/BlogImage.astro';
 
 Differential geometry can be seen as a generalization of calculus on Riemannian manifolds. Objects in calculus such as gradient, Jacobian, and Hessian on $\R^n$ are adapted on arbitrary Riemannian manifolds. This fact let us also generalize one of the most ubiquitous problem in calculus: the optimization problem. The implication of this generalization is far-reaching: We can make a more general and thus flexible assumption regarding the domain of our optimization, which might fit real-world problems better or has some desirable properties.
@@ -59,7 +60,7 @@ $$
 
 ## Gradient descent on Riemannian manifolds
 
-**Remark.** _We shall use the Einstein summation convention: Repeated indices above and below are implied to be summed, e.g. $v^i w_i \implies \sum_i v^i w_i$ and $g_{ij} v^i v^j \implies \sum_{ij} g_{ij} v^i v^j$. By convention the index in $\partder{}{x^i}$ is thought to be a lower index._
+**Remark.** _We shall use the Einstein summation convention: Repeated indices above and below are implied to be summed, e.g. $v^i w_i \implies \sum_i v^i w_i$ and $g_{ij} v^i v^j \implies \sum*{ij} g*{ij} v^i v^j$. By convention the index in $\partder{}{x^i}$ is thought to be a lower index.\_
 
 We now want to break the confine of the Euclidean space. We would like to generalize the gradient descent algorithm on a function defined on a Riemannian manifold. Based on Algorithm 1, at least there are two parts of the algorithm that we need to adapt, namely, (i) the gradient of $f$ and (ii) the way we move between points on $\M$.
 

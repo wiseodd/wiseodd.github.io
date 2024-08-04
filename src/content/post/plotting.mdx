@@ -4,6 +4,7 @@ description: "In machine learning papers, plots are often treated as afterthough
 publishDate: 2022-05-01 00:00
 tags: [TikZ]
 ---
+
 import BlogImage from '@/components/BlogImage.astro';
 
 Let's start with a side-by-side comparison. Which one of the following two plots is more aesthetically pleasing?
@@ -62,7 +63,8 @@ So, here's my workflow for creating a publication-ready plot, from start to fini
    ```
 
    Here's an example file you can use to follow this tutorial along:
-   <a href="/files/figname.tex">download</a>.
+
+   <a href='/files/figname.tex'>download</a>.
 
 3. Copy `figname.tex` to the `figs` directory in your paper's LaTeX project.
 4. In the preamble of your paper's LaTeX file, add:
@@ -91,7 +93,7 @@ So, here's my workflow for creating a publication-ready plot, from start to fini
    Note that `\figwidth` and `\figheight` are local variables, so their values will only be used for `figname`.
 
 6. At this point, you will already have a quite aesthetically pleasing figure, cf. below. Notice that the font face and size are consistent with the paper's text. However, notice that we need to improve the plot further, e.g. by unhiding the x- and y-tick labels.
-    <BlogImage imagePath='/img/plotting/tikzplotlib_raw.png' />
+   <BlogImage imagePath='/img/plotting/tikzplotlib_raw.png' />
 7. Open `figname.tex`. You will see the following code:
 
    ```tex

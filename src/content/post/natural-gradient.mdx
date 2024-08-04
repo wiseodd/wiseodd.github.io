@@ -5,7 +5,7 @@ publishDate: 2018-03-14 07:00
 tags: [machine learning]
 ---
 
-import BlogImage from '@/components/BlogImage.astro'
+import BlogImage from '@/components/BlogImage.astro';
 
 Previously, we looked at the Fisher Information Matrix. We saw that it is equal to the negative expected Hessian of log likelihood. Thus, the immediate application of Fisher Information Matrix is as drop-in replacement of Hessian in second order optimization algorithm. In this article, we will look deeper at the intuition on what excatly is the Fisher Information Matrix represents and what is the interpretation of it.
 
@@ -28,15 +28,15 @@ Which metric/distance then do we need to use in this space? A popular choice wou
 We can see the problem when using only Euclidean metric in parameter space from the illustrations below. Consider a Gaussian parameterized by only its mean and keep the variance fixed to 2 and 0.5 for the first and second image respectively:
 
 <BlogImage
-	imagePath='/img/natural-gradient/param_space_dist.png'
-	altText='A parametrization of Gaussians.'
-	fullWidth
+  imagePath='/img/natural-gradient/param_space_dist.png'
+  altText='A parametrization of Gaussians.'
+  fullWidth
 />
 
 <BlogImage
-	imagePath='/img/natural-gradient/param_space_dist2.png'
-	altText='Another parametrization of Gaussians.'
-	fullWidth
+  imagePath='/img/natural-gradient/param_space_dist2.png'
+  altText='Another parametrization of Gaussians.'
+  fullWidth
 />
 
 In both images, the distance of those Gaussians are the same, i.e. 4, according to Euclidean metric (red line). However, clearly in distribution space, i.e. when we are taking into account the shape of the Gaussians, the distance is different in the first and second image. In the first image, the KL-divergence should be lower as there is more overlap between those Gaussians. Therefore, if we only work in parameter space, we cannot take into account this information about the distribution realized by the parameter.

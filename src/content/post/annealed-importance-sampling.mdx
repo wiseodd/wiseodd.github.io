@@ -4,6 +4,7 @@ description: 'An introduction and implementation of Annealed Importance Sampling
 publishDate: 2017-12-23 07:00
 tags: [machine learning, bayesian]
 ---
+
 import BlogImage from '@/components/BlogImage.astro';
 
 Suppose we have this distribution:
@@ -33,8 +34,8 @@ The construction of AIS is as follows:
 
 Then to sample from $ p_0(x) $, we need to:
 
-- Sample an independent point from $ x_{n-1} \sim p_n(x) $.
-- Sample $ x*{n-2} $ from $ x*{n-1} $ by doing MCMC w.r.t. $ T_{n-1} $.
+- Sample an independent point from $ x\_{n-1} \sim p_n(x) $.
+- Sample $ x*{n-2} $ from $ x*{n-1} $ by doing MCMC w.r.t. $ T\_{n-1} $.
 - $ \dots $
 - Sample $ x_1 $ from $ x_2 $ by doing MCMC w.r.t. $ T_2 $.
 - Sample $ x_0 $ from $ x_1 $ by doing MCMC w.r.t. $ T_1 $.
@@ -69,7 +70,10 @@ $$
 
 where $ 1 = \beta_0 > \beta_1 > \dots > \beta_n = 0 $. For visual example, annealing between $ N(0, I) $ to $ N(5, I) $ with 10 intermediate distributions gives us:
 
-<BlogImage imagePath="/img/annealed-importance-sampling/intermediate_dists.png" altText="Intermediate distributions." />
+<BlogImage
+  imagePath='/img/annealed-importance-sampling/intermediate_dists.png'
+  altText='Intermediate distributions.'
+/>
 
 For the transition functions, we can use Metropolis-Hastings with acceptance probability:
 

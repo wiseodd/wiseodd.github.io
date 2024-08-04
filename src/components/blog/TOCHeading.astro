@@ -1,19 +1,19 @@
 ---
-import type { TocItem } from '@/utils'
+import type { TocItem } from '@/utils';
 
 interface Props {
-	heading: TocItem
+  heading: TocItem;
 }
 
 const {
-	heading: { depth, slug, subheadings, text }
-} = Astro.props
+  heading: { depth, slug, subheadings, text }
+} = Astro.props;
 ---
 
 <li class={`${depth > 2 ? 'ms-2' : ''}`}>
-	<a
-		aria-label={`Scroll to section: ${text}`}
-		class={`block line-clamp-2  ${depth <= 2 ? 'mt-2' : 'mt-1 text-sm'} text-foreground/75 transition-all hover:text-foreground`}
-		href={`#${slug}`}>{text}</a
-	>
+  <a
+    aria-label={`Scroll to section: ${text}`}
+    class={`block line-clamp-2  ${depth <= 2 ? 'mt-2' : 'mt-1 text-sm'} text-foreground/75 transition-all hover:text-foreground`}
+    href={`#${slug}`}>{text}</a
+  >
 </li>

@@ -4,6 +4,7 @@ description: 'In machine learning, especially in neural networks, the Hessian ma
 publishDate: 2020-11-02 12:00
 tags: [math]
 ---
+
 import BlogImage from '@/components/BlogImage.astro';
 
 In machine learning, especially in neural networks, the Hessian matrix is often treated synonymously with curvatures, in the following sense. Suppose $f: \R^n \times \R^d \to \R$ defined by $(x, \theta) \mapsto f(x; \theta) =: f_\theta(x)$ is a (real-valued) neural network, mapping an input $x$ to the output $f(x; \theta)$ under the parameter $\theta$. Given a dataset $\D$, we can define a loss function $\ell: \R^d \to \R$ by $\theta \mapsto \ell(\theta)$ such as the mean-squared-error or cross-entropy loss. (We do not explicitly show the dependency of $\ell$ to $f$ and $\D$ for brevity.) Assuming the standard basis for $\R^d$, from calculus we know that the second partial derivatives of $\ell$ at a point $\theta \in \R^d$ form a matrix called the Hessian matrix at $\theta$.
@@ -26,13 +27,21 @@ $$
 
 Intuitively, the induced inner product on $M$ at $p$ is obtained by "pushing forward" tangent vectors $v$ and $w$ using the Jacobian $J_p$ at $p$ and compute their dot product on $\R^{n+1}$.
 
-<BlogImage imagePath='/img/hessian-curvatures/pushforward.png' altText='Pushforward.' fullWidth />
+<BlogImage
+  imagePath='/img/hessian-curvatures/pushforward.png'
+  altText='Pushforward.'
+  fullWidth
+/>
 
 Let $g: U \to \R$ is a smooth real-valued function over an open subset $U \subseteq \R^n$, then the **_graph_** of $g$ is the subset $M := \\{ (u, g(u)) : u \in  U \\} \subseteq \R^{n+1}$ which is a hypersurface in $\R^{n+1}$. In this case, we can describe $M$ via the so-called **_graph parametrization_** which is a function $X: U \to \R^{n+1}$ defined by $X(u) := (u, g(u))$.
 
 Coming back to our neural network setting, assuming that the loss $\ell$ is smooth, the graph $L := \\{ (\theta, \ell(\theta)) : \theta \in \R^d \\}$ is a Euclidean hypersurface of $\R^{d+1}$ with parametrization $Z: \R^d \to \R^{d+1}$ defined by $Z(\theta) := (\theta, \ell(\theta))$. Furthermore, the metric of $L$ is given by the Jacobian of the parametrization $Z$ and the standard dot product on $\R^{d+1}$, as before. Thus, the loss landscape of $\ell$ can indeed be amenable to geometric analysis.
 
-<BlogImage imagePath='/img/hessian-curvatures/graph_hypersurface.png' altText='The graph of a function as a hypersurface.' fullWidth />
+<BlogImage
+  imagePath='/img/hessian-curvatures/graph_hypersurface.png'
+  altText='The graph of a function as a hypersurface.'
+  fullWidth
+/>
 
 ## The Second Fundamental Form and Shape Operator
 
@@ -50,11 +59,17 @@ $$
 
 See the following figure for an intuition.
 
-<BlogImage imagePath='/img/hessian-curvatures/II.png' altText='The second fundamental form.' />
+<BlogImage
+  imagePath='/img/hessian-curvatures/II.png'
+  altText='The second fundamental form.'
+/>
 
 Since $L$ is a $d$-dimensional hypersurface of $(d+1)$-dimensional Euclidean space, the normal space $N_pL$ at each point $p$ of $L$ has dimension one, and there exist only two ways of choosing a unit vector field normal to $L$. Any choice of the unit vector field thus automatically gives a basis for $N_pL$ for all $p \in L$. One of the choices is the following normal vector field which is oriented _outward_ relative to $L$.
 
-<BlogImage imagePath='/img/hessian-curvatures/unit_normal.png' altText='A unit normal vector field.' />
+<BlogImage
+  imagePath='/img/hessian-curvatures/unit_normal.png'
+  altText='A unit normal vector field.'
+/>
 
 Another choice is the same unit normal field but oriented _inward_ relative to $L$.
 
@@ -84,13 +99,20 @@ Altogether, this means that at each $p \in L$, the shape operator at $p$ can be 
 
 The previous fact about the matrix of $s$ says that we can apply eigendecomposition on $s$ and obtain $n$ real eigenvalues $\kappa_1, \dots, \kappa_n$ and an orthonormal basis for $T_p L$ formed by the eigenvectors $(b_1, \dots, b_n)$ corresponding to these eigenvalues. We call these eigenvalues the **_principal curvatures_** of $L$ at $p$ and the corresponding eigenvectors the **_principal directions_**. Moreover, we also define the **_Gaussian curvature_** as $\det s = \prod_{i=1}^d \kappa_i$ and the **_mean curvature_** as $\frac{1}{d} \mathrm{tr}\,s = \frac{1}{d} \sum_{i=1}^d \kappa_i$.
 
-<BlogImage imagePath='/img/hessian-curvatures/curvature_plane_curv.png' altText='Principal curvatures.' />
+<BlogImage
+  imagePath='/img/hessian-curvatures/curvature_plane_curv.png'
+  altText='Principal curvatures.'
+/>
 
 The intuition of the principal curvatures and directions in $\R^3$ is shown in the preceding figure. Suppose $M$ is a surface in $\R^3$. Choose a tangent vector $v \in T_pM$. Together with the choice of our unit normal vector $N_p$ at $p$, we obtain a plane $\varPi$ passing through $p$. The intersection of $\varPi$ and the neighborhood of $p$ in $M$ is a plane curve $\gamma \subseteq \varPi$ containing $p$. We can now compute the curvature of this curve at $p$ as usual, in the calculus sense (the reciprocal of the radius of the osculating circle at $p$). Then, the principal curvatures of $M$ at $p$ are the minimum and maximum curvatures obtained this way. The corresponding vectors in $T_p M$ that attain the minimum and maximum are the principal directions.
 
 Principal and mean curvatures are not intrinsic to a hypersurface. There are two hypersurfaces that are isometric, but have different principal curvatures and hence different mean curvatures. Consider the following two surfaces.
 
-<BlogImage imagePath='/img/hessian-curvatures/principal_curvatures_extrinsic.png' altText='Principal curvatures are extrinsic.' fullWidth />
+<BlogImage
+  imagePath='/img/hessian-curvatures/principal_curvatures_extrinsic.png'
+  altText='Principal curvatures are extrinsic.'
+  fullWidth
+/>
 
 The first (left) surface is the plane described by the parametrization $(x,y) \mapsto \\{ x, y, 0 \\}$ for $0 < x < \pi$ and $0 < y < \pi$. The second one is the half cylinder $(x,y) \mapsto \\{ x, y, \sqrt{1-y^2} \\}$ for $0 < x < \pi$ and $\abs{y} < 1$. It is clear that they have different principal curvatures since the plane is a flat while the half-cylinder is "curvy". Indeed, assuming a downward pointing normal, we can see that $\kappa_1 = \kappa_2 = 0$ for the plane and $\kappa_1 = 0, \kappa_2 = 1$ for the half-cylinder and thus their mean curvatures differ. However, they are actually isometric to each other---from the point of view of Riemannian geometry, they are the same. Thus, both principal and mean curvatures depend on the choice of the parametrization and not intrinsic.
 
@@ -144,7 +166,7 @@ $$
 
 Finally, we show the connection between the principal curvatures with the scalar second fundamental form, and hence the principal curvatures with the Hessian. The following proposition says that at a critical point, the unit normal vector can be chosen as $(0, \dots, 0, 1)$ and thus the scalar second fundamental form coincides with the Hessian of $\ell$. Furthermore, by orthonormalizing the basis for the tangent space at that point, we can show that the matrix of the scalar second fundamental form in this case is exactly the matrix of the shape operator at $p$ and thus the Hessian encodes the principal curvatures at that point.
 
-**Proposition 2.** _Suppose $L \subseteq \R^{d+1}$ is a loss landscape with its graph parametrization and let $\theta_* \in \R^d$ be a critical point of $\ell$ and $p_* := (\theta_*^1, \dots, \theta_*^d, \ell(\theta_*)) \in L$. Then the matrix of the shape operator $s$ of $L$ at $p_*$ is equal to the Hessian matrix of $\ell$ at $\theta_*$._
+**Proposition 2.** \_Suppose $L \subseteq \R^{d+1}$ is a loss landscape with its graph parametrization and let $\theta__ \in \R^d$ be a critical point of $\ell$ and $p\__ := (\theta*\*^1, \dots, \theta*_^d, \ell(\theta\__)) \in L$. Then the matrix of the shape operator $s$ of $L$ at $p_*$ is equal to the Hessian matrix of $\ell$ at $\theta_*$.\_
 
 _Proof._ We can assume w.l.o.g. that the basis $(E_1, \dots, E_d)$ for $T_{p_\*} L$ is orthonormal by applying the Gram-Schmidt algorithm on $d$ linearly independent tangent vectors in $T_{p_\*} L$. Furthermore pick $(0, \dots, 0, 1) \in \R^{d+1}$ as the choice of the unit normal $N$ at $p_\*$. We can do so since by hypothesis $p_\*$ is a critical point and therefore $(0, \dots, 0, 1)$ is perpendicular to $T_{p_\*} L$.
 
@@ -162,7 +184,11 @@ In deep learning, there have been interesting works connecting the "flatness" of
 
 As we have seen previously, at a minimum, the principal and mean curvature (the eigenvalues and trace of the Hessian of $\ell$, resp.) are not intrinsic. Different parametrization of $L$ can yield different principal and mean curvatures. Just like the illustration with the plane and the half-cylinder above, [4] illustrates this directly in the loss landscape. In particular, we can apply a bijective transformation $\varphi$ to the original parameter space $\R^d$ s.t. the resulting loss landscape is isometric to the original loss landscape and the particular minimum $\theta_\*$ does not change, i.e. $\varphi(\theta_\*) = \theta_\*$. See the following figure for an illustration (we assume that the length of the red curves below is the same).
 
-<BlogImage imagePath='/img/hessian-curvatures/reparametrization_curvatures.png' altText='Principal curvatures are not invariant under reparametrization.' fullWidth />
+<BlogImage
+  imagePath='/img/hessian-curvatures/reparametrization_curvatures.png'
+  altText='Principal curvatures are not invariant under reparametrization.'
+  fullWidth
+/>
 
 It is clear that the principal curvature changes even though functionally, the NN still represents the same function. Thus, we cannot actually connect the notion of "flatness" that are common in literature to the generalization ability of the NN. A definitive connection between them must start with some intrinsic notion of flatness---for starter, the Gaussian curvature, which can be easily computed since it is just the determinant of the Hessian at the minima.
 

@@ -4,6 +4,7 @@ description: 'The Laplace approximation (LA) is a simple yet powerful class of m
 publishDate: 2021-10-27 00:00
 tags: [bayes]
 ---
+
 import BlogImage from '@/components/BlogImage.astro';
 
 Let $f: X \times \Theta \to Y$ defined by $(x, \theta) \mapsto f_\theta(x)$ be a neural network, where $X \subseteq \R^n$, $\Theta \subseteq \R^d$, and $Y \subseteq \R^c$ be the input, parameter, and output spaces, respectively.
@@ -127,13 +128,20 @@ pred_mean, pred_var = la(x_test)
 The resulting object, `la` is a fully-functioning BNN, yielding the following prediction.
 (Notice the identical regression curves---the LA essentially imbues MAP predictions with uncertainty estimates.)
 
-<BlogImage imagePath="/img/laplace/regression_example.png" altText="Laplace for regression." />
+<BlogImage
+  imagePath='/img/laplace/regression_example.png'
+  altText='Laplace for regression.'
+/>
 
 Of course, `laplace-torch` is flexible: the `Laplace` class has almost all state-of-the-art features in Laplace approximations.
 Those features, along with the corresponding options in `laplace-torch`, are summarized in the following flowchart.
 (The options `'subnetwork'` for `subset_of_weights` and `'lowrank'` for `hessian_structure` are in the work, by the time this post is first published.)
 
-<BlogImage imagePath="/img/laplace/flowchart.png" altText="Modern arts of Laplace approximations." fullWidth />
+<BlogImage
+  imagePath='/img/laplace/flowchart.png'
+  altText='Modern arts of Laplace approximations.'
+  fullWidth
+/>
 
 The `laplace-torch` library uses a very cheap yet highly-performant flavor of LA by default, based on [4]:
 
@@ -144,7 +152,11 @@ def Laplace(model, likelihood, subset_of_weights='last_layer', hessian_structure
 That is, by default the `Laplace` class will fit a last-layer Laplace with a Kronecker-factored Hessian for approximating the covariance.
 Let us see how this default flavor of LA performs compared to the more sophisticated, recent (all-layer) Bayesian baselines in classification.
 
-<BlogImage imagePath="/img/laplace/classification.png" altText="Laplace for classification." fullWidth />
+<BlogImage
+  imagePath='/img/laplace/classification.png'
+  altText='Laplace for classification.'
+  fullWidth
+/>
 
 Here we can see that `Laplace`, with default options, improves the calibration (in terms of expected calibration error (ECE)) of the MAP model.
 Moreover, it is guaranteed to preserve the accuracy of the MAP model---something that cannot be said for other baselines.

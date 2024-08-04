@@ -4,6 +4,7 @@ description: 'The Gaussian probability distribution is central in statistics and
 publishDate: 2021-06-21 08:00
 tags: [math]
 ---
+
 import BlogImage from '@/components/BlogImage.astro';
 
 The (univariate) Gaussian distribution is defined by the following p.d.f.:
@@ -48,7 +49,7 @@ Note in particular that the matrix $G$ is positive definite for any $(\mu, \sigm
 
 One more structure is needed for computing the curvature(s) of $M$. We need to equip $(M, g)$ with an affine connection. Here, we will use the Levi-Civita connection $\nabla$ of $g$.
 
-**Note.** _We will use the Einstein summation convention from now on. For example, $\Gamma^k_{ij} \Gamma^l_{km} = \sum_k \Gamma^k_{ij} \Gamma^l_{km}$._
+**Note.** _We will use the Einstein summation convention from now on. For example, $\Gamma^k_{ij} \Gamma^l*{km} = \sum_k \Gamma^k*{ij} \Gamma^l*{km}$.*
 
 ## Christoffel Symbols
 
@@ -192,6 +193,9 @@ Note in particular that this sectional curvature does not depend on both $\mu$ a
 
 Thanks to the amazing [`geomstats`](https://github.com/geomstats/geomstats) package, we can visualize $M$ in coordinates easily. The idea is by visualizing the contours of the distances from points in $\R \times \R_{>0}$ to $(0, 1)$, i.e. corresponding to $\N(x \mid 0, 1)$---the standard normal.
 
-<BlogImage imagePath='/img/manifold-gaussians/gaussians_geo.png' altText='Geodesic paths of Gaussians.' />
+<BlogImage
+  imagePath='/img/manifold-gaussians/gaussians_geo.png'
+  altText='Geodesic paths of Gaussians.'
+/>
 
 Above, red points are the discretized steps of geodesics from $\N(x \mid 0, 1)$ to other Gaussians with different mean and variance. Indeed, geodesics of $M$ behave similarly like in the Poincaré half-space model---one of the poster children of the hyperbolic geometry.

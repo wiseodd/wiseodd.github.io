@@ -5,7 +5,7 @@ publishDate: 2017-03-02 05:50
 tags: [machine learning, gan]
 ---
 
-import BlogImage from '@/components/BlogImage.astro'
+import BlogImage from '@/components/BlogImage.astro';
 
 Thanks to F-GAN, which established the general framework of GAN training, recently we saw modifications of GAN which unlike the original GAN, learn other metrics other than Jensen-Shannon divergence (JSD).
 
@@ -21,7 +21,10 @@ The main idea of LSGAN is to use loss function that provides smooth and non-satu
 
 As we know in original GAN, $D$ uses log loss. The decision boundary is something like this:
 
-<BlogImage imagePath='/img/least-squares-gan/00.png' altText='Log-loss decision boundary.' />
+<BlogImage
+  imagePath='/img/least-squares-gan/00.png'
+  altText='Log-loss decision boundary.'
+/>
 
 As $D$ uses sigmoid function, and as it is saturating very quickly, even for somewhat-still-small data point $x$, it will quickly ignore the distance of $x$ to the decision boundary $w$. What it means is that it essentially won't penalize $x$ that is far away from $w$ in the manifold. That is, as long as $x$ is correctly labeled, we're happy. Consequently, as $x$ becoming bigger and bigger, the gradient of $D$ quickly goes down to $0$, as log loss doesn't care about the distance, only the sign.
 
@@ -29,7 +32,10 @@ For learning the manifold of $P_{data}(X)$, then log loss is not effective. Gene
 
 Enter ${L_2}$ loss:
 
-<BlogImage imagePath='/img/least-squares-gan/01.png' altText='L2 decision boundary.' />
+<BlogImage
+  imagePath='/img/least-squares-gan/01.png'
+  altText='L2 decision boundary.'
+/>
 
 In $L2$ loss, data that are quite far away from $w$ (in this context, the regression line of $P_{data}(X)$) will be penalized proportional to the distance. The gradient therefore will only become $0$ when $w$ perfectly captures all of $x$. This will guarantee $D$ to yield informative gradients if $G$ has not captured the data manifold.
 

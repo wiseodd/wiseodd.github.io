@@ -1,39 +1,44 @@
 ---
-import type { HTMLTag, Polymorphic } from 'astro/types'
-import type { CollectionEntry } from 'astro:content'
+import type { HTMLTag, Polymorphic } from 'astro/types';
+import type { CollectionEntry } from 'astro:content';
 
-import FormattedDate from '../FormattedDate.astro'
+import FormattedDate from '../FormattedDate.astro';
 
-import { truncateDescription } from '@/utils'
+import { truncateDescription } from '@/utils';
 
 type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & {
-	post: CollectionEntry<'post'>
-	withDesc?: boolean
-	maxDescWords?: number
-}
+  post: CollectionEntry<'post'>;
+  withDesc?: boolean;
+  maxDescWords?: number;
+};
 
-const { as: Tag = 'div', post, withDesc = false, maxDescWords = 20 } = Astro.props
-const postDate = post.data.updatedDate ?? post.data.publishDate
+const {
+  as: Tag = 'div',
+  post,
+  withDesc = false,
+  maxDescWords = 20
+} = Astro.props;
+const postDate = post.data.updatedDate ?? post.data.publishDate;
 ---
 
 <li class='flex flex-col gap-2 sm:flex-row sm:gap-x-4 [&_q]:basis-full'>
-	<FormattedDate class='min-w-[120px]' date={postDate} />
+  <FormattedDate class='min-w-[120px]' date={postDate} />
 
-	<Tag>
-		{post.data.draft && <span class='text-red-500'>(Draft) </span>}
-		<a
-			data-astro-prefetch
-			href={`/blog/${post.slug}/`}
-			class='font-semibold transition-all hover:text-muted-foreground'
-		>
-			{post.data.title}
-		</a>
-		{
-			withDesc && (
-				<p class='line-clamp-3 block text-sm text-muted-foreground'>
-					{truncateDescription(post.data.description, maxDescWords)}
-				</p>
-			)
-		}
-	</Tag>
+  <Tag>
+    {post.data.draft && <span class='text-red-500'>(Draft) </span>}
+    <a
+      data-astro-prefetch
+      href={`/blog/${post.slug}/`}
+      class='font-semibold transition-all hover:text-muted-foreground'
+    >
+      {post.data.title}
+    </a>
+    {
+      withDesc && (
+        <p class='line-clamp-3 block text-sm text-muted-foreground'>
+          {truncateDescription(post.data.description, maxDescWords)}
+        </p>
+      )
+    }
+  </Tag>
 </li>
