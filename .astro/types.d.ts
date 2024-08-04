@@ -136,13 +136,13 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"post": {
-"annealed-importance-sampling.md": {
-	id: "annealed-importance-sampling.md";
+"annealed-importance-sampling.mdx": {
+	id: "annealed-importance-sampling.mdx";
   slug: "annealed-importance-sampling";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 "autoencoders.md": {
 	id: "autoencoders.md";
   slug: "autoencoders";
@@ -164,20 +164,20 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"boundary-seeking-gan.md": {
-	id: "boundary-seeking-gan.md";
+"boundary-seeking-gan.mdx": {
+	id: "boundary-seeking-gan.mdx";
   slug: "boundary-seeking-gan";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
-"brouwers-fixed-point.md": {
-	id: "brouwers-fixed-point.md";
+} & { render(): Render[".mdx"] };
+"brouwers-fixed-point.mdx": {
+	id: "brouwers-fixed-point.mdx";
   slug: "brouwers-fixed-point";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 "chentsov-theorem.mdx": {
 	id: "chentsov-theorem.mdx";
   slug: "chentsov-theorem";
@@ -255,13 +255,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"fisher-information.md": {
-	id: "fisher-information.md";
+"fisher-information.mdx": {
+	id: "fisher-information.mdx";
   slug: "fisher-information";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 "forward-reverse-kl.md": {
 	id: "forward-reverse-kl.md";
   slug: "forward-reverse-kl";
@@ -290,13 +290,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"gibbs-sampling.md": {
-	id: "gibbs-sampling.md";
+"gibbs-sampling.mdx": {
+	id: "gibbs-sampling.mdx";
   slug: "gibbs-sampling";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 "gleam-use.mdx": {
 	id: "gleam-use.mdx";
   slug: "gleam-use";
@@ -346,13 +346,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".mdx"] };
-"lda-gibbs.md": {
-	id: "lda-gibbs.md";
+"lda-gibbs.mdx": {
+	id: "lda-gibbs.mdx";
   slug: "lda-gibbs";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 "least-squares-gan.md": {
 	id: "least-squares-gan.md";
   slug: "least-squares-gan";
@@ -388,13 +388,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".mdx"] };
-"mayer-vietoris-sphere.md": {
-	id: "mayer-vietoris-sphere.md";
+"mayer-vietoris-sphere.mdx": {
+	id: "mayer-vietoris-sphere.mdx";
   slug: "mayer-vietoris-sphere";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 "metropolis-hastings.md": {
 	id: "metropolis-hastings.md";
   slug: "metropolis-hastings";
@@ -402,13 +402,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"minkowski-dirichlet.md": {
-	id: "minkowski-dirichlet.md";
+"minkowski-dirichlet.mdx": {
+	id: "minkowski-dirichlet.mdx";
   slug: "minkowski-dirichlet";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 "mle-vs-map.md": {
 	id: "mle-vs-map.md";
   slug: "mle-vs-map";
@@ -416,13 +416,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"natural-gradient.md": {
-	id: "natural-gradient.md";
+"natural-gradient.mdx": {
+	id: "natural-gradient.mdx";
   slug: "natural-gradient";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 "nn-optimization.md": {
 	id: "nn-optimization.md";
   slug: "nn-optimization";
