@@ -227,13 +227,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"coupled_gan.md": {
-	id: "coupled_gan.md";
-  slug: "coupled_gan";
+"coupled-gan.mdx": {
+	id: "coupled-gan.mdx";
+  slug: "coupled-gan";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 "deploying-wagtail.md": {
 	id: "deploying-wagtail.md";
   slug: "deploying-wagtail";
@@ -318,13 +318,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".mdx"] };
-"infogan.md": {
-	id: "infogan.md";
+"infogan.mdx": {
+	id: "infogan.mdx";
   slug: "infogan";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 "jekyll-fb-share.md": {
 	id: "jekyll-fb-share.md";
   slug: "jekyll-fb-share";
@@ -528,13 +528,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"wasserstein-gan.md": {
-	id: "wasserstein-gan.md";
+"wasserstein-gan.mdx": {
+	id: "wasserstein-gan.mdx";
   slug: "wasserstein-gan";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 };
 
 	};
