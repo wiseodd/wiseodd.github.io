@@ -157,13 +157,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"bayesian-regression.md": {
-	id: "bayesian-regression.md";
+"bayesian-regression.mdx": {
+	id: "bayesian-regression.mdx";
   slug: "bayesian-regression";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 "boundary-seeking-gan.mdx": {
 	id: "boundary-seeking-gan.mdx";
   slug: "boundary-seeking-gan";
@@ -269,13 +269,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"gan-pytorch.md": {
-	id: "gan-pytorch.md";
+"gan-pytorch.mdx": {
+	id: "gan-pytorch.mdx";
   slug: "gan-pytorch";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 "gan-tensorflow.md": {
 	id: "gan-tensorflow.md";
   slug: "gan-tensorflow";
@@ -332,13 +332,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"kl-mle.md": {
-	id: "kl-mle.md";
+"kl-mle.mdx": {
+	id: "kl-mle.mdx";
   slug: "kl-mle";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 "laplace.mdx": {
 	id: "laplace.mdx";
   slug: "laplace";
@@ -486,13 +486,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"theano-pde.md": {
-	id: "theano-pde.md";
+"theano-pde.mdx": {
+	id: "theano-pde.mdx";
   slug: "theano-pde";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 "twitter-auth-flask.md": {
 	id: "twitter-auth-flask.md";
   slug: "twitter-auth-flask";
@@ -500,13 +500,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"vae-pytorch.md": {
-	id: "vae-pytorch.md";
+"vae-pytorch.mdx": {
+	id: "vae-pytorch.mdx";
   slug: "vae-pytorch";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 "variational-autoencoder.md": {
 	id: "variational-autoencoder.md";
   slug: "variational-autoencoder";

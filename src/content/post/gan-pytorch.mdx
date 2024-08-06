@@ -11,7 +11,7 @@ Those two libraries are different from the existing libraries like TensorFlow an
 
 Enter Pytorch. It is a Torch's port for Python. The programming style of Pytorch is imperative, meaning that if we've already familiar using Numpy to code our alogrithm up, then jumping to Pytorch should be a breeze. One does not need to learn symbolic mathematical computation, like in TensorFlow and Theano.
 
-With that being said, let's try Pytorch by implementing Generative Adversarial Networks (GAN). As a reference point, here is the [TensorFlow version]({% post_url 2016-09-17-gan-tensorflow %}).
+With that being said, let's try Pytorch by implementing Generative Adversarial Networks (GAN).
 
 Let's start by importing stuffs:
 
@@ -32,13 +32,13 @@ h_dim = 128
 lr = 1e-3
 ```
 
-Now let's construct our Generative Network \\( G(z) \\):
+Now let's construct our Generative Network $G(z)$:
 
 ```python
 def xavier*init(size):
-in_dim = size[0]
-xavier_stddev = 1. / np.sqrt(in_dim / 2.)
-return Variable(torch.randn(\_size) * xavier_stddev, requires_grad=True)
+    in_dim = size[0]
+    xavier_stddev = 1. / np.sqrt(in_dim / 2.)
+    return Variable(torch.randn(\_size) * xavier_stddev, requires_grad=True)
 
 Wzh = xavier_init(size=[Z_dim, h_dim])
 bzh = Variable(torch.zeros(h_dim), requires_grad=True)
@@ -47,14 +47,14 @@ Whx = xavier_init(size=[h_dim, X_dim])
 bhx = Variable(torch.zeros(X_dim), requires_grad=True)
 
 def G(z):
-h = nn.relu(z @ Wzh + bzh.repeat(z.size(0), 1))
-X = nn.sigmoid(h @ Whx + bhx.repeat(h.size(0), 1))
-return X
+    h = nn.relu(z @ Wzh + bzh.repeat(z.size(0), 1))
+    X = nn.sigmoid(h @ Whx + bhx.repeat(h.size(0), 1))
+    return X
 ```
 
 It is awfully similar to the TensorFlow version, what is the difference then? It is subtle without more hints, but basically those variables `Wzh, bzh, Whx, bhx` are real tensor/ndarray, just like in Numpy. That means, if we evaluate it with `print(Wzh)` the value is immediately shown. Also, the function `G(z)` is a real function, in the sense that if we input a tensor, we will immediately get the return value back. Try doing those things in TensorFlow or Theano.
 
-Next is the Discriminator Network \\( D(X) \\):
+Next is the Discriminator Network $D(X)$:
 
 ```python
 Wxh = xavier_init(size=[X_dim, h_dim])
@@ -98,7 +98,7 @@ X = Variable(torch.from_numpy(X))
 
 ```
 
-So first, let's define the \\( D(X) \\)'s "forward-loss-backward-update" step. First, the forward step:
+So first, let's define the $D(X)$'s "forward-loss-backward-update" step. First, the forward step:
 
 ```python # D(X) forward and loss
 G_sample = G(z)
@@ -125,29 +125,29 @@ Of course we could code up our own optimizer. But Pytorch has built-in optimizer
 As we have two different optimizers, we need to clear up the computed gradient in our computational graph as we do not need it anymore. Also, it is necessary so that the gradients won't mix up with the subsequent call of `backward()` as `D_solver` shares some subgraphs with `G_solver`.
 
 ```python
-def reset*grad():
-for p in params:
-p.grad.data.zero*()
+def reset_grad():
+    for p in params:
+    p.grad.data.zero_()
 ```
 
-We do similar things to implement the "forward-loss-backward-update" for \\( G(z) \\):
+We do similar things to implement the "forward-loss-backward-update" for $G(z)$:
 
-```python # Housekeeping - reset gradient
+```python
+# Housekeeping - reset gradient
 reset_grad()
 
-    # Generator forward-loss-backward-update
-    z = Variable(torch.randn(mb_size, Z_dim))
-    G_sample = G(z)
-    D_fake = D(G_sample)
+# Generator forward-loss-backward-update
+z = Variable(torch.randn(mb_size, Z_dim))
+G_sample = G(z)
+D_fake = D(G_sample)
 
-    G_loss = nn.binary_cross_entropy(D_fake, ones_label)
+G_loss = nn.binary_cross_entropy(D_fake, ones_label)
 
-    G_loss.backward()
-    G_solver.step()
+G_loss.backward()
+G_solver.step()
 
-    # Housekeeping - reset gradient
-    reset_grad()
-
+# Housekeeping - reset gradient
+reset_grad()
 ```
 
 And that is it, really.
@@ -156,4 +156,4 @@ But we might ask, why do all of those things matter? Why not to just use TensorF
 
 In contrast, in imperative computation, we could just use `print()` function basically anywhere and anytime we want and immediately it will display the value. Doing other "non-trivial" operations like loop and conditional are also become much more easier in Pytorch, just like the good old Python. Hence, one could argue that this way of programming is more "natural".
 
-The full code is available in my Github repo: <https://github.com/wiseodd/generative-models>.
+The full code is available in my Github repo: https://github.com/wiseodd/generative-models.

@@ -5,21 +5,29 @@ publishDate: 2017-01-08 03:34
 tags: [pde, theano]
 ---
 
+import BlogImage from "@/components/BlogImage.astro";
+
 We all know Theano as a forefront library for Deep Learning research. However, it should be noted that Theano is a general purpose numerical computing library, like Numpy. Hence, in this post, we will look at the implementation of PDE simulation in Theano.
 
 ## The Laplace Equation
 
 We will look at a simple PDE example, the [Laplace Equation](https://en.wikipedia.org/wiki/Laplace's_equation):
 
-$$ \nabla^2 \phi = 0 $$
+$$
+    \nabla^2 \phi = 0
+$$
 
 In other words, this is an second order PDE, as, recall that Laplacian in calculus is the divergence of gradient of a function:
 
-$$ \nabla \cdot \nabla \phi = 0 $$
+$$
+\nabla \cdot \nabla \phi = 0
+$$
 
 particularly, in two dimension:
 
-$$ \frac{\partial^2 \phi}{\partial x^2} + \frac{\partial^2 \phi}{\partial y^2} = 0 $$
+$$
+\frac{\partial^2 \phi}{\partial x^2} + \frac{\partial^2 \phi}{\partial y^2} = 0
+$$
 
 This simple equation could be solved by using Finite Difference scheme [1].
 
@@ -29,42 +37,40 @@ Note that in this example, we are ignoring the boundary value problem.
 
 The Finite Difference solution of Laplace Equation is to repeatedly averaging the neighbors of a particular point:
 
-$$ \phi*{i, j} = \frac{1}{4} \left( \phi*{i+1, j} + \phi*{i+1, j} + \phi*{i, j+1} + \phi\_{i, j-1} \right) $$
+$$
+\phi*{i, j} = \frac{1}{4} \left( \phi*{i+1, j} + \phi*{i+1, j} + \phi*{i, j+1} + \phi\_{i, j-1} \right)
+$$
 
 This iterative solution is very simple to implement in Numpy. But first, let's give this problem an initial condition:
 
-$$ \phi = -5 \, \exp (x^2 + y^2) $$
+$$
+\phi = -5 \, \exp (x^2 + y^2)
+$$
 
 Visualizing the function:
 
-![Initial]({{ site.baseurl }}/img/2017-01-08-theano-pde/initial.png)
+<BlogImage imagePath='/img/theano-pde/initial.png' altText='Initial function.' />
 
 Now, let's implement this. First, we create the mesh, the solution space:
 
 ```python
-
 # Create 21x21 mesh grid
-
 m = 21
 mesh_range = np.arange(-1, 1, 2/(m-1))
 x, y = np.meshgrid(mesh_range, mesh_range)
 
 # Initial condition
-
 U = np.exp(-5 \* (x**2 + y**2))
 ```
 
 We then create an indexing scheme that select the point north, west, south, and east of any given point. We do this so that we could implement this in vectorized manner.
 
 ```python
-
 # [1, 2, ... , 19, 19]
-
 n = list(range(1, m-1)) + [m-2]
 e = n
 
 # [0, 0, 1, 2, ... , 18]
-
 s = [0] + list(range(0, m-2))
 w = s
 ```
@@ -73,7 +79,7 @@ Having those indices, we could translate the PDE solution above in the code:
 
 ```python
 def pde_step(U):
-return (U[n, :]+U[:, e]+U[s, :]+U[:, w])/4.
+    return (U[n, :]+U[:, e]+U[s, :]+U[:, w])/4.
 ```
 
 Finally, we iteratively apply this update function.
@@ -82,12 +88,12 @@ Finally, we iteratively apply this update function.
 U_step = U
 
 for it in range(500):
-U_step = pde_step(U_step)
+    U_step = pde_step(U_step)
 ```
 
 Here is the result:
 
-![Initial]({{ site.baseurl }}/img/2017-01-08-theano-pde/final.png)
+<BlogImage imagePath='/img/theano-pde/final.png' altText='Final function.' />
 
 Again, as we do not consider boundary value problem, the surface is diminishing until it is flat.
 
@@ -143,8 +149,8 @@ Finally, we wrap this into a Theano's function. The input is the current value o
 U_step = U.eval()
 
 for it in range(100): # Every k steps, draw the graphics
-U_step = calc_pde(U_step)
-draw_plot(x_arr, y_arr, U_step)
+    U_step = calc_pde(U_step)
+    draw_plot(x_arr, y_arr, U_step)
 ```
 
 We could think of our `calc_pde` as a batch processing of `k` iterations of our PDE. After each batch, we could use the latest `U` for e.g. visualization.
@@ -164,7 +170,7 @@ s = [0] + list(range(0, m-2))
 w = s
 
 def pde_step(U):
-return (U[n, :]+U[:, e]+U[s, :]+U[:, w])/4.
+    return (U[n, :]+U[:, e]+U[s, :]+U[:, w])/4.
 ```
 
 does not have any difference at all in Numpy and Theano version. However, we could not do this (at least easily) in TensorFlow.
@@ -177,7 +183,7 @@ In this post we looked at a very simple Finite Difference solution of Laplace Eq
 
 Although Theano could be non-intuitive, especially in loop, it has better parity to Numpy compared to TensorFlow.
 
-The full code, both in Numpy and Theano, could be found here: <https://gist.github.com/wiseodd/c08d5a2b02b1957a16f886ab7044032d>.
+The full code, both in Numpy and Theano, could be found here: https://gist.github.com/wiseodd/c08d5a2b02b1957a16f886ab7044032d.
 
 ## References
 
