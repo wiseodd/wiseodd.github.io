@@ -192,13 +192,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".mdx"] };
-"conditional-vae.md": {
-	id: "conditional-vae.md";
+"conditional-vae.mdx": {
+	id: "conditional-vae.mdx";
   slug: "conditional-vae";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 "contractive-autoencoder.md": {
 	id: "contractive-autoencoder.md";
   slug: "contractive-autoencoder";
@@ -262,13 +262,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".mdx"] };
-"forward-reverse-kl.md": {
-	id: "forward-reverse-kl.md";
+"forward-reverse-kl.mdx": {
+	id: "forward-reverse-kl.mdx";
   slug: "forward-reverse-kl";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 "gan-pytorch.mdx": {
 	id: "gan-pytorch.mdx";
   slug: "gan-pytorch";
@@ -507,13 +507,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".mdx"] };
-"variational-autoencoder.md": {
-	id: "variational-autoencoder.md";
+"variational-autoencoder.mdx": {
+	id: "variational-autoencoder.mdx";
   slug: "variational-autoencoder";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 "volume-form.mdx": {
 	id: "volume-form.mdx";
   slug: "volume-form";
