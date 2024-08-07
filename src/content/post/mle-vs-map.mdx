@@ -9,7 +9,7 @@ Maximum Likelihood Estimation (MLE) and Maximum A Posteriori (MAP), are both a m
 
 MLE, as we, who have already indulge ourselves in Machine Learning, would be familiar with this method. Sometimes, we even use it without knowing it. Take for example, when fitting a Gaussian to our dataset, we immediately take the sample mean and sample variance, and use it as the parameter of our Gaussian. This is MLE, as, if we take the derivative of the Gaussian function with respect to the mean and variance, and maximizing it (i.e. setting the derivative to zero), what we get is functions that are calculating sample mean and sample variance. Another example, most of the optimization in Machine Learning and Deep Learning (neural net, etc), could be interpreted as MLE.
 
-Speaking in more abstract term, let's say we have a likelihood function \\( P(X \vert \theta) \\). Then, the MLE for \\( \theta \\), the parameter we want to infer, is:
+Speaking in more abstract term, let's say we have a likelihood function $P(X \vert \theta)$. Then, the MLE for $\theta$, the parameter we want to infer, is:
 
 $$
 \begin{align}
@@ -32,7 +32,7 @@ $$
 \end{align}
 $$
 
-To use this framework, we just need to derive the log likelihood of our model, then maximizing it with regard of \\( \theta \\) using our favorite optimization algorithm like Gradient Descent.
+To use this framework, we just need to derive the log likelihood of our model, then maximizing it with regard of $\theta$ using our favorite optimization algorithm like Gradient Descent.
 
 Up to this point, we now understand what does MLE do. From here, we could draw a parallel line with MAP estimation.
 
@@ -64,11 +64,11 @@ $$
 \end{align}
 $$
 
-Comparing both MLE and MAP equation, the only thing differs is the inclusion of prior \\( P(\theta) \\) in MAP, otherwise they are identical. What it means is that, the likelihood is now weighted with some weight coming from the prior.
+Comparing both MLE and MAP equation, the only thing differs is the inclusion of prior $P(\theta)$ in MAP, otherwise they are identical. What it means is that, the likelihood is now weighted with some weight coming from the prior.
 
-Let's consider what if we use the simplest prior in our MAP estimation, i.e. uniform prior. This means, we assign equal weights everywhere, on all possible values of the \\( \theta \\). The implication is that the likelihood equivalently weighted by some constants. Being constant, we could be ignored from our MAP equation, as it will not contribute to the maximization.
+Let's consider what if we use the simplest prior in our MAP estimation, i.e. uniform prior. This means, we assign equal weights everywhere, on all possible values of the $\theta$. The implication is that the likelihood equivalently weighted by some constants. Being constant, we could be ignored from our MAP equation, as it will not contribute to the maximization.
 
-Let's be more concrete, let's say we could assign six possible values into \\( \theta \\). Now, our prior \\( P(\theta) \\) is \\( \frac{1}{6} \\) everywhere in the distribution. And consequently, we could ignore that constant in our MAP estimation.
+Let's be more concrete, let's say we could assign six possible values into $\theta$. Now, our prior $P(\theta)$ is $\frac{1}{6}$ everywhere in the distribution. And consequently, we could ignore that constant in our MAP estimation.
 
 $$
 \begin{align}

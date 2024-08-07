@@ -185,13 +185,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".mdx"] };
-"conditional-gan-tensorflow.md": {
-	id: "conditional-gan-tensorflow.md";
+"conditional-gan-tensorflow.mdx": {
+	id: "conditional-gan-tensorflow.mdx";
   slug: "conditional-gan-tensorflow";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 "conditional-vae.md": {
 	id: "conditional-vae.md";
   slug: "conditional-vae";
@@ -409,13 +409,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".mdx"] };
-"mle-vs-map.md": {
-	id: "mle-vs-map.md";
+"mle-vs-map.mdx": {
+	id: "mle-vs-map.mdx";
   slug: "mle-vs-map";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 "natural-gradient.mdx": {
 	id: "natural-gradient.mdx";
   slug: "natural-gradient";
