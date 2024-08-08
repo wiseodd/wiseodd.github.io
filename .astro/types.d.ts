@@ -143,13 +143,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".mdx"] };
-"autoencoders.md": {
-	id: "autoencoders.md";
+"autoencoders.mdx": {
+	id: "autoencoders.mdx";
   slug: "autoencoders";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 "batchnorm.md": {
 	id: "batchnorm.md";
   slug: "batchnorm";
@@ -199,13 +199,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".mdx"] };
-"contractive-autoencoder.md": {
-	id: "contractive-autoencoder.md";
+"contractive-autoencoder.mdx": {
+	id: "contractive-autoencoder.mdx";
   slug: "contractive-autoencoder";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 "conv-probit.mdx": {
 	id: "conv-probit.mdx";
   slug: "conv-probit";
@@ -360,20 +360,20 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".mdx"] };
-"levelset-method.md": {
-	id: "levelset-method.md";
+"levelset-method.mdx": {
+	id: "levelset-method.mdx";
   slug: "levelset-method";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
-"levelset-segmentation.md": {
-	id: "levelset-segmentation.md";
+} & { render(): Render[".mdx"] };
+"levelset-segmentation.mdx": {
+	id: "levelset-segmentation.mdx";
   slug: "levelset-segmentation";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 "lstm-backprop.md": {
 	id: "lstm-backprop.md";
   slug: "lstm-backprop";
@@ -465,13 +465,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"residual-net.md": {
-	id: "residual-net.md";
+"residual-net.mdx": {
+	id: "residual-net.mdx";
   slug: "residual-net";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 "scrapy-long-running.md": {
 	id: "scrapy-long-running.md";
   slug: "scrapy-long-running";
