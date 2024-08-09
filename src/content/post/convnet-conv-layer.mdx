@@ -33,7 +33,7 @@ Alright, let's define our function:
 
 ```python
 def conv_forward(X, W, b, stride=1, padding=1):
-pass
+    pass
 ```
 
 Our conv layer will accept an input in `X: DxCxHxW` dimension, input filter `W: NFxCxHFxHW`, and bias `b: Fx1`, where:
@@ -65,25 +65,18 @@ To make the operation compatible, we will arrange our filter to `1x9`. Now, if w
 Let's see the code for that.
 
 ```python
-
 # Let this be 3x3 convolution with stride = 1 and padding = 1
-
 # Suppose our X is 5x1x10x10, X_col will be a 9x500 matrix
-
 X_col = im2col_indices(X, h_filter, w_filter, padding=padding, stride=stride)
 
 # Suppose we have 20 of 3x3 filter: 20x1x3x3. W_col will be 20x9 matrix
-
 W_col = W.reshape(n_filters, -1)
 
 # 20x9 x 9x500 = 20x500
-
 out = W_col @ X_col + b
 
 # Reshape back from 20x500 to 5x20x10x10
-
 # i.e. for each of our 5 images, we have 20 results with size of 10x10
-
 out = out.reshape(n_filters, h_out, w_out, n_x)
 out = out.transpose(3, 0, 1, 2)
 ```
@@ -110,17 +103,13 @@ Remember that the matrix we're dealing with, i.e. `dout` is a `5x20x10x10` matri
 Next, we will compute the gradient of the the filters `dW`.
 
 ```python
-
 # Transpose from 5x20x10x10 into 20x10x10x5, then reshape into 20x500
-
 dout_reshaped = dout.transpose(1, 2, 3, 0).reshape(n_filter, -1)
 
 # 20x500 x 500x9 = 20x9
-
 dW = dout_reshaped @ X_col.T
 
 # Reshape back to 20x1x3x3
-
 dW = dW.reshape(W.shape)
 ```
 
@@ -129,17 +118,13 @@ It's similar with the normal feed forward layer, except with more convoluted (ha
 Lastly, the input gradient `dX`. We're almost there!
 
 ```python
-
 # Reshape from 20x1x3x3 into 20x9
-
 W_reshape = W.reshape(n_filter, -1)
 
 # 9x20 x 20x500 = 9x500
-
 dX_col = W_reshape.T @ dout_reshaped
 
 # Stretched out image to the real image: 9x500 => 5x1x10x10
-
 dX = col2im_indices(dX_col, X.shape, h_filter, w_filter, padding=padding, stride=stride)
 ```
 
@@ -150,12 +135,12 @@ Again, it's the same as feed forward layer with some careful reshaping! At the e
 Here's the full source code for the forward and backward computation of the conv layer.
 
 ```python
-def conv*forward(X, W, b, stride=1, padding=1):
-cache = W, b, stride, padding
-n_filters, d_filter, h_filter, w_filter = W.shape
-n_x, d_x, h_x, w_x = X.shape
-h_out = (h_x - h_filter + 2 * padding) / stride + 1
-w*out = (w_x - w_filter + 2 * padding) / stride + 1
+def conv_forward(X, W, b, stride=1, padding=1):
+    cache = W, b, stride, padding
+    n_filters, d_filter, h_filter, w_filter = W.shape
+    n_x, d_x, h_x, w_x = X.shape
+    h_out = (h_x - h_filter + 2 * padding) / stride + 1
+    w_out = (w_x - w_filter + 2 * padding) / stride + 1
 
     if not h_out.is_integer() or not w_out.is_integer():
         raise Exception('Invalid output dimension!')
@@ -174,8 +159,8 @@ w*out = (w_x - w_filter + 2 * padding) / stride + 1
     return out, cache
 
 def conv_backward(dout, cache):
-X, W, b, stride, padding, X_col = cache
-n_filter, d_filter, h_filter, w_filter = W.shape
+    X, W, b, stride, padding, X_col = cache
+    n_filter, d_filter, h_filter, w_filter = W.shape
 
     db = np.sum(dout, axis=(0, 2, 3))
     db = db.reshape(n_filter, -1)
@@ -189,10 +174,9 @@ n_filter, d_filter, h_filter, w_filter = W.shape
     dX = col2im_indices(dX_col, X.shape, h_filter, w_filter, padding=padding, stride=stride)
 
     return dX, dW, db
-
 ```
 
-Also check out the complete code in my repository: <https://github.com/wiseodd/hipsternet>!
+Also check out the complete code in my repository: https://github.com/wiseodd/hipsternet!
 
 ## Conclusion
 
@@ -202,6 +186,6 @@ Dealing with multidimensional matrices as we will always encounter in convnet is
 
 ## References
 
-- <http://cs231n.github.io/convolutional-networks/>
-- <http://vision.stanford.edu/teaching/cs231n/winter1516_assignment2.zip>
-- <http://www.cs.toronto.edu/~fritz/absps/imagenet.pdf>
+- http://cs231n.github.io/convolutional-networks/
+- http://vision.stanford.edu/teaching/cs231n/winter1516_assignment2.zip
+- http://www.cs.toronto.edu/~fritz/absps/imagenet.pdf

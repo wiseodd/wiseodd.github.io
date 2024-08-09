@@ -213,20 +213,20 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".mdx"] };
-"convnet-conv-layer.md": {
-	id: "convnet-conv-layer.md";
+"convnet-conv-layer.mdx": {
+	id: "convnet-conv-layer.mdx";
   slug: "convnet-conv-layer";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
-"convnet-maxpool-layer.md": {
-	id: "convnet-maxpool-layer.md";
+} & { render(): Render[".mdx"] };
+"convnet-maxpool-layer.mdx": {
+	id: "convnet-maxpool-layer.mdx";
   slug: "convnet-maxpool-layer";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 "coupled-gan.mdx": {
 	id: "coupled-gan.mdx";
   slug: "coupled-gan";
@@ -276,13 +276,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".mdx"] };
-"gan-tensorflow.md": {
-	id: "gan-tensorflow.md";
+"gan-tensorflow.mdx": {
+	id: "gan-tensorflow.mdx";
   slug: "gan-tensorflow";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 "gaussian-anomaly-detection.md": {
 	id: "gaussian-anomaly-detection.md";
   slug: "gaussian-anomaly-detection";
@@ -325,13 +325,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".mdx"] };
-"jekyll-fb-share.md": {
-	id: "jekyll-fb-share.md";
+"jekyll-fb-share.mdx": {
+	id: "jekyll-fb-share.mdx";
   slug: "jekyll-fb-share";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 "kl-mle.mdx": {
 	id: "kl-mle.mdx";
   slug: "kl-mle";
@@ -374,13 +374,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".mdx"] };
-"lstm-backprop.md": {
-	id: "lstm-backprop.md";
+"lstm-backprop.mdx": {
+	id: "lstm-backprop.mdx";
   slug: "lstm-backprop";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 "manifold-gaussians.mdx": {
 	id: "manifold-gaussians.mdx";
   slug: "manifold-gaussians";

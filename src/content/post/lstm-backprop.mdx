@@ -5,6 +5,8 @@ publishDate: 2016-08-12 12:34
 tags: [machine learning, programming, python, neural networks, rnn, lstm]
 ---
 
+import BlogImage from "@/components/BlogImage.astro";
+
 Recurrent Neural Network (RNN) is hot in these past years, especially with the boom of Deep Learning. Just like any deep neural network, RNN can be seen as a (very) deep neural network if we "unroll" the network with respect of the time step. Hence, with all the things that enable vanilla deep network, training RNN become more and more feasible too.
 
 The most popular model for RNN right now is the LSTM (Long Short-Term Memory) network. For the background theory, there are a lot of amazing resources available in [Andrej Karpathy's blog]() and [Chris Olah's blog](http://colah.github.io/posts/2015-08-Understanding-LSTMs/).
@@ -17,7 +19,7 @@ So, here, we will try to first implement the forward computation step according 
 
 We will follow this model for a single LSTM cell:
 
-![LSTM formula]({{ site.baseurl }}/img/2016-08-12-lstm-backprop/formula.png)
+<BlogImage imagePath='/img/lstm-backprop/formula.png' />
 
 Let's implement it!
 
@@ -29,16 +31,16 @@ D = ... # Number of input dimension == number of items in vocabulary
 Z = H + D # Because we will concatenate LSTM state with the input
 
 model = dict(
-Wf=np.random.randn(Z, H) / np.sqrt(Z / 2.),
-Wi=np.random.randn(Z, H) / np.sqrt(Z / 2.),
-Wc=np.random.randn(Z, H) / np.sqrt(Z / 2.),
-Wo=np.random.randn(Z, H) / np.sqrt(Z / 2.),
-Wy=np.random.randn(H, D) / np.sqrt(D / 2.),
-bf=np.zeros((1, H)),
-bi=np.zeros((1, H)),
-bc=np.zeros((1, H)),
-bo=np.zeros((1, H)),
-by=np.zeros((1, D))
+    Wf=np.random.randn(Z, H) / np.sqrt(Z / 2.),
+    Wi=np.random.randn(Z, H) / np.sqrt(Z / 2.),
+    Wc=np.random.randn(Z, H) / np.sqrt(Z / 2.),
+    Wo=np.random.randn(Z, H) / np.sqrt(Z / 2.),
+    Wy=np.random.randn(H, D) / np.sqrt(D / 2.),
+    bf=np.zeros((1, H)),
+    bi=np.zeros((1, H)),
+    bc=np.zeros((1, H)),
+    bo=np.zeros((1, H)),
+    by=np.zeros((1, D))
 )
 ```
 
@@ -48,9 +50,9 @@ One difference is for `Wy` and `by`. This weight and bias would be used for full
 
 ```python
 def lstm_forward(X, state):
-m = model
-Wf, Wi, Wc, Wo, Wy = m['Wf'], m['Wi'], m['Wc'], m['Wo'], m['Wy']
-bf, bi, bc, bo, by = m['bf'], m['bi'], m['bc'], m['bo'], m['by']
+    m = model
+    Wf, Wi, Wc, Wo, Wy = m['Wf'], m['Wi'], m['Wc'], m['Wo'], m['Wy']
+    bf, bi, bc, bo, by = m['bf'], m['bi'], m['bc'], m['bo'], m['by']
 
     h_old, c_old = state
 
@@ -77,7 +79,6 @@ bf, bi, bc, bo, by = m['bf'], m['bi'], m['bc'], m['bo'], m['by']
     cache = ... # Add all intermediate variables to this cache
 
     return prob, state, cache
-
 ```
 
 The above code is for the forward step for a single LSTM cell, which identically follows the formula above. The only additions are the one-hot encoding and the hidden-input concatenation process.
@@ -87,9 +88,10 @@ The above code is for the forward step for a single LSTM cell, which identically
 Now, we will dive into the main point of this post: LSTM backward computation. We will assume that derivative function for `sigmoid` and `tanh` are already known.
 
 ```python
-def lstm_backward(prob, y_train, d_next, cache): # Unpack the cache variable to get the intermediate variables used in forward step
-... = cache
-dh_next, dc_next = d_next
+def lstm_backward(prob, y_train, d_next, cache):
+    # Unpack the cache variable to get the intermediate variables used in forward step
+    ... = cache
+    dh_next, dc_next = d_next
 
     # Softmax loss gradient
     dy = prob.copy()
@@ -149,7 +151,6 @@ dh_next, dc_next = d_next
     state = (dh_next, dc_next)
 
     return grad, state
-
 ```
 
 A bit long isn't it? However, actually it's easy enough to derive the LSTM gradients if you understand how to take a partial derivative of a function and how to do chain rule, albeit some tricky stuffs are going on here. For this, I would recommend [CS231n](http://cs231n.github.io/optimization-2/).
@@ -169,13 +170,12 @@ This training step consists of three steps: forward computation, loss calculatio
 
 ```python
 def train_step(X_train, y_train, state):
-probs = []
-caches = []
-loss = 0.
-h, c = state
+    probs = []
+    caches = []
+    loss = 0.
+    h, c = state
 
     # Forward Step
-
     for x, y_true in zip(X_train, y_train):
         prob, state, cache = lstm_forward(x, state, train=True)
         loss += cross_entropy(prob, y_true)
@@ -202,7 +202,6 @@ h, c = state
             grads[k] += grad[k]
 
     return grads, loss, state
-
 ```
 
 In the full training step, first we're do full forward propagation on all items in training set, then store the results which are the softmax probabilities and cache of each timestep into a list, because we are going to use it in backward step.
@@ -262,7 +261,7 @@ Lastly, we tried to run the network using some test data and showed that the net
 
 ## References
 
-- <http://colah.github.io/posts/2015-08-Understanding-LSTMs/>
-- <http://karpathy.github.io/2015/05/21/rnn-effectiveness/>
-- <http://cs231n.github.io/optimization-2/>
-- <https://gist.github.com/karpathy/d4dee566867f8291f086>
+- http://colah.github.io/posts/2015-08-Understanding-LSTMs/
+- http://karpathy.github.io/2015/05/21/rnn-effectiveness/
+- http://cs231n.github.io/optimization-2/
+- https://gist.github.com/karpathy/d4dee566867f8291f086
