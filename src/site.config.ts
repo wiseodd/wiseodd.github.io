@@ -63,8 +63,11 @@ export const expressiveCodeOptions: AstroExpressiveCodeOptions = {
     uiFontWeight: "500",
     codeFontSize: "0.8rem",
     codeLineHeight: "1.2rem",
-    borderRadius: "4px",
+    borderRadius: "0px",
     codePaddingInline: "1rem",
     codeFontFamily: '"Jetbrains Mono", monospace;',
+    frames: {
+      frameBoxShadowCssValue: "none",
+    },
   },
 };
