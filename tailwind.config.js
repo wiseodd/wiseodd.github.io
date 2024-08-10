@@ -71,7 +71,7 @@ const config = {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: ["Source Sans Pro", fontFamily.sans],
+        sans: ["Arimo Variable", fontFamily.sans],
         serif: ["Times", fontFamily.serif],
         mono: ["Jetbrains Mono", fontFamily.mono],
       },
