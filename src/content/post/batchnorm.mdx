@@ -5,6 +5,8 @@ publishDate: 2016-07-04 10:53
 tags: [machine learning, programming, python, neural networks]
 ---
 
+import BlogImage from "@/components/BlogImage.astro";
+
 BatchNorm a.k.a Batch Normalization is a relatively new technique proposed by Ioffe & Szegedy in 2015. It promises us acceleration in training (deep) neural net.
 
 One difficult thing about training a neural net is to choose the initial weights. BatchNorm promises the remedy: it makes the network less dependant to the initialization strategy. Another key points are that it enables us to use higher learning rate. They even go further to state that BatchNorm could reduce the dependency on Dropout.
@@ -19,13 +21,13 @@ It enables us to be less careful with weights initialization as we don't need to
 
 The forward propagation of BatchNorm is shown below:
 
-![BatchNorm Forward]({{ site.baseurl }}/img/2016-07-04-batchnorm/00.png)
+<BlogImage imagePath='/img/batchnorm/00.png' />
 
 Pretty simple right? We just need to compute the activations mean and variance over the current minibatch and normalize the activations with that. What could go wrong.
 
 Well, we're training neural net with Backpropagation here, so that algorithm is half the story. We still need to derive the backprop scheme for the BatchNorm layer. Which is given by this:
 
-![BatchNorm Backward]({{ site.baseurl }}/img/2016-07-04-batchnorm/01.png)
+<BlogImage imagePath='/img/batchnorm/01.png' />
 
 If the above derivation doesn't make any sense, you could try reading [this](https://kratzert.github.io/2016/02/12/understanding-the-gradient-flow-through-the-batch-normalization-layer.html) in combination with computational graph approach of backprop in [CS231 lecture](https://www.youtube.com/playlist?list=PLLvH2FwAQhnpj1WEB-jHmPuUeQ8mX-XXG).
 
@@ -33,12 +35,12 @@ Now that we know how to do forward and backward propagation for BatchNorm, let's
 
 ## Training with BatchNorm
 
-As always, I will reuse the code from previous posts. It's in my repo here: <https://github.com/wiseodd/hipsternet>.
+As always, I will reuse the code from previous posts. It's in my repo here: https://github.com/wiseodd/hipsternet.
 
 ```python
 def batchnorm_forward(X, gamma, beta):
-mu = np.mean(X, axis=0)
-var = np.var(X, axis=0)
+    mu = np.mean(X, axis=0)
+    var = np.var(X, axis=0)
 
     X_norm = (X - mu) / np.sqrt(var + 1e-8)
     out = gamma * X_norm + beta
@@ -46,7 +48,6 @@ var = np.var(X, axis=0)
     cache = (X, X_norm, mu, var, gamma, beta)
 
     return out, cache, mu, var
-
 ```
 
 This is the forward propagation algorithm. It's simple. However, remember that we're normalizing each dimension of activations. So, if our activations over a minibatch is MxN matrix, then we want the mean and variance to be 1xN: one value of mean and variance for each dimension. So, if we normalize our activations matrix with that, each dimension will have zero mean and one variance.
@@ -56,17 +57,13 @@ At the end, we're also spitting out the intermediate variable used for normaliza
 This is how we use that above method:
 
 ```python
-
 # Input to hidden
-
 h1 = X @ W1 + b1
 
 # BatchNorm
-
 h1, bn1_cache, mu, var = batchnorm_forward(h1, gamma1, beta1)
 
 # ReLU
-
 h1[h1 < 0] = 0
 ```
 
@@ -76,7 +73,7 @@ For the backprop, here's the implementation:
 
 ```python
 def batchnorm_backward(dout, cache):
-X, X_norm, mu, var, gamma, beta = cache
+    X, X_norm, mu, var, gamma, beta = cache
 
     N, D = X.shape
 
@@ -92,27 +89,21 @@ X, X_norm, mu, var, gamma, beta = cache
     dbeta = np.sum(dout, axis=0)
 
     return dX, dgamma, dbeta
-
 ```
 
 For the explanation of the code, refer to the derivation of the BatchNorm gradient in the last section. As we can see, we're also returning derivative of gamma and beta: the linear transform for BatchNorm. It will be used to update the model, so that the net could also learn them.
 
 ```python
-
 # h1
-
 dh1 = dh2 @ W2.T
 
 # ReLU
-
 dh1[h1 <= 0] = 0
 
 # Dropout h1
-
-dh1 \*= u1
+dh1 *= u1
 
 # BatchNorm
-
 dh1, dgamma1, dbeta1 = batchnorm_backward(dh2, bn2_cache)
 ```
 
@@ -123,12 +114,10 @@ Remember, the order of backprop is important! We will get wrong result if we swa
 One more thing we need to take care of is that we want to fix the normalization at test time. That means we don't want to normalize our activations with the test set. Hence, as we're essentially using SGD, which is stochastic, we're going to estimate the mean and variance of our activations using running average.
 
 ```python
-
 # BatchNorm training forward propagation
-
 h2, bn2*cache, mu, var = batchnorm_forward(h2, gamma2, beta2)
 bn_params['bn2_mean'] = .9 * bn*params['bn2_mean'] + .1 * mu
-bn*params['bn2_var'] = .9 * bn*params['bn2_var'] + .1 * var
+bn_params['bn2_var'] = .9 * bn*params['bn2_var'] + .1 * var
 ```
 
 There, we store each BatchNorm layer's running mean and variance while training. It's a decaying running average.
@@ -136,9 +125,7 @@ There, we store each BatchNorm layer's running mean and variance while training.
 Then, at the test time, we just use that running average for the normalization:
 
 ```python
-
 # BatchNorm inference forward propagation
-
 h2 = (h2 - bn_params['bn2_mean']) / np.sqrt(bn_params['bn2_var'] + 1e-8)
 h2 = gamma2 \* h2 + beta2
 ```
@@ -222,5 +209,5 @@ In the test, we found that by using BatchNorm, our network become more tolerant 
 
 ## References
 
-- <http://arxiv.org/pdf/1502.03167v3.pdf>
-- <https://kratzert.github.io/2016/02/12/understanding-the-gradient-flow-through-the-batch-normalization-layer.html>
+- http://arxiv.org/pdf/1502.03167v3.pdf
+- https://kratzert.github.io/2016/02/12/understanding-the-gradient-flow-through-the-batch-normalization-layer.html

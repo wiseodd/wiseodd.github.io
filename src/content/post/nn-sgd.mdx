@@ -5,6 +5,8 @@ publishDate: 2016-06-21 02:54
 tags: [machine learning, programming, python, neural networks, optimization]
 ---
 
+import BlogImage from "@/components/BlogImage.astro";
+
 It's a public knowledge that Python is the de facto language of Machine Learning. It's not without reason: Python has a very healthy and active libraries that are very useful for numerical computing. Libraries like Numpy, SciPy, Pandas, Matplotlib, etc are very important building blocks for implementing Machine Learning algorithms.
 
 So, let's back to basic and learn how to create a simple 3-layers Neural Networks, and implement Minibatch Gradient Descent using Numpy.
@@ -23,7 +25,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
 
 To get clearer picture about the dataset, here's the visualization:
 
-![Dataset]({{ site.baseurl }}/img/2016-06-21-nn-sgd/dataset.png)
+<BlogImage imagePath='/img/nn-sgd/dataset.png' />
 
 Next, we define our NN model. It will be a three layers networks (single hidden layer):
 
@@ -34,31 +36,30 @@ n_feature = 2
 n_class = 2
 n_iter = 10
 
-def make_network(n_hidden=100): # Initialize weights with Standard Normal random variables
-model = dict(
-W1=np.random.randn(n_feature, n_hidden),
-W2=np.random.randn(n_hidden, n_class)
-)
+def make_network(n_hidden=100):
+    # Initialize weights with Standard Normal random variables
+    model = dict(
+        W1=np.random.randn(n_feature, n_hidden),
+        W2=np.random.randn(n_hidden, n_class)
+    )
 
     return model
-
 ```
 
 We will also define two operations: forward propagation and the backpropagation. Let's digest them one by one. We're going to define the forward propagation first.
 
 ```python
 def softmax(x):
-return np.exp(x) / np.exp(x).sum()
+    return np.exp(x) / np.exp(x).sum()
 
 def forward(x, model): # Input to hidden
-h = x @ model['W1'] # ReLU non-linearity
-h[h < 0] = 0
+    h = x @ model['W1'] # ReLU non-linearity
+    h[h < 0] = 0
 
     # Hidden to output
     prob = softmax(h @ model['W2'])
 
     return h, prob
-
 ```
 
 The basic scheme is to do series of dot product from input to hidden layer to output layer. In the hidden layer, we also apply some kind of non-linearity so that our NN could predict non-linear decision boundary. The hottest non-linearity function right now is ReLU, and we're going to follow that trend.
@@ -69,8 +70,9 @@ Once we reach the output layer, we need to make the output to be a probability d
 
 ```python
 def backward(model, xs, hs, errs):
-"""xs, hs, errs contain all informations (input, hidden state, error) of all data in the minibatch""" # errs is the gradients of output layer for the minibatch
-dW2 = hs.T @ errs
+    """xs, hs, errs contain all informations (input, hidden state, error) of all data in the minibatch"""
+    # errs is the gradients of output layer for the minibatch
+    dW2 = hs.T @ errs
 
     # Get gradient of hidden layer
     dh = errs @ model['W2'].T
@@ -79,7 +81,6 @@ dW2 = hs.T @ errs
     dW1 = xs.T @ dh
 
     return dict(W1=dW1, W2=dW2)
-
 ```
 
 For the backprop, we start from the top (output layer) down to the input layer. We start by propagating the error to get the gradient of weight between hidden layer and output layer, then we compute the gradient of hidden layer using the error gradient. Using hidden layer gradient, we then compute the gradient of weight between input and hidden layer.
@@ -102,8 +103,8 @@ Let's apply our algorithm of choice Minibatch Gradient Descent:
 
 ```python
 def sgd(model, X_train, y_train, minibatch_size):
-for iter in range(n_iter):
-print('Iteration {}'.format(iter))
+    for iter in range(n_iter):
+        print('Iteration {}'.format(iter))
 
         # Randomize data point
         X_train, y_train = shuffle(X_train, y_train)
@@ -116,7 +117,6 @@ print('Iteration {}'.format(iter))
             model = sgd_step(model, X_train_mini, y_train_mini)
 
     return model
-
 ```
 
 This is the skeleton of our training algorithm. Notice how we first shuffle the training data first then get chunks from it. That way we will get the random subset with size of `minibatch_size` of our full training data. Each of those random subset will be fed to the networks, and then the gradients of that minibatch will be propagate back to update the parameters/weights of the networks.
@@ -125,8 +125,8 @@ The `sgd_step` function is like this:
 
 ```python
 def sgd_step(model, X_train, y_train):
-grad = get_minibatch_grad(model, X_train, y_train)
-model = model.copy()
+    grad = get_minibatch_grad(model, X_train, y_train)
+    model = model.copy()
 
     # Update every parameters in our networks (W1 and W2) using their gradients
     for layer in grad:
@@ -134,7 +134,6 @@ model = model.copy()
         model[layer] += 1e-4 * grad[layer]
 
     return model
-
 ```
 
 First, we get the gradients of each layer of the networks for the current minibatch. Then we use that gradients to update the weights of each layers of the networks. The update operation is very easy. We just add the gradient of particular weight matrix to our existing weight matrix.
@@ -145,7 +144,7 @@ Lastly, we look at our `get_minibatch_grad` function:
 
 ```python
 def get_minibatch_grad(model, X_train, y_train):
-xs, hs, errs = [], [], []
+    xs, hs, errs = [], [], []
 
     for x, cls_idx in zip(X_train, y_train):
         h, y_pred = forward(x, model)
@@ -167,10 +166,9 @@ xs, hs, errs = [], [], []
 
     # Backprop using the informations we get from the current minibatch
     return backward(model, np.array(xs), np.array(hs), np.array(errs))
-
 ```
 
-What we do here is to iterate every data point in our minibatch, then feed it to the network and compare the output with the true label from the training data. The error is neatly defined by the difference of the probability of true label with the probability of our prediction. This is so, because we're implicitly using the Softmax output with Cross Entropy cost function. See here for full derivation: <http://math.stackexchange.com/questions/945871/derivative-of-softmax-loss-function>
+What we do here is to iterate every data point in our minibatch, then feed it to the network and compare the output with the true label from the training data. The error is neatly defined by the difference of the probability of true label with the probability of our prediction. This is so, because we're implicitly using the Softmax output with Cross Entropy cost function. See here for full derivation: http://math.stackexchange.com/questions/945871/derivative-of-softmax-loss-function.
 
 Because this is a Minibatch Gradient Descent algorithm, we then accumulate all the informations of the current minibatch. We use all those informations of the current minibatch to do the backprop, which will yield gradients of the networks' parameters (`W1` and `W2`).
 
@@ -183,11 +181,10 @@ minibatch_size = 50
 n_experiment = 100
 
 # Create placeholder to accumulate prediction accuracy
-
 accs = np.zeros(n_experiment)
 
 for k in range(n_experiment): # Reset model
-model = make_network()
+    model = make_network()
 
     # Train the model
     model = sgd(model, X_train, y_train, minibatch_size)

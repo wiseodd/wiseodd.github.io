@@ -152,13 +152,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".mdx"] };
-"batchnorm.md": {
-	id: "batchnorm.md";
+"batchnorm.mdx": {
+	id: "batchnorm.mdx";
   slug: "batchnorm";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 "bayesian-regression.mdx": {
 	id: "bayesian-regression.mdx";
   slug: "bayesian-regression";
@@ -250,13 +250,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
-"dropout.md": {
-	id: "dropout.md";
+"dropout.mdx": {
+	id: "dropout.mdx";
   slug: "dropout";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 "fisher-information.mdx": {
 	id: "fisher-information.mdx";
   slug: "fisher-information";
@@ -425,20 +425,20 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".mdx"] };
-"nn-optimization.md": {
-	id: "nn-optimization.md";
+"nn-optimization.mdx": {
+	id: "nn-optimization.mdx";
   slug: "nn-optimization";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
-"nn-sgd.md": {
-	id: "nn-sgd.md";
+} & { render(): Render[".mdx"] };
+"nn-sgd.mdx": {
+	id: "nn-sgd.mdx";
   slug: "nn-sgd";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 "optimization-riemannian-manifolds.mdx": {
 	id: "optimization-riemannian-manifolds.mdx";
   slug: "optimization-riemannian-manifolds";
@@ -446,13 +446,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".mdx"] };
-"parallel-monte-carlo.md": {
-	id: "parallel-monte-carlo.md";
+"parallel-monte-carlo.mdx": {
+	id: "parallel-monte-carlo.mdx";
   slug: "parallel-monte-carlo";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 "plotting.mdx": {
 	id: "plotting.mdx";
   slug: "plotting";

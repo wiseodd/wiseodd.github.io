@@ -5,6 +5,8 @@ publishDate: 2016-06-25 10:00
 tags: [machine learning, programming, python, neural networks]
 ---
 
+import BlogImage from "@/components/BlogImage.astro";
+
 Dropout is one of the recent advancement in Deep Learning that enables us to train deeper and deeper network. Essentially, Dropout act as a regularization, and what it does is to make the network less prone to overfitting.
 
 As we already know, the deeper the network is, the more parameter it has. For example, VGGNet from ImageNet competition 2014, has some 148 million parameters. That's a lot. With that many parameters, the network could easily overfit, especially with small dataset.
@@ -13,7 +15,7 @@ Enter Dropout.
 
 In training phase, with Dropout, at each hidden layer, with probability `p`, we kill the neuron. What it means by 'kill' is to set the neuron to 0. As neural net is a collection multiplicative operations, then those 0 neuron won't propagate anything to the rest of the network.
 
-![Dropout]({{ site.baseurl }}/img/2016-06-25-dropout/00.png)
+<BlogImage imagePath='/img/dropout/00.png' fullWidth />
 
 Let `n` be the number of neuron in a hidden layer, then the expectation of the number of neuron to be active at each Dropout is `p*n`, as we sample the neurons uniformly with probability `p`. Concretely, if we have 1024 neurons in hidden layer, if we set `p = 0.5`, then we can expect that only half of the neurons (512) would be active at each given time.
 
@@ -26,11 +28,9 @@ So, that's why Dropout will increase the test time performance: it improves gene
 Let's see the concrete code for Dropout:
 
 ```python
-
 # Dropout training
-
 u1 = np.random.binomial(1, p, size=h1.shape)
-h1 \*= u1
+h1 *= u1
 ```
 
 First, we sample an array of independent Bernoulli Distribution, which is just a collection of zero or one to indicate whether we kill the neuron or not. For example, the value of `u1` would be `np.array([1, 0, 0, 1, 1, 0, 1, 0])`. Then, if we multiply our hidden layer with this array, what we get is the originial value of the neuron if the array element is 1, and 0 if the array element is also 0.
@@ -42,25 +42,20 @@ Now, because we're only using `p*n` of the neurons, the output then has the expe
 As we don't use Dropout in test time, then the expected output of the layer is `x`. That doesn't match with the training phase. What we need to do is to make it matches the training phase expectation, so we scale the layer output with `p`.
 
 ```python
-
 # Test time forward pass
-
 h1 = X_train @ W1 + b1
 h1[h1 < 0] = 0
 
 # Scale the hidden layer with p
-
-h1 \*= p
+h1 *= p
 ```
 
 In practice, it's better to simplify things. It's cumbersome to maintain codes in two places. So, we move that scaling into the Dropout training itself.
 
 ```python
-
 # Dropout training, notice the scaling of 1/p
-
 u1 = np.random.binomial(1, p, size=h1.shape) / p
-h1 \*= u1
+h1 *= u1
 ```
 
 With that code, we essentially make the expectation of layer output to be `x` instead of `px`, because we scale it back with `1/p`. Hence in the test time, we don't need to do anything as the expected output of the layer is the same.
@@ -70,10 +65,10 @@ With that code, we essentially make the expectation of layer output to be `x` in
 During the backprop, what we need to do is just to consider the Dropout. The killed neurons don't contribute anything to the network, so we won't flow the gradient through them.
 
 ```python
-dh1 \*= u1
+dh1 *= u1
 ```
 
-For full example, please refer to: <https://github.com/wiseodd/hipsternet/blob/master/hipsternet/neuralnet.py>.
+For full example, please refer to: https://github.com/wiseodd/hipsternet/blob/master/hipsternet/neuralnet.py.
 
 ## Test and Comparison
 
@@ -81,14 +76,14 @@ Test time! But first, let's declare what kind of network we will use for testing
 
 ```python
 def make_network(D, C, H=100):
-model = dict(
-W1=np.random.randn(D, H) / np.sqrt(D / 2.),
-W2=np.random.randn(H, H) / np.sqrt(H / 2.),
-W3=np.random.randn(H, C) / np.sqrt(H / 2.),
-b1=np.zeros((1, H)),
-b2=np.zeros((1, H)),
-b3=np.zeros((1, C))
-)
+    model = dict(
+        W1=np.random.randn(D, H) / np.sqrt(D / 2.),
+        W2=np.random.randn(H, H) / np.sqrt(H / 2.),
+        W3=np.random.randn(H, C) / np.sqrt(H / 2.),
+        b1=np.zeros((1, H)),
+        b2=np.zeros((1, H)),
+        b3=np.zeros((1, C))
+    )
 
     return model
 
@@ -147,9 +142,9 @@ We also implement Dropout in our model. Implementing Dropout in our neural net m
 
 We then compare the Dropout network with non Dropout network. The result is nice: Dropout network performs consistenly better in test time compared to the non Dropout Network.
 
-To see more about, check my full example in my Github page: <https://github.com/wiseodd/hipsternet>
+To see more about, check my full example in my Github page: https://github.com/wiseodd/hipsternet.
 
 ## References
 
-- <http://www.cs.toronto.edu/~rsalakhu/papers/srivastava14a.pdf>
-- <http://cs231n.github.io/neural-networks-2/#reg>
+- http://www.cs.toronto.edu/~rsalakhu/papers/srivastava14a.pdf
+- http://cs231n.github.io/neural-networks-2/#reg

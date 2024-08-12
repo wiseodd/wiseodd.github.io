@@ -5,13 +5,13 @@ publishDate: 2016-06-22 04:55
 tags: [machine learning, programming, python, neural networks, optimization]
 ---
 
-Last time, we [implemented]({% post_url 2016-06-21-nn-sgd %}) Minibatch Gradient Descent to train our neural nets model. Using that post as the base, we will look into another optimization algorithms that are popular out there for training neural nets.
+Last time, we implemented Minibatch Gradient Descent to train our neural nets model. Using that post as the base, we will look into another optimization algorithms that are popular out there for training neural nets.
 
 I've since made an update to the last post's SGD codes. Mainly, making the algorithms to use random batch in each iteration, not the whole dataset. However, the problem set and the neural nets model are still the same. Let's refresh the code:
 
 ```python
 def get_minibatch(X, y, minibatch_size):
-minibatches = []
+    minibatches = []
 
     X, y = shuffle(X, y)
 
@@ -23,8 +23,9 @@ minibatches = []
 
     return minibatches
 
+
 def sgd(model, X_train, y_train, minibatch_size):
-minibatches = get_minibatch(X_train, y_train, minibatch_size)
+    minibatches = get_minibatch(X_train, y_train, minibatch_size)
 
     for iter in range(1, n_iter + 1):
         idx = np.random.randint(0, len(minibatches))
@@ -36,7 +37,6 @@ minibatches = get_minibatch(X_train, y_train, minibatch_size)
             model[layer] += alpha * grad[layer]
 
     return model
-
 ```
 
 ## SGD + Momentum
@@ -55,8 +55,8 @@ Now the code!
 
 ```python
 def momentum(model, X_train, y_train, minibatch_size):
-velocity = {k: np.zeros_like(v) for k, v in model.items()}
-gamma = .9
+    velocity = {k: np.zeros_like(v) for k, v in model.items()}
+    gamma = .9
 
     minibatches = get_minibatch(X_train, y_train, minibatch_size)
 
@@ -71,7 +71,6 @@ gamma = .9
             model[layer] += velocity[layer]
 
     return model
-
 ```
 
 What we do is to create a new velocity variable to store our momentum for every parameter. The update of the velocity is given the old velocity value and new Gradient Descent step `alpha * grad`. We also decay our past velocity so that we only consider the most recent velocities with `gamma = .9`.
@@ -86,8 +85,8 @@ So, Nesterov Momentum exploits that knowledge, and instead of using the current 
 
 ```python
 def nesterov(model, X_train, y_train, minibatch_size):
-velocity = {k: np.zeros_like(v) for k, v in model.items()}
-gamma = .9
+    velocity = {k: np.zeros_like(v) for k, v in model.items()}
+    gamma = .9
 
     minibatches = get_minibatch(X_train, y_train, minibatch_size)
 
@@ -103,7 +102,6 @@ gamma = .9
             model[layer] += velocity[layer]
 
     return model
-
 ```
 
 Looking at the code, the only difference is that now we're computing the gradient using `model_ahead`: approximated next state of our model parameters that we calculated by adding the momentum to the current parameters.
@@ -118,7 +116,7 @@ That's why Adagrad was invented. It's trying to solve that very problem.
 
 ```python
 def adagrad(model, X_train, y_train, minibatch_size):
-cache = {k: np.zeros_like(v) for k, v in model.items()}
+    cache = {k: np.zeros_like(v) for k, v in model.items()}
 
     minibatches = get_minibatch(X_train, y_train, minibatch_size)
 
@@ -133,7 +131,6 @@ cache = {k: np.zeros_like(v) for k, v in model.items()}
             model[k] += alpha * grad[k] / (np.sqrt(cache[k]) + eps)
 
     return model
-
 ```
 
 Note that the parameters update is pointwise operation, hence the learning rate is adaptive **per-parameter**.
@@ -150,8 +147,8 @@ To combat that problem, RMSprop decay the past accumulated gradient, so only a p
 
 ```python
 def rmsprop(model, X_train, y_train, minibatch_size):
-cache = {k: np.zeros_like(v) for k, v in model.items()}
-gamma = .9
+    cache = {k: np.zeros_like(v) for k, v in model.items()}
+    gamma = .9
 
     minibatches = get_minibatch(X_train, y_train, minibatch_size)
 
@@ -166,7 +163,6 @@ gamma = .9
             model[k] += alpha * grad[k] / (np.sqrt(cache[k]) + eps)
 
     return model
-
 ```
 
 The only difference compared to Adagrad is how we calculate the cache. Here, we're take `gamma` portion of past accumulated sum of squared gradient, and take `1 - gamma` portion of the current squared gradient. By doing this, the accumulated gradient won't be aggresively monotonically increasing, depending on the gradients in the moving average window.
@@ -177,10 +173,10 @@ Adam is the latest state of the art of first order optimization method that's wi
 
 ```python
 def adam(model, X_train, y_train, minibatch_size):
-M = {k: np.zeros_like(v) for k, v in model.items()}
-R = {k: np.zeros_like(v) for k, v in model.items()}
-beta1 = .9
-beta2 = .999
+    M = {k: np.zeros_like(v) for k, v in model.items()}
+    R = {k: np.zeros_like(v) for k, v in model.items()}
+    beta1 = .9
+    beta2 = .999
 
     minibatches = get_minibatch(X_train, y_train, minibatch_size)
 
@@ -201,12 +197,11 @@ beta2 = .999
             model[k] += alpha * m_k_hat / (np.sqrt(r_k_hat) + eps)
 
     return model
-
 ```
 
 Notice in the code, we still retain some RMSprop's codes, namely when we calculate `R`. We also add some codes that are similar to how we compute momentum in the form of `M`. Then, for the parameters update, it's the combination of momentum method and adaptive learning rate method: add the momentum, and normalize the learning rate using the moving average squared gradient.
 
-Adam also has a bias correction mechanism, it's calculated in `m_k_hat` and `r_k_hat`. It's useful to make the convergence faster, at several first iterations. The reason is that we initialized `M` and `R` with zero, hence it will be biased toward zero in several first iterations, until they're fully _warmed up_. The solution is to correct the bias and get the unbiased estimate of `M` and `R`. Please refer to the original paper, section 3: <https://arxiv.org/pdf/1412.6980>.
+Adam also has a bias correction mechanism, it's calculated in `m_k_hat` and `r_k_hat`. It's useful to make the convergence faster, at several first iterations. The reason is that we initialized `M` and `R` with zero, hence it will be biased toward zero in several first iterations, until they're fully _warmed up_. The solution is to correct the bias and get the unbiased estimate of `M` and `R`. Please refer to the original paper, section 3: https://arxiv.org/pdf/1412.6980.
 
 As for the recommended value for the hyperparameter: `beta1 = 0.9`, `beta2 = 0.999`, `alpha = 1e-3`, and `eps = 1e-8`.
 
@@ -265,14 +260,14 @@ However, the opposite happens when we're using small learning rate value e.g. `1
 
 In this post we looked at the optimization algorithms for neural nets beyond SGD. We looked at two classes of algorithms: momentum based and adaptive learning rate methods.
 
-We also implement all of those methods in Python and Numpy with the use case of our neural nets stated in the [last post]({% post_url 2016-06-21-nn-sgd %}).
+We also implement all of those methods in Python and Numpy with the use case of our neural nets stated in the last post.
 
 Most of those methods above are currently implemented in the popular Deep Learning libraries like Tensorflow, Keras, and Caffe. However, Adam is currently the default recommended algorithm to be used.
 
-You could find the full code used in this post here: <https://gist.github.com/wiseodd/85ad008aef5585cec017f4f1e6d67a02>
+You could find the full code used in this post here: https://gist.github.com/wiseodd/85ad008aef5585cec017f4f1e6d67a02.
 
 ## References
 
-- <http://cs231n.github.io/neural-networks-3/>
-- <http://sebastianruder.com/optimizing-gradient-descent/>
-- <https://arxiv.org/pdf/1412.6980.pdf>
+- http://cs231n.github.io/neural-networks-3/
+- http://sebastianruder.com/optimizing-gradient-descent/
+- https://arxiv.org/pdf/1412.6980.pdf
