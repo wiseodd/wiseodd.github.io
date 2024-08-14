@@ -5,6 +5,8 @@ publishDate: 2015-10-24 12:04:00
 tags: [machine learning, programming, python]
 ---
 
+import BlogImage from "@/components/BlogImage.astro";
+
 Another MCMC method beside Metropolis-Hastings and Gibbs Sampling, Slice Sampling generates random samples based on their previous states. Those samples then could be used to compute integrals (mean, median, etc) or just to plot the histogram, like I'll do here.
 
 Compared to M-H and Gibbs Sampling, Slice Sampling doesn't need any helper distribution. Whereas M-H needs us to pick a transition distribution `Q(x -> x')`, and Gibbs Sampling needs us to find full conditionals of the joint distribution analytically, Slice Sampling will only need us to provide the target distribution.
@@ -13,21 +15,21 @@ For a special case of Slice Sampling where target distribution `P(x)` is unimoda
 
 Let's say we have a Standard Normal from which we want to sample with Slice Sampling. Because Gaussian is unimodal, and the inverse PDF could be easily found analytically, it fits this special case. I'm not going to put the step by step derivation of the inverse PDF here as this blog don't have math engine to render formula.
 
-![Slice]({{ site.baseurl }}/img/2015-10-24-slice-sampling/00.png)
+<BlogImage imagePath='/img/slice-sampling/00.png' />
 
 The PDF and inverse PDF of Standard Normal are as follow in Python code:
 
 ```python
 def p(x):
-return np.exp(-(x\**2) / 2) / (np.sqrt(2*np.pi))
+    return np.exp(-(x**2) / 2) / (np.sqrt(2*np.pi))
 
-def p*inv(y):
-return np.sqrt(-2 * np.log(y \_ np.sqrt(2\*np.pi)))
+def p_inv(y):
+    return np.sqrt(-2 * np.log(y _ np.sqrt(2*np.pi)))
 ```
 
 Here's the inverse PDF of that Gaussian:
 
-![Slice]({{ site.baseurl }}/img/2015-10-24-slice-sampling/01.png)
+<BlogImage imagePath='/img/slice-sampling/01.png' />
 
 Why do we need the inverse PDF? Recall that if we have `y = f(x)`, then if we have y, we could find the x using the inverse function: `x = f_inv(y)`. To give you some visualization, consider a Gaussian. The PDF will give you probability `P(x)` when you feed it with some `x`. Now what happen if we want to know, which `x` would yield this probability `P(x)`? That's where the inverse function comes in. Similarly, think about the relation of CDF and Quantile Function of probability distribution. Quantile Function is an inverse of CDF. Given an `x`, CDF will give you cumulative probability up to `x`. Given a cumulative probability `c`, Quantile Function will give you the `x` such that the cumulative probability at point `x` is `c`.
 
@@ -57,15 +59,15 @@ mu = 65
 sigma = 32
 
 def p(x):
-return st.norm.pdf(x, loc=mu, scale=sigma)
+    return st.norm.pdf(x, loc=mu, scale=sigma)
 
 def p*inv(y):
-x = np.sqrt(-2*sigma\*\*2 * np.log(y * sigma \_ np.sqrt(2\*np.pi)))
-return mu-x, mu+x
+    x = np.sqrt(-2*sigma**2 * np.log(y * sigma _ np.sqrt(2*np.pi)))
+    return mu-x, mu+x
 
 def slice_sampling(iter=1000):
-samples = np.zeros(iter)
-x = 0
+    samples = np.zeros(iter)
+    x = 0
 
     for i in range(iter):
         u = np.random.uniform(0, p(x))
@@ -75,17 +77,17 @@ x = 0
 
     return samples
 
-if **name** == '**main**':
-samples = slice_sampling(iter=10000)
-sns.distplot(samples, kde=False, norm_hist=True)
-x = np.arange(-100, 250)
-plt.plot(x, p(x))
-plt.show()
+if __name__ == '__main__':
+    samples = slice_sampling(iter=10000)
+    sns.distplot(samples, kde=False, norm_hist=True)
+    x = np.arange(-100, 250)
+    plt.plot(x, p(x))
+    plt.show()
 ```
 
 Here's the sampling result. The green curve is the real PDF of `Normal(65, 32)`.
 
-![Slice]({{ site.baseurl }}/img/2015-10-24-slice-sampling/02.png)
+<BlogImage imagePath='/img/slice-sampling/02.png' />
 
 Slice Sampling, being MCMC method, obviously shares some characteristic of the other MCMC methods like Metropolis-Hastings or Gibbs Sampling. Because it's Markovian, then there is a correlation between samples, which makes the samples not i.i.d. To remedy that, we could use technique called thinning, to only collect sample after some iteration to reduce the correlation. Another thing is that we should consider some burn-in period before collecting sample, to make sure we get only samples we care.
 

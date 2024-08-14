@@ -18,7 +18,6 @@ sudo easy_install pip
 
 OSX:
 brew install python pip postgres
-
 ```
 
 Now we’ll install virtualenv. This is not necessary, but will improve our development greatly as virtualenv will let us have clean and reproducible Python development environment.
@@ -32,7 +31,6 @@ And then, register virtualenvwrapper to our shell. Add these lines to your `.bas
 ```bash
 export WORKON_HOME=~/.virtualenv
 source /usr/local/bin/virtualenvwrapper.sh
-
 ```
 
 Then, you’ll need to log out to apply the change.
@@ -51,7 +49,6 @@ Open up the requirements.txt on your project directory, then uncomment this line
 
 ```bash
 pip install -r requirements.txt
-
 ```
 
 There are some hurdles though, when using PostgreSQL for the first time. I’m experienced with database, but mainly with Oracle and MySQL. PostgreSQL is a bit different and coming from that MySQL it’s hard at first.
@@ -75,7 +72,6 @@ Now we’re inside PostgreSQL shell. We’ll create the user, then grant the per
 ```sql
 CREATE ROLE yourblogname WITH PASSWORD ‘yourpassword’
 GRANT ALL PRIVILEGES ON DATABASE yourblogname TO yourblogname
-
 ```
 
 Then use `CTRL+D` to exit psql and type `exit` to exit user postgres’ shell.
@@ -121,7 +117,6 @@ After that, we’ll write our initial database to PostgreSQL:
 ```bash
 ./manage.py makemigrations
 ./manage.py migrate
-
 ```
 
 Also, don't forget to create an admin account so that we could get inside the admin panel.

@@ -236,20 +236,20 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".mdx"] };
-"deploying-wagtail.md": {
-	id: "deploying-wagtail.md";
+"deploying-wagtail.mdx": {
+	id: "deploying-wagtail.mdx";
   slug: "deploying-wagtail";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
-"developing-wagtail.md": {
-	id: "developing-wagtail.md";
+} & { render(): Render[".mdx"] };
+"developing-wagtail.mdx": {
+	id: "developing-wagtail.mdx";
   slug: "developing-wagtail";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 "dropout.mdx": {
 	id: "dropout.mdx";
   slug: "dropout";
@@ -285,13 +285,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".mdx"] };
-"gaussian-anomaly-detection.md": {
-	id: "gaussian-anomaly-detection.md";
+"gaussian-anomaly-detection.mdx": {
+	id: "gaussian-anomaly-detection.mdx";
   slug: "gaussian-anomaly-detection";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 "gibbs-sampling.mdx": {
 	id: "gibbs-sampling.mdx";
   slug: "gibbs-sampling";
@@ -397,13 +397,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".mdx"] };
-"metropolis-hastings.md": {
-	id: "metropolis-hastings.md";
+"metropolis-hastings.mdx": {
+	id: "metropolis-hastings.mdx";
   slug: "metropolis-hastings";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 "minkowski-dirichlet.mdx": {
 	id: "minkowski-dirichlet.mdx";
   slug: "minkowski-dirichlet";
@@ -460,13 +460,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".mdx"] };
-"rejection-sampling.md": {
-	id: "rejection-sampling.md";
+"rejection-sampling.mdx": {
+	id: "rejection-sampling.mdx";
   slug: "rejection-sampling";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 "residual-net.mdx": {
 	id: "residual-net.mdx";
   slug: "residual-net";
@@ -474,20 +474,20 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".mdx"] };
-"scrapy-long-running.md": {
-	id: "scrapy-long-running.md";
+"scrapy-long-running.mdx": {
+	id: "scrapy-long-running.mdx";
   slug: "scrapy-long-running";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
-"slice-sampling.md": {
-	id: "slice-sampling.md";
+} & { render(): Render[".mdx"] };
+"slice-sampling.mdx": {
+	id: "slice-sampling.mdx";
   slug: "slice-sampling";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 "theano-pde.mdx": {
 	id: "theano-pde.mdx";
   slug: "theano-pde";
@@ -495,13 +495,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".mdx"] };
-"twitter-auth-flask.md": {
-	id: "twitter-auth-flask.md";
+"twitter-auth-flask.mdx": {
+	id: "twitter-auth-flask.mdx";
   slug: "twitter-auth-flask";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 "vae-pytorch.mdx": {
 	id: "vae-pytorch.mdx";
   slug: "vae-pytorch";
@@ -523,13 +523,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".mdx"] };
-"wagtail-dev-env.md": {
-	id: "wagtail-dev-env.md";
+"wagtail-dev-env.mdx": {
+	id: "wagtail-dev-env.mdx";
   slug: "wagtail-dev-env";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 "wasserstein-gan.mdx": {
 	id: "wasserstein-gan.mdx";
   slug: "wasserstein-gan";
