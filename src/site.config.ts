@@ -1,7 +1,6 @@
 import type { SiteConfig } from "@/types";
 import { type AstroExpressiveCodeOptions } from "astro-expressive-code";
-import "@fontsource/jetbrains-mono";
-import "@fontsource-variable/arimo";
+import "@fontsource/iosevka";
 
 export const siteConfig: SiteConfig = {
   // Used as both a meta property (src/components/BaseHead.astro L:31 + L:49) & the generated satori png (src/pages/og-image/[slug].png.ts)
@@ -61,11 +60,11 @@ export const expressiveCodeOptions: AstroExpressiveCodeOptions = {
   styleOverrides: {
     uiLineHeight: "inherit",
     uiFontWeight: "500",
-    codeFontSize: "0.8rem",
+    codeFontSize: "0.9rem",
     codeLineHeight: "1.2rem",
     borderRadius: "0px",
     codePaddingInline: "1rem",
-    codeFontFamily: '"Jetbrains Mono", monospace;',
+    codeFontFamily: '"Iosevka", monospace;',
     frames: {
       frameBoxShadowCssValue: "none",
     },
