@@ -1,0 +1,55 @@
+---
+title: "Writing Advice for Machine Learning Researchers"
+description: "Some bullet-point advice regarding paper-writing I would give to my younger self."
+publishDate: 2024-08-30 00:00
+---
+
+import BlogImage from "@/components/BlogImage.astro";
+
+## General protips
+
+- **DO:** Write before you even do any experiment.
+- **_DON’T_:** Leave everything to the last minute, esp. writing.
+- **DO:** _Obsess_ over styling (see below).
+- **DO:** Read _widely_ and _a lot_ (in English!): novels, nonfictions,
+  popular science, etc.
+- **DO:** Read math books and appreciate the typography & styling.
+
+## LaTeX protips
+
+- **One line = one sentence**
+  - This will make debugging easier, due to how LaTeX shows errors
+- **Quotation marks:** Instead of `"something"`, write ` ``something'' `
+  (2 backtics & 2 standard ticks)
+- **Math macros:** Use this and add your own often-used math definitions
+  https://github.com/goodfeli/dlbook_notation/blob/master/math_commands.tex
+  - So, gone are the days where you need to write `\mathbf{x}` again and again.
+    Instead you could just write `\vx`.
+- **Citation:** Always use `natbib`! Two ways of citing:
+  - "... has been done before [4]." --- in this case, you use `\citep`
+    and write `... has been done before \citep{someone2024}`.
+  - "Someone et al, 2024 has done ..." --- in this case, you use `\citet`
+    and write `\citet{someone2024} has done ...`
+- **Table:** Always use booktabs instead of standard table.
+  - https://nhigham.com/2019/11/19/better-latex-tables-with-booktabs/
+- **Style tips:**
+  - Figures must always fill the full paper width (or column width).
+    - Use my library: https://github.com/wiseodd/pub-ready-plots
+    - https://github.com/wiseodd/pub-ready-plots?tab=readme-ov-file#creating-a-figure-with-multiple-subplots
+  - Tables, likewise, must also always fill the full width.
+    - https://tex.stackexchange.com/questions/240154/setting-table-width-exactly-to-linewidth
+  - If you think they are not appropriate for full width, use wrapfig and wraptable:
+    - https://www.overleaf.com/learn/latex/Positioning_images_and_tables
+- **Bibliography:**
+  - Don't just copy-paste from Google Scholar! Always recheck & edit!
+  - E.g. make sure the proper capitalization:
+    - Instead of: `title={Introduction to Bayesian optimization}`
+    - Write this: `title={Introduction to {B}ayesian optimization}`
+    - I.e., always surround the character that needs to be capitalized
+      with `{ }`
+  - Venue precedence if a publication appears in multiple venues
+    (top = most prioritized):
+    1. Journal
+    2. Conference
+    3. Workshop/symposium
+    4. ArXiv/preprint

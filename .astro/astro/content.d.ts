@@ -550,6 +550,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".mdx"] };
+"writing-advice.mdx": {
+	id: "writing-advice.mdx";
+  slug: "writing-advice";
+  body: string;
+  collection: "post";
+  data: InferEntrySchema<"post">
+} & { render(): Render[".mdx"] };
 };
 
 	};
