@@ -78,18 +78,35 @@ const config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
-      typography: {
+      typography: (theme) => ({
         DEFAULT: {
           css: {
+            // Remove backticks from inline code
             "code::before": {
               content: '""',
             },
             "code::after": {
               content: '""',
             },
+            code: {
+              backgroundColor: "hsl(var(--accent))",
+              borderRadius: theme("borderRadius.DEFAULT"),
+              paddingLeft: theme("spacing[0.5]"),
+              paddingRight: theme("spacing[0.5]"),
+              paddingTop: theme("spacing[0.5]"),
+              paddingBottom: theme("spacing[0.5]"),
+            },
+            a: {
+              color: theme("colors.blue.500"),
+              fontWeight: "400",
+              textDecoration: "none",
+              "&:hover": {
+                textDecoration: "underline",
+              },
+            },
           },
         },
-      },
+      }),
     },
   },
 };
