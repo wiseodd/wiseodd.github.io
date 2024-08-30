@@ -30,6 +30,14 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        sans: [fontFamily.sans],
+        serif: ["Times", fontFamily.serif],
+        mono: ["Jetbrains Mono", fontFamily.mono],
+      },
+      fontSize: {
+        base: "0.95rem",
+      },
       colors: {
         border: "hsl(var(--border) / <alpha-value>)",
         input: "hsl(var(--input) / <alpha-value>)",
@@ -70,13 +78,28 @@ const config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
-      fontFamily: {
-        sans: [fontFamily.sans],
-        serif: ["Times", fontFamily.serif],
-        mono: ["Jetbrains Mono", fontFamily.mono],
-      },
-      fontSize: {
-        base: "0.95rem",
+      typography(theme) {
+        return {
+          DEFAULT: {
+            css: {
+              code: {
+                // color: theme("colors.slate.500"),
+                // backgroundColor: theme('colors.stone.100'),
+                // borderRadius: theme('borderRadius.DEFAULT'),
+                // paddingLeft: theme("spacing[1.5]"),
+                // paddingRight: theme("spacing[1.5]"),
+                // paddingTop: theme("spacing.1"),
+                // paddingBottom: theme("spacing.1"),
+              },
+              "code::before": {
+                content: '""',
+              },
+              "code::after": {
+                content: '""',
+              },
+            },
+          },
+        };
       },
     },
   },
