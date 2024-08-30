@@ -78,28 +78,17 @@ const config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
-      typography(theme) {
-        return {
-          DEFAULT: {
-            css: {
-              code: {
-                // color: theme("colors.slate.500"),
-                // backgroundColor: theme('colors.stone.100'),
-                // borderRadius: theme('borderRadius.DEFAULT'),
-                // paddingLeft: theme("spacing[1.5]"),
-                // paddingRight: theme("spacing[1.5]"),
-                // paddingTop: theme("spacing.1"),
-                // paddingBottom: theme("spacing.1"),
-              },
-              "code::before": {
-                content: '""',
-              },
-              "code::after": {
-                content: '""',
-              },
+      typography: {
+        DEFAULT: {
+          css: {
+            "code::before": {
+              content: '""',
+            },
+            "code::after": {
+              content: '""',
             },
           },
-        };
+        },
       },
     },
   },
