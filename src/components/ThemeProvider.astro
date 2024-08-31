@@ -23,9 +23,15 @@
       return;
     } else if (newTheme === "light" && !root.classList.contains("dark")) {
       return;
+    } else {
+      root.classList.toggle("dark");
     }
 
-    root.classList.toggle("dark");
+    if (newTheme === "dark") {
+      root.setAttribute("data-theme", "dark");
+    } else if (newTheme === "light") {
+      root.setAttribute("data-theme", "light");
+    }
   }
 
   // Initial Setup

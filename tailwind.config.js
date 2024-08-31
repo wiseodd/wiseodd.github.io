@@ -21,6 +21,7 @@ const config = {
       );
     }),
   ],
+  variants: { typography: ["dark"] },
   theme: {
     container: {
       center: true,
@@ -97,12 +98,22 @@ const config = {
               paddingBottom: theme("spacing[0.5]"),
             },
             a: {
-              color: theme("colors.blue.500"),
+              color: theme("colors.blue.600"),
               fontWeight: "400",
               textDecoration: "none",
               "&:hover": {
                 textDecoration: "underline",
               },
+            },
+          },
+        },
+        dark: {
+          css: {
+            code: {
+              backgroundColor: "hsl(var(--background) / <alpha-value>)",
+            },
+            a: {
+              color: theme("colors.blue.300"),
             },
           },
         },
