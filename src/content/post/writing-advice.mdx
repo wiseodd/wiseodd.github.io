@@ -40,6 +40,7 @@ import BlogImage from "@/components/BlogImage.astro";
     [See how](https://tex.stackexchange.com/questions/240154/setting-table-width-exactly-to-linewidth).
   - If you think they are not appropriate for full width, use [wrapfig and wraptable](https://www.overleaf.com/learn/latex/Positioning_images_and_tables).
 - **Bibliography:**
+
   - Don't just copy-paste from Google Scholar! Always recheck & edit!
   - E.g. make sure the proper capitalization:
     - Instead of: `title={Introduction to Bayesian optimization}`
@@ -52,3 +53,21 @@ import BlogImage from "@/components/BlogImage.astro";
     2. Conference
     3. Workshop/symposium
     4. ArXiv/preprint
+  - For well-known ML conferences, simply use their abbreviations.
+    - E.g. "Advances in Neural Information Processing Systems 35" -> "NeurIPS".
+  - For conference, use `@inproceedings`.
+    - The only fields needed are `title`, `author`, `booktitle`, and `year`.
+    - No need for other things like `page`, `editor`, etc.
+  - For journal/ArXiv, use `@article`.
+    - Use `journal` instead of `booktitle`.
+    - Additionally, `volume` and `number` must be included.
+  - **Example:**
+
+  ```bibtex
+  @inproceedings{kristiadi2024sober,
+    title={A Sober Look at {LLMs} for Material Discovery: {A}re They Actually Good for {B}ayesian Optimization Over Molecules?},
+    author={Kristiadi, Agustinus and Strieth-Kalthoff, Felix and Skreta, Marta and Poupart, Pascal and Aspuru-Guzik, Al\'{a}n and Pleiss, Geoff},
+    booktitle={ICML},
+    year={2024}
+  }
+  ```
