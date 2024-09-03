@@ -6,68 +6,111 @@ publishDate: 2024-08-30 00:00
 
 import BlogImage from "@/components/BlogImage.astro";
 
-## General protips
+## General writing protips
 
 - **DO:** Write before you even do any experiment.
+  - Your initial draft = hypothesis
+  - Experiments = observations
+  - Update your draft based on your experiments = posterior
+  - Rinse lather repeat
 - **_DON’T_:** Leave everything to the last minute, esp. writing.
-- **DO:** _Obsess_ over styling (see below).
+- **_DON'T_:** Wait until the last minute to submit your paper.
+  - Server overload is a thing.
 - **DO:** Read _widely_ and _a lot_ (in English!): novels, nonfictions,
   popular science, etc.
+- **DO:** Take pride of your work and paper. It's your life's work.
+  - Haphazard, low-effort, inconsistent-styling paper signals to the reader that you
+    yourself don't care.
+  - Why should they care about your work then?
+- **DO:** See paper-writing as a **_craft_**. Always hone your **_craftmanship_**.
+- **DO:** _Obsess_ over styling (see below).
 - **DO:** Read math books and appreciate the typography & styling.
+- **DO:** Have a blog site. Publish several in-depth blog posts per year.
+- **_DON'T:_** Be afraid of people think you're dumb based on your blog posts.
+  - See my blog post archive from 2016 --- they're so simple and embarassing.
 
 ## LaTeX protips
+
+### General
 
 - **One line = one sentence**
   - This will make debugging easier, due to how LaTeX shows errors
 - **Quotation marks:** Instead of `"something"`, write ` ``something'' `
   (2 backtics & 2 standard ticks)
+
+### Styles
+
+#### Figures
+
+- Must always fill the full paper width (or column width).
+  - Use [my library](https://github.com/wiseodd/pub-ready-plots).
+  - For figures with multiple subplots, avoid creating a single pdf file
+    for each subplot. Instead, [follow this](https://github.com/wiseodd/pub-ready-plots?tab=readme-ov-file#creating-a-figure-with-multiple-subplots)
+- If you think they are not appropriate for full width, use [wrapfig](https://www.overleaf.com/learn/latex/Positioning_images_and_tables).
+  - See also [how to do this with my plotting library](https://github.com/wiseodd/pub-ready-plots?tab=readme-ov-file#creating-plots-for-wrapfigure).
+
+#### Tables
+
+- Always use booktabs instead of standard table. [See this](https://nhigham.com/2019/11/19/better-latex-tables-with-booktabs/).
+- Like figures, must also always fill the full width.
+  [See how](https://tex.stackexchange.com/questions/240154/setting-table-width-exactly-to-linewidth).
+- Also, like figures, use [wraptable](https://www.overleaf.com/learn/latex/Positioning_images_and_tables)
+  if your table is not appropriate for full width.
+
+### Maths
+
 - **Math macros:** [Use this](https://github.com/goodfeli/dlbook_notation/blob/master/math_commands.tex)
   and add your own often-used math definitions
   - So, gone are the days where you need to write `\mathbf{x}` again and again.
     Instead you could just write `\vx`.
-- **Citation:** Always use `natbib`! Two ways of citing:
+
+### Bibliography
+
+#### Citations
+
+- Always use `natbib`! Two ways of citing:
   - "... has been done before [4]." --- in this case, you use `\citep`
     and write `... has been done before \citep{someone2024}`.
   - "Someone et al, 2024 has done ..." --- in this case, you use `\citet`
     and write `\citet{someone2024} has done ...`
-- **Table:** Always use booktabs instead of standard table. [See this](https://nhigham.com/2019/11/19/better-latex-tables-with-booktabs/).
-- **Style tips:**
-  - Figures must always fill the full paper width (or column width).
-    - Use [my library](https://github.com/wiseodd/pub-ready-plots).
-    - For figures with multiple subplots, avoid creating a single pdf file
-      for each subplot. Instead, [follow this](https://github.com/wiseodd/pub-ready-plots?tab=readme-ov-file#creating-a-figure-with-multiple-subplots)
-  - Tables, likewise, must also always fill the full width.
-    [See how](https://tex.stackexchange.com/questions/240154/setting-table-width-exactly-to-linewidth).
-  - If you think they are not appropriate for full width, use [wrapfig and wraptable](https://www.overleaf.com/learn/latex/Positioning_images_and_tables).
-- **Bibliography:**
 
-  - Don't just copy-paste from Google Scholar! Always recheck & edit!
-  - E.g. make sure the proper capitalization:
-    - Instead of: `title={Introduction to Bayesian optimization}`
-    - Write this: `title={Introduction to {B}ayesian optimization}`
-    - I.e., always surround the character that needs to be capitalized
-      with `{ }`
-  - Venue precedence if a publication appears in multiple venues
-    (top = most prioritized):
-    1. Journal
-    2. Conference
-    3. Workshop/symposium
-    4. ArXiv/preprint
-  - For well-known ML conferences, simply use their abbreviations.
-    - E.g. "Advances in Neural Information Processing Systems 35" -> "NeurIPS".
-  - For conference, use `@inproceedings`.
-    - The only fields needed are `title`, `author`, `booktitle`, and `year`.
-    - No need for other things like `page`, `editor`, etc.
-  - For journal/ArXiv, use `@article`.
-    - Use `journal` instead of `booktitle`.
-    - Additionally, `volume` and `number` must be included.
-  - **Example:**
+#### References / bibtex
 
-  ```bibtex
-  @inproceedings{kristiadi2024sober,
-    title={A Sober Look at {LLMs} for Material Discovery: {A}re They Actually Good for {B}ayesian Optimization Over Molecules?},
-    author={Kristiadi, Agustinus and Strieth-Kalthoff, Felix and Skreta, Marta and Poupart, Pascal and Aspuru-Guzik, Al\'{a}n and Pleiss, Geoff},
-    booktitle={ICML},
-    year={2024}
-  }
-  ```
+- **Rule to live by:** Dirty, inconsistent, low-effort reference list signals
+  to the reader that you don't care. Why should they care about your work?
+- Don't just copy-paste from Google Scholar! Always recheck & edit!
+- E.g. make sure the proper capitalization:
+  - Instead of: `title={Introduction to Bayesian optimization}`
+  - Write this: `title={Introduction to {B}ayesian optimization}`
+  - I.e., always surround the character that needs to be capitalized
+    with `{ }`
+- Venue precedence if a publication appears in multiple venues
+  (top = most prioritized):
+  1. Journal
+  2. Conference
+  3. Workshop/symposium
+  4. ArXiv/preprint
+- For well-known ML conferences, simply use their abbreviations.
+  - E.g. "Advances in Neural Information Processing Systems 35" -> "NeurIPS".
+- For conference, use `@inproceedings`.
+  - The only fields needed are `title`, `author`, `booktitle`, and `year`.
+  - No need for other things like `page`, `editor`, etc.
+- For journal/ArXiv, use `@article`.
+  - Use `journal` instead of `booktitle`.
+  - Additionally, `volume` and `number` must be included.
+- **Example:**
+
+```bibtex
+@inproceedings{kristiadi2024sober,
+  title={
+    A Sober Look at {LLMs} for Material Discovery:
+    {A}re They Actually Good for {B}ayesian Optimization Over Molecules?
+  },
+  author={
+    Kristiadi, Agustinus and Strieth-Kalthoff, Felix and Skreta, Marta
+    and Poupart, Pascal and Aspuru-Guzik, Al\'{a}n and Pleiss, Geoff
+  },
+  booktitle={ICML},
+  year={2024}
+}
+```
