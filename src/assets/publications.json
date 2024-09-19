@@ -5,7 +5,7 @@
     "author": ["Agustinus Kristiadi"],
     "venue": "PhD Thesis, University of Tuebingen",
     "year": 2023,
-    "paper": "files/dissertation_kristiadi.pdf"
+    "paper": "https://agustinus.kristia.de/files/dissertation_kristiadi.pdf"
   },
   {
     "type": "thesis",
@@ -13,7 +13,7 @@
     "author": ["Agustinus Kristiadi"],
     "venue": "Master Thesis, University of Bonn",
     "year": 2019,
-    "paper": "files/cdn_master_thesis.pdf"
+    "paper": "https://agustinus.kristia.de/files/cdn_master_thesis.pdf"
   },
   {
     "type": "conference",
