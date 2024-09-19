@@ -1,301 +1,346 @@
 [
-	{
-		"type": "conference",
-		"title": "Parallel Particle Swarm Optimization for Image Segmentation",
-		"author": ["Agustinus Kristiadi", "Pranowo", "Paulus Mudjihartono"],
-		"venue": "Digital Enterprise and Information Systems",
-		"year": 2013,
-		"paper": "https://www.researchgate.net/publication/271843950_Parallel_Particle_Swarm_Optimization_for_Image_Segmentation",
-		"code": "https://github.com/wiseodd/cuda-pso"
-	},
-	{
-		"type": "conference",
-		"title": "Improving Response Selection in Multi-turn Dialogue Systems",
-		"author": ["Debanjan Chaudhuri", "Agustinus Kristiadi", "Jens Lehmann", "Asja Fischer"],
-		"venue": "CoNLL",
-		"year": 2018,
-		"paper": "https://arxiv.org/abs/1809.03194",
-		"code": "https://github.com/SmartDataAnalytics/AK-DE-biGRU"
-	},
-	{
-		"type": "conference",
-		"title": "Incorporating Literals into Knowledge Graph Embeddings",
-		"author": [
-			"Agustinus Kristiadi*",
-			"Mohammad Asif Khan*",
-			"Denis Lukovnikov",
-			"Jens Lehmann",
-			"Asja Fischer"
-		],
-		"venue": "ISWC",
-		"year": 2019,
-		"paper": "https://arxiv.org/abs/1802.00934",
-		"code": "https://github.com/SmartDataAnalytics/LiteralE"
-	},
-	{
-		"type": "conference",
-		"title": "Being Bayesian, Even Just a Bit, Fixes Overconfidence in ReLU Networks",
-		"author": ["Agustinus Kristiadi", "Matthias Hein", "Philipp Hennig"],
-		"venue": "ICML",
-		"year": 2020,
-		"paper": "https://arxiv.org/abs/2002.10118",
-		"github": "https://github.com/wiseodd/last_layer_laplace",
-		"marked": true
-	},
-	{
-		"type": "conference",
-		"title": "Learnable Uncertainty under Laplace Approximations",
-		"author": ["Agustinus Kristiadi", "Matthias Hein", "Philipp Hennig"],
-		"venue": "UAI",
-		"year": 2021,
-		"month": "Aug",
-		"note": "Long Talk",
-		"paper": "https://arxiv.org/abs/2010.02720",
-		"code": "https://github.com/wiseodd/lula"
-	},
-	{
-		"type": "conference",
-		"title": "An Infinite-Feature Extension for Bayesian ReLU Nets That Fixes Their Asymptotic Overconfidence",
-		"author": ["Agustinus Kristiadi", "Matthias Hein", "Philipp Hennig"],
-		"venue": "NeurIPS",
-		"year": 2021,
-		"month": "Dec",
-		"note": "Spotlight",
-		"paper": "https://arxiv.org/abs/2010.02709"
-	},
-	{
-		"type": "conference",
-		"title": "Laplace Redux - Effortless Bayesian Deep Learning",
-		"author": [
-			"Erik Daxberger*",
-			"Agustinus Kristiadi*",
-			"Alexander Immer*",
-			"Runa Eschenhagen*",
-			"Matthias Bauer",
-			"Philipp Hennig"
-		],
-		"venue": "NeurIPS",
-		"year": 2021,
-		"paper": "https://arxiv.org/abs/2106.14806",
-		"code": "https://github.com/aleximmer/Laplace",
-		"marked": true
-	},
-	{
-		"type": "conference",
-		"title": "Being a Bit Frequentist Improves Bayesian Neural Networks",
-		"author": ["Agustinus Kristiadi", "Matthias Hein", "Philipp Hennig"],
-		"venue": "AISTATS",
-		"year": 2022,
-		"paper": "https://arxiv.org/abs/2106.10065",
-		"code": "https://github.com/wiseodd/bayesian_ood_training"
-	},
-	{
-		"type": "conference",
-		"title": "Discovering Inductive Bias with Gibbs Priors: A Diagnostic Tool for Approximate Bayesian Inference",
-		"author": ["Luca Rendsburg", "Agustinus Kristiadi", "Philipp Hennig", "Ulrike von Luxburg"],
-		"venue": "AISTATS",
-		"year": 2022,
-		"paper": "https://arxiv.org/abs/2203.03353",
-		"code": "https://github.com/tml-tuebingen/gibbs-prior-diagnostic"
-	},
-	{
-		"type": "conference",
-		"title": "Fast Predictive Uncertainty for Classification with Bayesian Deep Networks",
-		"author": ["Marius Hobbhahn", "Agustinus Kristiadi", "Philipp Hennig"],
-		"venue": "UAI",
-		"year": 2022,
-		"paper": "https://arxiv.org/abs/2003.01227",
-		"code": "https://github.com/mariushobbhahn/LB_for_BNNs_official"
-	},
-	{
-		"type": "conference",
-		"title": "Posterior Refinement Improves Sample Efficiency in Bayesian Neural Networks",
-		"author": ["Agustinus Kristiadi", "Runa Eschenhagen", "Philipp Hennig"],
-		"venue": "NeurIPS",
-		"year": 2022,
-		"paper": "https://arxiv.org/abs/2205.10041",
-		"code": "https://github.com/runame/laplace-refinement"
-	},
-	{
-		"type": "conference",
-		"title": "The Geometry of Neural Nets' Parameter Spaces Under Reparametrization",
-		"author": ["Agustinus Kristiadi", "Felix Dangel", "Philipp Hennig"],
-		"venue": "NeurIPS",
-		"year": 2023,
-		"note": "Spotlight",
-		"paper": "https://arxiv.org/abs/2302.07384",
-		"marked": true
-	},
-	{
-		"type": "conference",
-		"title": "Preventing Arbitrarily High Confidence on Far-Away Data in Point-Estimated Discriminative Neural Networks",
-		"author": [
-			"Ahmad Rashid",
-			"Serena Hacker",
-			"Guojun Zhang",
-			"Agustinus Kristiadi",
-			"Pascal Poupart"
-		],
-		"venue": "AISTATS",
-		"year": 2024,
-		"paper": "https://arxiv.org/abs/2311.03683",
-		"code": "https://github.com/serenahacker/PreLoad"
-	},
-	{
-		"type": "conference",
-		"title": "Structured Inverse-Free Natural Gradient: Memory-Efficient & Numerically-Stable KFAC for Large Neural Nets",
-		"author": [
-			"Wu Lin",
-			"Felix Dangel",
-			"Runa Eschenhagen",
-			"Kirill Neklyudov",
-			"Agustinus Kristiadi",
-			"Richard E Turner",
-			"Alireza Makhzani"
-		],
-		"venue": "ICML",
-		"year": 2024,
-		"paper": "https://arxiv.org/abs/2312.05705",
-		"code": "https://github.com/f-dangel/singd"
-	},
-	{
-		"type": "conference",
-		"title": "Position: Bayesian Deep Learning is Needed in the Age of Large-Scale AI",
-		"author": [
-			"Theodore Papamarkou",
-			"Maria Skoularidou",
-			"Konstantina Palla",
-			"Laurence Aitchison",
-			"Julyan Arbel",
-			"David Dunson",
-			"Maurizio Filippone",
-			"Vincent Fortuin",
-			"Philipp Hennig",
-			"Aliaksandr Hubin",
-			"Alexander Immer",
-			"Theofanis Karaletsos",
-			"Mohammad Emtiyaz Khan",
-			"Agustinus Kristiadi",
-			"Yingzhen Li",
-			"Stephan Mandt",
-			"Christopher Nemeth",
-			"Michael A Osborne",
-			"Tim G J Rudner",
-			"David Ruegammer",
-			"Yee Whye Teh",
-			"Max Welling",
-			"Andrew Gordon Wilson",
-			"Ruqi Zhang"
-		],
-		"venue": "ICML",
-		"year": 2024,
-		"paper": "https://arxiv.org/abs/2402.00809"
-	},
-	{
-		"type": "conference",
-		"title": "A Sober Look at LLMs for Material Discovery: Are They Actually Good for Bayesian Optimization Over Molecules?",
-		"author": [
-			"Agustinus Kristiadi",
-			"Felix Strieth-Kalthoff",
-			"Marta Skreta",
-			"Pascal Poupart",
-			"Alan Aspuru-Guzik",
-			"Geoff Pleiss"
-		],
-		"venue": "ICML",
-		"year": 2024,
-		"paper": "https://arxiv.org/abs/2402.05015",
-		"code": "https://github.com/wiseodd/lapeft-bayesopt",
-		"marked": true
-	},
-	{
-		"type": "journal",
-		"title": "Deep Convolutional Level Set Method for Image Segmentation",
-		"author": ["Agustinus Kristiadi", "Pranowo"],
-		"venue": "Journal of ICT Research and Applications 11(3)",
-		"year": 2017,
-		"paper": "https://journals.itb.ac.id/index.php/jictra/article/view/3887",
-		"code": "https://github.com/wiseodd/cnn-levelset"
-	},
-	{
-		"type": "preprint",
-		"title": "On the Disconnect Between Theory and Practice of Overparametrized Neural Networks",
-		"author": ["Jonathan Wenger", "Felix Dangel", "Agustinus Kristiadi"],
-		"venue": "ArXiv",
-		"year": 2023,
-		"paper": "https://arxiv.org/abs/2310.00137"
-	},
-	{
-		"type": "preprint",
-		"title": "A Critical Look At Tokenwise Reward-Guided Text Generation",
-		"author": [
-			"Ahmad Rashid",
-			"Ruotian Wu",
-			"Julia Grosse",
-			"Agustinus Kristiadi*",
-			"Pascal Poupart*"
-		],
-		"venue": "ArXiv",
-		"year": 2024,
-		"paper": "https://arxiv.org/abs/2406.07780"
-	},
-	{
-		"type": "workshop",
-		"title": "Predictive Uncertainty Quantification with Compound Density Networks",
-		"author": ["Agustinus Kristiadi", "Sina Daeubener", "Asja Fischer"],
-		"venue": "NeurIPS Workshop of Bayesian Deep Learning",
-		"year": 2019,
-		"paper": "https://arxiv.org/abs/1902.01080",
-		"code": "https://github.com/wiseodd/compound-density-networks"
-	},
-	{
-		"type": "workshop",
-		"title": "Mixtures of Laplace Approximations for Improved Post-Hoc Uncertainty in Deep Learning",
-		"author": ["Runa Eschenhagen", "Erik Daxberger", "Philipp Hennig", "Agustinus Kristiadi"],
-		"venue": "NeurIPS Workshop of Bayesian Deep Learning",
-		"year": 2021,
-		"paper": "https://arxiv.org/abs/2111.03577"
-	},
-	{
-		"type": "workshop",
-		"title": "Promises and Pitfalls of the Linearized Laplace in Bayesian Optimization",
-		"author": ["Agustinus Kristiadi", "Alexander Immer", "Runa Eschenhagen", "Vincent Fortuin"],
-		"venue": "AABI",
-		"year": 2023,
-		"paper": "https://arxiv.org/abs/2304.08309",
-		"code": "https://github.com/wiseodd/laplace-bayesopt"
-	},
-	{
-		"type": "workshop",
-		"title": "How Useful is Intermittent, Asynchronous Expert Feedback for Bayesian Optimization?",
-		"author": [
-			"Agustinus Kristiadi",
-			"Felix Strieth-Kalthoff",
-			"Sriram Ganapathi Subramanian",
-			"Vincent Fortuin",
-			"Pascal Poupart",
-			"Geoff Pleiss"
-		],
-		"venue": "AABI",
-		"year": 2024,
-		"paper": "https://arxiv.org/abs/2406.06459",
-		"code": "https://github.com/wiseodd/bo-async-feedback"
-	},
-	{
-		"type": "workshop",
-		"title": "Uncertainty-Guided Optimization on Large Language Model Search Trees",
-		"author": [
-			"Julia Grosse",
-			"Ruotian Wu",
-			"Ahmad Rashid",
-			"Philipp Hennig",
-			"Pascal Poupart",
-			"Agustinus Kristiadi"
-		],
-		"venue": "AABI",
-		"year": 2024,
-		"paper": "https://arxiv.org/abs/2407.03951",
-		"code": "https://github.com/JuliaGrosse/ults",
-		"marked": true
-	}
+  {
+    "type": "thesis",
+    "title": "Low-Cost Bayesian Methods for Fixing Neural Networks' Overconfidence",
+    "author": ["Agustinus Kristiadi"],
+    "venue": "PhD Thesis, University of Tuebingen",
+    "year": 2023,
+    "paper": "files/dissertation_kristiadi.pdf"
+  },
+  {
+    "type": "thesis",
+    "title": "Predictive Uncertainty Quantification With Compound Density Networks",
+    "author": ["Agustinus Kristiadi"],
+    "venue": "Master Thesis, University of Bonn",
+    "year": 2019,
+    "paper": "files/cdn_master_thesis.pdf"
+  },
+  {
+    "type": "conference",
+    "title": "Parallel Particle Swarm Optimization for Image Segmentation",
+    "author": ["Agustinus Kristiadi", "Pranowo", "Paulus Mudjihartono"],
+    "venue": "Digital Enterprise and Information Systems",
+    "year": 2013,
+    "paper": "https://www.researchgate.net/publication/271843950_Parallel_Particle_Swarm_Optimization_for_Image_Segmentation",
+    "code": "https://github.com/wiseodd/cuda-pso"
+  },
+  {
+    "type": "conference",
+    "title": "Parallel Particle Swarm Optimization for Image Segmentation",
+    "author": ["Agustinus Kristiadi", "Pranowo", "Paulus Mudjihartono"],
+    "venue": "Digital Enterprise and Information Systems",
+    "year": 2013,
+    "paper": "https://www.researchgate.net/publication/271843950_Parallel_Particle_Swarm_Optimization_for_Image_Segmentation",
+    "code": "https://github.com/wiseodd/cuda-pso"
+  },
+  {
+    "type": "conference",
+    "title": "Improving Response Selection in Multi-turn Dialogue Systems",
+    "author": [
+      "Debanjan Chaudhuri",
+      "Agustinus Kristiadi",
+      "Jens Lehmann",
+      "Asja Fischer"
+    ],
+    "venue": "CoNLL",
+    "year": 2018,
+    "paper": "https://arxiv.org/abs/1809.03194",
+    "code": "https://github.com/SmartDataAnalytics/AK-DE-biGRU"
+  },
+  {
+    "type": "conference",
+    "title": "Incorporating Literals into Knowledge Graph Embeddings",
+    "author": [
+      "Agustinus Kristiadi*",
+      "Mohammad Asif Khan*",
+      "Denis Lukovnikov",
+      "Jens Lehmann",
+      "Asja Fischer"
+    ],
+    "venue": "ISWC",
+    "year": 2019,
+    "paper": "https://arxiv.org/abs/1802.00934",
+    "code": "https://github.com/SmartDataAnalytics/LiteralE"
+  },
+  {
+    "type": "conference",
+    "title": "Being Bayesian, Even Just a Bit, Fixes Overconfidence in ReLU Networks",
+    "author": ["Agustinus Kristiadi", "Matthias Hein", "Philipp Hennig"],
+    "venue": "ICML",
+    "year": 2020,
+    "paper": "https://arxiv.org/abs/2002.10118",
+    "github": "https://github.com/wiseodd/last_layer_laplace",
+    "marked": true
+  },
+  {
+    "type": "conference",
+    "title": "Learnable Uncertainty under Laplace Approximations",
+    "author": ["Agustinus Kristiadi", "Matthias Hein", "Philipp Hennig"],
+    "venue": "UAI",
+    "year": 2021,
+    "month": "Aug",
+    "note": "Long Talk",
+    "paper": "https://arxiv.org/abs/2010.02720",
+    "code": "https://github.com/wiseodd/lula"
+  },
+  {
+    "type": "conference",
+    "title": "An Infinite-Feature Extension for Bayesian ReLU Nets That Fixes Their Asymptotic Overconfidence",
+    "author": ["Agustinus Kristiadi", "Matthias Hein", "Philipp Hennig"],
+    "venue": "NeurIPS",
+    "year": 2021,
+    "month": "Dec",
+    "note": "Spotlight",
+    "paper": "https://arxiv.org/abs/2010.02709"
+  },
+  {
+    "type": "conference",
+    "title": "Laplace Redux - Effortless Bayesian Deep Learning",
+    "author": [
+      "Erik Daxberger*",
+      "Agustinus Kristiadi*",
+      "Alexander Immer*",
+      "Runa Eschenhagen*",
+      "Matthias Bauer",
+      "Philipp Hennig"
+    ],
+    "venue": "NeurIPS",
+    "year": 2021,
+    "paper": "https://arxiv.org/abs/2106.14806",
+    "code": "https://github.com/aleximmer/Laplace",
+    "marked": true
+  },
+  {
+    "type": "conference",
+    "title": "Being a Bit Frequentist Improves Bayesian Neural Networks",
+    "author": ["Agustinus Kristiadi", "Matthias Hein", "Philipp Hennig"],
+    "venue": "AISTATS",
+    "year": 2022,
+    "paper": "https://arxiv.org/abs/2106.10065",
+    "code": "https://github.com/wiseodd/bayesian_ood_training"
+  },
+  {
+    "type": "conference",
+    "title": "Discovering Inductive Bias with Gibbs Priors: A Diagnostic Tool for Approximate Bayesian Inference",
+    "author": [
+      "Luca Rendsburg",
+      "Agustinus Kristiadi",
+      "Philipp Hennig",
+      "Ulrike von Luxburg"
+    ],
+    "venue": "AISTATS",
+    "year": 2022,
+    "paper": "https://arxiv.org/abs/2203.03353",
+    "code": "https://github.com/tml-tuebingen/gibbs-prior-diagnostic"
+  },
+  {
+    "type": "conference",
+    "title": "Fast Predictive Uncertainty for Classification with Bayesian Deep Networks",
+    "author": ["Marius Hobbhahn", "Agustinus Kristiadi", "Philipp Hennig"],
+    "venue": "UAI",
+    "year": 2022,
+    "paper": "https://arxiv.org/abs/2003.01227",
+    "code": "https://github.com/mariushobbhahn/LB_for_BNNs_official"
+  },
+  {
+    "type": "conference",
+    "title": "Posterior Refinement Improves Sample Efficiency in Bayesian Neural Networks",
+    "author": ["Agustinus Kristiadi", "Runa Eschenhagen", "Philipp Hennig"],
+    "venue": "NeurIPS",
+    "year": 2022,
+    "paper": "https://arxiv.org/abs/2205.10041",
+    "code": "https://github.com/runame/laplace-refinement"
+  },
+  {
+    "type": "conference",
+    "title": "The Geometry of Neural Nets' Parameter Spaces Under Reparametrization",
+    "author": ["Agustinus Kristiadi", "Felix Dangel", "Philipp Hennig"],
+    "venue": "NeurIPS",
+    "year": 2023,
+    "note": "Spotlight",
+    "paper": "https://arxiv.org/abs/2302.07384",
+    "marked": true
+  },
+  {
+    "type": "conference",
+    "title": "Preventing Arbitrarily High Confidence on Far-Away Data in Point-Estimated Discriminative Neural Networks",
+    "author": [
+      "Ahmad Rashid",
+      "Serena Hacker",
+      "Guojun Zhang",
+      "Agustinus Kristiadi",
+      "Pascal Poupart"
+    ],
+    "venue": "AISTATS",
+    "year": 2024,
+    "paper": "https://arxiv.org/abs/2311.03683",
+    "code": "https://github.com/serenahacker/PreLoad"
+  },
+  {
+    "type": "conference",
+    "title": "Structured Inverse-Free Natural Gradient: Memory-Efficient & Numerically-Stable KFAC for Large Neural Nets",
+    "author": [
+      "Wu Lin",
+      "Felix Dangel",
+      "Runa Eschenhagen",
+      "Kirill Neklyudov",
+      "Agustinus Kristiadi",
+      "Richard E Turner",
+      "Alireza Makhzani"
+    ],
+    "venue": "ICML",
+    "year": 2024,
+    "paper": "https://arxiv.org/abs/2312.05705",
+    "code": "https://github.com/f-dangel/singd"
+  },
+  {
+    "type": "conference",
+    "title": "Position: Bayesian Deep Learning is Needed in the Age of Large-Scale AI",
+    "author": [
+      "Theodore Papamarkou",
+      "Maria Skoularidou",
+      "Konstantina Palla",
+      "Laurence Aitchison",
+      "Julyan Arbel",
+      "David Dunson",
+      "Maurizio Filippone",
+      "Vincent Fortuin",
+      "Philipp Hennig",
+      "Aliaksandr Hubin",
+      "Alexander Immer",
+      "Theofanis Karaletsos",
+      "Mohammad Emtiyaz Khan",
+      "Agustinus Kristiadi",
+      "Yingzhen Li",
+      "Stephan Mandt",
+      "Christopher Nemeth",
+      "Michael A Osborne",
+      "Tim G J Rudner",
+      "David Ruegammer",
+      "Yee Whye Teh",
+      "Max Welling",
+      "Andrew Gordon Wilson",
+      "Ruqi Zhang"
+    ],
+    "venue": "ICML",
+    "year": 2024,
+    "paper": "https://arxiv.org/abs/2402.00809"
+  },
+  {
+    "type": "conference",
+    "title": "A Sober Look at LLMs for Material Discovery: Are They Actually Good for Bayesian Optimization Over Molecules?",
+    "author": [
+      "Agustinus Kristiadi",
+      "Felix Strieth-Kalthoff",
+      "Marta Skreta",
+      "Pascal Poupart",
+      "Alan Aspuru-Guzik",
+      "Geoff Pleiss"
+    ],
+    "venue": "ICML",
+    "year": 2024,
+    "paper": "https://arxiv.org/abs/2402.05015",
+    "code": "https://github.com/wiseodd/lapeft-bayesopt",
+    "marked": true
+  },
+  {
+    "type": "journal",
+    "title": "Deep Convolutional Level Set Method for Image Segmentation",
+    "author": ["Agustinus Kristiadi", "Pranowo"],
+    "venue": "Journal of ICT Research and Applications 11(3)",
+    "year": 2017,
+    "paper": "https://journals.itb.ac.id/index.php/jictra/article/view/3887",
+    "code": "https://github.com/wiseodd/cnn-levelset"
+  },
+  {
+    "type": "preprint",
+    "title": "On the Disconnect Between Theory and Practice of Overparametrized Neural Networks",
+    "author": ["Jonathan Wenger", "Felix Dangel", "Agustinus Kristiadi"],
+    "venue": "ArXiv",
+    "year": 2023,
+    "paper": "https://arxiv.org/abs/2310.00137"
+  },
+  {
+    "type": "preprint",
+    "title": "A Critical Look At Tokenwise Reward-Guided Text Generation",
+    "author": [
+      "Ahmad Rashid",
+      "Ruotian Wu",
+      "Julia Grosse",
+      "Agustinus Kristiadi*",
+      "Pascal Poupart*"
+    ],
+    "venue": "ArXiv",
+    "year": 2024,
+    "paper": "https://arxiv.org/abs/2406.07780"
+  },
+  {
+    "type": "workshop",
+    "title": "Predictive Uncertainty Quantification with Compound Density Networks",
+    "author": ["Agustinus Kristiadi", "Sina Daeubener", "Asja Fischer"],
+    "venue": "NeurIPS Workshop of Bayesian Deep Learning",
+    "year": 2019,
+    "paper": "https://arxiv.org/abs/1902.01080",
+    "code": "https://github.com/wiseodd/compound-density-networks"
+  },
+  {
+    "type": "workshop",
+    "title": "Mixtures of Laplace Approximations for Improved Post-Hoc Uncertainty in Deep Learning",
+    "author": [
+      "Runa Eschenhagen",
+      "Erik Daxberger",
+      "Philipp Hennig",
+      "Agustinus Kristiadi"
+    ],
+    "venue": "NeurIPS Workshop of Bayesian Deep Learning",
+    "year": 2021,
+    "paper": "https://arxiv.org/abs/2111.03577"
+  },
+  {
+    "type": "workshop",
+    "title": "Promises and Pitfalls of the Linearized Laplace in Bayesian Optimization",
+    "author": [
+      "Agustinus Kristiadi",
+      "Alexander Immer",
+      "Runa Eschenhagen",
+      "Vincent Fortuin"
+    ],
+    "venue": "AABI",
+    "year": 2023,
+    "paper": "https://arxiv.org/abs/2304.08309",
+    "code": "https://github.com/wiseodd/laplace-bayesopt"
+  },
+  {
+    "type": "workshop",
+    "title": "How Useful is Intermittent, Asynchronous Expert Feedback for Bayesian Optimization?",
+    "author": [
+      "Agustinus Kristiadi",
+      "Felix Strieth-Kalthoff",
+      "Sriram Ganapathi Subramanian",
+      "Vincent Fortuin",
+      "Pascal Poupart",
+      "Geoff Pleiss"
+    ],
+    "venue": "AABI",
+    "year": 2024,
+    "paper": "https://arxiv.org/abs/2406.06459",
+    "code": "https://github.com/wiseodd/bo-async-feedback"
+  },
+  {
+    "type": "workshop",
+    "title": "Uncertainty-Guided Optimization on Large Language Model Search Trees",
+    "author": [
+      "Julia Grosse",
+      "Ruotian Wu",
+      "Ahmad Rashid",
+      "Philipp Hennig",
+      "Pascal Poupart",
+      "Agustinus Kristiadi"
+    ],
+    "venue": "AABI",
+    "year": 2024,
+    "paper": "https://arxiv.org/abs/2407.03951",
+    "code": "https://github.com/JuliaGrosse/ults",
+    "marked": true
+  }
 ]
