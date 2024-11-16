@@ -91,9 +91,10 @@ const config = {
             },
             code: {
               backgroundColor: "hsl(var(--accent))",
+              color: "hsl(var(--accent-foreground))",
               borderRadius: theme("borderRadius.DEFAULT"),
-              paddingLeft: theme("spacing[0.5]"),
-              paddingRight: theme("spacing[0.5]"),
+              paddingLeft: theme("spacing[1]"),
+              paddingRight: theme("spacing[1]"),
               paddingTop: theme("spacing[0.5]"),
               paddingBottom: theme("spacing[0.5]"),
             },
@@ -105,15 +106,27 @@ const config = {
                 textDecoration: "underline",
               },
             },
+            "li::marker": {
+              color: theme("colors.neutral.950"),
+            },
           },
         },
         dark: {
           css: {
             code: {
-              backgroundColor: "hsl(var(--background) / <alpha-value>)",
+              backgroundColor: "hsl(var(--accent))",
+              color: "hsl(var(--accent-foreground))",
+              borderRadius: theme("borderRadius.DEFAULT"),
+              paddingLeft: theme("spacing[1]"),
+              paddingRight: theme("spacing[1]"),
+              paddingTop: theme("spacing[0.5]"),
+              paddingBottom: theme("spacing[0.5]"),
             },
             a: {
               color: theme("colors.blue.300"),
+            },
+            "li::marker": {
+              color: theme("colors.neutral.300"),
             },
           },
         },
