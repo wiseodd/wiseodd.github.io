@@ -32,12 +32,12 @@ const config = {
     },
     extend: {
       fontFamily: {
-        sans: [fontFamily.sans],
+        sans: ["Arial", fontFamily.sans],
         serif: ["Times", fontFamily.serif],
-        mono: ["Jetbrains Mono", fontFamily.mono],
+        mono: ["Iosevka", fontFamily.mono],
       },
       fontSize: {
-        base: "0.95rem",
+        base: "0.9rem",
       },
       colors: {
         border: "hsl(var(--border) / <alpha-value>)",
