@@ -91,7 +91,8 @@
     "year": 2021,
     "month": "Dec",
     "note": "Spotlight",
-    "paper": "https://arxiv.org/abs/2010.02709"
+    "paper": "https://arxiv.org/abs/2010.02709",
+    "marked": true
   },
   {
     "type": "conference",
@@ -107,8 +108,7 @@
     "venue": "NeurIPS",
     "year": 2021,
     "paper": "https://arxiv.org/abs/2106.14806",
-    "code": "https://github.com/aleximmer/Laplace",
-    "marked": true
+    "code": "https://github.com/aleximmer/Laplace"
   },
   {
     "type": "conference",

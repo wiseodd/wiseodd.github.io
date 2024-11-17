@@ -16,7 +16,7 @@ import { sortPublicationFn } from "@/utils";
 import portrait from "../assets/portrait.jpeg";
 
 const interests = [
-  "Probabilistic Inference",
+  "Probabilistic ML",
   "Foundation Models",
   "Decision Making",
   "Planning",
@@ -231,10 +231,13 @@ const sortedSelectedPubs = selectedPubs
       />
     </Section>
 
-    <Section title='Skills'>
-      <SkillLayout title='Languages' skills={languages} />
-      <SkillLayout title='Editor Stack' skills={editors} />
-    </Section>
+    {
+      allPostsByDate.length > 0 && (
+        <Section title='Selected Works'>
+          <PublicationList publications={sortedSelectedPubs} />
+        </Section>
+      )
+    }
 
     {
       allPostsByDate.length > 0 && (
@@ -246,14 +249,6 @@ const sortedSelectedPubs = selectedPubs
           </ul>
         </Section>
       )
-    }
-
-    {
-      allPostsByDate.length > 0 && (
-        <Section title='Selected Works'>
-          <PublicationList publications={sortedSelectedPubs} />
-        </Section>
-      )
-    }
+    } 
   </div>
 </PageLayout>
