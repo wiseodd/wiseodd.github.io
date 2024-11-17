@@ -4,7 +4,6 @@ import Button from "../components/Button.astro";
 import Section from "../components/Section.astro";
 import Card from "../components/Card.astro";
 import Label from "../components/Label.astro";
-import SkillLayout from "../components/SkillLayout.astro";
 import PostPreview from "@/components/blog/PostPreview.astro";
 import PublicationList from "@/components/PublicationList.astro";
 import { Image } from "astro:assets";
@@ -24,8 +23,6 @@ const interests = [
   "AI Safety",
   "Riemannian Geometry",
 ];
-const languages = ["Rust", "Gleam", "Python"];
-const editors = ["Neovim", "Kitty", "Iosevka"];
 
 const MAX_POSTS = 10;
 const allPosts = await getAllPosts();
