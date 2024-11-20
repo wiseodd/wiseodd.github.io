@@ -261,7 +261,7 @@
     "paper": "https://arxiv.org/abs/2310.00137"
   },
   {
-    "type": "preprint",
+    "type": "workshop",
     "title": "A Critical Look At Tokenwise Reward-Guided Text Generation",
     "author": [
       "Ahmad Rashid",
@@ -270,7 +270,7 @@
       "Agustinus Kristiadi*",
       "Pascal Poupart*"
     ],
-    "venue": "ArXiv",
+    "venue": "ICML Workshop on Foundation Models in the Wild",
     "year": 2024,
     "paper": "https://arxiv.org/abs/2406.07780"
   },
@@ -342,5 +342,38 @@
     "paper": "https://arxiv.org/abs/2407.03951",
     "code": "https://github.com/JuliaGrosse/ults",
     "marked": true
+  },
+  {
+    "type": "workshop",
+    "title": "If Optimizing for General Parameters in Chemistry Is Useful, Why Is It Hardly Done?",
+    "author": [
+      "Stefan Schmid",
+      "Ella Rajaonson",
+      "Cher-Tian Ser",
+      "Mohammad Haddadnia",
+      "Shi Xuan Leong",
+      "Alan Aspuru-Guzik",
+      "Agustinus Kristiadi",
+      "Kjell Jorner",
+      "Felix Strieth-Kalthoff"
+    ],
+    "venue": "AI4Mat - NeurIPS",
+    "year": 2024,
+    "paper": "https://openreview.net/pdf?id=ZfL0poiEOe"
+  },
+  {
+    "type": "workshop",
+    "title": "Dimension Deficit: Is 3D a Step Too Far for Optimizing Molecules?",
+    "author": [
+      "Andres Guzman Cordero",
+      "Luca Thiede",
+      "Gary Tom",
+      "Alan Aspuru-Guzik",
+      "Felix Strieth-Kalthoff",
+      "Agustinus Kristiadi"
+    ],
+    "venue": "AI4Mat - NeurIPS",
+    "year": 2024,
+    "paper": "https://openreview.net/pdf?id=PLazBHIN8g"
   }
 ]
