@@ -55,7 +55,7 @@ export default defineConfig({
           chtml: {
             fontURL:
               "https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2",
-            scale: 1.2,
+            scale: 1.1,
           },
 
           tex: {

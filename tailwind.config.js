@@ -44,7 +44,7 @@ const config = {
       },
 
       fontSize: {
-        base: "0.9rem",
+        base: "0.95rem",
       },
 
       colors: {
