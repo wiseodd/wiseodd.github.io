@@ -1,0 +1,391 @@
+---
+title: "Advent of Code 2024: A Gleam Retrospective"
+description: "Gleam is a rather new functional language. How does it fare in AoC? What about its scientific-computing ecosystem?"
+publishDate: 2024-12-28 00:00
+---
+
+This year (2024), I did the [Advent of Code](https://adventofcode.com) challenges/games.
+It's essentially a daily programming puzzle challenge, spanning over the advent period (December 1 - 25).[^1]
+Since I have extensively learned [Rust](https://github.com/wiseodd/rustlox) and [Zig](https://github.com/wiseodd/rustlox) early on in the year, and since I write [Python](https://github.com/wiseodd) professionally, I decided to use something new for this.
+
+Because of Rust, I became to like the [ML family of languages](<https://en.wikipedia.org/wiki/ML_(programming_language)>) (think of OCaml, not machine learning).
+My choice landed upon [Gleam](https://gleam.run/), a functional language that is quite similar in look-and-feel as Rust.
+Programming in Gleam does feel like programming in Rust but in a strict, functional way:
+There's no escape hatch to fall back to procedural programming with mutability.
+
+This post is a "great-bad" (👍-👎) evaluation of Gleam for solving programming puzzles.
+At the end, I will also give my opinion on what Gleam is currently lacking from the perspective of a machine learning scientist.
+
+## 👍 I wish every language had a pipeline operator
+
+Suppose we have $n$ functions $(f_i: \mathcal{X}_{i-1} \to \mathcal{X}_{i})_{i=1}^n$ where each function $f_i$ has domain the previous function's codomain.
+Suppose $x \in \mathcal{X}_0$ is the initial input and we would like to apply this sequence of functions to obtain $y \in \mathcal{X}_n$.
+There are two ways of doing this:
+
+- compose the functions, then apply $x$: $(f_n \cdot \dots \cdot f_1)(x)$, or
+- apply the function to the previous function's output: $f_n(f_{n-1}(\dots f_1(x)))$.
+
+Back to the programming world, usually we do the latter and we do so by calling `f_n(f_n_1(... f_1(x)))`.
+But it can be cumbersome to match the parens.
+Even more so if $n$ is large.
+
+In Gleam (and other functional languages), there is a special operator called the _pipeline operator_ `|>`.
+The above example can then be written as `x |> f_1 |> f_2 |> ... |> f_n`.
+Neat!
+
+Here's an example from my [AoC 2024 solutions](https://github.com/wiseodd/aoc-2024) code:
+
+```gleam
+let result =
+    x
+    |> string.trim
+    |> string.split(": ")
+    |> list.last
+    |> result.unwrap("")
+    |> string.split(",")
+
+// Compare to: (!!)
+let result = string.split(result.unwrap(list.last(string.split(string.trim(x), ": ")), ""), ",")
+```
+
+As we can see, the pipeline operator is a very nice way to "carry" an input through the "pipeline" to obtain the result at the opposite end.
+
+Traditionally the pipeline operator will put the output of the previous function to the first input of the next function.
+However, in Gleam, we can put an output into an arbitrary input slot of the next function:
+
+```gleam
+fn f(first: String, second: Int, third: Float) {
+  ...
+}
+
+let x: Int = 5
+x |> f("first", _, 7.22)
+```
+
+That is, `_` marks the "slot" we want to put the l.h.s. of the pipeline operator into.
+
+## 👍 The "let assert" keyword is great for rapid prototyping
+
+When writing a Rust code, I often do so in multiple passes.
+First, a prototyping phase where I use the `.unwrap()` and `if-let-else-panic` snippets extensively to validate my algorithms quickly without worrying about safety.
+Then, the second phase is to refactor the above carefully, and handle all cases/errors correclty instead of throwing panic everyime.
+
+However, in programming challenges like AoC, we don't really need to robustly handle error --- all that matters is correctness.
+So it's useful to just stop after the first phase.
+
+How can we do this in Gleam?
+For sure we don't really want to handle all pattern matching cases exhaustively for AoC.
+For instance, if we know the input for the puzzle is a file with two text blocks separated by an empty line, we process this input by:
+
+```gleam
+import simplifile
+
+fn parse() {
+  case simplifile.read("data/day25_input.txt") {
+    Ok(content) -> {
+      case content |> string.trim |> string.split("\n\n") {
+        [first_block, second_block] -> ...
+        _ -> ...
+      }
+    }
+    Error(_) -> ...
+  }
+}
+```
+
+For the sake of robustness, the code will be quite long and nested.
+Thankfully, Gleam has a special keyword `let assert` to alleviate this.
+Think of it as `.unwrap()` and `if-let-else-panic` in Rust:
+If something doesn't match the asserted pattern, it will immediately panic.
+
+So, the code above can be written as:
+
+```gleam
+import simplifile
+
+fn parse() {
+  let assert Ok(content) = simplifile.read("data/day25_input.txt")
+  let assert [first_block, second_block] = content |> string.trim |> string.split("\n\n")
+  ...
+}
+```
+
+Much more concise!
+
+## 👍 The "use" expression is a godsend
+
+I wrote about Gleam's `use` expression in the [previous post](/blog/gleam-use), where I approached the discussion from Python's `with`-block perspective.
+However, it can also be combined with the stdlib functions `bool.guard` and `bool.lazy_guard` to emulate early returns in procedural languages and to easily emulate Python's decorator.
+
+### Emulating early return
+
+In Rust, we can do:
+
+```rust
+fn my_function(x: i32) -> bool {
+  if x > 5 {
+    return false;
+  }
+
+  let y = x + 3;
+  let z = y * 3;
+  z == 11
+}
+
+fn my_function_alt(x: i32) -> bool {
+  if x > 5 {
+    return false;
+  } else {
+    let y = x + 3;
+    let z = y * 3;
+    return z == 11;
+  }
+}
+```
+
+Notice that the first function is cleaner.
+This will be even more apparent if inside the `else` block we have a very long code.
+
+The standard functional counterpart would be:
+
+```gleam
+fn my_function(x: Int) -> Bool {
+  case x {
+    _ if x > 5 -> False
+    _ -> {
+      let y = y + 3
+      let z = y * 3
+      z == 11
+    }
+  }
+}
+```
+
+Imagine if we have nested `if`'s.
+The nestings, indentations, and curly brackets in the above Gleam code will make the code quite ugly and hard to debug.
+Luckily, the `use` expression, combined with `bool.guard` can rescue us:
+
+```gleam
+import gleam/bool
+
+fn my_function(x: Int) -> Bool {
+  use <- bool.guard(x > 5, False)
+  let y = y + 3
+  let z = y * 3
+  z == 11
+}
+```
+
+Notice that we have no nesting now!
+To drive home the point, consider this nested-if code:
+
+```gleam
+fn my_function(x: Int) -> Bool {
+  case x {
+    _ if x > 5 -> False
+    _ -> {
+      let y = y + 3
+      case y {
+        4 -> False
+        _ -> {
+          let z = y * 3
+          case z {
+            _ if z % 2 == 0 -> True
+            _ -> z == 11
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+I'm already tired just looking at that code 😩.
+With `use` and `bool.guard` we can achieve a cleaner look:
+
+```gleam
+import gleam/bool
+
+fn my_function(x: Int) -> Bool {
+  use <- bool.guard(x > 5, False)
+
+  let y = y + 3
+  use <- bool.guard(y == 4, False)
+
+  let z = y * 3
+  use <- bool.guard(z % 2 == 0, True)
+
+  z == 11
+}
+```
+
+No indentation, no nesting 🥳!
+
+As a final note, be attentive to the return value of your early return.
+If the return value is a result of a dynamic computation, `bool.lazy_guard` should be used instead.
+The difference is that the second argument (previously, the return value e.g. `False`) is now a callback function that will be executed lazily when the first argument evaluates to `True`.
+
+### Emulating Python decorator
+
+Since AoC is a programming puzzle, dynamic programming (DP) questions often come up.
+In functional language, it's natural to write a top-down DP since it amounts to recursion and memoization.
+However, memoization is cumbersome in functional language due to immutability.
+For example, in Python, we can do:
+
+```python
+memo: Dict[int, int] = {}
+
+def main():
+    ns: List(int) = [1, 2, 59, 10]
+    fibs: List(int) = [fibo(n) for n in ns]
+
+def fibo_explicit(n: int) -> int:
+    if n in memo:
+        return memo[n]
+
+    if n <= 1:
+        return n
+
+    res = fibo(n - 1) + fibo(n - 2)
+    memo[n] = res
+
+    return res
+
+import functools
+
+@functools.cache
+def fibo_cache(n: int) -> int:
+    if n <= 1:
+        return n
+
+    return fibo_cache(n - 1) + fibo_cache(n - 2)
+```
+
+As we can see, we can have a clean code by defining `memo` as a global, mutable variable.
+Moreover, this can be simplified further by using `functools.cache` decorator: We write the standard, non-memoized version, and just slap `@functools.cache` on top.
+But in Gleam, we have to do this:
+
+```gleam
+import gleam/dict.{type Dict}
+import gleam/pair
+
+fn main() {
+  let memo: Dict(Int, Int) = dict.new()
+  let ns: List(Int) = [1, 2, 59, 10]
+
+  let fibs: List(Int) = ns |> list.map_fold(memo, fn(memo, n) {
+    let #(res, memo) = fibo(n, memo)
+    #(memo, res)
+  })
+  |> pair.second
+}
+
+fn fibo(n: Int, memo: Dict(Int, Int)) -> #(Int, Dict(Int, Int)) {
+  use <- bool.lazy_guard(memo |> dict.has_key(n), fn() { memo |> dict.get(n) |> result.unwrap(0) })
+  use <- bool.guard(n <= 1, n)
+
+  let #(res, memo) = fibo(n - 1, memo) + fibo(n - 2, memo)
+  let memo = memo |> dict.insert(n, res)
+
+  #(res, memo)
+}
+```
+
+We use `list.map_fold` since we have to keep track of the state of `memo` and reuse it for the next function calls of `fibo`.
+It has quite a bit of boilerplate and we must return `memo` together with the result in the `fibo` function.
+The result is a longer and less clean code.
+
+Thankfully, the `use` expression enables us to emulate Python's decorator, which `@functools.cache` is.
+Someone has thought of this and it's available here, as a [`rememo` library](https://github.com/hunkyjimpjorps/rememo).
+Then we can write this cleaner code:
+
+```gleam
+import gleam/dict.{type Dict}
+import rememo/memo
+
+fn main() {
+  let ns: List(Int) = [1, 2, 59, 10]
+
+  use cache <- memo.create()
+
+  let fibs: List(Int) = ns |> list.map(fn(n) {
+    fibo(n, cache)
+  })
+}
+
+fn fibo_cache(n: Int, cache) -> Int {
+  use <- memo.memoize(cache, n)
+  use <- bool.guard(n <= 1, n)
+  fibo_cache(n - 1, cache) + fibo_cache(n - 2, cache)
+}
+```
+
+Looks great 🤩🤩🤩!!!
+
+## 👎 No operator overloading
+
+Suppose I have an integer `x` and a float `y` and I want to add them together.
+In most contemporary languages, you can just write `x + y`.
+But this cannot be done in Gleam since integer addition and float addition are two different operators: `+` and `+.`, respectively.
+There is a good reason for this, just like in [OCaml](https://stackoverflow.com/questions/64244351/why-does-ocaml-have-mandatory-distinct-float-and-int-literal-syntax).
+But the end result is a more verbose, out-of-the-ordinary (and thus perceived as unnatural) code:
+
+```gleam
+let x: Int = 5
+let y: Float = 10.0
+
+// Error!
+let res: Float = x + y
+
+// Ok!
+import gleam/int
+let res: Float = int.to_float(x) +. y
+```
+
+I could imagine that due to this, you cannot have a concise expression like `tensor_1 + tensor_2` for some `ndarray` types defined in a hypothetical Gleam tensor library.
+
+All in all, I don't think this will help Gleam if it wants to be widely adopted by people from various scientific communities.
+
+## 👎 Barebone ecosystem
+
+On [Day 13 of AoC 2024](https://adventofcode.com/2024/day/13), the puzzle can be solved by solving a system of linear equations.
+In Python, there is Numpy, PyTorch, etc., giving rise to a concise solution:
+
+```python
+A = ...
+b = ...
+x = np.linalg.solve(A, b)  # or, np.linalg.inv(A) @ b
+```
+
+But what about Gleam?
+I don't see any robust, full-featured ndarray/tensor library in Gleam.
+OCaml has [`owl`](https://github.com/owlbarn/owl), Elixir has [`nx`](https://github.com/elixir-nx/nx), Gleam has none.
+Not only that, `pandas`-like and `matplotlib`-like libraries are also missing.
+
+From what I've gathered, Gleam is fully interoperable with other languages in the Erlang virtual machine.
+This means Gleam can actually call Elixir libraries such as `nx` for ndarrays, [`explorer`](https://github.com/elixir-explorer/explorer) for dataframes, and [`VegaLite`](https://github.com/livebook-dev/vega_lite) for plotting.
+However, it seems one needs to explicitly "translate" every Elixir function into Gleam first before using it.
+For example: [^2]
+
+```gleam
+@external(erlang, "Elixir.BasicProject", "hello")
+fn hello_elixir() -> Thing
+```
+
+I can then call `hello_elixir()` in my `.gleam` file and it will, in turn, call the specified Elixir code.
+It would be great if we could just call Elixir code without translating it first: Just add Elixir dependencies, then call.
+Or, better yet, we need Gleam bindings for all those aforementioned libraries.
+Without this, I don't think Gleam can sway Python's ML or data science community.
+
+## Conclusion
+
+Gleam is great and is a breath of fresh air coming from Python!
+I wish I could just use Gleam for all my research work but alas.
+
+Actually, after writing this post, I became even more intrigued with Elixir.
+It might scratch my itch of moving away from Python due to less "quirky" design decisions and due to its more mature, vibrant scientific computing ecosystem.
+It's a shame that I can't move to Gleam (just yet, hopefully), though.
+
+[^1]: In the Christian tradition, the advent calendar is essentially used to count the days in anticipation of Christmas.
+
+[^2]: Taken from https://github.com/gleam-lang/mix_gleam
