@@ -17,9 +17,11 @@ import icon from "astro-icon";
 export default defineConfig({
   site: "https://agustinus.kristia.de",
   prefetch: true,
+
   redirects: {
     "/about": "/",
   },
+
   integrations: [
     expressiveCode(expressiveCodeOptions),
     tailwind({
@@ -29,6 +31,7 @@ export default defineConfig({
     mdx(),
     icon(),
   ],
+
   markdown: {
     remarkPlugins: [
       [remarkSmartypants, { dashes: "oldschool" }],
@@ -36,6 +39,7 @@ export default defineConfig({
       remarkReadingTime,
       remarkMath,
     ],
+
     rehypePlugins: [
       [
         rehypeExternalLinks,
@@ -44,19 +48,23 @@ export default defineConfig({
           rel: ["nofollow, noopener, noreferrer"],
         },
       ],
+
       [
         rehypeMathjax,
         {
           chtml: {
             fontURL:
               "https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2",
+            scale: 1.2,
           },
+
           tex: {
             macros: mathJaxMacros,
           },
         },
       ],
     ],
+
     remarkRehype: {
       footnoteLabelProperties: {
         className: [""],
