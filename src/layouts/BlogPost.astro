@@ -23,9 +23,11 @@ const { headings } = await post.render();
 
 <PageLayout meta={{ articleDate, description, ogImage: socialImage, title }}>
   <div class='w-full'>
-    <div class='mt-8 gap-x-10 lg:flex lg:items-start'>
+    <div
+      class='m-auto mt-8 max-w-[60rem] lg:flex lg:items-start lg:gap-x-16 xl:max-w-[65rem]'
+    >
       {!!headings.length && <TOC headings={headings} />}
-      <article class='flex-grow break-words' data-pagefind-body>
+      <article class='m-auto max-w-[50rem] flex-grow break-words' data-pagefind-body>
         <div id='blog-hero'><BlogHero content={post} /></div>
         <div
           class='prose prose-base prose-neutral mt-12 max-w-[50rem] font-sans text-base leading-6 dark:prose-invert dark:prose-dark prose-headings:font-bold prose-headings:text-foreground prose-headings:before:absolute prose-headings:before:-ms-4 prose-th:before:content-none prose-inline-code:font-mono prose-inline-code:text-sm prose-inline-code:font-normal'

@@ -1,6 +1,6 @@
 import type { SiteConfig } from "@/types";
 import { type AstroExpressiveCodeOptions } from "astro-expressive-code";
-import "@fontsource/iosevka";
+import "@fontsource-variable/source-code-pro";
 
 export const siteConfig: SiteConfig = {
   // Used as both a meta property (src/components/BaseHead.astro L:31 + L:49) & the generated satori png (src/pages/og-image/[slug].png.ts)
@@ -42,29 +42,35 @@ export const menuLinks: Array<{ title: string; path: string }> = [
 // https://expressive-code.com/reference/configuration/
 export const expressiveCodeOptions: AstroExpressiveCodeOptions = {
   // One dark, one light theme => https://expressive-code.com/guides/themes/#available-themes
-  themes: ["light-plus", "catppuccin-macchiato"],
+  themes: ["light-plus", "dark-plus"],
+
   themeCssSelector(theme, { styleVariants }) {
     if (styleVariants.length >= 2) {
       const baseTheme = styleVariants[0]?.theme;
       const altTheme = styleVariants.find(
         (v) => v.theme.type !== baseTheme?.type,
       )?.theme;
+
       if (theme === baseTheme || theme === altTheme)
         return `[data-theme='${theme.type}']`;
     }
+
     // return default selector
     return `[data-theme="${theme.name}"]`;
   },
-  useThemedScrollbars: false,
+
+  useThemedScrollbars: true,
+
   useDarkModeMediaQuery: true,
+
   styleOverrides: {
     uiLineHeight: "inherit",
     uiFontWeight: "500",
-    codeFontSize: "0.9rem",
-    codeLineHeight: "1.2rem",
+    codeFontSize: "0.8rem",
+    codeLineHeight: "1.1rem",
     borderRadius: "0px",
     codePaddingInline: "1rem",
-    codeFontFamily: '"Iosevka", monospace;',
+
     frames: {
       frameBoxShadowCssValue: "none",
     },

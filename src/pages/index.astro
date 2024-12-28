@@ -35,7 +35,7 @@ const sortedSelectedPubs = selectedPubs
 ---
 
 <PageLayout meta={{ title: "About" }}>
-  <div class='flex w-full flex-col gap-y-10'>
+  <div class='flex max-w-[50rem] flex-col gap-y-10'>
     <section class='flex flex-col items-center gap-y-7'>
       <Image
         src={portrait}
@@ -48,7 +48,11 @@ const sortedSelectedPubs = selectedPubs
         <h1 class='text-3xl font-bold'>Agustinus Kristiadi</h1>
 
         <div class='flex flex-wrap justify-center gap-x-7 gap-y-3'>
-          <Label title='Vector Institute' as='a' href='https://vectorinstitute.ai/team/agustinus-kristiadi/'>
+          <Label
+            title='Vector Institute'
+            as='a'
+            href='https://vectorinstitute.ai/team/agustinus-kristiadi/'
+          >
             <svg
               xmlns='http://www.w3.org/2000/svg'
               viewBox='0 0 24 24'
@@ -103,13 +107,15 @@ const sortedSelectedPubs = selectedPubs
             href='https://bsky.app/profile/agustinus.kristia.de'
             target='_blank'
           >
-            <svg xmlns='http://www.w3.org/2000/svg'
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
               viewBox='0 0 32 32'
               class='h-5 w-5'
-              slot='icon'>
-              <path 
-                fill='currentColor' 
-                d="M23.931,5.298c-3.21,2.418-6.663,7.32-7.931,9.951-1.267-2.631-4.721-7.533-7.931-9.951-2.316-1.744-6.069-3.094-6.069,1.201,0,.857,.49,7.206,.778,8.237,.999,3.583,4.641,4.497,7.881,3.944-5.663,.967-7.103,4.169-3.992,7.372,5.908,6.083,8.492-1.526,9.154-3.476,.123-.36,.179-.527,.179-.379,0-.148,.057,.019,.179,.379,.662,1.949,3.245,9.558,9.154,3.476,3.111-3.203,1.671-6.405-3.992-7.372,3.24,.553,6.882-.361,7.881-3.944,.288-1.031,.778-7.38,.778-8.237,0-4.295-3.753-2.945-6.069-1.201Z"
+              slot='icon'
+            >
+              <path
+                fill='currentColor'
+                d='M23.931,5.298c-3.21,2.418-6.663,7.32-7.931,9.951-1.267-2.631-4.721-7.533-7.931-9.951-2.316-1.744-6.069-3.094-6.069,1.201,0,.857,.49,7.206,.778,8.237,.999,3.583,4.641,4.497,7.881,3.944-5.663,.967-7.103,4.169-3.992,7.372,5.908,6.083,8.492-1.526,9.154-3.476,.123-.36,.179-.527,.179-.379,0-.148,.057,.019,.179,.379,.662,1.949,3.245,9.558,9.154,3.476,3.111-3.203,1.671-6.405-3.992-7.372,3.24,.553,6.882-.361,7.881-3.944,.288-1.031,.778-7.38,.778-8.237,0-4.295-3.753-2.945-6.069-1.201Z'
               ></path>
             </svg>
           </Label>
@@ -161,9 +167,9 @@ const sortedSelectedPubs = selectedPubs
         the University of Tuebingen in Germany, advised by Philipp Hennig and Matthias
         Hein. His research interests are in probabilistic inference with large-scale
         neural networks, decision-making under uncertainty, and their applications in
-        broader scientific fields such as chemistry. His work has been recognized in 
-        the form of best PhD thesis award and multiple spotlight papers from flagship 
-        machine learning conferences. His contributions to the scientific society 
+        broader scientific fields such as chemistry. His work has been recognized in the
+        form of best PhD thesis award and multiple spotlight papers from flagship
+        machine learning conferences. His contributions to the scientific society
         include mentoring underrepresented students in Canada under the IBET PhD Project
         and actively contributing to the open-source community.
       </p>
@@ -225,25 +231,13 @@ const sortedSelectedPubs = selectedPubs
         subheading="German Research Foundation's Theoretical Foundations of Deep Learning program, 2023"
       />
 
-      <Card
-        heading='Spotlight paper (top 4%)'
-        subheading="NeurIPS 2023"
-      />
+      <Card heading='Spotlight paper (top 4%)' subheading='NeurIPS 2023' />
 
-      <Card
-        heading='Spotlight paper (top 3%)'
-        subheading="NeurIPS 2021"
-      />
+      <Card heading='Spotlight paper (top 3%)' subheading='NeurIPS 2021' />
 
-      <Card
-        heading='Long-talk paper (top 6%)'
-        subheading="UAI 2021"
-      />
+      <Card heading='Long-talk paper (top 6%)' subheading='UAI 2021' />
 
-      <Card
-        heading='Best reviewer (top 10%)'
-        subheading="ICML 2021"
-      />
+      <Card heading='Best reviewer (top 10%)' subheading='ICML 2021' />
     </Section>
 
     {
@@ -259,11 +253,11 @@ const sortedSelectedPubs = selectedPubs
         <Section title='Latest Posts'>
           <ul class='flex flex-col gap-y-5 sm:gap-y-2'>
             {allPostsByDate.slice(0, 5).map((p) => (
-                <PostPreview post={p} maxDescWords={18} withDesc />
+              <PostPreview post={p} maxDescWords={18} withDesc />
             ))}
           </ul>
         </Section>
       )
-    } 
+    }
   </div>
 </PageLayout>
