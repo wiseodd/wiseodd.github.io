@@ -12,7 +12,7 @@ const { imagePath, altText = "", fullWidth = false } = Astro.props;
   <img
     src={imagePath}
     alt={altText}
-    class:list={[fullWidth ? "" : "sm:size-1/2", "mx-auto", "drop-shadow"]}
+    class:list={[fullWidth ? "" : "sm:size-2/3", "mx-auto"]}
   />
   {
     altText && (
