@@ -66,7 +66,7 @@ export const expressiveCodeOptions: AstroExpressiveCodeOptions = {
   styleOverrides: {
     uiLineHeight: "inherit",
     uiFontWeight: "500",
-    codeFontSize: "0.85rem",
+    codeFontSize: "0.825rem",
     codeLineHeight: "1.1rem",
     borderRadius: "0px",
     codePaddingInline: "1rem",
