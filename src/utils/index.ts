@@ -8,7 +8,9 @@ export {
 } from "./post";
 export { getFormattedDate } from "./date";
 export { generateToc } from "./generateToc";
-export type { TocItem } from "./generateToc";
 export { elementHasClass, toggleClass, rootInDarkMode } from "./domElement";
-export type { Publication } from "./publication";
 export { sortPublicationFn } from "./publication";
+
+export type { TocItem } from "./generateToc";
+export type { Publication } from "./publication";
+export type { NewsPost } from "./news.ts";

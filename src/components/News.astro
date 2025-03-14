@@ -1,0 +1,13 @@
+---
+import FormattedDate from "./FormattedDate.astro";
+
+const { news } = Astro.props;
+---
+
+<li
+  class='news flex flex-col sm:flex-row sm:gap-x-4 [&_a]:text-blue-600 dark:[&_a]:text-blue-300 [&_q]:basis-full'
+>
+  <!-- TODO: Fix date -->
+  <FormattedDate class='min-w-[120px] font-bold' date={new Date(news.date)} />
+  <div set:html={news.post} />
+</li>

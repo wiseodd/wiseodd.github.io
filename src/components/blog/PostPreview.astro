@@ -17,7 +17,7 @@ const postDate = post.data.updatedDate ?? post.data.publishDate;
 ---
 
 <li class='flex flex-col gap-2 sm:flex-row sm:gap-x-4 [&_q]:basis-full'>
-  <FormattedDate class='min-w-[120px]' date={postDate} />
+  <FormattedDate class='min-w-[120px] font-bold' date={postDate} />
 
   <Tag>
     {post.data.draft && <span class='text-red-500'>(Draft) </span>}

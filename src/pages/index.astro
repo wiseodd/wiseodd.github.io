@@ -4,15 +4,17 @@ import Button from "../components/Button.astro";
 import Section from "../components/Section.astro";
 import Card from "../components/Card.astro";
 import Label from "../components/Label.astro";
+import News from "../components/News.astro";
 import PostPreview from "@/components/blog/PostPreview.astro";
-import PublicationList from "@/components/PublicationList.astro";
 import { Image } from "astro:assets";
 
-import { getAllPosts, sortMDByDate } from "@/utils";
-import type { Publication } from "@/utils";
-import { sortPublicationFn } from "@/utils";
-
 import portrait from "../assets/portrait.jpeg";
+import news from "../assets/news.json";
+
+import type { NewsPost } from "@/utils";
+
+import { getAllPosts, sortMDByDate } from "@/utils";
+import { sortPublicationFn } from "@/utils";
 
 const interests = [
   "Probabilistic ML",
@@ -24,14 +26,16 @@ const interests = [
   "Riemannian Geometry",
 ];
 
+const MAX_NEWS = 10;
+const sortedNews = news
+  .sort((post1: NewsPost, post2: NewsPost) => {
+    return new Date(post2.date).getTime() - new Date(post1.date).getTime(); // descending
+  })
+  .slice(0, MAX_NEWS);
+
 const MAX_POSTS = 10;
 const allPosts = await getAllPosts();
 const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
-
-import selectedPubs from "../assets/publications.json";
-const sortedSelectedPubs = selectedPubs
-  .filter((pub: Publication) => pub.marked)
-  .sort(sortPublicationFn);
 ---
 
 <PageLayout meta={{ title: "About" }}>
@@ -186,71 +190,26 @@ const sortedSelectedPubs = selectedPubs
       </div>
     </Section>
 
-    <Section title='Experience'>
-      <Card
-        heading='Vector Institute'
-        subheading='Postdoctoral Fellow'
-        date='Feb 2023 - '
-      >
-        With Alán Aspuru-Guzik and Pascal Poupart.
-      </Card>
-
-      <Card
-        heading='University of Tuebingen'
-        subheading='PhD, Computer Science'
-        date='Jun 2019 - Jan 2023'
-      >
-        With Philipp Hennig and Matthias Hein.
-      </Card>
-
-      <Card
-        heading='University of Bonn'
-        subheading='MSc, Computer Science'
-        date='Apr 2017 - Apr 2019'
-      >
-        With Asja Fischer and Jens Lehmann.
-      </Card>
-
-      <Card
-        heading='GDP Venture'
-        subheading='Software Engineer'
-        date='Apr 2013 - Dec 2015'
-      />
-
-      <Card
-        heading='Universitas Atma Jaya Yogyakarta'
-        subheading='BEng, Software Engineering'
-        date='Aug 2009 - Jan 2013'
-      />
-    </Section>
-
-    <Section title='Awards'>
-      <Card
-        heading='Best PhD thesis'
-        subheading="German Research Foundation's Theoretical Foundations of Deep Learning program, 2023"
-      />
-
-      <Card heading='Spotlight paper (top 4%)' subheading='NeurIPS 2023' />
-
-      <Card heading='Spotlight paper (top 3%)' subheading='NeurIPS 2021' />
-
-      <Card heading='Long-talk paper (top 6%)' subheading='UAI 2021' />
-
-      <Card heading='Best reviewer (top 10%)' subheading='ICML 2021' />
-    </Section>
+    <hr />
 
     {
-      allPostsByDate.length > 0 && (
-        <Section title='Selected Works'>
-          <PublicationList publications={sortedSelectedPubs} />
+      sortedNews.length > 0 && (
+        <Section title='News'>
+          <ul class='flex flex-col gap-y-5 sm:gap-y-4'>
+            {sortedNews.map((p) => (
+              <News news={p} />
+            ))}
+          </ul>
         </Section>
       )
     }
 
+    <hr />
+
     {
       allPostsByDate.length > 0 && (
         <Section title='Latest Posts'>
-          <ul class='flex flex-col gap-y-5 sm:gap-y-2'>
+          <ul class='flex flex-col gap-y-5 sm:gap-y-4'>
             {allPostsByDate.slice(0, 5).map((p) => (
               <PostPreview post={p} maxDescWords={18} withDesc />
             ))}

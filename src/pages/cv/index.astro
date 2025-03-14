@@ -1,0 +1,83 @@
+---
+import PageLayout from "@/layouts/BaseLayout.astro";
+import PublicationList from "@/components/PublicationList.astro";
+import Section from "@/components/Section.astro";
+import Card from "@/components/Card.astro";
+
+import { sortPublicationFn } from "@/utils";
+
+import type { Publication } from "@/utils";
+
+import selectedPubs from "@/assets/publications.json";
+
+const sortedSelectedPubs = selectedPubs
+  .filter((pub: Publication) => pub.marked)
+  .sort(sortPublicationFn);
+---
+
+<PageLayout meta={{ title: "CV" }}>
+  <div class='flex max-w-[50rem] flex-col gap-y-10'>
+    <h1 class='mb-6 mt-5 text-2xl font-bold'>Summarized CV</h1>
+
+    <Section title='Experience'>
+      <Card
+        heading='Vector Institute'
+        subheading='Postdoctoral Fellow'
+        date='Feb 2023 - '
+      >
+        With Alán Aspuru-Guzik and Pascal Poupart.
+      </Card>
+
+      <Card
+        heading='University of Tuebingen'
+        subheading='PhD, Computer Science'
+        date='Jun 2019 - Jan 2023'
+      >
+        With Philipp Hennig and Matthias Hein.
+      </Card>
+
+      <Card
+        heading='University of Bonn'
+        subheading='MSc, Computer Science'
+        date='Apr 2017 - Apr 2019'
+      >
+        With Asja Fischer and Jens Lehmann.
+      </Card>
+
+      <Card
+        heading='GDP Venture'
+        subheading='Software Engineer'
+        date='Apr 2013 - Dec 2015'
+      />
+
+      <Card
+        heading='Universitas Atma Jaya Yogyakarta'
+        subheading='BEng, Software Engineering'
+        date='Aug 2009 - Jan 2013'
+      />
+    </Section>
+
+    <Section title='Awards'>
+      <Card
+        heading='Best PhD thesis'
+        subheading="German Research Foundation's Theoretical Foundations of Deep Learning program, 2023"
+      />
+
+      <Card heading='Spotlight paper (top 4%)' subheading='NeurIPS 2023' />
+
+      <Card heading='Spotlight paper (top 3%)' subheading='NeurIPS 2021' />
+
+      <Card heading='Long-talk paper (top 6%)' subheading='UAI 2021' />
+
+      <Card heading='Best reviewer (top 10%)' subheading='ICML 2021' />
+    </Section>
+
+    {
+      sortedSelectedPubs.length > 0 && (
+        <Section title='Selected Works'>
+          <PublicationList publications={sortedSelectedPubs} />
+        </Section>
+      )
+    }
+  </div>
+</PageLayout>
