@@ -2,7 +2,6 @@
 import PageLayout from "../layouts/BaseLayout.astro";
 import Button from "../components/Button.astro";
 import Section from "../components/Section.astro";
-import Card from "../components/Card.astro";
 import Label from "../components/Label.astro";
 import News from "../components/News.astro";
 import PostPreview from "@/components/blog/PostPreview.astro";
@@ -14,7 +13,6 @@ import news from "../assets/news.json";
 import type { NewsPost } from "@/utils";
 
 import { getAllPosts, sortMDByDate } from "@/utils";
-import { sortPublicationFn } from "@/utils";
 
 const interests = [
   "Probabilistic ML",
