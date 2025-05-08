@@ -15,12 +15,9 @@ import type { NewsPost } from "@/utils";
 import { getAllPosts, sortMDByDate } from "@/utils";
 
 const interests = [
-  "Probabilistic ML",
-  "Foundation Models",
-  "Decision Making",
-  "Planning",
+  "Probabilistic Machine Learning",
+  "Decision-Making",
   "AI4Science",
-  "AI Safety",
   "Riemannian Geometry",
 ];
 
@@ -202,18 +199,18 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
       )
     }
 
-    <hr />
+    <!-- <hr /> -->
 
-    {
-      allPostsByDate.length > 0 && (
-        <Section title='Latest Posts'>
-          <ul class='flex flex-col gap-y-5 sm:gap-y-4'>
-            {allPostsByDate.slice(0, 5).map((p) => (
-              <PostPreview post={p} maxDescWords={18} withDesc />
-            ))}
-          </ul>
-        </Section>
-      )
-    }
+    <!-- { -->
+    <!--   allPostsByDate.length > 0 && ( -->
+    <!--     <Section title='Latest Posts'> -->
+    <!--       <ul class='flex flex-col gap-y-5 sm:gap-y-4'> -->
+    <!--         {allPostsByDate.slice(0, 5).map((p) => ( -->
+    <!--           <PostPreview post={p} maxDescWords={18} withDesc /> -->
+    <!--         ))} -->
+    <!--       </ul> -->
+    <!--     </Section> -->
+    <!--   ) -->
+    <!-- } -->
   </div>
 </PageLayout>
