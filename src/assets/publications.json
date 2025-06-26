@@ -7,6 +7,7 @@
     "year": 2023,
     "paper": "https://agustinus.kristia.de/files/dissertation_kristiadi.pdf"
   },
+
   {
     "type": "thesis",
     "title": "Predictive Uncertainty Quantification With Compound Density Networks",
@@ -15,6 +16,7 @@
     "year": 2019,
     "paper": "https://agustinus.kristia.de/files/cdn_master_thesis.pdf"
   },
+
   {
     "type": "conference",
     "title": "Parallel Particle Swarm Optimization for Image Segmentation",
@@ -24,6 +26,7 @@
     "paper": "https://www.researchgate.net/publication/271843950_Parallel_Particle_Swarm_Optimization_for_Image_Segmentation",
     "code": "https://github.com/wiseodd/cuda-pso"
   },
+
   {
     "type": "conference",
     "title": "Parallel Particle Swarm Optimization for Image Segmentation",
@@ -33,6 +36,7 @@
     "paper": "https://www.researchgate.net/publication/271843950_Parallel_Particle_Swarm_Optimization_for_Image_Segmentation",
     "code": "https://github.com/wiseodd/cuda-pso"
   },
+
   {
     "type": "conference",
     "title": "Improving Response Selection in Multi-turn Dialogue Systems",
@@ -47,6 +51,7 @@
     "paper": "https://arxiv.org/abs/1809.03194",
     "code": "https://github.com/SmartDataAnalytics/AK-DE-biGRU"
   },
+
   {
     "type": "conference",
     "title": "Incorporating Literals into Knowledge Graph Embeddings",
@@ -62,6 +67,7 @@
     "paper": "https://arxiv.org/abs/1802.00934",
     "code": "https://github.com/SmartDataAnalytics/LiteralE"
   },
+
   {
     "type": "conference",
     "title": "Being Bayesian, Even Just a Bit, Fixes Overconfidence in ReLU Networks",
@@ -72,6 +78,7 @@
     "github": "https://github.com/wiseodd/last_layer_laplace",
     "marked": true
   },
+
   {
     "type": "conference",
     "title": "Learnable Uncertainty under Laplace Approximations",
@@ -83,6 +90,7 @@
     "paper": "https://arxiv.org/abs/2010.02720",
     "code": "https://github.com/wiseodd/lula"
   },
+
   {
     "type": "conference",
     "title": "An Infinite-Feature Extension for Bayesian ReLU Nets That Fixes Their Asymptotic Overconfidence",
@@ -94,6 +102,7 @@
     "paper": "https://arxiv.org/abs/2010.02709",
     "marked": true
   },
+
   {
     "type": "conference",
     "title": "Laplace Redux - Effortless Bayesian Deep Learning",
@@ -110,6 +119,7 @@
     "paper": "https://arxiv.org/abs/2106.14806",
     "code": "https://github.com/aleximmer/Laplace"
   },
+
   {
     "type": "conference",
     "title": "Being a Bit Frequentist Improves Bayesian Neural Networks",
@@ -119,6 +129,7 @@
     "paper": "https://arxiv.org/abs/2106.10065",
     "code": "https://github.com/wiseodd/bayesian_ood_training"
   },
+
   {
     "type": "conference",
     "title": "Discovering Inductive Bias with Gibbs Priors: A Diagnostic Tool for Approximate Bayesian Inference",
@@ -133,6 +144,7 @@
     "paper": "https://arxiv.org/abs/2203.03353",
     "code": "https://github.com/tml-tuebingen/gibbs-prior-diagnostic"
   },
+
   {
     "type": "conference",
     "title": "Fast Predictive Uncertainty for Classification with Bayesian Deep Networks",
@@ -142,6 +154,7 @@
     "paper": "https://arxiv.org/abs/2003.01227",
     "code": "https://github.com/mariushobbhahn/LB_for_BNNs_official"
   },
+
   {
     "type": "conference",
     "title": "Posterior Refinement Improves Sample Efficiency in Bayesian Neural Networks",
@@ -151,6 +164,7 @@
     "paper": "https://arxiv.org/abs/2205.10041",
     "code": "https://github.com/runame/laplace-refinement"
   },
+
   {
     "type": "conference",
     "title": "The Geometry of Neural Nets' Parameter Spaces Under Reparametrization",
@@ -161,6 +175,7 @@
     "paper": "https://arxiv.org/abs/2302.07384",
     "marked": true
   },
+
   {
     "type": "conference",
     "title": "Preventing Arbitrarily High Confidence on Far-Away Data in Point-Estimated Discriminative Neural Networks",
@@ -176,6 +191,7 @@
     "paper": "https://arxiv.org/abs/2311.03683",
     "code": "https://github.com/serenahacker/PreLoad"
   },
+
   {
     "type": "conference",
     "title": "Structured Inverse-Free Natural Gradient: Memory-Efficient & Numerically-Stable KFAC for Large Neural Nets",
@@ -193,6 +209,7 @@
     "paper": "https://arxiv.org/abs/2312.05705",
     "code": "https://github.com/f-dangel/singd"
   },
+
   {
     "type": "conference",
     "title": "Position: Bayesian Deep Learning is Needed in the Age of Large-Scale AI",
@@ -226,6 +243,7 @@
     "year": 2024,
     "paper": "https://arxiv.org/abs/2402.00809"
   },
+
   {
     "type": "conference",
     "title": "A Sober Look at LLMs for Material Discovery: Are They Actually Good for Bayesian Optimization Over Molecules?",
@@ -243,6 +261,7 @@
     "code": "https://github.com/wiseodd/lapeft-bayesopt",
     "marked": true
   },
+
   {
     "type": "journal",
     "title": "Deep Convolutional Level Set Method for Image Segmentation",
@@ -252,6 +271,7 @@
     "paper": "https://journals.itb.ac.id/index.php/jictra/article/view/3887",
     "code": "https://github.com/wiseodd/cnn-levelset"
   },
+
   {
     "type": "preprint",
     "title": "On the Disconnect Between Theory and Practice of Overparametrized Neural Networks",
@@ -260,6 +280,7 @@
     "year": 2023,
     "paper": "https://arxiv.org/abs/2310.00137"
   },
+
   {
     "type": "workshop",
     "title": "A Critical Look At Tokenwise Reward-Guided Text Generation",
@@ -274,6 +295,7 @@
     "year": 2024,
     "paper": "https://arxiv.org/abs/2406.07780"
   },
+
   {
     "type": "workshop",
     "title": "Predictive Uncertainty Quantification with Compound Density Networks",
@@ -283,6 +305,7 @@
     "paper": "https://arxiv.org/abs/1902.01080",
     "code": "https://github.com/wiseodd/compound-density-networks"
   },
+
   {
     "type": "workshop",
     "title": "Mixtures of Laplace Approximations for Improved Post-Hoc Uncertainty in Deep Learning",
@@ -296,6 +319,7 @@
     "year": 2021,
     "paper": "https://arxiv.org/abs/2111.03577"
   },
+
   {
     "type": "workshop",
     "title": "Promises and Pitfalls of the Linearized Laplace in Bayesian Optimization",
@@ -310,6 +334,7 @@
     "paper": "https://arxiv.org/abs/2304.08309",
     "code": "https://github.com/wiseodd/laplace-bayesopt"
   },
+
   {
     "type": "workshop",
     "title": "How Useful is Intermittent, Asynchronous Expert Feedback for Bayesian Optimization?",
@@ -326,6 +351,7 @@
     "paper": "https://arxiv.org/abs/2406.06459",
     "code": "https://github.com/wiseodd/bo-async-feedback"
   },
+
   {
     "type": "workshop",
     "title": "Uncertainty-Guided Optimization on Large Language Model Search Trees",
@@ -341,8 +367,9 @@
     "year": 2024,
     "paper": "https://arxiv.org/abs/2407.03951",
     "code": "https://github.com/JuliaGrosse/ults",
-    "marked": true
+    "marked": false
   },
+
   {
     "type": "workshop",
     "title": "If Optimizing for General Parameters in Chemistry Is Useful, Why Is It Hardly Done?",
@@ -361,6 +388,7 @@
     "year": 2024,
     "paper": "https://openreview.net/pdf?id=ZfL0poiEOe"
   },
+
   {
     "type": "workshop",
     "title": "Dimension Deficit: Is 3D a Step Too Far for Optimizing Molecules?",
@@ -375,5 +403,106 @@
     "venue": "AI4Mat - NeurIPS",
     "year": 2024,
     "paper": "https://openreview.net/pdf?id=PLazBHIN8g"
+  },
+
+  {
+    "type": "preprint",
+    "title": "Efficient Weight-Space Laplace-Gaussian Filtering and Smoothing for Sequential Deep Learning",
+    "author": [
+      "Joanna Sliwa",
+      "Frank Schneider",
+      "Nathanael Bosch",
+      "Agustinus Kristiadi",
+      "Philipp Hennig"
+    ],
+    "venue": "ArXiv",
+    "year": 2024,
+    "paper": "https://arxiv.org/abs/2410.06800"
+  },
+
+  {
+    "type": "workshop",
+    "title": "What Actually Matters for Materials Discovery: Pitfalls and Recommendations in Bayesian Optimization",
+    "author": [
+      "Tristan Cinquin",
+      "Stanley Lo",
+      "Felix Strieth-Kalthoff",
+      "Alan Aspuru-Guzik",
+      "Geoff Pleiss",
+      "Robert Bamler",
+      "Tim G. J. Rudner",
+      "Vincent Fortuin",
+      "Agustinus Kristiadi"
+    ],
+    "venue": "AI for Accelerated Materials Design–ICLR 2025",
+    "year": 2025,
+    "paper": "https://openreview.net/forum?id=GbV2JjfnSY"
+  },
+
+  {
+    "type": "preprint",
+    "title": "Position: Curvature Matrices Should Be Democratized via Linear Operators",
+    "author": [
+      "Felix Dangel",
+      "Runa Eschenhagen",
+      "Weronika Ormaniec",
+      "Andres Fernandez",
+      "Lukas Tatzel",
+      "Agustinus Kristiadi"
+    ],
+    "venue": "ArXiv",
+    "year": 2025,
+    "paper": "https://arxiv.org/abs/2501.19183"
+  },
+
+  {
+    "type": "preprint",
+    "title": "Simplifying Bayesian Optimization Via In-Context Direct Optimum Sampling",
+    "author": [
+      "Gustavo Sutter",
+      "Mohammed Abdulrahman",
+      "Hao Wang",
+      "Sriram Ganapathi Subramanian",
+      "Marc St-Aubin",
+      "Sharon O'Sullivan",
+      "Lawrence Wan",
+      "Luis Ricardez-Sandoval",
+      "Pascal Poupart",
+      "Agustinus Kristiadi"
+    ],
+    "venue": "ArXiv",
+    "year": 2025,
+    "paper": "https://arxiv.org/abs/2505.23913",
+    "marked": true
+  },
+
+  {
+    "type": "preprint",
+    "title": "FlashMD: Long-Stride, Universal Prediction of Molecular Dynamics",
+    "author": [
+      "Filippo Bigi",
+      "Sanggyu Chong",
+      "Agustinus Kristiadi",
+      "Michele Ceriotti"
+    ],
+    "venue": "ArXiv",
+    "year": 2025,
+    "paper": "https://arxiv.org/abs/2505.19350"
+  },
+
+  {
+    "type": "conference",
+    "title": "Towards Cost-Effective Reward Guided Text Generation",
+    "author": [
+      "Ahmad Rashid",
+      "Ruotian Wu",
+      "Rongqi Fan",
+      "Hongliang Li",
+      "Agustinus Kristiadi",
+      "Pascal Poupart"
+    ],
+    "venue": "ICML",
+    "year": 2025,
+    "paper": "https://arxiv.org/abs/2502.04517"
   }
 ]
