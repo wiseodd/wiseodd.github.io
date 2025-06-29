@@ -25,7 +25,7 @@ const { pub } = Astro.props;
             pub.note && (
               <PublicationLabel
                 title={pub.note}
-                class='!hover:text-slate-50 bg-red-400 !text-slate-50 hover:bg-red-400'
+                class='!hover:text-slate-50 bg-red-400 text-xs !text-slate-50 hover:bg-red-400'
               />
             )
           }
@@ -36,7 +36,7 @@ const { pub } = Astro.props;
               <PublicationLabel
                 title='Paper'
                 href={pub.paper}
-                class='text-blue-600 dark:text-blue-400'
+                class='text-xs text-blue-600 dark:text-blue-400'
               />
             )
           }
@@ -45,7 +45,7 @@ const { pub } = Astro.props;
               <PublicationLabel
                 title='Github'
                 href={pub.code}
-                class='text-blue-600 dark:text-blue-400'
+                class='text-xs text-blue-600 dark:text-blue-400'
               />
             )
           }
