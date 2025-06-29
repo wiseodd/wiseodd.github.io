@@ -16,8 +16,12 @@ const sortedSelectedPubs = selectedPubs
 ---
 
 <PageLayout meta={{ title: "CV" }}>
-  <div class='flex max-w-[50rem] flex-col gap-y-10'>
-    <h1 class='mb-6 mt-5 text-2xl font-bold'>Summarized CV</h1>
+  <div class='max-w-[50rem]'>
+    <h1 class='mb-6 mt-5 text-2xl font-bold'>Resume</h1>
+
+    <p class='pb-8 [&_a]:text-blue-600 dark:[&_a]:text-blue-300'>
+      Complete CV <a href='/files/cv-agustinus.pdf'>here</a>.
+    </p>
 
     <Section title='Experience'>
       <Card
@@ -65,7 +69,7 @@ const sortedSelectedPubs = selectedPubs
       />
     </Section>
 
-    <Section title='Awards'>
+    <Section title='Awards' class='pt-12'>
       <Card
         heading='Best PhD thesis'
         subheading="German Research Foundation's Theoretical Foundations of Deep Learning program, 2023"
@@ -82,7 +86,7 @@ const sortedSelectedPubs = selectedPubs
 
     {
       sortedSelectedPubs.length > 0 && (
-        <Section title='Selected Works'>
+        <Section title='Selected Works' class='pt-12'>
           <PublicationList publications={sortedSelectedPubs} />
         </Section>
       )
