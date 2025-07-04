@@ -1,0 +1,13 @@
+---
+export const prerender = true;
+
+import PageLayout from "../layouts/BaseLayout.astro";
+import ContentLayout from "@/layouts/ContentLayout.astro";
+import { Content } from "../content/openings.md";
+---
+
+<PageLayout meta={{ title: "Openings" }}>
+  <ContentLayout>
+    <Content />
+  </ContentLayout>
+</PageLayout>
