@@ -14,7 +14,8 @@ I have openings for funded 4-year **PhD** and 5-terms (~1.5 years) thesis-based 
 - Before you apply on the system, contact me via email.
   - Give a short intro on why we will be a good match.
   - Attach your CV and transcripts.
-- I will contact you back as soon as I can, and we go from there.
+- If there is a potential match, I will contact you back as soon as I can, and we go from there.
+  - Unfortunately, I cannot reply to all emails due to the amount I received. I apologize in advance.
 
 ## MSc positions
 
@@ -26,4 +27,5 @@ I have openings for funded 4-year **PhD** and 5-terms (~1.5 years) thesis-based 
 - Before you apply on the system, contact me via email.
   - Give a short intro on why we will be a good match.
   - Attach your CV and transcripts.
-- I will contact you back as soon as I can, and we go from there.
+- If there is a potential match, I will contact you back as soon as I can, and we go from there.
+  - Unfortunately, I cannot reply to all emails due to the amount I received. I apologize in advance.
