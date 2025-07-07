@@ -19,7 +19,6 @@ I have openings for funded 4-year **PhD** and 5-terms (~1.5 years) thesis-based 
 
 ## MSc positions
 
-- **Note:** I prioritize candidates who want to work towards PhD with me.
 - See if you fulfill the [basic requirements](https://grad.uwo.ca/admissions/programs/program.cfm?p=37) set by the schoold.
 - To be compatible with me, you must both: (i) have **solid foundational mathematical and programming knowledge**, and just as importantly, (ii) **be reliable**.
   - If you have taken statistics, probability theory, and analysis (or advanced calculus) classes, and you actually like them, then you are on the right track.
