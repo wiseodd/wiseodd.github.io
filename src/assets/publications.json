@@ -282,7 +282,7 @@
   },
 
   {
-    "type": "workshop",
+    "type": "conference",
     "title": "A Critical Look At Tokenwise Reward-Guided Text Generation",
     "author": [
       "Ahmad Rashid",
@@ -291,8 +291,8 @@
       "Agustinus Kristiadi*",
       "Pascal Poupart*"
     ],
-    "venue": "ICML Workshop on Foundation Models in the Wild",
-    "year": 2024,
+    "venue": "COLM",
+    "year": 2025,
     "paper": "https://arxiv.org/abs/2406.07780"
   },
 
