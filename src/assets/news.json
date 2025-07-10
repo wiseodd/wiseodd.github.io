@@ -1,5 +1,9 @@
 [
   {
+    "date": "2025-07-10",
+    "post": "<a href='https://arxiv.org/abs/2406.07780'>Another work</a> in analyzing reward-guided text generation methods in LLMs has been accepted to COLM 2025. Check out our work in Montreal later this year!"
+  },
+  {
     "date": "2025-07-05",
     "post": "<a href='https://arxiv.org/abs/2502.04517'>Our work</a> on making reward-guided text generation in LLMs more efficient has been accepted to ICML 2025. Check out our poster in Vancouver this month!"
   },
