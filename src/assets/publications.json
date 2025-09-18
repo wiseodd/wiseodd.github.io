@@ -366,8 +366,7 @@
     "venue": "AABI",
     "year": 2024,
     "paper": "https://arxiv.org/abs/2407.03951",
-    "code": "https://github.com/JuliaGrosse/ults",
-    "marked": false
+    "code": "https://github.com/JuliaGrosse/ults"
   },
 
   {
@@ -477,7 +476,7 @@
   },
 
   {
-    "type": "preprint",
+    "type": "conference",
     "title": "FlashMD: Long-Stride, Universal Prediction of Molecular Dynamics",
     "author": [
       "Filippo Bigi",
@@ -485,9 +484,12 @@
       "Agustinus Kristiadi",
       "Michele Ceriotti"
     ],
-    "venue": "ArXiv",
+    "venue": "NeurIPS",
     "year": 2025,
-    "paper": "https://arxiv.org/abs/2505.19350"
+    "paper": "https://arxiv.org/abs/2505.19350",
+    "code": "https://github.com/lab-cosmo/flashmd",
+    "note": "Spotlight",
+    "marked": true
   },
 
   {
