@@ -1,0 +1,61 @@
+---
+import PageLayout from "@/layouts/BaseLayout.astro";
+import PublicationList from "@/components/PublicationList.astro";
+import Section from "@/components/Section.astro";
+import Card from "@/components/Card.astro";
+
+import { sortPublicationFn } from "@/utils";
+
+import type { Publication } from "@/utils";
+
+import selectedPubs from "@/assets/publications.json";
+
+const sortedSelectedPubs = selectedPubs
+  .filter((pub: Publication) => pub.marked)
+  .sort(sortPublicationFn);
+---
+
+<PageLayout meta={{ title: "Group Members" }}>
+  <div class='w-full max-w-[50rem]'>
+    <h1 class='mb-6 mt-5 text-2xl font-bold'>Students</h1>
+
+    <br />
+    <br />
+
+    <Section title="Master's">
+      <Card
+        heading='Paul Moore'
+        subheading='MSc. thesis, co-supervised by Lucian Ilie'
+        date='2025 – 2027'
+        imagePath='/src/assets/who.jpeg'
+        imageClass='rounded-full'
+        altText='Paul Moore'
+      >
+        Uncertainty-aware algorithms for bioinformatics.
+      </Card>
+    </Section>
+
+    <Section title='Undergraduate' class='pt-12'>
+      <Card
+        heading='Molick Hou'
+        subheading='BSc. Thesis'
+        date='2025 – 2026'
+        imagePath='/src/assets/who.jpeg'
+        imageClass='rounded-full'
+        altText='Molick Hou'
+      >
+        Decision-making algorithms under LLM uncertainty.
+      </Card>
+      <Card
+        heading='Jacob Colton'
+        subheading='BSc. Thesis'
+        date='2025 – 2026'
+        imagePath='/src/assets/who.jpeg'
+        imageClass='rounded-full'
+        altText='Jacob Colton'
+      >
+        Multi-fidelity decision-making algorithms.
+      </Card>
+    </Section>
+  </div>
+</PageLayout>

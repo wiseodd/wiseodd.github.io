@@ -29,26 +29,30 @@ if (imagePath) {
 <Tag
   class={cn(
     className,
-    "relative border border-border bg-primary-foreground px-5 py-3",
+    "relative border border-border bg-primary-foreground px-5 py-3 rounded-lg",
     href && "transition-all hover:border-foreground/25 hover:shadow-sm",
   )}
   href={href}
 >
-  {
-    imagePath && (
-      <Image
-        src={images[imagePath]()}
-        alt={altText}
-        class={cn("mb-3 md:absolute md:mb-0", imageClass)}
-        loading='eager'
-      />
-    )
-  }
-  <div class='flex flex-col gap-y-1.5 text-sm'>
-    <div class='flex flex-col gap-y-0.5'>
-      <h1 class='font-semibold'>{heading}</h1>
-      <h2 class='text-muted-foreground'>{subheading}{date && ", " + date}</h2>
+  <div class={cn("flex gap-6 text-sm", imagePath ? "items-start" : "")}>
+    {
+      imagePath && (
+        <div class='flex-shrink-0'>
+          <Image
+            src={images[imagePath]()}
+            alt={altText}
+            class={cn("h-16 w-16 object-cover", imageClass)}
+            loading='eager'
+          />
+        </div>
+      )
+    }
+    <div class='flex flex-1 flex-col gap-y-1.5'>
+      <div class='flex flex-col gap-y-0.5'>
+        <h1 class='font-semibold'>{heading}</h1>
+        <h2 class='text-muted-foreground'>{subheading}{date && ", " + date}</h2>
+      </div>
+      <slot />
     </div>
-    <slot />
   </div>
 </Tag>
