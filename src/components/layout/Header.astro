@@ -6,15 +6,16 @@
   class='mb-12 flex w-full flex-wrap pb-3 text-sm sm:flex-nowrap sm:justify-start'
 >
   <nav
-    class='items-left relative mx-auto flex w-full flex-col justify-between sm:flex sm:flex-row sm:items-center'
+    class='relative mx-auto flex w-full items-center justify-between'
     aria-label='global'
   >
     <a class='flex-none text-xl font-semibold' href='/' aria-label='Brand'
       >Agustinus Kristiadi</a
     >
 
+    <!-- Desktop menu -->
     <div
-      class='flex flex-row items-center justify-start gap-x-7 pt-3 sm:justify-center sm:pt-0'
+      class='absolute left-1/2 hidden -translate-x-1/2 transform items-center justify-center gap-x-10 text-sm md:flex md:text-lg'
     >
       <a
         href='/'
@@ -50,10 +51,13 @@
         aria-label='Nav Menu Item'
         >Blog
       </a>
+    </div>
 
+    <!-- Right side buttons container -->
+    <div class='flex items-center gap-x-2'>
       <button
         id='toggleDarkMode'
-        class='relative rounded-md border border-border p-1.5 transition-all hover:bg-border'
+        class='relative rounded-md p-1.5 transition-all hover:bg-border'
       >
         <span class='sr-only'>Dark Theme</span>
         <svg
@@ -79,9 +83,54 @@
           ></path></svg
         >
       </button>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id='menu-toggle'
+        class='rounded-md p-0.5 text-[hsl(var(--foreground))] transition-all hover:bg-border md:hidden'
+      >
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          fill='none'
+          viewBox='0 0 24 24'
+          stroke='currentColor'
+          class='h-6 w-6'
+        >
+          <path
+            stroke-linecap='round'
+            stroke-linejoin='round'
+            stroke-width='2'
+            d='M4 6h16M4 12h16M4 18h16'></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div
+      id='mobile-menu'
+      class='absolute right-0 top-full z-10 mt-2 hidden w-48 rounded-md bg-background shadow-lg md:hidden'
+    >
+      <div class='py-1'>
+        <a href='/cv' class='block px-4 py-2 font-bold hover:bg-muted'>CV</a>
+        <a href='/group' class='block px-4 py-2 font-bold hover:bg-muted'>Students</a>
+        <a href='/publications' class='block px-4 py-2 font-bold hover:bg-muted'
+          >Publications</a
+        >
+        <a href='/blog' class='block px-4 py-2 font-bold hover:bg-muted'>Blog</a>
+      </div>
     </div>
   </nav>
 </header>
+
+<script>
+  // Toggle mobile menu
+  const menuToggle = document.getElementById("menu-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  menuToggle?.addEventListener("click", () => {
+    mobileMenu?.classList.toggle("hidden");
+  });
+</script>
 
 <script>
   function getCurrentTheme() {
