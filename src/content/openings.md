@@ -1,5 +1,7 @@
 # Open Positions
 
+**Unfortunately I do not have any more _undergrad_ supervision slots this year (Fall 2025 / Winter 2026).**
+
 I have a few openings for funded 4-year **PhD** and 5-term (~1.5 years) thesis-based **MSc** students, to work on **large-scale probabilistic models** (Bayesian and frequentist), **decision-making under uncertainty** (Bayesian optimization, bandits, tree search, etc.), and their applications in **AI4Science** (chemistry, biology, etc.).
 
 **Important:** My work is in the **foundation of machine learning** (think math, proofs, algorithms), but motivated by applications. I'm **not** looking for candidates who are interested only in applications.
@@ -15,7 +17,7 @@ I have a few openings for funded 4-year **PhD** and 5-term (~1.5 years) thesis-b
   - Give a short intro on why we will be a good match.
   - Attach your CV and transcripts.
 - If there is a potential match, I will contact you back as soon as I can, and we go from there.
-  - Unfortunately, I cannot reply to all emails due to the amount I received. I apologize in advance.
+  - **Unfortunately, I cannot reply to all emails due to the amount I received. I apologize in advance.**
 
 ## MSc positions
 
@@ -27,6 +29,6 @@ I have a few openings for funded 4-year **PhD** and 5-term (~1.5 years) thesis-b
   - Give a short intro on why we will be a good match.
   - Attach your CV and transcripts.
 - If there is a potential match, I will contact you back as soon as I can, and we go from there.
-  - Unfortunately, I cannot reply to all emails due to the amount I received. I apologize in advance.
+  - **Unfortunately, I cannot reply to all emails due to the amount I received. I apologize in advance.**
 
 **Note:** Since I have more funding for PhD positions, I will prioritize prospective MSc students who are committed to the ["direct-entry" PhD](https://csd.uwo.ca/graduate/future/admission.html#direct) pathway.
