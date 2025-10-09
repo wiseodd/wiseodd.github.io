@@ -1,0 +1,9 @@
+- See if you fulfill the [basic requirements](https://csd.uwo.ca/graduate/future/admission.html) set by the school.
+- To be compatible with me, you must both: (i) have **solid foundational mathematical and programming knowledge**, and just as importantly, (ii) **be reliable**.
+  - If you are comfortable reading [Bishop's Pattern Recognition and Machine Learning](https://www.microsoft.com/en-us/research/uploads/prod/2006/01/Bishop-Pattern-Recognition-and-Machine-Learning-2006.pdf) or [Murphy's Probabilistic Machine Learning](https://probml.github.io/pml-book/book1.html) book, then you are on the right track.
+  - You also need to have mathematical maturity and be familiar with Python and ML frameworks.
+  - Reliability means: you are **self-disciplined** and **organized**; if you promised that you are going to do $A$ by time $T$, then you must deliver $A$ at time $T$, with few exceptions.
+- Before you apply on the system, contact me via email.
+  - Give a short intro on why we will be a good match.
+  - Attach your CV and transcripts.
+- If there is a potential match, I will contact you back as soon as I can, and we go from there.

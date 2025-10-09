@@ -42,15 +42,16 @@
   "devDependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/typography": "^0.5.15",
+    "@types/bun": "latest",
     "@typescript-eslint/parser": "^7.18.0",
+    "daisyui": "^5.1.29",
     "eslint": "^8.57.1",
     "eslint-plugin-astro": "^0.31.4",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "prettier": "^3.3.3",
     "prettier-config-standard": "^7.0.0",
     "prettier-plugin-astro": "^0.13.0",
-    "prettier-plugin-tailwindcss": "^0.5.14",
-    "@types/bun": "latest"
+    "prettier-plugin-tailwindcss": "^0.5.14"
   },
   "module": "index.ts",
   "peerDependencies": {

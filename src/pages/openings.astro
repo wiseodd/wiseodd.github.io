@@ -3,11 +3,42 @@ export const prerender = true;
 
 import PageLayout from "../layouts/BaseLayout.astro";
 import ContentLayout from "@/layouts/ContentLayout.astro";
-import { Content } from "../content/openings.md";
+
+import { Content as HeaderContent } from "../content/openings/header.md";
+import { Content as FooterContent } from "../content/openings/footer.md";
+
+import { Content as PhDContent } from "../content/openings/phd.md";
+import { Content as MScContent } from "../content/openings/msc.md";
+import { Content as BScContent } from "../content/openings/bsc.md";
 ---
 
 <PageLayout meta={{ title: "Openings" }}>
   <ContentLayout>
-    <Content />
+    <HeaderContent />
+
+    <div class='tabs tabs-border tabs-xl'>
+      <input
+        type='radio'
+        name='positions'
+        class='tab'
+        aria-label='PhD Positions'
+        checked='checked'
+      />
+      <div class='tab-content'>
+        <PhDContent />
+      </div>
+
+      <input type='radio' name='positions' class='tab' aria-label='MSc Thesis' />
+      <div class='tab-content'>
+        <MScContent />
+      </div>
+
+      <input type='radio' name='positions' class='tab' aria-label='Undergrad Thesis' />
+      <div class='tab-content'>
+        <BScContent />
+      </div>
+    </div>
+
+    <FooterContent />
   </ContentLayout>
 </PageLayout>

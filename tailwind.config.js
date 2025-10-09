@@ -17,6 +17,7 @@ const config = {
   plugins: [
     require("@tailwindcss/typography"),
     require("@tailwindcss/aspect-ratio"),
+    require("daisyui"),
     plugin(function ({ addVariant }) {
       addVariant(
         "prose-inline-code",
@@ -129,6 +130,10 @@ const config = {
 
             "li::marker": {
               color: theme("colors.neutral.950"),
+            },
+            ".tab:checked": {
+              fontWeight: 1000,
+              color: "hsl(var(--color-primary))",
             },
           },
         },
