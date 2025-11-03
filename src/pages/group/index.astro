@@ -1,18 +1,7 @@
 ---
 import PageLayout from "@/layouts/BaseLayout.astro";
-import PublicationList from "@/components/PublicationList.astro";
 import Section from "@/components/Section.astro";
 import Card from "@/components/Card.astro";
-
-import { sortPublicationFn } from "@/utils";
-
-import type { Publication } from "@/utils";
-
-import selectedPubs from "@/assets/publications.json";
-
-const sortedSelectedPubs = selectedPubs
-  .filter((pub: Publication) => pub.marked)
-  .sort(sortPublicationFn);
 ---
 
 <PageLayout meta={{ title: "Group Members" }}>

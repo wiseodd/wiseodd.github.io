@@ -142,8 +142,7 @@
   function handleScroll() {
     if (!isScrolling) {
       window.requestAnimationFrame(() => {
-        const currentScrollTop =
-          window.pageYOffset || document.documentElement.scrollTop;
+        const currentScrollTop = window.scrollY || document.documentElement.scrollTop;
 
         // Show header when at top of page
         if (currentScrollTop <= 0) {
