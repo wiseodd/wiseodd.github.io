@@ -1,0 +1,46 @@
+---
+import PageLayout from "@/layouts/BaseLayout.astro";
+import Section from "@/components/Section.astro";
+import Card from "@/components/Card.astro";
+---
+
+<PageLayout meta={{ title: "Teaching" }}>
+  <div class='w-full max-w-[50rem]'>
+    <h1 class='mb-6 mt-5 text-2xl font-bold'>Teaching</h1>
+
+    <br />
+    <br />
+
+    <Section title='Graduate'>
+      <Card
+        heading='CS 9840: Probablistic Generative AI'
+        subheading='Western Computer Science Grad Course'
+        date='Winter 2026'
+        imagePath='/src/assets/probai.png'
+        imageClass='rounded-full'
+        altText='CS 9840'
+        href='https://probgenai.kristia.de/'
+      >
+        From chatbots to image generators, Generative AI (GenAI) is reshaping the world.
+        What algorithms and probabilistic principles power this revolution? This course
+        introduces the theoretical and algorithmic foundations of GenAI, covering large
+        language models (LLMs) and diffusion models, among more mature methods. We will
+        also explore applications in AI for Science, such as drug discovery and weather
+        forecasting.
+      </Card>
+    </Section>
+
+    <!-- <Section title='Undergrad' class='pt-12'> -->
+    <!--   <Card -->
+    <!--     heading='TODO' -->
+    <!--     subheading='TODO' -->
+    <!--     date='TODO' -->
+    <!--     imagePath='' -->
+    <!--     imageClass='rounded-full' -->
+    <!--     altText='TODO' -->
+    <!--   > -->
+    <!--     TODO -->
+    <!--   </Card> -->
+    <!-- </Section> -->
+  </div>
+</PageLayout>
