@@ -3,8 +3,7 @@ import { fontFamily } from "tailwindcss/defaultTheme";
 /** @type {import('tailwindcss').Config} */
 const plugin = require("tailwindcss/plugin");
 
-/** @type {import('tailwindcss').Config} */
-const config = {
+/** @type {import('tailwindcss').Config} */ const config = {
   darkMode: ["class"],
 
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
@@ -39,9 +38,8 @@ const config = {
 
     extend: {
       fontFamily: {
-        sans: ["Arial", fontFamily.sans],
+        sans: ["Public Sans Variable", fontFamily.sans],
         serif: ["Times", fontFamily.serif],
-        mono: [fontFamily.mono],
       },
 
       fontSize: {
