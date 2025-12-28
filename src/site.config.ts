@@ -1,7 +1,5 @@
 import type { SiteConfig } from "@/types";
 import { type AstroExpressiveCodeOptions } from "astro-expressive-code";
-import "@fontsource-variable/jetbrains-mono";
-// Supports weights 100-900
 import "@fontsource-variable/public-sans";
 
 export const siteConfig: SiteConfig = {
