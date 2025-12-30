@@ -20,7 +20,7 @@
     "@fontsource-variable/public-sans": "^5.2.7",
     "@vercel/analytics": "^1.6.1",
     "ajv": "^8.17.1",
-    "astro": "5.0.5",
+    "astro": "5.0.8",
     "astro-expressive-code": "^0.33.5",
     "astro-icon": "^1.1.5",
     "clsx": "^2.1.1",
