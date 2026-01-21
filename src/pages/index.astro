@@ -3,6 +3,7 @@ import PageLayout from "../layouts/BaseLayout.astro";
 import Button from "../components/Button.astro";
 import Section from "../components/Section.astro";
 import Label from "../components/Label.astro";
+import Admonition from "../components/Admonition.astro";
 import News from "../components/News.astro";
 import news from "../assets/news.json";
 import type { NewsPost } from "@/utils";
@@ -247,25 +248,10 @@ const sortedNews = news
 
     <hr />
     <Section title='Openings'>
-      <div role='alert' class='alert alert-warning alert-soft !text-yellow-600'>
-        <svg
-          xmlns='http://www.w3.org/2000/svg'
-          class='h-6 w-6 shrink-0 stroke-current'
-          fill='none'
-          viewBox='0 0 24 24'
-        >
-          <path
-            stroke-linecap='round'
-            stroke-linejoin='round'
-            stroke-width='2'
-            d='M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z'
-          ></path>
-        </svg>
-        <span
-          >Unfortunately, it wouldn't be possible for me to reply to all applications.
-          Only shortlisted applicants will be contacted. I apologize in advance.</span
-        >
-      </div>
+      <Admonition type='warning'>
+        Unfortunately, it wouldn't be possible for me to reply to all applications. Only
+        shortlisted applicants will be contacted. I apologize in advance.
+      </Admonition>
 
       <ul class='flex flex-col gap-y-5 sm:gap-y-4'>
         <li>

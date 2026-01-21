@@ -433,7 +433,7 @@
       "Vincent Fortuin",
       "Agustinus Kristiadi"
     ],
-    "venue": "AI for Accelerated Materials Design–ICLR 2025",
+    "venue": "AI for Accelerated Materials Design–ICLR",
     "year": 2025,
     "paper": "https://openreview.net/forum?id=GbV2JjfnSY"
   },
@@ -505,5 +505,50 @@
     "venue": "ICML",
     "year": 2025,
     "paper": "https://arxiv.org/abs/2502.04517"
+  },
+
+  {
+    "type": "journal",
+    "title": "Generative AI for the Design of Molecules: Advances and Challenges",
+    "author": [
+      "Yan Sun",
+      "Lianghong Chen",
+      "Zihao Jing",
+      "Yan Yi Li",
+      "Dongkyu Kim",
+      "Jing-Yan Gao",
+      "Reza Noroozi",
+      "Grace Yi",
+      "Conrard Tetsassi Feugmo",
+      "Anna Klinkova",
+      "Kyla Sask",
+      "Agustinus Kristiadi",
+      "Boyu Wang",
+      "Elizabeth Gillies",
+      "Kun Ping Lu",
+      "HaoTian Harvey Shi",
+      "Pingzhao Hu"
+    ],
+    "venue": "Journal of Chemical Information and Modeling",
+    "year": 2025,
+    "paper": "https://pubs.acs.org/doi/abs/10.1021/acs.jcim.5c02234"
+  },
+
+  {
+    "type": "workshop",
+    "title": "Limits of PRM-Guided Tree Search for Mathematical Reasoning with LLMs",
+    "author": ["Tristan Cinquin", "Geoff Pleiss", "Agustinus Kristiadi"],
+    "venue": "MATH-AI-NeurIPS",
+    "year": 2025,
+    "paper": "https://arxiv.org/abs/2510.20272"
+  },
+
+  {
+    "type": "preprint",
+    "title": "Introduction to the Analysis of Probabilistic Decision-Making Algorithms",
+    "author": ["Agustinus Kristiadi"],
+    "venue": "ArXiv",
+    "year": 2025,
+    "paper": "https://arxiv.org/abs/2508.21620"
   }
 ]
