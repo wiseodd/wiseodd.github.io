@@ -1,6 +1,9 @@
 ---
-import { cn } from "@/utils";
-const { type } = Astro.props;
+interface Props {
+  kind: "warning" | "info" | "error" | "success";
+}
+
+const { kind = "info" } = Astro.props;
 
 const iconPaths = {
   warning:
@@ -17,11 +20,11 @@ const borders = {
   success: "border-green-100 dark:border-green-950",
 };
 
-const icon = iconPaths[type] || iconPaths.info;
-const border = borders[type] || borders.info;
+const icon = iconPaths[kind] || iconPaths.info;
+const border = borders[kind] || borders.info;
 ---
 
-<div class={`alert alert-soft alert-${type} ${border}`}>
+<div class={`alert alert-soft alert-${kind} ${border}`}>
   <svg
     xmlns='http://www.w3.org/2000/svg'
     class='h-6 w-6 shrink-0 stroke-current brightness-75'
