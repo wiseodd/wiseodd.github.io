@@ -13,18 +13,15 @@ const icons = {
   success: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z",
 };
 
-const borders = {
-  warning: "border-orange-100 dark:border-orange-950",
-  error: "border-red-100 dark:border-red-950",
-  info: "border-blue-100 dark:border-blue-950",
-  success: "border-green-100 dark:border-green-950",
+const classes = {
+  warning: "alert alert-soft alert-warning border-orange-100 dark:border-orange-950",
+  error: "alert alert-soft alert-error border-red-100 dark:border-red-950",
+  info: "alert alert-soft alert-info border-blue-100 dark:border-blue-950",
+  success: "alert alert-soft alert-success border-green-100 dark:border-green-950",
 };
-
-const border = borders[kind] || borders.info;
-const cls = `alert alert-soft alert-${kind} ${border}`;
 ---
 
-<div role='alert' class={cls}>
+<div role='alert' class={classes[kind] || classes.info}>
   <svg
     xmlns='http://www.w3.org/2000/svg'
     class='h-6 w-6 shrink-0 stroke-current brightness-75'
