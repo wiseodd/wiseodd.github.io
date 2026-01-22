@@ -19,23 +19,34 @@ const classes = {
   info: "alert alert-soft alert-info border-blue-100 dark:border-blue-950",
   success: "alert alert-soft alert-success border-green-100 dark:border-green-950",
 };
+
+const labels = {
+  warning: "Warning",
+  error: "Danger",
+  info: "Info",
+  success: "Tip",
+};
 ---
 
-<div role='alert' class={classes[kind] || classes.info}>
-  <svg
-    xmlns='http://www.w3.org/2000/svg'
-    class='h-6 w-6 shrink-0 stroke-current brightness-75'
-    fill='none'
-    viewBox='0 0 24 24'
-  >
-    <path
-      stroke-linecap='round'
-      stroke-linejoin='round'
-      stroke-width='2'
-      d={icons[kind]}></path>
-  </svg>
+<div role='alert' class:list={[classes[kind] || classes.info, "!flex !flex-col !p-4"]}>
+  <div class='flex flex-row self-start items-center gap-2 brightness-75'>
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      class='h-6 w-6 shrink-0 stroke-current'
+      fill='none'
+      viewBox='0 0 24 24'
+    >
+      <path
+        stroke-linecap='round'
+        stroke-linejoin='round'
+        stroke-width='2'
+        d={icons[kind]}></path>
+    </svg>
 
-  <div class='brightness-75'>
+    <div class='font-bold uppercase'>{labels[kind]}</div>
+  </div>
+
+  <div class='text-left brightness-75 [&>p]:m-0'>
     <slot />
   </div>
 </div>
