@@ -28,7 +28,10 @@ const labels = {
 };
 ---
 
-<div role='alert' class:list={[classes[kind] || classes.info, "!flex !flex-col !p-4"]}>
+<div
+  role='alert'
+  class:list={[classes[kind] || classes.info, "!flex !flex-col !p-4 gap-1.5"]}
+>
   <div class='flex flex-row self-start items-center gap-2 brightness-75'>
     <svg
       xmlns='http://www.w3.org/2000/svg'
