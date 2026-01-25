@@ -203,3 +203,18 @@
     document.dispatchEvent(toggleDarkModeEvent);
   });
 </script>
+
+<script>
+  // Listen for system theme changes
+  const darkModeQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+  darkModeQuery.addEventListener("change", (e) => {
+    // Only auto-switch if user hasn't set a manual preference
+    const newTheme = e.matches ? "dark" : "light";
+    document.dispatchEvent(
+      new CustomEvent("theme-change", {
+        detail: { theme: newTheme },
+      }),
+    );
+  });
+</script>
