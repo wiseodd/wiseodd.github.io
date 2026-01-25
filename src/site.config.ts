@@ -46,7 +46,7 @@ export const menuLinks: Array<{ title: string; path: string }> = [
 // https://expressive-code.com/reference/configuration/
 export const expressiveCodeOptions: AstroExpressiveCodeOptions = {
   // One dark, one light theme => https://expressive-code.com/guides/themes/#available-themes
-  themes: ["light-plus", "dark-plus"],
+  themes: ["one-light", "dark-plus"],
 
   themeCssSelector(theme, { styleVariants }) {
     if (styleVariants.length >= 2) {
@@ -72,7 +72,6 @@ export const expressiveCodeOptions: AstroExpressiveCodeOptions = {
     uiFontWeight: "500",
     codeFontSize: "0.825rem",
     codeLineHeight: "1.1rem",
-    borderRadius: "0px",
     codePaddingInline: "1rem",
 
     frames: {

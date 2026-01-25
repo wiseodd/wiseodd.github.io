@@ -21,7 +21,7 @@
     "@vercel/analytics": "^1.6.1",
     "ajv": "^8.17.1",
     "astro": "5.16.8",
-    "astro-expressive-code": "^0.33.5",
+    "astro-expressive-code": "0.41.6",
     "astro-icon": "^1.1.5",
     "clsx": "^2.1.1",
     "jquery": "^3.7.1",
@@ -47,7 +47,7 @@
     "eslint": "^8.57.1",
     "eslint-plugin-astro": "^0.31.4",
     "eslint-plugin-jsx-a11y": "^6.10.2",
-    "prettier": "^3.7.4",
+    "prettier": "^3.8.1",
     "prettier-config-standard": "^7.0.0",
     "prettier-plugin-astro": "^0.13.0",
     "prettier-plugin-tailwindcss": "^0.5.14"
