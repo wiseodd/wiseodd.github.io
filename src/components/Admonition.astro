@@ -1,9 +1,10 @@
 ---
 interface Props {
   kind: "warning" | "info" | "error" | "success";
+  title?;
 }
 
-const { kind } = Astro.props as Props;
+const { kind, title } = Astro.props as Props;
 
 const icons = {
   warning:
@@ -14,10 +15,12 @@ const icons = {
 };
 
 const classes = {
-  warning: "alert alert-soft alert-warning border-orange-100 dark:border-orange-950",
+  warning:
+    "alert alert-soft alert-warning border-orange-100 dark:border-orange-950",
   error: "alert alert-soft alert-error border-red-100 dark:border-red-950",
   info: "alert alert-soft alert-info border-blue-100 dark:border-blue-950",
-  success: "alert alert-soft alert-success border-green-100 dark:border-green-950",
+  success:
+    "alert alert-soft alert-success border-green-100 dark:border-green-950",
 };
 
 const labels = {
@@ -29,27 +32,29 @@ const labels = {
 ---
 
 <div
-  role='alert'
+  role="alert"
   class:list={[classes[kind] || classes.info, "!flex !flex-col !p-4 gap-1.5"]}
 >
-  <div class='flex flex-row self-start items-center gap-2 brightness-75'>
+  <div class="flex flex-row self-start items-center gap-2 brightness-75">
     <svg
-      xmlns='http://www.w3.org/2000/svg'
-      class='h-6 w-6 shrink-0 stroke-current'
-      fill='none'
-      viewBox='0 0 24 24'
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-6 w-6 shrink-0 stroke-current"
+      fill="none"
+      viewBox="0 0 24 24"
     >
       <path
-        stroke-linecap='round'
-        stroke-linejoin='round'
-        stroke-width='2'
-        d={icons[kind]}></path>
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d={icons[kind]}
+      >
+      </path>
     </svg>
 
-    <div class='font-bold uppercase'>{labels[kind]}</div>
+    <div class="font-bold uppercase">{title ? title : labels[kind]}</div>
   </div>
 
-  <div class='text-left brightness-75 [&>p]:m-0'>
+  <div class="text-left brightness-75 [&>p]:m-0">
     <slot />
   </div>
 </div>

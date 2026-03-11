@@ -17,10 +17,10 @@ const plugin = require("tailwindcss/plugin");
     require("@tailwindcss/typography"),
     require("@tailwindcss/aspect-ratio"),
     require("daisyui"),
-    plugin(function ({ addVariant }) {
+    plugin(function({ addVariant }) {
       addVariant(
         "prose-inline-code",
-        '&.prose :where(:not(pre)>code):not(:where([class~="not-prose"] *))',
+        "&.prose :where(:not(pre)>code):not(:where([class~=\"not-prose\"] *))",
       );
     }),
   ],
@@ -100,11 +100,11 @@ const plugin = require("tailwindcss/plugin");
           css: {
             // Remove backticks from inline code
             "code::before": {
-              content: '""',
+              content: "\"\"",
             },
 
             "code::after": {
-              content: '""',
+              content: "\"\"",
             },
 
             code: {
@@ -123,6 +123,13 @@ const plugin = require("tailwindcss/plugin");
               textDecoration: "none",
               "&:hover": {
                 textDecoration: "underline",
+              },
+              "&[role='tab']": {
+                color: "inherit",
+
+                "&:hover": {
+                  textDecoration: "none",
+                },
               },
             },
 
@@ -149,6 +156,13 @@ const plugin = require("tailwindcss/plugin");
               textDecoration: "none",
               "&:hover": {
                 textDecoration: "underline",
+              },
+              "&[role='tab']": {
+                color: "inherit",
+
+                "&:hover": {
+                  textDecoration: "none",
+                },
               },
             },
 

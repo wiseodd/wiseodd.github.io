@@ -1,1 +1,11 @@
-TBA
+## PhD
+
+I highly suggest looking into the Direct-Entry PhD route below.
+
+### Requirements
+
+1. See **Direct-Entry PhD** requirements below. Additional requirements below.
+2. You have at least a first-author submission in ML venues like AISTATS, UAI, NeurIPS, ICML, and ICLR.
+3. You have at least one reference letter from a researcher/prof in ML who publishes regularly in the above venues.
+4. You have a very clear, vivid motivation why you want to obtain a PhD.
+5. You are highly-disciplined and reliable.

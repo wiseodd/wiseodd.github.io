@@ -9,7 +9,7 @@ import { Content as HeaderContent } from "../content/openings/header.mdx";
 
 import { Content as BScContent } from "../content/openings/bsc.md";
 import { Content as DSContent } from "../content/openings/ds.md";
-import { Content as MScContent } from "../content/openings/msc.md";
+import { Content as MScContent } from "../content/openings/msc.mdx";
 import { Content as PhDContent } from "../content/openings/phd.md";
 ---
 
@@ -17,48 +17,28 @@ import { Content as PhDContent } from "../content/openings/phd.md";
   <ContentLayout>
     <HeaderContent />
 
-    <div class="tabs tabs-border tabs-xl">
-      <input
-        type="radio"
-        name="positions"
-        class="tab"
-        aria-label="PhD Positions"
-        checked="checked"
-      />
-      <div class="tab-content">
-        <PhDContent />
-      </div>
+    <PhDContent />
 
-      <input
-        type="radio"
-        name="positions"
-        class="tab"
-        aria-label="MSc Thesis"
-      />
-      <div class="tab-content">
-        <MScContent />
-      </div>
+    <MScContent />
 
-      <input
-        type="radio"
-        name="positions"
-        class="tab"
-        aria-label="MSc Course-Based Directed Study"
-      />
-      <div class="tab-content">
-        <DSContent />
-      </div>
+    <DSContent />
 
-      <input
-        type="radio"
-        name="positions"
-        class="tab"
-        aria-label="Undergrad Thesis"
-      />
-      <div class="tab-content">
-        <BScContent />
-      </div>
-    </div>
+    <BScContent />
+
+    <script>
+    const tabs = document.querySelectorAll("[role=\"tab\"]");
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        tabs.forEach(t => t.classList.remove("tab-active"));
+        document.querySelectorAll("[id^=\"panel-\"]").forEach(p =>
+          p.classList.add("hidden")
+        );
+        tab.classList.add("tab-active");
+        document.getElementById(tab.id.replace("tab-", "panel-")).classList
+          .remove("hidden");
+      });
+    });
+    </script>
 
     <FooterContent />
   </ContentLayout>
