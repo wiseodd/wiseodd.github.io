@@ -1,17 +1,17 @@
-import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
-import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
-import { remarkReadingTime } from "./src/utils/remarkReadingTime.ts";
-import remarkUnwrapImages from "remark-unwrap-images";
-import rehypeExternalLinks from "rehype-external-links";
-import remarkSmartypants from "remark-smartypants";
-import remarkMath from "remark-math";
-import rehypeMathjax from "rehype-mathjax/chtml";
+import tailwind from "@astrojs/tailwind";
 import expressiveCode from "astro-expressive-code";
-import { expressiveCodeOptions } from "./src/site.config";
-import { mathJaxMacros } from "./src/mathjax.macros";
 import icon from "astro-icon";
+import { defineConfig } from "astro/config";
+import rehypeExternalLinks from "rehype-external-links";
+import rehypeMathjax from "rehype-mathjax/chtml";
+import remarkMath from "remark-math";
+import remarkSmartypants from "remark-smartypants";
+import remarkUnwrapImages from "remark-unwrap-images";
+import { mathJaxMacros } from "./src/mathjax.macros";
+import { expressiveCodeOptions } from "./src/site.config";
+import { remarkReadingTime } from "./src/utils/remarkReadingTime.ts";
 
 // https://astro.build/config
 export default defineConfig({
@@ -53,8 +53,7 @@ export default defineConfig({
         rehypeMathjax,
         {
           chtml: {
-            fontURL:
-              "https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2",
+            fontURL: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2",
             scale: 1.1,
           },
 
