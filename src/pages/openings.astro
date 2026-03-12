@@ -36,56 +36,56 @@ import { Content as PhDContent } from "../content/openings/phd.mdx";
               and later be converted seamlessly into PhD if successful after one
               year.
             </Admonition>
-          </div>
 
-          <div class="collapse collapse-arrow bg-base-100 border-base-300 border mt-8">
-            <input type="checkbox" />
-            <div class="collapse-title text-lg font-bold">
-              PhD (for candidates with thesis-based MSc)
+            <div class="collapse collapse-arrow bg-base-100 border-base-300 border [&>input[type='checkbox']]:h-full">
+              <input type="checkbox" />
+              <div class="collapse-title text-lg font-bold">
+                PhD (for candidates with thesis-based MSc)
+              </div>
+              <div class="collapse-content text-sm">
+                <PhDContent />
+              </div>
             </div>
-            <div class="collapse-content text-sm">
-              <PhDContent />
-            </div>
-          </div>
 
-          <div class="collapse collapse-arrow bg-base-100 border-base-300 border">
-            <input type="checkbox" />
-            <div class="collapse-title text-lg font-bold">
-              Direct-Entry PhD (for candidates with BSc)
-            </div>
-            <div class="collapse-content text-sm">
-              <MScContent />
+            <div class="collapse collapse-arrow bg-base-100 border-base-300 border [&>input[type='checkbox']]:h-full">
+              <input type="checkbox" />
+              <div class="collapse-title text-lg font-bold">
+                Direct-Entry PhD (for candidates with BSc)
+              </div>
+              <div class="collapse-content text-sm">
+                <MScContent />
+              </div>
             </div>
           </div>
 
           <h2>Internal Applicants</h2>
 
-          <div class="pb-4">
+          <div class="flex flex-col gap-4">
             <Admonition kind="tip">
               I have a few openings for <strong>next year (2027)</strong>.
               Applications for DS will open near the end of 2026. Please check
               back in November of December. Applications for Honours Thesis will
               open in Summer 2027.
             </Admonition>
-          </div>
 
-          <div class="collapse collapse-arrow bg-base-100 border-base-300 border">
-            <input type="checkbox" />
-            <div class="collapse-title text-lg font-bold">
-              MSc Course-Based Directed Study
+            <div class="collapse collapse-arrow bg-base-100 border-base-300 border [&>input[type='checkbox']]:h-full">
+              <input type="checkbox" />
+              <div class="collapse-title text-lg font-bold">
+                MSc Course-Based Directed Study
+              </div>
+              <div class="collapse-content text-sm">
+                <DSContent />
+              </div>
             </div>
-            <div class="collapse-content text-sm">
-              <DSContent />
-            </div>
-          </div>
 
-          <div class="collapse collapse-arrow bg-base-100 border-base-300 border">
-            <input type="checkbox" />
-            <div class="collapse-title text-lg font-bold">
-              CS/DS BSc Honours Thesis
-            </div>
-            <div class="collapse-content text-sm">
-              <BScContent />
+            <div class="collapse collapse-arrow bg-base-100 border-base-300 border [&>input[type='checkbox']]:h-full">
+              <input type="checkbox" />
+              <div class="collapse-title text-lg font-bold">
+                CS/DS BSc Honours Thesis
+              </div>
+              <div class="collapse-content text-sm">
+                <BScContent />
+              </div>
             </div>
           </div>
 
