@@ -1,96 +1,29 @@
 ---
 export const prerender = true;
 
-import PageLayout from "../layouts/BaseLayout.astro";
-import ContentLayout from "../layouts/ContentLayout.astro";
-
 import Admonition from "@/components/Admonition.astro";
+import PageLayout from "../layouts/BaseLayout.astro";
 
 import { Content as FooterContent } from "../content/openings/footer.md";
 import { Content as HeaderContent } from "../content/openings/header.mdx";
 
-import { Content as BScContent } from "../content/openings/bsc.mdx";
-import { Content as DSContent } from "../content/openings/ds.mdx";
-import { Content as MScContent } from "../content/openings/msc.mdx";
-import { Content as PhDContent } from "../content/openings/phd.mdx";
+import { Content as FundedContent } from "../content/openings/funded.mdx";
+import { Content as WesternContent } from "../content/openings/western.mdx";
 ---
 
 <PageLayout meta={{ title: "Openings" }}>
   <div class="w-full">
     <div class="m-auto mt-8 max-w-[55rem] lg:flex lg:items-start lg:gap-x-16 xl:max-w-[55rem]">
       <article class="m-auto max-w-[40rem] flex-grow break-words">
-        <ContentLayout>
+        <div class="prose prose-base prose-neutral mt-12 max-w-[40rem] text-pretty font-sans text-base leading-6 dark:prose-invert dark:prose-dark prose-headings:font-bold prose-headings:text-foreground prose-headings:before:absolute prose-headings:before:-ms-4 prose-th:before:content-none prose-inline-code:font-mono prose-inline-code:font-normal">
           <HeaderContent />
 
-          <h2>Funded Positions</h2>
+          <FundedContent />
 
-          <div class="flex flex-col gap-4">
-            <Admonition kind="warning">
-              Currently, I do <strong>not</strong> have any opening for external
-              applicants. Application emails will be ignored.
-            </Admonition>
-
-            <Admonition kind="important">
-              Direct-entry is the <strong>preferred</strong> stream for doing
-              PhD with me. "Direct-entry" means that you apply for MSc Thesis
-              and later be converted seamlessly into PhD if successful after one
-              year.
-            </Admonition>
-
-            <div class="collapse collapse-arrow bg-base-100 border-base-300 border [&>input[type='checkbox']]:h-full">
-              <input type="checkbox" />
-              <div class="collapse-title text-lg font-bold">
-                PhD (for candidates with thesis-based MSc)
-              </div>
-              <div class="collapse-content text-sm">
-                <PhDContent />
-              </div>
-            </div>
-
-            <div class="collapse collapse-arrow bg-base-100 border-base-300 border [&>input[type='checkbox']]:h-full">
-              <input type="checkbox" />
-              <div class="collapse-title text-lg font-bold">
-                Direct-Entry PhD (for candidates with BSc)
-              </div>
-              <div class="collapse-content text-sm">
-                <MScContent />
-              </div>
-            </div>
-          </div>
-
-          <h2>For Current Western Students</h2>
-
-          <div class="flex flex-col gap-4">
-            <Admonition kind="tip">
-              I have a few openings for <strong>next year (2027)</strong>.
-              Applications for DS will open near the end of 2026. Please check
-              back in November of December. Applications for Honours Thesis will
-              open in Summer 2027.
-            </Admonition>
-
-            <div class="collapse collapse-arrow bg-base-100 border-base-300 border [&>input[type='checkbox']]:h-full">
-              <input type="checkbox" />
-              <div class="collapse-title text-lg font-bold">
-                MSc Course-Based Directed Study
-              </div>
-              <div class="collapse-content text-sm">
-                <DSContent />
-              </div>
-            </div>
-
-            <div class="collapse collapse-arrow bg-base-100 border-base-300 border [&>input[type='checkbox']]:h-full">
-              <input type="checkbox" />
-              <div class="collapse-title text-lg font-bold">
-                CS/DS BSc Honours Thesis
-              </div>
-              <div class="collapse-content text-sm">
-                <BScContent />
-              </div>
-            </div>
-          </div>
+          <WesternContent />
 
           <FooterContent />
-        </ContentLayout>
+        </div>
       </article>
     </div>
   </div>

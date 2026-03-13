@@ -1,0 +1,16 @@
+---
+const {
+  class: className,
+  heading,
+} = Astro.props;
+---
+
+<div class="collapse collapse-arrow bg-base-100 border border-border px-4 transition-all hover:border-blue-400/100 cursor-pointer has-[:checked]:border-blue-400/100 [&>input[type='checkbox']]:h-full">
+  <input type="checkbox" />
+  <div class="collapse-title text-lg font-bold">
+    {heading}
+  </div>
+  <div class="collapse-content text-sm">
+    <slot />
+  </div>
+</div>

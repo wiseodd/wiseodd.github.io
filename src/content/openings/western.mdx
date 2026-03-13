@@ -1,0 +1,23 @@
+import Admonition from "@/components/Admonition.astro";
+import Collapse from "@/components/Collapse.astro";
+import { Content as DSContent } from "./specifics/ds.mdx";
+import { Content as BScContent } from "./specifics/bsc.mdx";
+
+## For Current Western Students
+
+<div class="flex flex-col gap-4">
+  <Admonition kind="tip">
+    I have a few openings for **next year (2027)**.
+    Applications for DS will open near the end of 2026. Please check
+    back in November of December. Applications for Honours Thesis will
+    open in Summer 2027.
+  </Admonition>
+
+<Collapse heading="MSc Course-Based Directed Study">
+  <DSContent />
+</Collapse>
+
+<Collapse heading="CS/DS BSc Honours Thesis">
+  <BScContent />
+</Collapse>
+</div>
